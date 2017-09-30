@@ -1,0 +1,102 @@
+@import './base.less';
+
+@fieldWidth: 6.25%;
+
+.vui.form {
+  padding: @padding-horizontal;
+  //margin: 0em -1px;
+  width: 100%;
+
+  .inline {
+    .item {
+      display: inline-block;
+      margin-right: 1.2em;
+      margin-bottom: 0;
+    }
+  }
+
+  .fields {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    .flex-direction(row);
+    margin: 0 -.5em 1em;
+
+    > .field {
+      -webkit-box-flex: 0;
+      .flex(0 1 auto);
+      padding-left: .5em;
+      padding-right: .5em;
+      margin: 0;
+    }
+
+  }
+
+  .field {
+    display: block;
+    font-size: 1em;
+    margin: 0 0 1em;
+
+    &.inline {
+      //display: inline-block;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+      > label {
+        display: inline-block;
+        margin: 0 1em 0 0;
+      }
+    }
+
+    .vui.input, input {
+      width: 100%;
+    }
+
+    > label {
+      display: block;
+      margin: 0em 0em 0.3rem 0em;
+      font-weight: bold;
+      text-align: left;
+      vertical-align: middle;
+      text-transform: none;
+    }
+
+    &.one {
+      width: @fieldWidth!important;
+    }
+    &.two {
+      width: @fieldWidth * 2!important;
+    }
+    &.three {
+      width: @fieldWidth * 3!important;
+    }
+    &.four {
+      width: @fieldWidth * 4!important;
+    }
+    &.five {
+      width: @fieldWidth * 5!important;
+    }
+    &.six {
+      width: @fieldWidth * 6!important;
+    }
+    &.seven {
+      width: @fieldWidth * 7!important;
+    }
+    &.eight {
+      width: @fieldWidth * 8!important;
+    }
+    &.nine {
+      width: @fieldWidth * 9!important;
+    }
+    &.ten {
+      width: @fieldWidth * 10!important;
+    }
+
+  }
+}

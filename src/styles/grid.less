@@ -1,0 +1,58 @@
+ @import "./base.less";
+
+ @ColSpanWidth: 4.16666%;
+
+.vui.row {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  .flex-direction(row);
+
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  justify-content: inherit;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  width: 100% !important;
+  padding: 0;
+
+  .col {
+    position: relative;
+    //display: inline-block;
+    .flex(0 1 auto);
+    -webkit-box-flex: 0;
+    clear: both;
+  }
+
+  // align垂直对齐方式
+  &.top {
+    .align-items(flex-start);
+  }
+  &.middle {
+    .align-items(center)
+  }
+  &.bottom {
+    .align-items(flex-end)
+  }
+  // 水平排列方式
+  .start {
+    .justify-content(flex-start);
+  }
+  .end {
+    .justify-content(center);
+  }
+  .center {
+    .justify-content(flex-end);
+  }
+  .space-around {
+    .justify-content(space-around);
+  }
+  .space-between {
+    .justify-content(space-between);
+  }
+}

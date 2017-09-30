@@ -1,0 +1,86 @@
+@import './base.less';
+
+.vui {
+  &.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: @base-font-size;
+    background-color: #ffffff;
+    .user-select(none);
+
+    &.vertical {
+      max-height: 250px;
+      .box-shadow;
+      .border;
+
+      > .item {
+        border-top: 1px solid @menu-item-border-color;
+        min-width: @menu-min-width;
+
+        &:first-child {
+          border-top: none;
+        }
+      }
+    }
+
+    &.horizontal {
+      display: flex;
+      border-bottom: @border-style;
+
+      > .item {
+        position: relative;
+        float: left;
+        border: 0;
+        border-bottom: 3px solid transparent;
+
+        &:hover, &.active {
+          border-bottom: 3px solid @color-primary;
+        }
+      }
+    }
+
+    &.inline {
+      .item {
+        border-top: none;
+        border-right: 3px solid @border-color;
+
+        &.active {
+          border-right-color: @color-primary;
+        }
+      }
+
+    }
+
+    &.compact {
+      display: inline-flex;
+      vertical-align: middle;
+    }
+
+    // size
+    &.mini {
+      .size-mini;
+    }
+    &.tiny {
+      .size-tiny;
+    }
+    &.small {
+      .size-small;
+    }
+    &.medium {
+      .size-medium;
+    }
+    &.large {
+      .size-large;
+    }
+    &.big {
+      .size-large;
+    }
+    &.huge {
+      .size-huge;
+    }
+    &.massive {
+      .size-massive;
+    }
+  }
+}

@@ -1,0 +1,91 @@
+@import "./base.less";
+
+.notice() {
+  padding: @notice-padding;
+  margin-bottom: 1em;
+  background-color: #fff;
+  color: @base-font-color;
+  box-shadow: 0 1px 5px rgba(0,0,0,.2);
+
+  &.success {
+    border-top: 3px solid @success-color;
+  }
+  &.warning {
+    border-top: 3px solid @warning-color;
+  }
+  &.error {
+    border-top: 3px solid @error-color;
+  }
+}
+
+.vui.notices {
+  position: fixed;
+  z-index: 1010;
+  font-size: @base-font-size;
+  width: 345px;
+
+  &.top.center {
+    text-align: center;
+    left: 0;
+    top: 1em;
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    .notice {
+      text-align: center;
+      display: inline-block;
+      .notice;
+    }
+
+  }
+
+  &.top.right {
+    top: 1rem;
+    right: 1rem;
+  }
+  &.top.left {
+    top: 1rem;
+    left: 1rem;
+  }
+  &.bottom.right {
+    bottom: 1rem;
+    right: 1rem;
+
+  }
+  &.bottom.left {
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+}
+
+.vui.top.right.notices .notice, .vui.top.left.notices .notice , .vui.bottom.right.notices .notice , .vui.bottom.right.notices .notice  {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1011;
+  width: 100%;
+  text-align: left;
+
+  .notice;
+
+  .header {
+    font-size: 1.1em;
+    margin-right: 1.2em;
+  }
+
+  .content {
+    margin-top: @padding-vertical;
+  }
+
+  .close {
+    cursor: pointer;
+    position: absolute;
+    right: @padding-horizontal;
+    top: @padding-vertical;
+    opacity: .6;
+  }
+
+
+}

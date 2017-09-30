@@ -1,0 +1,110 @@
+@import './base.less';
+
+.vui.radio, .vui.checkbox {
+  position: relative;
+  display: inline-block;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  outline: 0;
+  vertical-align: baseline;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1em;
+  //margin-right: .5em;
+
+  span {
+    padding: 0 8px;
+  }
+
+  &.active {
+    > label:before {
+      border-color: @color-primary;
+    }
+    > label:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 1em;
+      content: ''!important;
+      text-align: center;
+      width: 1em;
+      height: 1em;
+      opacity: 1;
+      transform: scale(.4555555);
+      background: @color-primary;
+    }
+  }
+
+  &.disabled {
+    .disabled;
+    > label:before {
+      background: @border-color + 20;
+    }
+  }
+
+  > input {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0!important;
+    outline: 0;
+    z-index: -1;
+  }
+
+  > label {
+    padding-left: 1em;
+
+    &:hover {
+      &:before {
+        border-color: @color-primary;
+      }
+    }
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: ''!important;
+      background: #FFF;
+      border-radius: 1em;
+      transform: none;
+      width: 1em;
+      height: 1em;
+      border: 1px solid #d9d9d9;
+    }
+
+  }
+
+}
+
+.vui.checkbox {
+  &.active {
+    > label:after {
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      content: '\f00c'!important;
+      transform: scale(.8222);
+      color: #fff;
+      border-radius: @border-radius;
+    }
+    > label:before {
+      background: @color-primary;
+    }
+  }
+
+  > label {
+    &:before {
+      border-radius: @border-radius;
+    }
+  }
+}
+
+.vui.checkboxes {
+  &.vertical {
+    .checkbox {
+      display: block;
+      margin-bottom: .6em;
+    }
+  }
+}

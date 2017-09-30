@@ -1,0 +1,234 @@
+@import './base.less';
+
+.vui {
+  &.button {
+    display: inline-block;
+    border-radius: @border-radius;
+    line-height: 1em;
+    min-height: 1em;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    font-size: @base-font-size;
+    font-weight: 700;
+    .padding;
+    color: rgba(0,0,0,.6);
+    background: #E0E1E2;
+    text-decoration: none;
+    font-family: "Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
+    //box-shadow: 0px 1px 2px -1px rgba(255,255,255,0.5) inset, 0px -2px 0px 0px rgba(0,0,0,0.1) inset;
+    //box-shadow: 0 0 0 0 rgba(0,0,0,.5) inset;
+    outline: none;
+    vertical-align: baseline;
+    zoom: 1;
+    .user-select(none);
+    .transition(all 0.1s linear);
+
+    &.active, &:hover {
+      background-color: #C0C1C2;
+      color: rgba(0,0,0,.8);
+    }
+
+    // type
+    &.basic {
+      .type-basic;
+    }
+
+    &.positive {
+      .type-positive;
+    }
+
+    &.negative {
+      .type-negative;
+    }
+
+    &.primary {
+      .type-primary;
+    }
+
+    // size
+    &.mini {
+      .size-mini;
+    }
+    &.tiny {
+      .size-tiny;
+    }
+    &.small {
+      .size-small;
+    }
+    &.medium {
+      .size-medium;
+    }
+    &.large {
+      .size-large;
+    }
+    &.big {
+      .size-large;
+    }
+    &.huge {
+      .size-huge;
+    }
+    &.massive {
+      .size-massive;
+    }
+
+    // shape
+    &.circle {
+      border-radius: 10em;
+      padding-left: @padding-vertical;
+      padding-right: @padding-vertical;
+    }
+
+    &.disabled {
+      .disabled;
+    }
+
+    &.loading {
+      position: relative;
+      cursor: default;
+      text-shadow: none!important;
+      color: transparent!important;
+      opacity: 1;
+      pointer-events: auto;
+      -webkit-transition: all 0s linear,opacity .1s ease;
+      transition: all 0s linear,opacity .1s ease;
+
+      &:before, &:after {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 50%;
+        margin: -0.6em 0 0 -0.6em;
+        width: 1.2em;
+        height: 1.2em;
+        border-radius: 500rem;
+        border: 0.2em solid rgba(0, 0, 0, 0.15);
+      }
+      &:after {
+        -webkit-animation: button-spin .8s linear;
+        animation: button-spin .8s linear;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        border-color: #FFFFFF transparent transparent;
+        box-shadow: 0 0 0 1px transparent;
+      }
+    }
+
+  }
+
+  &.buttons {
+    display: inline-flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    vertical-align: baseline;
+    //margin: 0 .25em 0 0;
+    margin: 0;
+
+    .button {
+      border-radius: 0;
+    }
+    .button:first-child {
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+    .button:last-child {
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+
+    // type
+    &.basic {
+      .button {
+        .type-basic;
+      }
+    }
+
+    &.positive {
+      .button {
+        .type-positive;
+      }
+    }
+
+    &.negative {
+      .button {
+        .type-negative;
+      }
+    }
+
+    &.primary {
+      .button {
+        .type-primary;
+      }
+    }
+
+    // size
+    &.mini {
+      .button {
+        .size-mini;
+      }
+    }
+    &.tiny {
+      .button {
+        .size-tiny;
+      }
+    }
+    &.small {
+      .button {
+        .size-small;
+      }
+    }
+    &.medium {
+      .button {
+        .size-medium;
+      }
+    }
+    &.large {
+      .button {
+        .size-large;
+      }
+    }
+    &.big {
+      .button {
+        .size-large;
+      }
+    }
+    &.huge {
+      .button {
+        .size-huge;
+      }
+    }
+    &.massive {
+      .button {
+        .size-massive;
+      }
+    }
+
+  }
+}
+
+@-webkit-keyframes button-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes button-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+

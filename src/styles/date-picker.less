@@ -1,0 +1,64 @@
+@import "./base.less";
+
+@td-min-width: 2.8em;
+@padding: .8em 0;
+
+.vui.date-picker {
+
+  .content {
+    box-shadow: 0 1px 5px rgba(0,0,0,.2);
+    min-width: @td-min-width * 7;
+    position: absolute;
+    left: 0;
+    top: calc(~"100% + 5px");
+    z-index: 10;
+
+    .calendar {
+
+      > .header {
+        position: relative;
+        text-align: center;
+        background: #F9FAFB;
+
+        > a:not(.prev):not(.next) {
+          padding-left: .5em;
+          padding-right: .5em;
+        }
+
+        > .prev {
+          position: absolute;
+          left: 0;
+        }
+        > .next {
+          position: absolute;
+          right: 0;
+        }
+      }
+
+      > table.body {
+
+        th {
+          padding: @padding;
+          text-align: center;
+        }
+
+        td {
+          //border: 1px solid #ccc;
+
+          > .cell {
+            cursor: pointer;
+            margin: 0;
+            border: 0;
+            padding: @padding;
+            line-height: 1em;
+            font-weight: bold;
+
+          }
+        }
+      }
+    }
+
+  }
+
+
+}

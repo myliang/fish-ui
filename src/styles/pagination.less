@@ -1,0 +1,47 @@
+@import './base.less';
+
+.vui.pagination {
+  list-style: none;
+  font-size: @base-font-size;
+  margin: 0;
+  padding: 2px;
+  .user-select(none);
+
+  .item {
+    display: inline-block;
+    border-radius: @border-radius;
+    cursor: pointer;
+    .user-select(none);
+    text-align: center;
+    vertical-align: middle;
+    //border: 1px solid transparent;
+    outline: 0;
+    margin-right: .55em;
+    line-height: 1.4em;
+    padding: 6px 10px;
+    font-weight: bold;
+    box-shadow: 0px 0px 1px 1px @border-color;
+
+    &.total {
+      border-color: transparent;
+      background: @warning-background-color;
+    }
+
+    &:not(.total):hover {
+      //border-color: @color-primary;
+      color: @color-primary;
+    }
+    &.active, &.active:hover {
+      background-color: @color-primary;
+      //border-color: @color-primary;
+      color: #fff;
+    }
+    &.disabled {
+      .disabled;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

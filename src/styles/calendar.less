@@ -1,0 +1,83 @@
+@import "./base.less";
+
+.vui.calendar {
+  color: rgba(0,0,0,.7);
+  background: #ffffff;
+  .user-select(none);
+
+  > .header {
+    font-weight: 700;
+    color: inherit;
+    text-align: right;
+    line-height: @line-height;
+
+    > a {
+      padding: @padding-vertical;
+      display: inline-block;
+      color: inherit;
+
+      &:hover {
+        background-color: @hover-background-color;
+        color: @hover-color;
+      }
+
+      &.disabled {
+        .disabled;
+      }
+    }
+  }
+
+  > table.body {
+    width: 100%;
+
+    &.day {
+      th, td {
+        width: 100%/7;
+      }
+    }
+    &.month {
+      th, td {
+        width: 100%/3;
+      }
+    }
+    &.year {
+      th, td {
+        width: 100%/4;
+      }
+    }
+
+    th {
+      text-align: right;
+      .padding;
+    }
+
+    td > .cell {
+      border-top: 3px solid @border-color;
+      margin: 0 3px 1px 3px;
+      text-align: center;
+      .padding;
+
+      > .title {
+        text-align: right;
+        font-weight: 700;
+        //opacity: .85;
+      }
+
+      > .content {
+        min-height: 5em;
+      }
+
+      &:hover {
+        background: @active-background-color;
+      }
+      &.active, &.active:hover {
+        background: @active-background-color;
+        border-color: @active-border-color;
+        color: @active-color;
+      }
+      &.disabled {
+        .disabled;
+      }
+    }
+  }
+}

@@ -1,0 +1,136 @@
+@import './base.less';
+
+.vui.select {
+  display: inline-block;
+  background: #FFFFFF;
+  border: 1px solid @input-border-color;
+  line-height: 1em;
+  transition: box-shadow 0.1s ease, width 0.1s ease;
+  border-radius: @border-radius;
+  cursor: pointer;
+
+  padding: @select-padding;
+  padding-right: 2.6em;
+  position: relative;
+
+  text-align: left;
+  color: @base-font-color;
+  font-size: 1em;
+  min-width: @input-min-width;
+  vertical-align: baseline;
+  word-wrap: break-word;
+  white-space: normal;
+  outline: 0;
+  .user-select(none);
+  box-shadow: @input-box-shadow;
+
+  //z-index: 3;
+
+  &:hover {
+    border-color: #C0C1C2;
+  }
+  &.active {
+    border-color: @input-active-color;
+    //border-bottom-left-radius: 0;
+    //border-bottom-right-radius: 0;
+  }
+
+  &.multiple {
+    padding: @select-multiple-padding;
+
+    > .text {
+      margin: @select-multiple-child-margin;
+    }
+    > input {
+      margin: @select-multiple-child-margin;
+      width: 5em;
+    }
+  }
+
+  > .tag {
+    line-height: 1em;
+    text-transform: none;
+    background: #E8E8E8;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.35em 0.6em;
+    margin: 0.1rem 0.35rem 0.1rem 0em;
+    box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+    transition: background 0.1s ease;
+    border: 0 solid transparent;
+    border-radius: @border-radius;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+    font-size: 1em;
+
+    ~ input {
+      margin-left: 0;
+    }
+
+    > i {
+      opacity: .6;
+      margin-left: 0.35em;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      //vertical-align: baseline;
+      font-size: 0.9em;
+      margin-top: -0.05em;
+      //vertical-align: middle;
+    }
+  }
+
+  > .text {
+    //min-width: 150px;
+    cursor: text;
+    position: relative;
+    left: 0;
+    z-index: 2;
+    line-height: inherit;
+    display: inline-block;
+    //overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+
+    &.hint {
+      opacity: .6;
+    }
+  }
+
+  > input {
+    border: 0;
+    padding: 0;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    background: #fff;
+    font-size: inherit;
+    margin: 0;
+    line-height: @line-height;
+    height: @line-height;
+    vertical-align: baseline;
+    width: auto;
+    position: absolute;
+    z-index: 1;
+  }
+
+  > i {
+    .icon-right;
+  }
+
+  > .menu.vertical {
+    position: absolute;
+    top: calc(~"100% + 5px");
+    left: 0;
+    //border-color: @input-active-color;
+    //border-top-width: 0;
+    overflow: auto;
+    margin: 0px -1px;
+    min-width: calc(~"100% + 2px");
+    width: calc(~"100% +  2px");
+    z-index: 10;
+
+    > .item:first-child {
+      border-top: 1px solid @menu-item-border-color;
+    }
+  }
+}

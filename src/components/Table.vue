@@ -1,0 +1,224 @@
+<template>
+  <div>
+    <div :class="['vui table', {'border': border, 'stripe': stripe}]" ref="root">
+      <div :class="['vui dimmer', {'active': loading}]"></div>
+      <div class="header" ref="header">
+        <vui-table-head :columns="allLeafColumns" :rows="rows" :scrollY="scrollY"
+                        :expandedRowRender="fixedLeftColumns.length <= 0 && fixedRightColumns.length <= 0 && expandedRowRender || undefined"
+                        @select="headSelectHandler" @filter-change="filterChangeHandler" ref="vth"></vui-table-head>
+      </div>
+      <div class="body" ref="body">
+        <vui-table-body :columns="allLeafColumns" :rows="data" :scrollY="scrollY"
+                        :expandedRowRender="fixedLeftColumns.length <= 0 && fixedRightColumns.length <= 0 && expandedRowRender || undefined"
+                        @select="bodySelectHandler" ref="vtb"></vui-table-body>
+      </div>
+      <!-- fixed column -->
+      <div class="fixed left" v-if="fixedLeftColumns.length > 0 && maxRows <= 1">
+        <div class="header" ref="flHeader">
+          <vui-table-head :columns="fixedLeftColumns" :rows="[fixedLeftColumns]" @select="headSelectHandler" ref="lVth"></vui-table-head>
+        </div>
+        <div class="body" ref="flBody">
+          <vui-table-body :columns="fixedLeftColumns" :rows="data" @select="bodySelectHandler" ref="lVtb"></vui-table-body>
+        </div>
+      </div>
+      <div class="fixed right" v-if="fixedRightColumns.length > 0 && maxRows <= 1" ref="fixedRight">
+        <div class="header" ref="frHeader">
+          <vui-table-head :columns="fixedRightColumns" :rows="[fixedRightColumns]" @select="headSelectHandler" ref="rVth"></vui-table-head>
+        </div>
+        <div class="body" ref="frBody">
+          <vui-table-body :columns="fixedRightColumns" :rows="data" @select="bodySelectHandler" ref="rVtb"></vui-table-body>
+        </div>
+      </div>
+    </div>
+    <div style="margin: 10px 0; overflow: hidden" v-if="pagination">
+      <div style="float: right">
+        <vui-pagination :total="pagination.total" :current="pagination.current" @change="pageChangeHandler"></vui-pagination>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  import VuiTableHead from './TableHead.vue'
+  import VuiTableBody from './TableBody.vue'
+  import VuiPagination from './Pagination.vue'
+
+  const SCROLL_WIDTH = 15
+
+  export default {
+    components: {
+      VuiTableBody,
+      VuiTableHead,
+      VuiPagination
+    },
+    name: 'vui-table',
+    props: {
+      columns: { type: Array, required: true }, // [{title: '', key: '', width: 100, render: () => {}}]
+      data: { type: Array, required: true },
+      border: { type: Boolean, default: false },
+      stripe: { type: Boolean, default: false },
+      loading: { type: Boolean, default: false },
+      expandedRowRender: { type: Function, default: null }, // 没有fixed列，方可展开详情
+      height: [Number, String], // 指定高度，固定表头
+      pagination: { type: Object, default: undefined } // 关联pagination组件
+    },
+    data () {
+      return {
+        scrollY: false,
+        maxRows: getMaxDeepColumns(this.columns),
+        allColumns: getColumns(this.columns),
+        rows: [],
+        allLeafColumns: [],
+        fixedLeftColumns: [],
+        fixedRightColumns: [],
+        filters: {} // 表头的过滤返回值
+      }
+    },
+    mounted () {
+      this.rows = getRows(this.allColumns, this.maxRows)
+      this.allLeafColumns = this.allColumns.filter((c) => { return !c.children })
+
+      // fixed columns
+      this.columns.forEach((column) => {
+        if (column.fixed !== undefined) {
+          if (column.fixed === 'left') {
+            this.fixedLeftColumns.push(column)
+          } else if (column.fixed === 'right') {
+            this.fixedRightColumns.push(column)
+          }
+        }
+      })
+      this.calScroll()
+      window.addEventListener('resize', () => { this.calScroll() })
+    },
+    methods: {
+      pageChangeHandler (currentPage) {
+        this.pagination.current = currentPage
+        this.changeHandler()
+      },
+      filterChangeHandler (filters) {
+        this.filters = filters
+        this.changeHandler()
+      },
+      changeHandler () {
+        this.$emit('change', this.pagination, this.filters)
+      },
+      headSelectHandler ($vue) {
+        let checkbox = $vue.$refs.checkboxes[0]
+        const { vtb, lVtb, rVtb } = this.$refs
+        Array.of(vtb, lVtb, rVtb).forEach((tb) => {
+          if (tb) {
+            tb.$refs.checkboxes.forEach((cb) => { cb.active = checkbox.active })
+          }
+        })
+        this.$emit('select', vtb.$refs.checkboxes.map((cb) => { return cb.index }))
+      },
+      bodySelectHandler (event, $vue) {
+        let checkboxes = $vue.$refs.checkboxes
+        let activeCheckboxes = checkboxes.filter((cb) => { return cb.active })
+        let headActiveCheckbox = checkboxes.length === activeCheckboxes.length
+        const { vth, lVth, rVth, vtb } = this.$refs
+        Array.of(vth, lVth, rVth).forEach((th) => { if (th) th.$refs.checkboxes[0].active = headActiveCheckbox })
+
+        this.$emit('select', vtb.$refs.checkboxes.map((cb) => { return cb.index }))
+      },
+      calScroll () {
+        this.$nextTick(() => this.calScrollY())
+        this.calScrollX()
+      },
+      calScrollY () {
+        // 是否需要滚动条
+        const { height, data } = this
+        if (height === undefined) return
+        const rootHeight = this.$refs.root.offsetHeight
+        // console.log('rootHeight:', rootHeight)
+        if (height >= rootHeight) return
+        const { body, flBody, frBody, fixedRight } = this.$refs
+        const trLength = data.length + 1
+        const trHeight = height / trLength + 1 // 1 border width
+        body.style.height = `${height - trHeight}px`
+        body.style.overflowY = 'scroll'
+        Array.of(flBody, frBody).forEach((b) => {
+          if (b !== undefined) {
+            // 15 为滚动条的宽度
+            b.style.height = `${height - trHeight - SCROLL_WIDTH}px`
+          }
+        })
+        if (fixedRight) {
+          fixedRight.style.right = `${SCROLL_WIDTH}px`
+        }
+        const addScrollListener = (src, dests) => {
+          if (src === undefined) return
+          src.addEventListener('scroll', (event) => {
+            dests.forEach((b) => {
+              if (b !== undefined) {
+                b.scrollTop = event.target.scrollTop
+              }
+            })
+          }, false)
+        }
+        addScrollListener(body, [flBody, frBody])
+        this.scrollY = true
+      },
+      calScrollX () {
+        const rootWidth = this.$refs.root.scrollWidth
+//        console.log(this.$refs)
+        const totalWidth = this.allLeafColumns.map((e) => e.width || 0).reduce((arg1, arg2) => { return parseInt(arg1) + parseInt(arg2) }, 0)
+//        console.log('root-width:', rootWidth, ':totalWidth:', totalWidth)
+        // console.log('offsetWidth:', scrollWidth, ':::total:', totalWidth)
+        if (totalWidth <= rootWidth) return
+        const { header, body, root } = this.$refs
+//        console.log(':::', vtb, '::', totalWidth)
+//        if (vtb) vtb.$el.style.width = `${totalWidth}px`
+        root.style.width = `${rootWidth}px`
+        body.style.overflowX = 'scroll'
+        body.addEventListener('scroll', (event) => {
+          header.scrollLeft = event.target.scrollLeft
+        }, false)
+      },
+      cellRender (item, column) {
+        return column.render === undefined ? item[column.key] : column.render(item[column.key], column)
+      }
+    }
+  }
+
+  // 获取表头行信息
+  const getRows = (allColumns = [], maxRows) => {
+    const rows = []
+    for (let i = 0; i < maxRows; i++) rows.push([])
+    allColumns.forEach((column) => {
+      column.rowSpan = column.children ? 1 : maxRows - column.level
+      rows[column.level].push(column)
+    })
+    return rows
+  }
+
+  // 获得所有列的总数
+  const getColumns = (columns = [], level = 0) => {
+    let ret = []
+    columns.forEach((column) => {
+      column.level = level
+      ret.push(column)
+      if (column.children) {
+        let nRet = getColumns(column.children, level + 1)
+        column.colSpan = nRet.filter((c) => !c.children).length
+        ret = ret.concat(nRet)
+      } else {
+        column.colSpan = 1
+      }
+    })
+    return ret
+  }
+
+  // 获得列的最大深度
+  const getMaxDeepColumns = (columns = []) => {
+    const maxDeeps = []
+    columns.forEach((column, index) => {
+      maxDeeps[index] = 1
+      if (column.children !== undefined && column.children.length > 0) {
+        maxDeeps[index] += getMaxDeepColumns(column.children)
+      }
+    })
+    if (maxDeeps.length <= 0) return 1
+    return Math.max.apply(null, maxDeeps)
+  }
+</script>

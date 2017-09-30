@@ -1,0 +1,33 @@
+@import './base.less';
+
+.vui.time-picker {
+
+  .content {
+    position: absolute;
+    top: calc(~"100% + 5px");
+    left: 0;
+    z-index: 10;
+
+    .menu {
+      display: inline-block;
+      overflow: hidden;
+      height: 210px;
+      margin-left: -1px;
+      width: 60px;
+
+      .item {
+        min-width: 60px;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:hover {
+        overflow-y: auto;
+      }
+    }
+
+  }
+
+}

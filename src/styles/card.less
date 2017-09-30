@@ -1,0 +1,27 @@
+@import "./base.less";
+
+.vui.card {
+  position: relative;
+  background: #fff;
+  .transition(all .3s);
+  font-size: 1em;
+  .box-shadow;
+  .border;
+
+  > .image {
+    font-size: 0;
+    line-height: 1;
+  }
+
+  > .header {
+    border-bottom: @border-style;
+    .padding;
+  }
+  > .content {
+    .padding;
+    border-bottom: @border-style;
+  }
+  > .footer {
+    .padding;
+  }
+}

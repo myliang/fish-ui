@@ -1,0 +1,135 @@
+@import './base.less';
+
+.vui.step {
+  font-size: 1em;
+  padding: 1em 2em;
+  color: rgba(0,0,0,.87);
+  vertical-align: middle;
+  display: flex;
+  flex: 1 0 auto;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  border-right: @border-style;
+  .user-select(none);
+  background: #ffffff;
+
+  &.active {
+    background: #F3F4F5;
+
+    //> i {
+    //  color: @color-primary;
+    //}
+
+    > .content > .title {
+      color: @color-primary;
+    }
+  }
+
+  &.disabled {
+    .disabled;
+  }
+
+  > i {
+    margin: 0 1rem 0 0;
+    font-size: 2em;
+  }
+
+  > .content {
+    display: block;
+    flex: 0 1 auto;
+
+    > .title {
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+    > .description {
+      margin-top: .25em;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+  }
+}
+
+.vui.steps {
+  display: inline-flex;
+  .border;
+  border-radius: @border-radius;
+  margin: .6em 0;
+
+  &.vertical {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .step {
+      justify-content: flex-start;
+      border-right: none;
+      border-bottom: @border-style;
+
+      &:not(.active):after {
+        display:none;
+      }
+    }
+  }
+
+  .step {
+    &:after {
+      position: absolute;
+      z-index: 2;
+      content: '';
+      top: 50%;
+      right: 0;
+      border: solid;
+      background-color: #FFF;
+      width: 1.14285714em;
+      height: 1.14285714em;
+      border-color: @border-color;
+      border-width: 0 1px 1px 0;
+      -webkit-transition: background-color .1s ease,opacity .1s ease,color .1s ease,box-shadow .1s ease;
+      transition: background-color .1s ease,opacity .1s ease,color .1s ease,box-shadow .1s ease;
+      -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+      transform: translateY(-50%) translateX(50%) rotate(-45deg);
+    }
+    &.active {
+      &:after {
+        background: #F3F4F5;
+      }
+    }
+
+    &:last-child {
+      border-right: none;
+
+      &:after {
+        //background: none;
+        display:none;
+      }
+    }
+  }
+
+  // size
+  &.mini {
+    .size-mini;
+  }
+  &.tiny {
+    .size-tiny;
+  }
+  &.small {
+    .size-small;
+  }
+  &.medium {
+    .size-medium;
+  }
+  &.large {
+    .size-large;
+  }
+  &.big {
+    .size-large;
+  }
+  &.huge {
+    .size-huge;
+  }
+  &.massive {
+    .size-massive;
+  }
+}

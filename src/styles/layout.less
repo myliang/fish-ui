@@ -1,0 +1,47 @@
+@import './base.less';
+.vui {
+  &.layout {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    .flex-direction(column);
+    -webkit-box-flex: 1;
+    .flex(auto);
+    background: #F8F8F8;
+
+    &.has-sider {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      .flex-direction(row);
+    }
+
+    > .header, > .footer {
+      -webkit-box-flex: 0;
+      .flex(0 0 auto);
+    }
+    > .header {
+      background: #fff;
+    }
+    > .content {
+      -webkit-box-flex: 1;
+      .flex(auto);
+      background: #fff;
+    }
+    > .footer {
+      padding: 20px 0;
+      color: rgba(0,0,0,.65);
+      text-align: center;
+    }
+    > .sider {
+      background: #fff;
+      .transition(all .15s cubic-bezier(.645,.045,.355,1));
+      position: relative;
+      min-width: 0;
+      flex: 0 0 200px;
+      width: 200px;
+    }
+  }
+}

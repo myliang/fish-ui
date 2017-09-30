@@ -1,0 +1,98 @@
+@import './base.less';
+
+@tag-font-size: @base-font-size - 0.15;
+
+.vui.tag {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1em;
+  font-size: @tag-font-size;
+  vertical-align: baseline;
+  margin: 0 0.14285714em;
+  background-color: #E8E8E8;
+  background-image: none;
+  padding: 0.5833em 0.833em;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: none;
+  font-weight: bold;
+  border: 0 solid transparent;
+  border-radius: @border-radius;
+  .transition(background 0.1s ease);
+  .user-select(none);
+
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+
+  i {
+    opacity: 0.8;
+    margin-left: 0.5em;
+  }
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  &.positive {
+    .type-positive;
+  }
+
+  &.negative {
+    .type-negative;
+  }
+
+  &.primary {
+    .type-primary;
+  }
+
+  // size
+  &.mini {
+    .size-mini;
+  }
+  &.tiny {
+    .size-tiny;
+  }
+  &.small {
+    .size-small;
+  }
+  &.medium {
+    .size-medium;
+  }
+  &.large {
+    .size-large;
+  }
+  &.big {
+    .size-large;
+  }
+  &.huge {
+    .size-huge;
+  }
+  &.massive {
+    .size-massive;
+  }
+}
+
+.vui.tags {
+  input {
+    font-size: @tag-font-size;
+    outline: none;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    color: rgba(0, 0, 0, 0.6);
+    background: #fff;
+    padding: 0.3633em 0.633em;
+    width: 100px;
+    border-radius: @border-radius;
+  }
+  input:focus {
+    border-color: #85B7D9;
+    box-shadow: 0 0 0 2px rgba(16,142,233,.2);
+  }
+
+  .tag {
+      margin: 0em 0.5em 0.5em 0em;
+  }
+}

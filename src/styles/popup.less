@@ -1,0 +1,101 @@
+@import "./base.less";
+
+@arrow-width: 0.7em;
+
+.vui.popup {
+  position: absolute;
+  font-size: 1em;
+  z-index: 1200;
+  background: #ffffff;
+  padding: @popup-padding;
+  color: @base-font-color;
+  border-radius: 0;
+  box-shadow: 0 1px 6px rgba(0,0,0,.2);
+  line-height: 1em;
+
+  &.bottom.left {
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+
+    &:before {
+      top: -@arrow-width/2;
+      left: 1em;
+      -webkit-transform: rotate(-135deg);
+      transform: rotate(-135deg);
+    }
+  }
+
+  &.bottom.right {
+    -webkit-transform-origin: right top;
+    transform-origin: right top;
+
+    &:before {
+      top: -@arrow-width/2;
+      right: 1em;
+      -webkit-transform: rotate(-135deg);
+      transform: rotate(-135deg);
+    }
+  }
+
+  &.top.left {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+
+    &:before {
+      bottom: -@arrow-width/2;
+      left: 1em;
+    }
+  }
+
+  &.top.right {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+
+    &:before {
+      bottom: -@arrow-width/2;
+      right: 1em;
+    }
+  }
+
+  &.bottom {
+    margin: @arrow-width 0 0;
+  }
+
+  &.top {
+    margin: 0 0 @arrow-width;
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: @arrow-width;
+    height: @arrow-width;
+    background: #FFFFFF;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: 1;
+    box-shadow: 1px 1px 3px -1px rgba(0,0,0,.3);
+    //box-shadow: 0 0 0 6px rgba(0,0,0,.2);
+  }
+
+  .content {
+    margin-bottom: 1em;
+
+    > i {
+      color: @warning-color;
+      margin-right: .6em;
+      font-size: 1.1em;
+    }
+  }
+
+  .footer {
+    float: right;
+
+    .button {
+      font-weight: bold;
+      margin-left: .6em;
+    }
+  }
+
+
+}

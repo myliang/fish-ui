@@ -1,0 +1,55 @@
+@import "./base.less";
+
+.vui.tree {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+
+  li {
+    //height: 36px;
+    line-height: 2em;
+    white-space: nowrap;
+    cursor: pointer;
+    //vertical-align: middle;
+
+    i {
+      vertical-align: middle;
+      text-align: center;
+      padding: .2em .5em;
+
+    }
+
+    .title {
+      padding: .2em .5em;
+      &:hover {
+        color: @hover-color;
+      }
+    }
+
+    &.active {
+      > .title {
+        //font-weight: bold;
+        background: @active-background-color;
+        //color: @active-color;
+      }
+    }
+
+  }
+
+  li > .vui.tree {
+    padding-left: 1.5em;
+  }
+}
+
+.vui.tree-select {
+
+  > .content {
+    box-shadow: 0 1px 5px rgba(0,0,0,.2);
+    position: absolute;
+    top: calc(~"100% + 5px");
+    left: 0;
+    z-index: 10;
+    background: #ffffff;
+  }
+}
