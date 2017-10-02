@@ -2,7 +2,7 @@
 
 ## Demo
 <p align="center">
-  <a href="https://myliang.github.io/vui/docs/">https://myliang.github.io/vonic/docs/</a>
+  <a href="https://myliang.github.io/vui/docs/">https://myliang.github.io/vui/docs/</a>
 </p>
 
 ## Notice
