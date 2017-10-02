@@ -2,7 +2,7 @@
   <div class="main-layout">
     <fish-layout sider="l" class="main-layout">
       <div slot="header" style="padding: 20px 10px;">
-        <strong style="font-size: 3em; text-shadow: 2px 2px 0 #ddd;">v-ui</strong>
+        <strong style="font-size: 3em; text-shadow: 2px 2px 0 #ddd;">fish-ui</strong>
       </div>
       <div slot="sider">
         <fish-menu mode="inline">

@@ -1,6 +1,6 @@
 <template>
     <main-layout menuActiveIndex="index">
-      <h2>V-UI</h2>
+      <h2>Fish-UI</h2>
       <p>这里是 fish 的 fish 实现，开发和服务于后台产品</p>
       <h3>支持环境</h3>
       <p>现代浏览器（暂时主要是chrome）</p>
@@ -14,8 +14,8 @@
       <p>推荐是用vue-cli创建项目</p>
       <h3>引用fish,全局引用即可</h3>
       <pre v-highlightjs><code class="javascript">import Vue from 'vue'
-import fish from 'fish'
-Vue.use(fish)</code></pre>
+import FishUI from 'fish-ui'
+Vue.use(FishUI)</code></pre>
     </main-layout>
 </template>
 <script>
