@@ -1,45 +1,95 @@
+import './styles/index.less'
+
+import BackTop from './components/BackTop.vue'
 import Button from './components/Button.vue'
 import Buttons from './components/Buttons.vue'
-import Layout from './components/Layout.vue'
-import Option from './components/Option.vue'
-import Menu from './components/Menu.vue'
+import Calendar from './components/Calendar.vue'
+import Card from './components/Card.vue'
+import Carousel from './components/Carousel.vue'
+import CarouselItem from './components/CarouselItem.vue'
+import Cascader from './components/Cascader.vue'
+import Checkbox from './components/Checkbox.vue'
+import Checkboxes from './components/Checkboxes.vue'
+import Col from './components/Col.vue'
+import DatePicker from './components/DatePicker.vue'
 import Dropdown from './components/Dropdown.vue'
-import Submenu from './components/Submenu.vue'
+import Field from './components/Field.vue'
+import Fields from './components/Fields.vue'
+import Form from './components/Form.vue'
+import Input from './components/Input.vue'
+import InputNumber from './components/InputNumber.vue'
+import Layout from './components/Layout.vue'
+import Menu from './components/Menu.vue'
+import Message from './components/Message.vue'
+import Modal from './components/Modal.vue'
+import Option from './components/Option.vue'
 import Pagination from './components/Pagination.vue'
+import Radio from './components/Radio.vue'
+import Radios from './components/Radios.vue'
+import Row from './components/Row.vue'
+import Select from './components/Select.vue'
 import Steps from './components/Steps.vue'
 import Step from './components/Step.vue'
-import Input from './components/Input.vue'
+import Submenu from './components/Submenu.vue'
+import Table from './components/Table.vue'
+import TabPane from './components/TabPane.vue'
+import Tabs from './components/Tabs.vue'
 import Tag from './components/Tag.vue'
 import Tags from './components/Tags.vue'
-import Select from './components/Select.vue'
-import Cascader from './components/Cascader.vue'
+import TimePicker from './components/TimePicker.vue'
+import Upload from './components/Upload.vue'
 
-const components = [
+import $message from './components/message.js'
+import $popup from './components/popup.js'
+
+const components = {
+  BackTop,
   Button,
   Buttons,
-  Layout,
-  Option,
-  Menu,
+  Calendar,
+  Card,
+  Carousel,
+  CarouselItem,
+  Cascader,
+  Checkbox,
+  Checkboxes,
+  Col,
+  DatePicker,
   Dropdown,
-  Submenu,
+  Field,
+  Fields,
+  Form,
+  Input,
+  InputNumber,
+  Layout,
+  Menu,
+  Message,
+  Modal,
+  Option,
   Pagination,
+  Radio,
+  Radios,
+  Row,
+  Select,
   Steps,
   Step,
-  Input,
+  Submenu,
+  Table,
+  TabPane,
+  Tabs,
   Tag,
   Tags,
-  Select,
-  Cascader
-]
+  TimePicker,
+  Upload
+}
 const install = function (Vue, opts = {}) {
-  components.forEach((component) => {
+  Object.values(components).forEach((component) => {
+    // console.log(component.name)
     Vue.component(component.name, component)
   })
 
-  // Vue.prototype.$Loading = LoadingBar
-  // Vue.prototype.$Message = Message
-  // Vue.prototype.$Modal = Modal
-  // Vue.prototype.$Notice = Notice
+  Vue.prototype.$message = $message
+  Vue.prototype.$popup = $popup
 }
 
 // auto install
@@ -47,20 +97,4 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-module.exports = {
-  Button,
-  Buttons,
-  Layout,
-  Option,
-  Menu,
-  Dropdown,
-  Submenu,
-  Pagination,
-  Steps,
-  Step,
-  Input,
-  Tag,
-  Tags,
-  Select,
-  Cascader
-}
+export default Object.assign({}, components, {install})  // eslint-disable-line no-undef

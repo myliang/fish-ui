@@ -14,7 +14,7 @@
 </template>
 <script>
   export default {
-    name: 'ui-pagination',
+    name: 'vui-pagination',
     props: {
       total: { type: Number, required: true },
       current: { type: Number, default: 1 },
