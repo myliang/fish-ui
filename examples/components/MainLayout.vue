@@ -19,21 +19,15 @@
   </div>
 </template>
 <script>
-  import VuiLayout from '../src/components/Layout.vue'
-  import VuiMenu from '../src/components/Menu.vue'
-  import VuiOption from '../src/components/Option.vue'
-
   export default {
-    components: {
-      VuiOption,
-      VuiMenu,
-      VuiLayout},
+    components: {},
     name: 'MainLayout',
     props: {
       menuActiveIndex: { type: String, default: 'button' }
     },
     data () {
       return {menus: [
+        {index: 'index', text: '介绍'},
         {index: 'layout', text: 'Layout 布局'},
         {index: 'grid', text: 'Grid 格栅'},
         {index: 'button', text: 'Button 按钮'},

@@ -73,26 +73,8 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiModal from '../src/components/Modal.vue'
-  import VuiForm from '../src/components/Form.vue'
-  import VuiFields from '../src/components/Fields.vue'
-  import VuiCheckboxes from '../src/components/Checkboxes.vue'
-  import VuiCheckbox from '../src/components/Checkbox.vue'
-  import VuiButton from '../src/components/Button.vue'
-  import VuiField from '../src/components/Field.vue'
-  import VuiInput from '../src/components/Input.vue'
-  import VuiCard from '../src/components/Card.vue'
 
   export default {components: {
-    VuiCard,
-    VuiInput,
-    VuiField,
-    VuiButton,
-    VuiCheckbox,
-    VuiCheckboxes,
-    VuiFields,
-    VuiForm,
-    VuiModal,
     MainLayout},
     data () {
       return {

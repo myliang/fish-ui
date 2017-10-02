@@ -51,13 +51,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiMessage from '../src/components/Message.vue'
-  import VuiCard from '../src/components/Card.vue'
 
   export default {
     components: {
-      VuiCard,
-      VuiMessage,
       MainLayout
     },
     data () {

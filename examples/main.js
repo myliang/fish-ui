@@ -3,40 +3,40 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueHighlightJS from 'vue-highlightjs'
+import Vui from '../src/vui.js'
 import App from './Demo'
 
-import './assets/normalize.css'
-import './styles/index.less'
+import DemoButton from './components/DemoButton.vue'
+import DemoLayout from './components/DemoLayout.vue'
+import DemoMenu from './components/DemoMenu.vue'
+import DemoGrid from './components/DemoGrid.vue'
+import DemoCard from './components/DemoCard.vue'
+import DemoTable from './components/DemoTable.vue'
+import DemoPagination from './components/DemoPagination.vue'
+import DemoDropdown from './components/DemoDropdown.vue'
+import DemoSteps from './components/DemoSteps.vue'
+import DemoTag from './components/DemoTag.vue'
+import DemoInput from './components/DemoInput.vue'
+import DemoInputNumber from './components/DemoInputNumber.vue'
+import DemoRadio from './components/DemoRadio.vue'
+import DemoCheckbox from './components/DemoCheckbox.vue'
+import DemoSelect from './components/DemoSelect.vue'
+import DemoCascader from './components/DemoCascader.vue'
+import DemoCalendar from './components/DemoCalendar.vue'
+import DemoDatePicker from './components/DemoDatePicker.vue'
+import DemoTimePicker from './components/DemoTimePicker.vue'
+import DemoMessage from './components/DemoMessage.vue'
+import DemoNotification from './components/DemoNotification.vue'
+import DemoPopup from './components/DemoPopup.vue'
+import DemoBackTop from './components/DemoBackTop.vue'
+import DemoCarousel from './components/DemoCarousel.vue'
+import DemoTabs from './components/DemoTabs.vue'
+import DemoUpload from './components/DemoUpload.vue'
+import DemoModal from './components/DemoModal.vue'
+import DemoForm from './components/DemoForm.vue'
+import DemoIndex from './components/DemoIndex.vue'
 
-import DemoButton from './examples/DemoButton.vue'
-import DemoLayout from './examples/DemoLayout.vue'
-import DemoMenu from './examples/DemoMenu.vue'
-import DemoGrid from './examples/DemoGrid.vue'
-import DemoCard from './examples/DemoCard.vue'
-import DemoTable from './examples/DemoTable.vue'
-import DemoPagination from './examples/DemoPagination.vue'
-import DemoDropdown from './examples/DemoDropdown.vue'
-import DemoSteps from './examples/DemoSteps.vue'
-import DemoTag from './examples/DemoTag.vue'
-import DemoInput from './examples/DemoInput.vue'
-import DemoInputNumber from './examples/DemoInputNumber.vue'
-import DemoRadio from './examples/DemoRadio.vue'
-import DemoCheckbox from './examples/DemoCheckbox.vue'
-import DemoSelect from './examples/DemoSelect.vue'
-import DemoCascader from './examples/DemoCascader.vue'
-import DemoCalendar from './examples/DemoCalendar.vue'
-import DemoDatePicker from './examples/DemoDatePicker.vue'
-import DemoTimePicker from './examples/DemoTimePicker.vue'
-import DemoMessage from './examples/DemoMessage.vue'
-import DemoNotification from './examples/DemoNotification.vue'
-import DemoPopup from './examples/DemoPopup.vue'
-import DemoBackTop from './examples/DemoBackTop.vue'
-import DemoCarousel from './examples/DemoCarousel.vue'
-import DemoTabs from './examples/DemoTabs.vue'
-import DemoUpload from './examples/DemoUpload.vue'
-import DemoModal from './examples/DemoModal.vue'
-import DemoForm from './examples/DemoForm.vue'
-
+Vue.use(Vui)
 Vue.use(VueHighlightJS)
 Vue.use(VueRouter)
 const routes = [
@@ -67,51 +67,13 @@ const routes = [
   { path: '/components/tabs', component: DemoTabs },
   { path: '/components/upload', component: DemoUpload },
   { path: '/components/modal', component: DemoModal },
-  { path: '/components/form', component: DemoForm }
+  { path: '/components/form', component: DemoForm },
+  { path: '/components/index', component: DemoIndex },
+  { path: '/', component: DemoIndex }
 ]
 const router = new VueRouter({
   routes
 })
-
-// global bus
-// const bus = new Vue()
-// Vue.bus = bus
-// Object.defineProperties(bus, {
-//   on: {
-//     get () {
-//       return this.$on
-//     }
-//   },
-//   once: {
-//     get () {
-//       return this.$once
-//     }
-//   },
-//   off: {
-//     get () {
-//       return this.$off
-//     }
-//   },
-//   emit: {
-//     get () {
-//       return this.$emit
-//     }
-//   }
-// })
-// Object.defineProperty(Vue.prototype, '$bus', {
-//   get () {
-//     return bus
-//   }
-// })
-
-// import hljs from 'highlight.js'
-// import 'highlight.js/styles/googlecode.css' // 样式文件
-// Vue.directive('highlight', function (el) {
-//   let blocks = el.querySelectorAll('pre code')
-//   blocks.forEach((block) => {
-//     hljs.highlightBlock(block)
-//   })
-// })
 
 Vue.config.productionTip = false
 

@@ -119,15 +119,9 @@ methods: {
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiSelect from '../src/components/Select.vue'
-  import VuiOption from '../src/components/Option.vue'
 
   export default {
     components: {
-      VuiOption,
-      VuiSelect,
-      VuiCard,
       MainLayout
     },
     data () {

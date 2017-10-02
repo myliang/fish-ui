@@ -46,15 +46,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiInput from '../src/components/Input.vue'
-  import VuiButton from '../src/components/Button.vue'
 
   export default {
     components: {
-      VuiButton,
-      VuiInput,
-      VuiCard,
       MainLayout
     },
     data () {

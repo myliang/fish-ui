@@ -202,19 +202,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiTable from '../src/components/Table.vue'
-  import VuiRow from '../src/components/Row.vue'
-  import VuiCol from '../src/components/Col.vue'
-  import VuiCheckbox from '../src/components/Checkbox.vue'
 
   export default {
     components: {
-      VuiCheckbox,
-      VuiCol,
-      VuiRow,
-      VuiTable,
-      VuiCard,
       MainLayout
     },
     data () {

@@ -27,15 +27,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiButton from '../src/components/Button.vue'
-  import VuiInputNumber from '../src/components/InputNumber.vue'
 
   export default {
     components: {
-      VuiInputNumber,
-      VuiButton,
-      VuiCard,
       MainLayout
     },
     data () {

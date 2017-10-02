@@ -44,14 +44,9 @@ popup2Handler (event) {
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiButton from '../src/components/Button.vue'
-  import popup from '../components/popup.js'
 
   export default {
     components: {
-      VuiButton,
-      VuiCard,
       MainLayout
     },
     data () {
@@ -68,12 +63,12 @@ popup2Handler (event) {
     },
     methods: {
       popupHandler (event) {
-        popup.confirm(event, '确定要删除这条记录吗？', () => {
+        this.$popup.confirm(event, '确定要删除这条记录吗？', () => {
           console.log('OK....')
         })
       },
       popup2Handler (event) {
-        popup.confirm(event, '确定要删除这条记录吗？', () => {
+        this.$popup.confirm(event, '确定要删除这条记录吗？', () => {
           console.log('OK....')
         }, '确认', '取消')
       }

@@ -43,13 +43,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiTimePicker from '../src/components/TimePicker.vue'
 
   export default {
     components: {
-      VuiTimePicker,
-      VuiCard,
       MainLayout
     },
     data () {

@@ -86,15 +86,9 @@ methods: {
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiTag from '../src/components/Tag.vue'
-  import VuiTags from '../src/components/Tags.vue'
 
   export default {
     components: {
-      VuiTags,
-      VuiTag,
-      VuiCard,
       MainLayout
     },
     data () {

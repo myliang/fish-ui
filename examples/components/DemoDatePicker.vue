@@ -57,13 +57,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiDatePicker from '../src/components/DatePicker.vue'
 
   export default {
     components: {
-      VuiDatePicker,
-      VuiCard,
       MainLayout
     },
     data () {

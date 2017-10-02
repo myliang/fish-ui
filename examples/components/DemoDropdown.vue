@@ -37,17 +37,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiDropdown from '../src/components/Dropdown.vue'
-  import VuiOption from '../src/components/Option.vue'
-  import VuiButton from '../src/components/Button.vue'
 
   export default {
     components: {
-      VuiButton,
-      VuiOption,
-      VuiDropdown,
-      VuiCard,
       MainLayout
     }
   }

@@ -49,13 +49,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiCalendar from '../src/components/Calendar.vue'
 
   export default {
     components: {
-      VuiCalendar,
-      VuiCard,
       MainLayout
     },
     data () {

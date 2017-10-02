@@ -64,13 +64,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiCascader from '../src/components/Cascader.vue'
 
   export default {
     components: {
-      VuiCascader,
-      VuiCard,
       MainLayout
     },
     data () {

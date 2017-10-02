@@ -26,15 +26,11 @@
   </main-layout>
 </template>
 <script>
-  import VuiBackTop from '../src/components/BackTop.vue'
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
 
   export default {
     components: {
-      VuiCard,
-      MainLayout,
-      VuiBackTop
+      MainLayout
     },
     data () {
       return {

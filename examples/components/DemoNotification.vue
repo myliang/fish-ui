@@ -48,14 +48,9 @@ message.tip('Notification Title', 'I will never close automatically. I will be c
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import message from '../components/message.js'
-  import VuiButton from '../src/components/Button.vue'
 
   export default {
     components: {
-      VuiButton,
-      VuiCard,
       MainLayout
     },
     data () {
@@ -72,16 +67,16 @@ message.tip('Notification Title', 'I will never close automatically. I will be c
     },
     methods: {
       messageWarningHandler () {
-        message.warning('welcome to you 黄英你朋友!!!', 5000)
+        this.$message.warning('welcome to you 黄英你朋友!!!', 5000)
       },
       messageErrorHandler () {
-        message.error('error: welcome to you 黄英你朋友!!!', 5000)
+        this.$message.error('error: welcome to you 黄英你朋友!!!', 5000)
       },
       messageSuccessHandler () {
-        message.success('success: welcome to you 黄英你朋友!!!', 5000)
+        this.$message.success('success: welcome to you 黄英你朋友!!!', 5000)
       },
       messageTipHandler () {
-        message.tip('Notification Title', 'I will never close automatically. I will be close automatically. I will never close automatically.')
+        this.$message.tip('Notification Title', 'I will never close automatically. I will be close automatically. I will never close automatically.')
       }
     }
   }

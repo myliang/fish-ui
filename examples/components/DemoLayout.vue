@@ -233,20 +233,10 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiLayout from '../src/components/Layout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiMenu from '../src/components/Menu.vue'
-  import VuiSubmenu from '../src/components/Submenu.vue'
-  import VuiOption from '../src/components/Option.vue'
 
   export default {
     components: {
-      VuiOption,
-      VuiMenu,
-      VuiCard,
-      VuiLayout,
-      MainLayout,
-      VuiSubmenu
+      MainLayout
     },
     data () {
       return {

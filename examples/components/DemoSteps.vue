@@ -73,15 +73,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiSteps from '../src/components/Steps.vue'
-  import VuiStep from '../src/components/Step.vue'
 
   export default {
     components: {
-      VuiStep,
-      VuiSteps,
-      VuiCard,
       MainLayout
     },
     data () {

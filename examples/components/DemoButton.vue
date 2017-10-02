@@ -99,22 +99,10 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiButton from '../src/components/Button.vue'
-  import VuiButtons from '../src/components/Buttons.vue'
-  import VuiRow from '../src/components/Row.vue'
-  import VuiCol from '../src/components/Col.vue'
-  import VuiTable from '../src/components/Table.vue'
 
   export default {
     components: {
-      VuiTable,
-      VuiCol,
-      VuiRow,
-      VuiCard,
-      MainLayout,
-      VuiButton,
-      VuiButtons
+      MainLayout
     },
     data () {
       return {

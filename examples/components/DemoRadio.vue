@@ -38,15 +38,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiRadio from '../src/components/Radio.vue'
-  import VuiRadios from '../src/components/Radios.vue'
 
   export default {
     components: {
-      VuiRadios,
-      VuiRadio,
-      VuiCard,
       MainLayout
     },
     data () {

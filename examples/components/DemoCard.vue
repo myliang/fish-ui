@@ -85,17 +85,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiButton from '../src/components/Button.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiCol from '../src/components/Col.vue'
-  import VuiRow from '../src/components/Row.vue'
 
   export default {
     components: {
-      VuiRow,
-      VuiCol,
-      VuiCard,
-      VuiButton,
       MainLayout
     }
   }

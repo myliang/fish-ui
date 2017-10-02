@@ -43,14 +43,10 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiPagination from '../src/components/Pagination.vue'
 
   export default {
     components: {
-      VuiCard,
-      MainLayout,
-      VuiPagination
+      MainLayout
     },
     data () {
       return {

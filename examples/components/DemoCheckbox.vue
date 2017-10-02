@@ -63,15 +63,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiCheckbox from '../src/components/Checkbox.vue'
-  import VuiCheckboxes from '../src/components/Checkboxes.vue'
 
   export default {
     components: {
-      VuiCheckboxes,
-      VuiCheckbox,
-      VuiCard,
       MainLayout
     },
     data () {

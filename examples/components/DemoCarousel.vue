@@ -19,14 +19,8 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiCarousel from '../src/components/Carousel.vue'
-  import VuiCarouselItem from '../src/components/CarouselItem.vue'
 
   export default {components: {
-    VuiCarouselItem,
-    VuiCarousel,
-    VuiCard,
     MainLayout}}
 </script>
 <style>

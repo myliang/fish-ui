@@ -39,17 +39,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiUpload from '../src/components/Upload.vue'
-  import VuiButton from '../src/components/Button.vue'
-  import VuiModal from '../src/components/Modal.vue'
 
   export default {
     components: {
-      VuiModal,
-      VuiButton,
-      VuiUpload,
-      VuiCard,
       MainLayout
     },
     data () {

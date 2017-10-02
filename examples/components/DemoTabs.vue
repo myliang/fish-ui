@@ -80,15 +80,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiTabs from '../src/components/Tabs.vue'
-  import VuiTabPane from '../src/components/TabPane.vue'
 
   export default {
     components: {
-      VuiTabPane,
-      VuiTabs,
-      VuiCard,
       MainLayout
     },
     data () {

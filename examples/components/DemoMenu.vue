@@ -234,21 +234,9 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
-  import VuiCard from '../src/components/Card.vue'
-  import VuiOption from '../src/components/Option.vue'
-  import VuiMenu from '../src/components/Menu.vue'
-  import VuiSubmenu from '../src/components/Submenu.vue'
-  import VuiCol from '../src/components/Col.vue'
-  import VuiRow from '../src/components/Row.vue'
 
   export default {
     components: {
-      VuiRow,
-      VuiCol,
-      VuiSubmenu,
-      VuiMenu,
-      VuiOption,
-      VuiCard,
       MainLayout
     },
     data () {
