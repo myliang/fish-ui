@@ -1,11 +1,11 @@
 <template>
-  <div class="vui radios" @click="clickHandler">
+  <div class="fish radios" @click="clickHandler">
     <slot></slot>
   </div>
 </template>
 <script>
   export default {
-    name: 'vui-radios',
+    name: 'fish-radios',
     props: {
       value: { type: [Number, String] }
     },

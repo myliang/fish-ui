@@ -1,10 +1,10 @@
 <template>
   <main-layout menuActiveIndex="cascader">
     <h3>Cascader 练级下拉选框</h3>
-    <vui-card>
-      <vui-cascader :options="options" v-model="cascaderValue" style="width: 260px;" @change="changeHandler"></vui-cascader> [{{ cascaderValue }}]
+    <fish-card>
+      <fish-cascader :options="options" v-model="cascaderValue" style="width: 260px;" @change="changeHandler"></fish-cascader> [{{ cascaderValue }}]
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-cascader :options=&quot;options&quot; v-model=&quot;cascaderValue&quot; style=&quot;width: 260px;&quot; @change=&quot;changeHandler&quot;&gt;&lt;/vui-cascader&gt;</code></pre>
+        <pre v-highlightjs><code class="html">&lt;fish-cascader :options=&quot;options&quot; v-model=&quot;cascaderValue&quot; style=&quot;width: 260px;&quot; @change=&quot;changeHandler&quot;&gt;&lt;/fish-cascader&gt;</code></pre>
         <pre v-highlightjs><code class="javascript">data () {
   return {
     cascaderValue: [],
@@ -27,10 +27,10 @@
   }
 }</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Cascader Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -46,7 +46,7 @@
     </div>
 
     <h3>Cascader Events</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

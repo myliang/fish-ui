@@ -1,5 +1,5 @@
 <template>
-  <div class="vui carousel">
+  <div class="fish carousel">
     <div class="content":style="{'width': `${width}px`}">
       <ul class="list" :style="{
         width: `${width * childrenLength}px`,
@@ -16,7 +16,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-carousel',
+    name: 'fish-carousel',
     props: {
     },
     data () {

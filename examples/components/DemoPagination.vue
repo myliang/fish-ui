@@ -1,15 +1,15 @@
 <template>
   <main-layout menuActiveIndex="pagination">
     <h3>Pagination 分页</h3>
-    <vui-card>
-      <vui-pagination :total="500" :current="page" @change="(current) => page = current"></vui-pagination>
+    <fish-card>
+      <fish-pagination :total="500" :current="page" @change="(current) => page = current"></fish-pagination>
       <footer slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-pagination :total=&quot;500&quot; :current=&quot;page&quot; @change=&quot;(current) =&gt; page = current&quot;&gt;&lt;/vui-pagination&gt;</code></pre>
+        <pre v-highlightjs><code class="html">&lt;fish-pagination :total=&quot;500&quot; :current=&quot;page&quot; @change=&quot;(current) =&gt; page = current&quot;&gt;&lt;/fish-pagination&gt;</code></pre>
       </footer>
-    </vui-card>
+    </fish-card>
 
     <h3>Pagination Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -25,7 +25,7 @@
     </div>
 
     <h3>Pagination Events</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

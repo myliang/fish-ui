@@ -4,25 +4,25 @@
       <col v-for="column in columns" :width="column.width"/>
       <col v-if="type === 'head' && scrollY" width="15"/>
     </colgroup>
-    <vui-table-head :rows="rows" :scrollY="scrollY"
+    <fish-table-head :rows="rows" :scrollY="scrollY"
                     @select="headSelectHandler"
                     @filter-change="headFilterChangeHandler"
-                    v-if="type === 'full' || type === 'head'"></vui-table-head>
-    <vui-table-body :columns="columns" :data="data" :scrollY="scrollY"
+                    v-if="type === 'full' || type === 'head'"></fish-table-head>
+    <fish-table-body :columns="columns" :data="data" :scrollY="scrollY"
                     @select="bodySelectHandler"
-                    v-if="type === 'full' || type === 'body'"></vui-table-body>
+                    v-if="type === 'full' || type === 'body'"></fish-table-body>
   </table>
 </template>
 <script>
-  import VuiTableHead from './TableHead.vue'
-  import VuiTableBody from './TableBody.vue'
+  import fishTableHead from './TableHead.vue'
+  import fishTableBody from './TableBody.vue'
 
   export default {
     components: {
-      VuiTableBody,
-      VuiTableHead
+      fishTableBody,
+      fishTableHead
     },
-    name: 'vui-table-head-body-foot',
+    name: 'fish-table-head-body-foot',
     props: {
       type: { type: String, default: 'full' }, // full, head, body
       columns: { type: Array, required: true },

@@ -6,7 +6,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-fields',
+    name: 'fish-fields',
     props: {
       label: { type: String }
     }

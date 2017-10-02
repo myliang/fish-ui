@@ -1,21 +1,21 @@
 <template>
   <main-layout menuActiveIndex="calendar">
     <h3>Calendar 日历</h3>
-    <vui-card>
-      <vui-calendar mode="year" min="2017-01" max="2018-01"></vui-calendar>
-      <vui-calendar mode="month" min="2017-07"></vui-calendar>
-      <vui-calendar value="2017-01-08" min="2017-01-07" @select="selectHandler" @change="changeHandler"></vui-calendar>
-      <vui-calendar mode="second" value="2017-01-08" min="2017-01-07"></vui-calendar>
+    <fish-card>
+      <fish-calendar mode="year" min="2017-01" max="2018-01"></fish-calendar>
+      <fish-calendar mode="month" min="2017-07"></fish-calendar>
+      <fish-calendar value="2017-01-08" min="2017-01-07" @select="selectHandler" @change="changeHandler"></fish-calendar>
+      <fish-calendar mode="second" value="2017-01-08" min="2017-01-07"></fish-calendar>
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-calendar mode=&quot;year&quot; min=&quot;2017-01&quot; max=&quot;2018-01&quot;&gt;&lt;/vui-calendar&gt;
-&lt;vui-calendar mode=&quot;month&quot; min=&quot;2017-07&quot;&gt;&lt;/vui-calendar&gt;
-&lt;vui-calendar value=&quot;2017-01-08&quot; min=&quot;2017-01-07&quot;&gt;&lt;/vui-calendar&gt;
-&lt;vui-calendar mode=&quot;second&quot; value=&quot;2017-01-08&quot; min=&quot;2017-01-07&quot;&gt;&lt;/vui-calendar&gt;</code></pre>
+        <pre v-highlightjs><code class="html">&lt;fish-calendar mode=&quot;year&quot; min=&quot;2017-01&quot; max=&quot;2018-01&quot;&gt;&lt;/fish-calendar&gt;
+&lt;fish-calendar mode=&quot;month&quot; min=&quot;2017-07&quot;&gt;&lt;/fish-calendar&gt;
+&lt;fish-calendar value=&quot;2017-01-08&quot; min=&quot;2017-01-07&quot;&gt;&lt;/fish-calendar&gt;
+&lt;fish-calendar mode=&quot;second&quot; value=&quot;2017-01-08&quot; min=&quot;2017-01-07&quot;&gt;&lt;/fish-calendar&gt;</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Calendar Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -31,7 +31,7 @@
     </div>
 
     <h3>Calendar Events</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

@@ -11,7 +11,7 @@
       <td v-for="column in columns" :style="{'text-align': column.align || 'left'}">
         <div v-if="'index' === column.type">{{ rowIndex + 1 }}</div>
         <div v-else-if="'checkbox' === column.type">
-          <vui-checkbox :index="cellRender(item, column)" @click="checkboxSelectHandler" ref="checkboxes"></vui-checkbox>
+          <fish-checkbox :index="cellRender(item, column)" @click="checkboxSelectHandler" ref="checkboxes"></fish-checkbox>
         </div>
         <div v-else v-html="cellRender(item, column)"></div>
       </td>
@@ -25,11 +25,11 @@
   </table>
 </template>
 <script>
-  import VuiCheckbox from './Checkbox.vue'
+  import fishCheckbox from './Checkbox.vue'
 
   export default {
-    components: {VuiCheckbox},
-    name: 'vui-table-body',
+    components: {fishCheckbox},
+    name: 'fish-table-body',
     props: {
       columns: { type: Array, required: true },
       rows: { type: Array, required: true },

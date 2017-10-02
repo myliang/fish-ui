@@ -5,7 +5,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-tab-pane',
+    name: 'fish-tab-pane',
     props: {
       label: { type: String, required: true },
       index: { type: String }

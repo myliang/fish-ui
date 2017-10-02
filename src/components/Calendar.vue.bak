@@ -1,5 +1,5 @@
 <template>
-  <div class="vui calendar">
+  <div class="fish calendar">
     <div class="header">
       <a class="prev" @click.stop="prevHandler"><i class="fa fa-chevron-left"></i></a>
       <a class="current" @click.stop="currentHandler">{{ currentDate.format('MMMM YYYY') }}</a>
@@ -30,7 +30,7 @@
   import moment from 'moment'
 
   export default {
-    name: 'vui-calendar',
+    name: 'fish-calendar',
     props: {
       value: { type: String },
       weeks: { type: Array, default: () => { return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] } },

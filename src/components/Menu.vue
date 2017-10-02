@@ -5,7 +5,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-menu',
+    name: 'fish-menu',
     props: {
       size: { type: String },
       mode: { type: String, default: 'vertical' }, // vertical, horizontal, inline
@@ -31,7 +31,7 @@
     computed: {
       classObject () {
         return [
-          'vui menu',
+          'fish menu',
           this.mode,
           this.size,
           {'compact': this.compact}

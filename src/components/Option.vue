@@ -3,7 +3,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-option',
+    name: 'fish-option',
     props: {
       disabled: { type: Boolean, default: false },
       index: { type: [String, Number], required: true },

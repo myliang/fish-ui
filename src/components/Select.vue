@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vui select', {'active': visible, 'multiple': multiple}]"
+  <div :class="['fish select', {'active': visible, 'multiple': multiple}]"
        @click="clickHandler"
        @mouseover="mouseOverHandler"
        @mouseout="mouseOutHandler"
@@ -31,7 +31,7 @@
         {{ selectedItems.length > 0 && selectedItems[0].content || hint }}
       </div>
     </template>
-    <ul class="vui menu vertical" v-show="visible"
+    <ul class="fish menu vertical" v-show="visible"
         @click.stop="menuClickHandler($event)"
         @mouseover.stop="" @mouseout.stop="">
       <slot></slot>
@@ -41,7 +41,7 @@
 <script>
   import clickoutside from '../directives/clickoutside'
   export default {
-    name: 'vui-select',
+    name: 'fish-select',
     directives: { clickoutside },
     props: {
       value: [Array],

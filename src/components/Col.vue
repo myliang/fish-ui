@@ -7,7 +7,7 @@
   const spanWidth = 4.16666
 
   export default {
-    name: 'vui-col',
+    name: 'fish-col',
     props: {
       span: { type: [String, Number], required: true }, // 1-24
       offset: { type: [String, Number], default: 0 }, // 1-24

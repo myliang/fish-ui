@@ -69,7 +69,7 @@ let createPopup = (event, html, width = null, appendChildrenCallback) => {
 
   let {arrowPosition, style} = setPositionStyle(el)
   console.log(arrowPosition, ':::', style)
-  root.setAttribute('class', 'vui popup ' + arrowPosition)
+  root.setAttribute('class', 'fish popup ' + arrowPosition)
   root.style = style
   if (width !== null) root.style.width = `${width}`
   root.onclick = (e) => {
@@ -103,8 +103,8 @@ export default {
     html = `<div class="content"><i class="fa fa-exclamation-circle"></i>${html}</div>`
     createPopup(event, html, null, (root, el) => {
       let children = createElement('div', 'footer', '')
-      children.appendChild(createElement('div', 'vui small button', cancelText, (e) => { removePopup(el); e.stopPropagation() }))
-      children.appendChild(createElement('div', 'vui small primary button', okText, (e) => { okFunc && okFunc(); removePopup(el); e.stopPropagation() }))
+      children.appendChild(createElement('div', 'fish small button', cancelText, (e) => { removePopup(el); e.stopPropagation() }))
+      children.appendChild(createElement('div', 'fish small primary button', okText, (e) => { okFunc && okFunc(); removePopup(el); e.stopPropagation() }))
       root.appendChild(children)
     })
   }

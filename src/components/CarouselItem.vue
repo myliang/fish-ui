@@ -5,7 +5,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-carousel-item',
+    name: 'fish-carousel-item',
     data () {
       return {
       }

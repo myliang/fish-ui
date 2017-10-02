@@ -1,5 +1,5 @@
 <template>
-  <div class="vui input number">
+  <div class="fish input number">
     <div class="step">
       <i class="fa fa-angle-up" @click.stop="upHandler"></i>
       <i class="fa fa-angle-down" @click.stop="downHandler"></i>
@@ -21,7 +21,7 @@
   }
 
   export default {
-    name: 'vui-input-number',
+    name: 'fish-input-number',
     props: {
       value: { type: [Number, String], default: '' },
       min: { type: [Number, String], required: true },

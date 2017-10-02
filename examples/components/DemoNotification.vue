@@ -1,16 +1,16 @@
 <template>
   <main-layout menuActiveIndex="notification">
     <h3>Notification 全局提示</h3>
-    <vui-card>
-      <vui-button @click="messageWarningHandler">warning</vui-button>
-      <vui-button @click="messageErrorHandler">error</vui-button>
-      <vui-button @click="messageSuccessHandler">success</vui-button>
-      <vui-button @click="messageTipHandler">提示信息</vui-button>
+    <fish-card>
+      <fish-button @click="messageWarningHandler">warning</fish-button>
+      <fish-button @click="messageErrorHandler">error</fish-button>
+      <fish-button @click="messageSuccessHandler">success</fish-button>
+      <fish-button @click="messageTipHandler">提示信息</fish-button>
       <div slot="footer">
-      <pre v-highlightjs><code class="html">&lt;vui-button @click=&quot;messageWarningHandler&quot;&gt;warning&lt;/vui-button&gt;
-&lt;vui-button @click=&quot;messageErrorHandler&quot;&gt;error&lt;/vui-button&gt;
-&lt;vui-button @click=&quot;messageSuccessHandler&quot;&gt;success&lt;/vui-button&gt;
-&lt;vui-button @click=&quot;messageTipHandler&quot;&gt;提示信息&lt;/vui-button&gt;</code></pre>
+      <pre v-highlightjs><code class="html">&lt;fish-button @click=&quot;messageWarningHandler&quot;&gt;warning&lt;/fish-button&gt;
+&lt;fish-button @click=&quot;messageErrorHandler&quot;&gt;error&lt;/fish-button&gt;
+&lt;fish-button @click=&quot;messageSuccessHandler&quot;&gt;success&lt;/fish-button&gt;
+&lt;fish-button @click=&quot;messageTipHandler&quot;&gt;提示信息&lt;/fish-button&gt;</code></pre>
       <br/>
       <pre v-highlightjs><code class="javascript">import message from '../components/message.js'
 message.warning('welcome to you 黄英你朋友!!!', 5000)
@@ -18,7 +18,7 @@ message.error('error: welcome to you 黄英你朋友!!!', 5000)
 message.success('success: welcome to you 黄英你朋友!!!', 5000)
 message.tip('Notification Title', 'I will never close automatically. I will be close automatically. I will never close automatically.')</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Notification API</h3>
     <ul class="api">
@@ -30,7 +30,7 @@ message.tip('Notification Title', 'I will never close automatically. I will be c
     </ul>
 
     <h3>函数参数说明</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

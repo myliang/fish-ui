@@ -1,18 +1,18 @@
 <template>
-  <div class="vui dropdown" @click="clickHandler" v-clickoutside="awayHandler">
+  <div class="fish dropdown" @click="clickHandler" v-clickoutside="awayHandler">
     <slot name="title"></slot>
-    <vui-menu v-show="visible" class="content" @click="menusClickHandler">
+    <fish-menu v-show="visible" class="content" @click="menusClickHandler">
       <slot></slot>
-    </vui-menu>
+    </fish-menu>
   </div>
 </template>
 <script>
   import clickoutside from '../directives/clickoutside'
-  import VuiMenu from './Menu'
+  import fishMenu from './Menu'
   export default {
-    components: {VuiMenu},
+    components: {fishMenu},
     directives: { clickoutside },
-    name: 'vui-dropdown',
+    name: 'fish-dropdown',
     props: {},
     data () {
       return {
@@ -22,7 +22,7 @@
     computed: {
       classObject () {
         return [
-          'vui dropdown'
+          'fish dropdown'
         ]
       }
     },

@@ -1,11 +1,11 @@
 <template>
-  <form :class="['vui form', {'inline': this.inline}]">
+  <form :class="['fish form', {'inline': this.inline}]">
     <slot></slot>
   </form>
 </template>
 <script>
   export default {
-    name: 'vui-form',
+    name: 'fish-form',
     props: {
       inline: { type: Boolean, default: false }
     }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="['vui upload', type]">
+    <div :class="['fish upload', type]">
       <div class="upload-select" @click="clickHandler" v-if="type === ''">
         <input type="file" ref="input"
                @change="changeHandler"
@@ -30,19 +30,19 @@
         <i>+</i>
         <slot></slot>
       </div>
-      <vui-modal :visible.sync="previewShow" title="Image Preview">
+      <fish-modal :visible.sync="previewShow" title="Image Preview">
         <div class="image"><img :src="previewUrl" style="width: 100%;"/></div>
-      </vui-modal>
+      </fish-modal>
     </div>
   </div>
 </template>
 <script>
   import ajax from './ajax.js'
-  import VuiModal from './Modal.vue'
+  import fishModal from './Modal.vue'
 
   export default {
-    components: {VuiModal},
-    name: 'vui-upload',
+    components: {fishModal},
+    name: 'fish-upload',
     props: {
       value: { type: Array }, // [{name: '', url: '', state: '']]
       type: { type: String, default: '' }, // picture

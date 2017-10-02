@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vui tabs', `-${this.type}`]">
+  <div :class="['fish tabs', `-${this.type}`]">
     <ul :class="['nav', position]">
       <li v-for="(tab, index) in tabs" v-html="tab" :key="tab"
           :class="{'active': index === activeIndex }"
@@ -12,7 +12,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-tabs',
+    name: 'fish-tabs',
     props: {
       value: { type: [Number, String], required: true },
       type: { type: String, default: '' },

@@ -9,7 +9,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-step',
+    name: 'fish-step',
     props: {
       icon: { type: String },
       title: { type: String, required: true },
@@ -25,7 +25,7 @@
     computed: {
       classObject () {
         return [
-          'vui step',
+          'fish step',
           { 'active': this.active },
           { 'disabled': this.disabled }
         ]

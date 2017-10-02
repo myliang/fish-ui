@@ -5,7 +5,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-steps',
+    name: 'fish-steps',
     props: {
       size: { type: String },
       width: { type: [String, Number], default: 100 },
@@ -18,7 +18,7 @@
     },
     computed: {
       classObject () {
-        return [ 'vui steps', this.size, this.mode ]
+        return [ 'fish steps', this.size, this.mode ]
       }
     }
   }

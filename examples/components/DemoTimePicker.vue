@@ -1,15 +1,15 @@
 <template>
   <main-layout menuActiveIndex="timepicker">
     <h3>TimePicker 时间选框</h3>
-    <vui-card>
-      <vui-time-picker v-model="timePickerValue"></vui-time-picker> [{{timePickerValue}}]
+    <fish-card>
+      <fish-time-picker v-model="timePickerValue"></fish-time-picker> [{{timePickerValue}}]
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-time-picker v-model=&quot;timePickerValue&quot;&gt;&lt;/vui-time-picker&gt;</code></pre>
+        <pre v-highlightjs><code class="html">&lt;fish-time-picker v-model=&quot;timePickerValue&quot;&gt;&lt;/fish-time-picker&gt;</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>TimePicker Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -25,7 +25,7 @@
     </div>
 
     <h3>TimePicker Events</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

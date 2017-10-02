@@ -1,15 +1,15 @@
 <template>
   <main-layout menuActiveIndex="input-number">
     <h3>Input Number 数字输入框</h3>
-    <vui-card>
-      <vui-input-number min="0" max="10" v-model="numberValue"></vui-input-number> {{numberValue}}
+    <fish-card>
+      <fish-input-number min="0" max="10" v-model="numberValue"></fish-input-number> {{numberValue}}
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-input-number min=&quot;0&quot; max=&quot;10&quot; v-model=&quot;numberValue&quot;&gt;&lt;/vui-input-number&gt;</code></pre>
+        <pre v-highlightjs><code class="html">&lt;fish-input-number min=&quot;0&quot; max=&quot;10&quot; v-model=&quot;numberValue&quot;&gt;&lt;/fish-input-number&gt;</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Input Number Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

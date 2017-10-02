@@ -11,12 +11,12 @@
       <th v-for="column in row" :rowspan="column.rowSpan" :colspan="column.colSpan" :style="{'text-align': column.align || 'left'}">
         <template v-if="'index' === column.type">{{ column.title }}</template>
         <template v-else-if="'checkbox' === column.type">
-          <vui-checkbox index="-1" @click="checkboxSelectHandler" ref="checkboxes"></vui-checkbox>
+          <fish-checkbox index="-1" @click="checkboxSelectHandler" ref="checkboxes"></fish-checkbox>
         </template>
         <template v-else-if="column.filters">
-          <vui-table-head-filter :title="column.title" :items="column.filters" :index="column.key"
+          <fish-table-head-filter :title="column.title" :items="column.filters" :index="column.key"
                                  ref="filters" @change="clickFilterHandler">
-          </vui-table-head-filter>
+          </fish-table-head-filter>
         </template>
         <template v-else>
           {{ column.title }}
@@ -28,15 +28,15 @@
   </table>
 </template>
 <script>
-  import VuiTableHeadFilter from './TableHeadFilter.vue'
-  import VuiCheckbox from './Checkbox.vue'
+  import fishTableHeadFilter from './TableHeadFilter.vue'
+  import fishCheckbox from './Checkbox.vue'
 
   export default {
     components: {
-      VuiCheckbox,
-      VuiTableHeadFilter
+      fishCheckbox,
+      fishTableHeadFilter
     },
-    name: 'vui-table-head',
+    name: 'fish-table-head',
     props: {
       columns: { type: Array, required: true }, // [{title: '', key: '', width: 100, type: [index, checkbox], render: () => {}, align: 'left'}]
       rows: { type: Array, required: true },

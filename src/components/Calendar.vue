@@ -1,5 +1,5 @@
 <template>
-  <div class="vui calendar" v-if="current.year">
+  <div class="fish calendar" v-if="current.year">
     <div class="header">
       <a :class="['prev', {'disabled': state === 'year'}]" @click.stop.prevent="pageHandler(-1)"><i class="fa fa-chevron-left"></i></a>
       <a :class="mode" @click.stop="showItemsHandler(mode)" v-for="(mode, index) in modes" v-if="modeIndex >= index">{{ mode === 'month' ? current[mode] + 1 : current[mode] }}</a>
@@ -31,7 +31,7 @@
   import { calendar } from '../config'
 
   export default {
-    name: 'vui-calendar',
+    name: 'fish-calendar',
     props: {
       value: { type: String },
       mode: { type: String, default: 'day' }, // second, minute, hour, day, month, year

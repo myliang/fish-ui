@@ -5,7 +5,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-buttons',
+    name: 'fish-buttons',
     props: {
       type: { type: String },
       size: { type: String }
@@ -13,7 +13,7 @@
     computed: {
       classObject () {
         return [
-          'vui buttons',
+          'fish buttons',
           this.type,
           this.size
         ]

@@ -7,7 +7,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-radio',
+    name: 'fish-radio',
     props: {
       index: { type: [String, Number], required: true },
       disabled: { type: Boolean, default: false }
@@ -19,7 +19,7 @@
     },
     computed: {
       classObject () {
-        return ['vui radio', {'active': this.active}, {'disabled': this.disabled}]
+        return ['fish radio', {'active': this.active}, {'disabled': this.disabled}]
       }
     },
     methods: {

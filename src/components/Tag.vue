@@ -13,7 +13,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-tag',
+    name: 'fish-tag',
     props: {
       icon: String,
       iconClose: { type: String, default: 'fa fa-close' },
@@ -29,7 +29,7 @@
     computed: {
       classObject () {
         return [
-          'vui tag',
+          'fish tag',
           this.size,
           this.color
         ]

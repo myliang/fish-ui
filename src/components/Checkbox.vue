@@ -7,7 +7,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-checkbox',
+    name: 'fish-checkbox',
     props: {
       index: { type: [String, Number], required: true },
       disabled: { type: Boolean, default: false }
@@ -19,7 +19,7 @@
     },
     computed: {
       classObject () {
-        return ['vui checkbox', {'active': this.active}, {'disabled': this.disabled}]
+        return ['fish checkbox', {'active': this.active}, {'disabled': this.disabled}]
       }
     },
     methods: {

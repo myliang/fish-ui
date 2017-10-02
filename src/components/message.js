@@ -19,8 +19,8 @@ let getRoot = (className) => {
 
 const message = (color, html, fadeTime, position = 'top center') => {
   // console.log('color=', color, text, fadeTime)
-  if (_messageRoot === null) _messageRoot = getRoot(`vui ${position} notices`)
-  let div = createElement('div', ``, `<div class="vui notice ${color} move-in">${html}</div>`)
+  if (_messageRoot === null) _messageRoot = getRoot(`fish ${position} notices`)
+  let div = createElement('div', ``, `<div class="fish notice ${color} move-in">${html}</div>`)
   _messageRoot.appendChild(div)
   setTimeout(() => {
     _messageRoot.removeChild(div)
@@ -41,9 +41,9 @@ export default {
     message('warning', `${text}`, fadeTime)
   },
   tip: (title, content, position = 'top right') => {
-    if (_noticeRoot[position] === undefined) _noticeRoot[position] = getRoot(`vui ${position} notices`)
+    if (_noticeRoot[position] === undefined) _noticeRoot[position] = getRoot(`fish ${position} notices`)
     // console.log(_noticeRoot[position])
-    let div = createElement('div', 'vui notice fade-in', `
+    let div = createElement('div', 'fish notice fade-in', `
                                                    <i class="fa fa-times close"></i>
                                                    <div class="header">${title}</div>
                                                    <div class="content">${content}</div>

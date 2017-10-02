@@ -1,19 +1,19 @@
 <template>
-  <ul class="vui tree">
+  <ul class="fish tree">
     <li v-for="(item, index) in data" :key="item[0]" :class="{'active': valueIncludes(item[0])}">
       <i class="fa fa-caret-right" v-if="item[2]" @click.stop="showChildrenHandler(item, index)"></i>
       <i v-else>&nbsp;</i>
       <span class="title" @click="selectHandler(item)">{{ item[1] }}</span>
-      <vui-tree :data="item[2]" v-if="item[2] && visible[index]"
+      <fish-tree :data="item[2]" v-if="item[2] && visible[index]"
                 :expand="expand"
                 :value="value"
-                @select="selectHandler"></vui-tree>
+                @select="selectHandler"></fish-tree>
     </li>
   </ul>
 </template>
 <script>
   export default {
-    name: 'vui-tree',
+    name: 'fish-tree',
     props: {
       value: { type: [String, Array], default: '' },
       expand: { type: Boolean, default: false },

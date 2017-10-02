@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vui input date-picker']"
+  <div :class="['fish input date-picker']"
        @click="clickHandler"
        @mouseover="mouseOverHandler"
        @mouseout="mouseOutHandler"
@@ -8,17 +8,17 @@
     <i class="fa fa-times-circle" style="opacity: .6;" @click.stop="clearHandler" v-if="showClear && !valueEmpty"></i>
     <i class="fa fa-calendar" v-else></i>
     <div class="content" v-if="visible">
-      <vui-calendar @select="selectHandler"
+      <fish-calendar @select="selectHandler"
                   :cellRenderTemplate="cellRender"
                   :min="min" :max="max" :mode="mode"
-                  :value="value === '' ? undefined : value"></vui-calendar>
+                  :value="value === '' ? undefined : value"></fish-calendar>
     </div>
   </div>
 </template>
 <script>
   import moment from 'moment'
   import clickoutside from '../directives/clickoutside'
-  import VuiCalendar from './Calendar.vue'
+  import fishCalendar from './Calendar.vue'
 
   const formats = {
     year: 'YYYY',
@@ -30,9 +30,9 @@
   }
 
   export default {
-    name: 'vui-date-picker',
+    name: 'fish-date-picker',
     directives: { clickoutside },
-    components: {VuiCalendar},
+    components: {fishCalendar},
     props: {
       value: { type: String },
       mode: { type: String, default: 'day' }, // second, minute, hour, day, month, year

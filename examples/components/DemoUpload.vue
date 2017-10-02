@@ -1,27 +1,27 @@
 <template>
   <main-layout menuActiveIndex="upload">
     <h3>Upload 上传</h3>
-    <vui-card>
-      <vui-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files"
+    <fish-card>
+      <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files"
                   :withCredentials="true" :multiple="true">
-        <vui-button><i class="fa fa-upload" aria-hidden="true" style="margin-right: 5px;"></i> Upload</vui-button>
-      </vui-upload>
-      <vui-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files"
+        <fish-button><i class="fa fa-upload" aria-hidden="true" style="margin-right: 5px;"></i> Upload</fish-button>
+      </fish-upload>
+      <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files"
                   :withCredentials="true" type="picture">
-      </vui-upload><br/>
+      </fish-upload><br/>
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-upload action=&quot;//jsonplaceholder.typicode.com/posts/&quot; v-model=&quot;files&quot;
+        <pre v-highlightjs><code class="html">&lt;fish-upload action=&quot;//jsonplaceholder.typicode.com/posts/&quot; v-model=&quot;files&quot;
             :withCredentials=&quot;true&quot; :multiple=&quot;true&quot;&gt;
-  &lt;vui-button&gt;&lt;i class=&quot;fa fa-upload&quot; aria-hidden=&quot;true&quot; style=&quot;margin-right: 5px;&quot;&gt;&lt;/i&gt; Upload&lt;/vui-button&gt;
-&lt;/vui-upload&gt;
-&lt;vui-upload action=&quot;//jsonplaceholder.typicode.com/posts/&quot; v-model=&quot;files&quot;
+  &lt;fish-button&gt;&lt;i class=&quot;fa fa-upload&quot; aria-hidden=&quot;true&quot; style=&quot;margin-right: 5px;&quot;&gt;&lt;/i&gt; Upload&lt;/fish-button&gt;
+&lt;/fish-upload&gt;
+&lt;fish-upload action=&quot;//jsonplaceholder.typicode.com/posts/&quot; v-model=&quot;files&quot;
             :withCredentials=&quot;true&quot; type=&quot;picture&quot;&gt;
-&lt;/vui-upload&gt;</code></pre><br/>
+&lt;/fish-upload&gt;</code></pre><br/>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Upload Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

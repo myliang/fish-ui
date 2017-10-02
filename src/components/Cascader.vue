@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vui select cascader', {'active': visible}]"
+  <div :class="['fish select cascader', {'active': visible}]"
        @click="menuClickHandler($event)"
        @mouseover="mouseOverHandler"
        @mouseout="mouseOutHandler"
@@ -11,7 +11,7 @@
     </div>
     <div v-show="visible" class="content" :style="{width: `${(menuWidth + 2) * groups.length}px`}"
          @click.stop="" @mouseover.stop="" @mouseout.stop="">
-      <ul class="vui menu vertical" v-for="(group, groupIndex) in groups">
+      <ul class="fish menu vertical" v-for="(group, groupIndex) in groups">
         <li :class="['item', {'active': selectedItems[groupIndex] && selectedItems[groupIndex][0] === item[0]}]" v-for="(item, index) in group" @click.stop="itemClickHandler(item, groupIndex)" :key="item[0]" :style="{width: `${menuWidth}px`}">
           {{ item[1] }}
           <i class="fa fa-angle-right expand" v-if="itemChildren(item).length > 0"></i>
@@ -23,7 +23,7 @@
 <script>
   import clickoutside from '../directives/clickoutside'
   export default {
-    name: 'vui-cascader',
+    name: 'fish-cascader',
     directives: { clickoutside },
     props: {
       value: Array,

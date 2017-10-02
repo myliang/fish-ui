@@ -1,6 +1,6 @@
 @import './base.less';
 
-.vui.radio, .vui.checkbox {
+.@{css-prefix}.radio, .@{css-prefix}.checkbox {
   position: relative;
   display: inline-block;
   -webkit-backface-visibility: hidden;
@@ -78,7 +78,7 @@
 
 }
 
-.vui.checkbox {
+.@{css-prefix}.checkbox {
   &.active {
     > label:after {
       display: inline-block;
@@ -100,7 +100,7 @@
   }
 }
 
-.vui.checkboxes {
+.@{css-prefix}.checkboxes {
   &.vertical {
     .checkbox {
       display: block;

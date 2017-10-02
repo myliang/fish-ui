@@ -1,34 +1,34 @@
 <template>
   <main-layout menuActiveIndex="input">
     <h3>Input 输入框</h3>
-    <vui-card>
-      <vui-input v-model="defaultValue"></vui-input> [{{ defaultValue }}]
-      <vui-input hint="trasaction" transparent></vui-input>
-      <vui-input loading></vui-input><br/>
-      <vui-input size="small" disabled></vui-input>
-      <vui-input icon="fa fa-search"></vui-input>
-      <vui-input icon="fa fa-search" :iconLeft="true"></vui-input>
-      <vui-input type="textarea" style="height: 50px;"></vui-input>
+    <fish-card>
+      <fish-input v-model="defaultValue"></fish-input> [{{ defaultValue }}]
+      <fish-input hint="trasaction" transparent></fish-input>
+      <fish-input loading></fish-input><br/>
+      <fish-input size="small" disabled></fish-input>
+      <fish-input icon="fa fa-search"></fish-input>
+      <fish-input icon="fa fa-search" :iconLeft="true"></fish-input>
+      <fish-input type="textarea" style="height: 50px;"></fish-input>
       <br/><br/>
-      <vui-input disabled>
-      </vui-input>
+      <fish-input disabled>
+      </fish-input>
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-input v-model=&quot;defaultValue&quot;&gt;&lt;/vui-input&gt;
-&lt;vui-input hint=&quot;trasaction&quot; transparent&gt;&lt;/vui-input&gt;
-&lt;vui-button&gt;GO&gt;&gt;&lt;/vui-button&gt;&lt;br/&gt;
-&lt;vui-input loading&gt;&lt;/vui-input&gt;
-&lt;vui-input size=&quot;small&quot; disabled&gt;&lt;/vui-input&gt;
-&lt;vui-input icon=&quot;fa fa-search&quot;&gt;&lt;/vui-input&gt;
-&lt;vui-input icon=&quot;fa fa-search&quot; :iconLeft=&quot;true&quot;&gt;&lt;/vui-input&gt;
-&lt;vui-input type=&quot;textarea&quot; style=&quot;height: 50px;&quot;&gt;&lt;/vui-input&gt;
+        <pre v-highlightjs><code class="html">&lt;fish-input v-model=&quot;defaultValue&quot;&gt;&lt;/fish-input&gt;
+&lt;fish-input hint=&quot;trasaction&quot; transparent&gt;&lt;/fish-input&gt;
+&lt;fish-button&gt;GO&gt;&gt;&lt;/fish-button&gt;&lt;br/&gt;
+&lt;fish-input loading&gt;&lt;/fish-input&gt;
+&lt;fish-input size=&quot;small&quot; disabled&gt;&lt;/fish-input&gt;
+&lt;fish-input icon=&quot;fa fa-search&quot;&gt;&lt;/fish-input&gt;
+&lt;fish-input icon=&quot;fa fa-search&quot; :iconLeft=&quot;true&quot;&gt;&lt;/fish-input&gt;
+&lt;fish-input type=&quot;textarea&quot; style=&quot;height: 50px;&quot;&gt;&lt;/fish-input&gt;
 &lt;br/&gt;&lt;br/&gt;
-&lt;vui-input disabled&gt;
-&lt;/vui-input&gt;</code></pre>
+&lt;fish-input disabled&gt;
+&lt;/fish-input&gt;</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Input Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

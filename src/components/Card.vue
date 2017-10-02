@@ -1,5 +1,5 @@
 <template>
-  <div class="vui card">
+  <div class="fish card">
     <div class="header" v-if="$slots.header">
       <slot name="header"></slot>
     </div>
@@ -16,6 +16,6 @@
 </template>
 <script>
   export default {
-    name: 'vui-card'
+    name: 'fish-card'
   }
 </script>

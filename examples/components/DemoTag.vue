@@ -1,20 +1,20 @@
 <template>
   <main-layout menuActiveIndex="tag">
     <h3>Tag 标签</h3>
-    <vui-card>
-      <vui-tag index="1">标签</vui-tag>
-      <vui-tag index="2">TAG</vui-tag>
-      <vui-tag index="3" @close="{}">关闭</vui-tag>
-      <vui-tag index="3" color="primary">关闭</vui-tag><br/><br/>
-      <vui-tags :items="tags" edited @close="groupCloseHandler" @add="addCheckHandler"></vui-tags> {{ tags }}
-      <vui-tags :items="tags1" @click="checkClickHandler"></vui-tags>{{ tags1 }}
+    <fish-card>
+      <fish-tag index="1">标签</fish-tag>
+      <fish-tag index="2">TAG</fish-tag>
+      <fish-tag index="3" @close="{}">关闭</fish-tag>
+      <fish-tag index="3" color="primary">关闭</fish-tag><br/><br/>
+      <fish-tags :items="tags" edited @close="groupCloseHandler" @add="addCheckHandler"></fish-tags> {{ tags }}
+      <fish-tags :items="tags1" @click="checkClickHandler"></fish-tags>{{ tags1 }}
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-tag index=&quot;1&quot;&gt;标签&lt;/vui-tag&gt;
-&lt;vui-tag index=&quot;2&quot;&gt;TAG&lt;/vui-tag&gt;
-&lt;vui-tag index=&quot;3&quot; @close=&quot;{}&quot;&gt;关闭&lt;/vui-tag&gt;
-&lt;vui-tag index=&quot;3&quot; color=&quot;primary&quot;&gt;关闭&lt;/vui-tag&gt;&lt;br/&gt;&lt;br/&gt;
-&lt;vui-tags :items=&quot;tags&quot; edited @close=&quot;groupCloseHandler&quot; @add=&quot;addCheckHandler&quot;&gt;&lt;/vui-tags&gt;
-&lt;vui-tags :items=&quot;tags1&quot; @click=&quot;checkClickHandler&quot;&gt;&lt;/vui-tags&gt;</code></pre><br/>
+        <pre v-highlightjs><code class="html">&lt;fish-tag index=&quot;1&quot;&gt;标签&lt;/fish-tag&gt;
+&lt;fish-tag index=&quot;2&quot;&gt;TAG&lt;/fish-tag&gt;
+&lt;fish-tag index=&quot;3&quot; @close=&quot;{}&quot;&gt;关闭&lt;/fish-tag&gt;
+&lt;fish-tag index=&quot;3&quot; color=&quot;primary&quot;&gt;关闭&lt;/fish-tag&gt;&lt;br/&gt;&lt;br/&gt;
+&lt;fish-tags :items=&quot;tags&quot; edited @close=&quot;groupCloseHandler&quot; @add=&quot;addCheckHandler&quot;&gt;&lt;/fish-tags&gt;
+&lt;fish-tags :items=&quot;tags1&quot; @click=&quot;checkClickHandler&quot;&gt;&lt;/fish-tags&gt;</code></pre><br/>
         <pre v-highlightjs><code class="javascript">data () {
   return {
     tags1: [[true, 'tag1-radio'], [false, 'tag2-radio'], [false, 'tag3-radio']],
@@ -33,10 +33,10 @@ methods: {
   }
 }</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Tags Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -52,7 +52,7 @@ methods: {
     </div>
 
     <h3>Tags Events</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -68,7 +68,7 @@ methods: {
     </div>
 
     <h3>Tag Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

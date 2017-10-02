@@ -1,11 +1,11 @@
 <template>
-  <div class="vui back-top" @click="clickHandler($event)" v-if="visible">
+  <div class="fish back-top" @click="clickHandler($event)" v-if="visible">
     <i class="fa fa-arrow-up"></i>
   </div>
 </template>
 <script>
   export default {
-    name: 'vui-back-top',
+    name: 'fish-back-top',
     data () {
       return {
         visible: false

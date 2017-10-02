@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueHighlightJS from 'vue-highlightjs'
-import Vui from '../src/vui.js'
+import FishUI from '../src/index.js'
 import App from './Demo'
 
 import DemoButton from './components/DemoButton.vue'
@@ -36,7 +36,7 @@ import DemoModal from './components/DemoModal.vue'
 import DemoForm from './components/DemoForm.vue'
 import DemoIndex from './components/DemoIndex.vue'
 
-Vue.use(Vui)
+Vue.use(FishUI)
 Vue.use(VueHighlightJS)
 Vue.use(VueRouter)
 const routes = [

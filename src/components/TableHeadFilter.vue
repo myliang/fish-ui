@@ -2,23 +2,23 @@
   <div class="filters" @click="clickHandler" ref="_root" v-clickoutside="awayHandler">
     {{ activeTitle || title }}<i class="fa fa-angle-down" style="margin-left: 8px;"></i>
     <div class="content" ref="_content">
-      <vui-menu v-show="visible" @click="menusClickHandler" defaultActive="_all">
-        <vui-option :index="item.value" :content="item.label" :key="index" ref="options"
-                    v-for="(item, index) in [{label: 'All',value: '_all'}].concat(items)"></vui-option>
-      </vui-menu>
+      <fish-menu v-show="visible" @click="menusClickHandler" defaultActive="_all">
+        <fish-option :index="item.value" :content="item.label" :key="index" ref="options"
+                    v-for="(item, index) in [{label: 'All',value: '_all'}].concat(items)"></fish-option>
+      </fish-menu>
     </div>
   </div>
 </template>
 <script>
   import clickoutside from '../directives/clickoutside'
-  import VuiMenu from './Menu'
-  import VuiOption from './Option.vue'
+  import fishMenu from './Menu'
+  import fishOption from './Option.vue'
 
   export default {
-    name: 'vui-table-head-filter',
+    name: 'fish-table-head-filter',
     components: {
-      VuiOption,
-      VuiMenu
+      fishOption,
+      fishMenu
     },
     directives: { clickoutside },
     props: {

@@ -1,21 +1,21 @@
 <template>
   <div class="main-layout">
-    <vui-layout sider="l" class="main-layout">
+    <fish-layout sider="l" class="main-layout">
       <div slot="header" style="padding: 20px 10px;">
         <strong style="font-size: 3em; text-shadow: 2px 2px 0 #ddd;">v-ui</strong>
       </div>
       <div slot="sider">
-        <vui-menu mode="inline">
-          <vui-option :index="menu.index" :content="menu.text" ref="menus" v-for="menu in menus" :key="menu.index"
+        <fish-menu mode="inline">
+          <fish-option :index="menu.index" :content="menu.text" ref="menus" v-for="menu in menus" :key="menu.index"
                       @click="toLinker(`/components/${menu.index}`)">
-          </vui-option>
-        </vui-menu>
+          </fish-option>
+        </fish-menu>
       </div>
       <div slot="content">
         <slot></slot>
       </div>
       <div slot="footer"> 2017@copyright myliang</div>
-    </vui-layout>
+    </fish-layout>
   </div>
 </template>
 <script>
@@ -76,27 +76,27 @@
   }
 </script>
 <style>
-  .main-layout > .vui.layout {
+  .main-layout > .fish.layout {
     background: #f0f2f5;
     color: #666;
   }
-  .main-layout > .vui.layout > .header{
+  .main-layout > .fish.layout > .header{
     /*background: #7dbcea;*/
     padding: 0 50px;
     /*background: #666;*/
   }
-  .main-layout > .vui.layout > .header {
+  .main-layout > .fish.layout > .header {
     margin-bottom: 20px;
   }
-  .main-layout > .vui.layout > .sider {
+  .main-layout > .fish.layout > .sider {
     /*background: #fff;*/
     padding-top: 20px;
     padding-bottom: 20px;
   }
-  .main-layout > .vui.layout > .has-sider {
+  .main-layout > .fish.layout > .has-sider {
     margin: 0 50px;
   }
-  .main-layout > .vui.layout > .content {
+  .main-layout > .fish.layout > .content {
     /*background: rgba(16, 142, 233, 1);*/
     padding: 20px;
   }
@@ -123,13 +123,13 @@
     margin: 10px;
   }
 
-  .vui.table.attributes table thead tr th:first-child {
+  .fish.table.attributes table thead tr th:first-child {
     width: 16%;
   }
-  .vui.table.attributes table thead tr th:nth-child(3) {
+  .fish.table.attributes table thead tr th:nth-child(3) {
     width: 20%;
   }
-  .vui.table.attributes table thead tr th:nth-child(4) {
+  .fish.table.attributes table thead tr th:nth-child(4) {
     width: 10%;
   }
 </style>

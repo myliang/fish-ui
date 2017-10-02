@@ -5,7 +5,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-button',
+    name: 'fish-button',
     props: {
       active: { type: Boolean, default: false },
       loading: { type: Boolean, default: false },
@@ -17,7 +17,7 @@
     computed: {
       classObject () {
         return [
-          'vui button',
+          'fish button',
           { 'active': this.active },
           this.type,
           { 'loading': this.loading },

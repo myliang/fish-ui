@@ -1,16 +1,16 @@
 <template>
   <main-layout menuActiveIndex="datepicker">
     <h3>DatePicker 日期选框</h3>
-    <vui-card>
-      <vui-date-picker v-model="datePickerMonthValue" min="2017-09" mode="month"></vui-date-picker> [{{datePickerMonthValue}}]
-      <vui-date-picker v-model="datePickerDayValue" max="2017-09-17" mode="day"></vui-date-picker> [{{datePickerDayValue}}]
-      <vui-date-picker v-model="datePickerHourValue" max="2017-09-17 14" mode="hour"></vui-date-picker> [{{datePickerHourValue}}]
-      <vui-date-picker v-model="datePickerSecondValue" max="2017-09-17 14:02:03" mode="second"></vui-date-picker> [{{datePickerSecondValue}}]
+    <fish-card>
+      <fish-date-picker v-model="datePickerMonthValue" min="2017-09" mode="month"></fish-date-picker> [{{datePickerMonthValue}}]
+      <fish-date-picker v-model="datePickerDayValue" max="2017-09-17" mode="day"></fish-date-picker> [{{datePickerDayValue}}]
+      <fish-date-picker v-model="datePickerHourValue" max="2017-09-17 14" mode="hour"></fish-date-picker> [{{datePickerHourValue}}]
+      <fish-date-picker v-model="datePickerSecondValue" max="2017-09-17 14:02:03" mode="second"></fish-date-picker> [{{datePickerSecondValue}}]
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-date-picker v-model=&quot;datePickerMonthValue&quot; min=&quot;2017-09&quot; mode=&quot;month&quot;&gt;&lt;/vui-date-picker&gt; [{{datePickerMonthValue}}]
-&lt;vui-date-picker v-model=&quot;datePickerDayValue&quot; max=&quot;2017-09-17&quot; mode=&quot;day&quot;&gt;&lt;/vui-date-picker&gt; [{{datePickerDayValue}}]
-&lt;vui-date-picker v-model=&quot;datePickerHourValue&quot; max=&quot;2017-09-17 14&quot; mode=&quot;hour&quot;&gt;&lt;/vui-date-picker&gt; [{{datePickerHourValue}}]
-&lt;vui-date-picker v-model=&quot;datePickerSecondValue&quot; max=&quot;2017-09-17 14:02:03&quot; mode=&quot;second&quot;&gt;&lt;/vui-date-picker&gt; [{{datePickerSecondValue}}]</code></pre>
+        <pre v-highlightjs><code class="html">&lt;fish-date-picker v-model=&quot;datePickerMonthValue&quot; min=&quot;2017-09&quot; mode=&quot;month&quot;&gt;&lt;/fish-date-picker&gt; [{{datePickerMonthValue}}]
+&lt;fish-date-picker v-model=&quot;datePickerDayValue&quot; max=&quot;2017-09-17&quot; mode=&quot;day&quot;&gt;&lt;/fish-date-picker&gt; [{{datePickerDayValue}}]
+&lt;fish-date-picker v-model=&quot;datePickerHourValue&quot; max=&quot;2017-09-17 14&quot; mode=&quot;hour&quot;&gt;&lt;/fish-date-picker&gt; [{{datePickerHourValue}}]
+&lt;fish-date-picker v-model=&quot;datePickerSecondValue&quot; max=&quot;2017-09-17 14:02:03&quot; mode=&quot;second&quot;&gt;&lt;/fish-date-picker&gt; [{{datePickerSecondValue}}]</code></pre>
         <br/><pre v-highlightjs><code class="javascript">data () {
   return {
     datePickerMonthValue: '',
@@ -20,10 +20,10 @@
   }
 }</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>DatePicker Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -39,7 +39,7 @@
     </div>
 
     <h3>DatePicker Events</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

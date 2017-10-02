@@ -1,39 +1,39 @@
 <template>
   <main-layout menuActiveIndex="message">
     <h3>Message 消息</h3>
-    <vui-card>
-      <vui-message>
+    <fish-card>
+      <fish-message>
         Warning Description Warning Description Warning Description Warning Description
-      </vui-message>
-      <vui-message type="error">
+      </fish-message>
+      <fish-message type="error">
         Error Description Error Description Error Description Error Description
-      </vui-message>
-      <vui-message type="info">
+      </fish-message>
+      <fish-message type="info">
         Info Description Info Description Info Description Info Description
-      </vui-message>
-      <vui-message type="success">
+      </fish-message>
+      <fish-message type="success">
         Success Description Success Description Success Description Success Description
-      </vui-message>
+      </fish-message>
       <div slot="footer">
-      <pre v-highlightjs><code class="html">&lt;vui-card&gt;
-  &lt;vui-message&gt;
+      <pre v-highlightjs><code class="html">&lt;fish-card&gt;
+  &lt;fish-message&gt;
     Warning Description Warning Description Warning Description Warning Description
-  &lt;/vui-message&gt;
-  &lt;vui-message type=&quot;error&quot;&gt;
+  &lt;/fish-message&gt;
+  &lt;fish-message type=&quot;error&quot;&gt;
     Error Description Error Description Error Description Error Description
-  &lt;/vui-message&gt;
-  &lt;vui-message type=&quot;info&quot;&gt;
+  &lt;/fish-message&gt;
+  &lt;fish-message type=&quot;info&quot;&gt;
     Info Description Info Description Info Description Info Description
-  &lt;/vui-message&gt;
-  &lt;vui-message type=&quot;success&quot;&gt;
+  &lt;/fish-message&gt;
+  &lt;fish-message type=&quot;success&quot;&gt;
     Success Description Success Description Success Description Success Description
-  &lt;/vui-message&gt;
-&lt;/vui-card&gt;</code></pre>
+  &lt;/fish-message&gt;
+&lt;/fish-card&gt;</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Message Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

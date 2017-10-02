@@ -1,71 +1,71 @@
 <template>
   <main-layout>
     <h3>Button 按钮</h3>
-    <vui-card>
-      <vui-button>Default</vui-button>
-      <vui-button active>Default</vui-button>
-      <vui-button type="primary">Primary</vui-button>
-      <vui-button type="positive">Positive</vui-button>
-      <vui-button type="negative">Negative</vui-button>
-      <vui-button type="basic">Basic</vui-button>
-      <vui-button loading>Loading</vui-button>
-      <vui-button disabled>Disabled</vui-button>
-      <vui-button shape="circle"><i class="fa fa-search"></i></vui-button>
-      <vui-button><i class="fa fa-search"></i></vui-button>
-      <vui-button size="small">Small</vui-button>
+    <fish-card>
+      <fish-button>Default</fish-button>
+      <fish-button active>Default</fish-button>
+      <fish-button type="primary">Primary</fish-button>
+      <fish-button type="positive">Positive</fish-button>
+      <fish-button type="negative">Negative</fish-button>
+      <fish-button type="basic">Basic</fish-button>
+      <fish-button loading>Loading</fish-button>
+      <fish-button disabled>Disabled</fish-button>
+      <fish-button shape="circle"><i class="fa fa-search"></i></fish-button>
+      <fish-button><i class="fa fa-search"></i></fish-button>
+      <fish-button size="small">Small</fish-button>
       <div slot="footer">
-          <pre v-highlightjs><code class="html">&lt;vui-button&gt;Default&lt;/vui-button&gt;
-&lt;vui-button active&gt;Default&lt;/vui-button&gt;
-&lt;vui-button type=&quot;primary&quot;&gt;Primary&lt;/vui-button&gt;
-&lt;vui-button type=&quot;positive&quot;&gt;Positive&lt;/vui-button&gt;
-&lt;vui-button type=&quot;negative&quot;&gt;Negative&lt;/vui-button&gt;
-&lt;vui-button type=&quot;basic&quot;&gt;Basic&lt;/vui-button&gt;
-&lt;vui-button loading&gt;Loading&lt;/vui-button&gt;
-&lt;vui-button disabled&gt;Disabled&lt;/vui-button&gt;
-&lt;vui-button shape=&quot;circle&quot;&gt;&lt;i class=&quot;fa fa-search&quot;&gt;&lt;/i&gt;&lt;/vui-button&gt;
-&lt;vui-button&gt;&lt;i class=&quot;fa fa-search&quot;&gt;&lt;/i&gt;&lt;/vui-button&gt;
-&lt;vui-button size=&quot;small&quot;&gt;Small&lt;/vui-button&gt;</code></pre>
+          <pre v-highlightjs><code class="html">&lt;fish-button&gt;Default&lt;/fish-button&gt;
+&lt;fish-button active&gt;Default&lt;/fish-button&gt;
+&lt;fish-button type=&quot;primary&quot;&gt;Primary&lt;/fish-button&gt;
+&lt;fish-button type=&quot;positive&quot;&gt;Positive&lt;/fish-button&gt;
+&lt;fish-button type=&quot;negative&quot;&gt;Negative&lt;/fish-button&gt;
+&lt;fish-button type=&quot;basic&quot;&gt;Basic&lt;/fish-button&gt;
+&lt;fish-button loading&gt;Loading&lt;/fish-button&gt;
+&lt;fish-button disabled&gt;Disabled&lt;/fish-button&gt;
+&lt;fish-button shape=&quot;circle&quot;&gt;&lt;i class=&quot;fa fa-search&quot;&gt;&lt;/i&gt;&lt;/fish-button&gt;
+&lt;fish-button&gt;&lt;i class=&quot;fa fa-search&quot;&gt;&lt;/i&gt;&lt;/fish-button&gt;
+&lt;fish-button size=&quot;small&quot;&gt;Small&lt;/fish-button&gt;</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Button Group</h3>
-    <vui-card>
-      <vui-buttons>
-        <vui-button>Left</vui-button>
-        <vui-button>Center</vui-button>
-        <vui-button>Right</vui-button>
-      </vui-buttons>
-      <vui-buttons type="positive">
-        <vui-button>Left</vui-button>
-        <vui-button>Center</vui-button>
-        <vui-button>Right</vui-button>
-      </vui-buttons>
-      <vui-buttons size="big">
-        <vui-button>Left</vui-button>
-        <vui-button>Center</vui-button>
-        <vui-button>Right</vui-button>
-      </vui-buttons>
+    <fish-card>
+      <fish-buttons>
+        <fish-button>Left</fish-button>
+        <fish-button>Center</fish-button>
+        <fish-button>Right</fish-button>
+      </fish-buttons>
+      <fish-buttons type="positive">
+        <fish-button>Left</fish-button>
+        <fish-button>Center</fish-button>
+        <fish-button>Right</fish-button>
+      </fish-buttons>
+      <fish-buttons size="big">
+        <fish-button>Left</fish-button>
+        <fish-button>Center</fish-button>
+        <fish-button>Right</fish-button>
+      </fish-buttons>
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-buttons&gt;
-  &lt;vui-button&gt;Left&lt;/vui-button&gt;
-  &lt;vui-button&gt;Center&lt;/vui-button&gt;
-  &lt;vui-button&gt;Right&lt;/vui-button&gt;
-&lt;/vui-buttons&gt;
-&lt;vui-buttons type=&quot;positive&quot;&gt;
-  &lt;vui-button&gt;Left&lt;/vui-button&gt;
-  &lt;vui-button&gt;Center&lt;/vui-button&gt;
-  &lt;vui-button&gt;Right&lt;/vui-button&gt;
-&lt;/vui-buttons&gt;
-&lt;vui-buttons size=&quot;big&quot;&gt;
-  &lt;vui-button&gt;Left&lt;/vui-button&gt;
-  &lt;vui-button&gt;Center&lt;/vui-button&gt;
-  &lt;vui-button&gt;Right&lt;/vui-button&gt;
-&lt;/vui-buttons&gt;</code></pre>
+        <pre v-highlightjs><code class="html">&lt;fish-buttons&gt;
+  &lt;fish-button&gt;Left&lt;/fish-button&gt;
+  &lt;fish-button&gt;Center&lt;/fish-button&gt;
+  &lt;fish-button&gt;Right&lt;/fish-button&gt;
+&lt;/fish-buttons&gt;
+&lt;fish-buttons type=&quot;positive&quot;&gt;
+  &lt;fish-button&gt;Left&lt;/fish-button&gt;
+  &lt;fish-button&gt;Center&lt;/fish-button&gt;
+  &lt;fish-button&gt;Right&lt;/fish-button&gt;
+&lt;/fish-buttons&gt;
+&lt;fish-buttons size=&quot;big&quot;&gt;
+  &lt;fish-button&gt;Left&lt;/fish-button&gt;
+  &lt;fish-button&gt;Center&lt;/fish-button&gt;
+  &lt;fish-button&gt;Right&lt;/fish-button&gt;
+&lt;/fish-buttons&gt;</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Button Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -81,7 +81,7 @@
     </div>
 
     <h3>Buttons Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

@@ -1,56 +1,56 @@
 <template>
   <div>
-    <div :class="['vui table', {'border': border, 'stripe': stripe}]" ref="root">
-      <div :class="['vui dimmer', {'active': loading}]"></div>
+    <div :class="['fish table', {'border': border, 'stripe': stripe}]" ref="root">
+      <div :class="['fish dimmer', {'active': loading}]"></div>
       <div class="header" ref="header">
-        <vui-table-head :columns="allLeafColumns" :rows="rows" :scrollY="scrollY"
+        <fish-table-head :columns="allLeafColumns" :rows="rows" :scrollY="scrollY"
                         :expandedRowRender="fixedLeftColumns.length <= 0 && fixedRightColumns.length <= 0 && expandedRowRender || undefined"
-                        @select="headSelectHandler" @filter-change="filterChangeHandler" ref="vth"></vui-table-head>
+                        @select="headSelectHandler" @filter-change="filterChangeHandler" ref="vth"></fish-table-head>
       </div>
       <div class="body" ref="body">
-        <vui-table-body :columns="allLeafColumns" :rows="data" :scrollY="scrollY"
+        <fish-table-body :columns="allLeafColumns" :rows="data" :scrollY="scrollY"
                         :expandedRowRender="fixedLeftColumns.length <= 0 && fixedRightColumns.length <= 0 && expandedRowRender || undefined"
-                        @select="bodySelectHandler" ref="vtb"></vui-table-body>
+                        @select="bodySelectHandler" ref="vtb"></fish-table-body>
       </div>
       <!-- fixed column -->
       <div class="fixed left" v-if="fixedLeftColumns.length > 0 && maxRows <= 1">
         <div class="header" ref="flHeader">
-          <vui-table-head :columns="fixedLeftColumns" :rows="[fixedLeftColumns]" @select="headSelectHandler" ref="lVth"></vui-table-head>
+          <fish-table-head :columns="fixedLeftColumns" :rows="[fixedLeftColumns]" @select="headSelectHandler" ref="lVth"></fish-table-head>
         </div>
         <div class="body" ref="flBody">
-          <vui-table-body :columns="fixedLeftColumns" :rows="data" @select="bodySelectHandler" ref="lVtb"></vui-table-body>
+          <fish-table-body :columns="fixedLeftColumns" :rows="data" @select="bodySelectHandler" ref="lVtb"></fish-table-body>
         </div>
       </div>
       <div class="fixed right" v-if="fixedRightColumns.length > 0 && maxRows <= 1" ref="fixedRight">
         <div class="header" ref="frHeader">
-          <vui-table-head :columns="fixedRightColumns" :rows="[fixedRightColumns]" @select="headSelectHandler" ref="rVth"></vui-table-head>
+          <fish-table-head :columns="fixedRightColumns" :rows="[fixedRightColumns]" @select="headSelectHandler" ref="rVth"></fish-table-head>
         </div>
         <div class="body" ref="frBody">
-          <vui-table-body :columns="fixedRightColumns" :rows="data" @select="bodySelectHandler" ref="rVtb"></vui-table-body>
+          <fish-table-body :columns="fixedRightColumns" :rows="data" @select="bodySelectHandler" ref="rVtb"></fish-table-body>
         </div>
       </div>
     </div>
     <div style="margin: 10px 0; overflow: hidden" v-if="pagination">
       <div style="float: right">
-        <vui-pagination :total="pagination.total" :current="pagination.current" @change="pageChangeHandler"></vui-pagination>
+        <fish-pagination :total="pagination.total" :current="pagination.current" @change="pageChangeHandler"></fish-pagination>
       </div>
     </div>
   </div>
 </template>
 <script>
-  import VuiTableHead from './TableHead.vue'
-  import VuiTableBody from './TableBody.vue'
-  import VuiPagination from './Pagination.vue'
+  import fishTableHead from './TableHead.vue'
+  import fishTableBody from './TableBody.vue'
+  import fishPagination from './Pagination.vue'
 
   const SCROLL_WIDTH = 15
 
   export default {
     components: {
-      VuiTableBody,
-      VuiTableHead,
-      VuiPagination
+      fishTableBody,
+      fishTableHead,
+      fishPagination
     },
-    name: 'vui-table',
+    name: 'fish-table',
     props: {
       columns: { type: Array, required: true }, // [{title: '', key: '', width: 100, render: () => {}}]
       data: { type: Array, required: true },

@@ -1,26 +1,26 @@
 <template>
   <main-layout menuActiveIndex="radio">
     <h3>Radio 单选</h3>
-    <vui-card>
-      <vui-radio index="x">Choice</vui-radio>
-      <vui-radio index="1">Choice</vui-radio>
-      <vui-radio disabled index="2">Choice</vui-radio>
-      <vui-radios v-model="radiosValue">
-        <vui-radio :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index"><span v-html="c"></span></vui-radio>
-      </vui-radios>
+    <fish-card>
+      <fish-radio index="x">Choice</fish-radio>
+      <fish-radio index="1">Choice</fish-radio>
+      <fish-radio disabled index="2">Choice</fish-radio>
+      <fish-radios v-model="radiosValue">
+        <fish-radio :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index"><span v-html="c"></span></fish-radio>
+      </fish-radios>
       [{{radiosValue}}]
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-radio index=&quot;x&quot;&gt;Choice&lt;/vui-radio&gt;
-&lt;vui-radio index=&quot;1&quot;&gt;Choice&lt;/vui-radio&gt;
-&lt;vui-radio disabled index=&quot;2&quot;&gt;Choice&lt;/vui-radio&gt;
-&lt;vui-radios v-model=&quot;radiosValue&quot;&gt;
-  &lt;vui-radio :index=&quot;index&quot; v-for=&quot;(c, index) in [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]&quot; :key=&quot;index&quot;&gt;&lt;span v-html=&quot;c&quot;&gt;&lt;/span&gt;&lt;/vui-radio&gt;
-&lt;/vui-radios&gt;</code></pre>
+        <pre v-highlightjs><code class="html">&lt;fish-radio index=&quot;x&quot;&gt;Choice&lt;/fish-radio&gt;
+&lt;fish-radio index=&quot;1&quot;&gt;Choice&lt;/fish-radio&gt;
+&lt;fish-radio disabled index=&quot;2&quot;&gt;Choice&lt;/fish-radio&gt;
+&lt;fish-radios v-model=&quot;radiosValue&quot;&gt;
+  &lt;fish-radio :index=&quot;index&quot; v-for=&quot;(c, index) in [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]&quot; :key=&quot;index&quot;&gt;&lt;span v-html=&quot;c&quot;&gt;&lt;/span&gt;&lt;/fish-radio&gt;
+&lt;/fish-radios&gt;</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Radio Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

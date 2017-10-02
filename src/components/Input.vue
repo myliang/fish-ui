@@ -17,7 +17,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-input',
+    name: 'fish-input',
     props: {
       value: { type: String, default: '' },
       type: { type: String, default: 'text' },
@@ -38,7 +38,7 @@
     computed: {
       classObject () {
         return [
-          'vui input',
+          'fish input',
           this.icon && this.iconLeft ? 'left' : 'right',
           {'loading': this.loading},
           this.size,

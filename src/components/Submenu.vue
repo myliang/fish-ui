@@ -5,14 +5,14 @@
       @click="clickHandler"
       v-clickoutside="awayHandler" ref="submenu">
     <div class="title" ref="subtitle"><slot name="title"></slot></div>
-    <ul :class="['vui menu', this.mode]" v-show="visible"><slot></slot></ul>
+    <ul :class="['fish menu', this.mode]" v-show="visible"><slot></slot></ul>
   </li>
 </template>
 <script>
   import clickoutside from '../directives/clickoutside'
   export default {
     directives: { clickoutside },
-    name: 'vui-submenu',
+    name: 'fish-submenu',
     props: {
       trigger: { type: String, default: 'hover' },
       index: { type: String },

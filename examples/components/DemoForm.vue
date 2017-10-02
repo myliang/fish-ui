@@ -1,34 +1,34 @@
 <template>
   <main-layout menuActiveIndex="form">
     <h3>Form 表单</h3>
-    <vui-card>
-      <vui-form>
-        <vui-fields>
-          <vui-field label="First Name" span="eight">
-            <vui-input></vui-input>
-          </vui-field>
-          <vui-field label="Last Name" span="eight">
-            <vui-input></vui-input>
-          </vui-field>
-        </vui-fields>
-        <vui-field label="Username" inline>
-          <vui-input></vui-input>
-        </vui-field>
-        <vui-field label="Password">
-          <vui-input type="password"></vui-input>
-        </vui-field>
-        <vui-field>
-          <vui-checkbox index="0">I agree to the terms and conditions</vui-checkbox>
-        </vui-field>
-        <vui-button type="primary" @click="showModal = false">Submit</vui-button>
-      </vui-form>
+    <fish-card>
+      <fish-form>
+        <fish-fields>
+          <fish-field label="First Name" span="eight">
+            <fish-input></fish-input>
+          </fish-field>
+          <fish-field label="Last Name" span="eight">
+            <fish-input></fish-input>
+          </fish-field>
+        </fish-fields>
+        <fish-field label="Username" inline>
+          <fish-input></fish-input>
+        </fish-field>
+        <fish-field label="Password">
+          <fish-input type="password"></fish-input>
+        </fish-field>
+        <fish-field>
+          <fish-checkbox index="0">I agree to the terms and conditions</fish-checkbox>
+        </fish-field>
+        <fish-button type="primary" @click="showModal = false">Submit</fish-button>
+      </fish-form>
       <div slot="footer">
         <pre v-highlightjs><code class="html"></code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Form Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -44,7 +44,7 @@
     </div>
 
     <h3>Form Field Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

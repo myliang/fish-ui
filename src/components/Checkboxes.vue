@@ -1,11 +1,11 @@
 <template>
-  <div :class="['vui checkboxes', mode]" @click="clickHandler">
+  <div :class="['fish checkboxes', mode]" @click="clickHandler">
     <slot></slot>
   </div>
 </template>
 <script>
   export default {
-    name: 'vui-checkboxes',
+    name: 'fish-checkboxes',
     props: {
       value: { type: Array },
       mode: { type: String, default: 'horizontal' } // horizontal, vertical

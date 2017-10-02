@@ -1,36 +1,36 @@
 <template>
   <main-layout menuActiveIndex="tabs">
     <h3>Tabs 标签页</h3>
-    <vui-card>
-      <vui-tabs value="role">
-        <vui-tab-pane label="用户管理" index="user">用户管理</vui-tab-pane>
-        <vui-tab-pane label="角色管理" index="role">角色管理</vui-tab-pane>
-        <vui-tab-pane label="配置管理" index="config">配置管理</vui-tab-pane>
-      </vui-tabs><br/>
-      <vui-tabs type="card" value="user" @tab-change="tabChangeHandler">
-        <vui-tab-pane label="用户管理" index="user">用户管理</vui-tab-pane>
-        <vui-tab-pane label="角色管理" index="role">角色管理</vui-tab-pane>
-        <vui-tab-pane label="配置管理" index="config">配置管理</vui-tab-pane>
-      </vui-tabs>
+    <fish-card>
+      <fish-tabs value="role">
+        <fish-tab-pane label="用户管理" index="user">用户管理</fish-tab-pane>
+        <fish-tab-pane label="角色管理" index="role">角色管理</fish-tab-pane>
+        <fish-tab-pane label="配置管理" index="config">配置管理</fish-tab-pane>
+      </fish-tabs><br/>
+      <fish-tabs type="card" value="user" @tab-change="tabChangeHandler">
+        <fish-tab-pane label="用户管理" index="user">用户管理</fish-tab-pane>
+        <fish-tab-pane label="角色管理" index="role">角色管理</fish-tab-pane>
+        <fish-tab-pane label="配置管理" index="config">配置管理</fish-tab-pane>
+      </fish-tabs>
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-tabs value=&quot;role&quot;&gt;
-  &lt;vui-tab-pane label=&quot;用户管理&quot; index=&quot;user&quot;&gt;用户管理&lt;/vui-tab-pane&gt;
-  &lt;vui-tab-pane label=&quot;角色管理&quot; index=&quot;role&quot;&gt;角色管理&lt;/vui-tab-pane&gt;
-  &lt;vui-tab-pane label=&quot;配置管理&quot; index=&quot;config&quot;&gt;配置管理&lt;/vui-tab-pane&gt;
-&lt;/vui-tabs&gt;&lt;br/&gt;
-&lt;vui-tabs type=&quot;card&quot; value=&quot;user&quot; @tab-change=&quot;tabChangeHandler&quot;&gt;
-  &lt;vui-tab-pane label=&quot;用户管理&quot; index=&quot;user&quot;&gt;用户管理&lt;/vui-tab-pane&gt;
-  &lt;vui-tab-pane label=&quot;角色管理&quot; index=&quot;role&quot;&gt;角色管理&lt;/vui-tab-pane&gt;
-  &lt;vui-tab-pane label=&quot;配置管理&quot; index=&quot;config&quot;&gt;配置管理&lt;/vui-tab-pane&gt;
-&lt;/vui-tabs&gt;</code></pre><br/>
+        <pre v-highlightjs><code class="html">&lt;fish-tabs value=&quot;role&quot;&gt;
+  &lt;fish-tab-pane label=&quot;用户管理&quot; index=&quot;user&quot;&gt;用户管理&lt;/fish-tab-pane&gt;
+  &lt;fish-tab-pane label=&quot;角色管理&quot; index=&quot;role&quot;&gt;角色管理&lt;/fish-tab-pane&gt;
+  &lt;fish-tab-pane label=&quot;配置管理&quot; index=&quot;config&quot;&gt;配置管理&lt;/fish-tab-pane&gt;
+&lt;/fish-tabs&gt;&lt;br/&gt;
+&lt;fish-tabs type=&quot;card&quot; value=&quot;user&quot; @tab-change=&quot;tabChangeHandler&quot;&gt;
+  &lt;fish-tab-pane label=&quot;用户管理&quot; index=&quot;user&quot;&gt;用户管理&lt;/fish-tab-pane&gt;
+  &lt;fish-tab-pane label=&quot;角色管理&quot; index=&quot;role&quot;&gt;角色管理&lt;/fish-tab-pane&gt;
+  &lt;fish-tab-pane label=&quot;配置管理&quot; index=&quot;config&quot;&gt;配置管理&lt;/fish-tab-pane&gt;
+&lt;/fish-tabs&gt;</code></pre><br/>
         <pre v-highlightjs><code class="javascript">tabChangeHandler (index) {
   console.log('tab.index: ', index)
 }</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Tabs Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -46,7 +46,7 @@
     </div>
 
     <h3>Tabs Events</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -62,7 +62,7 @@
     </div>
 
     <h3>TabPanel Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

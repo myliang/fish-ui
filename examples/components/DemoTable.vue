@@ -1,34 +1,34 @@
 <template>
   <main-layout menuActiveIndex="table">
     <h3>Table 表格</h3>
-    <vui-card>
-      <vui-checkbox index="loading" v-model="loading">Loading</vui-checkbox>
-      <vui-table :columns="columns_1" :data="data_1" :loading="loading"></vui-table><br/>
-      <vui-table :columns="columns_2" :data="data_2" :loading="loading" :expandedRowRender="(record)=>record"></vui-table>
+    <fish-card>
+      <fish-checkbox index="loading" v-model="loading">Loading</fish-checkbox>
+      <fish-table :columns="columns_1" :data="data_1" :loading="loading"></fish-table><br/>
+      <fish-table :columns="columns_2" :data="data_2" :loading="loading" :expandedRowRender="(record)=>record"></fish-table>
       <br/>
-      <vui-table :columns="columns_3" :data="data_3" border  :pagination="pagination" @change="changeHandler"></vui-table>
+      <fish-table :columns="columns_3" :data="data_3" border  :pagination="pagination" @change="changeHandler"></fish-table>
       <br/>
-      <vui-table :columns="columns_4" :data="data_4" border height="200"></vui-table>
+      <fish-table :columns="columns_4" :data="data_4" border height="200"></fish-table>
       <br/>
-      <vui-table :columns="columns_5" :data="data_5" border></vui-table>
+      <fish-table :columns="columns_5" :data="data_5" border></fish-table>
       <br/>
-      <vui-table :columns="columns_6" :data="data_6" border height="200"></vui-table>
+      <fish-table :columns="columns_6" :data="data_6" border height="200"></fish-table>
       <br/>
-      <vui-table :columns="columns_7" :data="data_7" border height="200"></vui-table>
+      <fish-table :columns="columns_7" :data="data_7" border height="200"></fish-table>
       <footer slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-checkbox index=&quot;loading&quot; v-model=&quot;loading&quot;&gt;Loading&lt;/vui-checkbox&gt;
-&lt;vui-table :columns=&quot;columns_1&quot; :data=&quot;data_1&quot; :loading=&quot;loading&quot;&gt;&lt;/vui-table&gt;&lt;br/&gt;
-&lt;vui-table :columns=&quot;columns_2&quot; :data=&quot;data_2&quot; :loading=&quot;loading&quot; :expandedRowRender=&quot;(record)=&gt;record&quot;&gt;&lt;/vui-table&gt;
+        <pre v-highlightjs><code class="html">&lt;fish-checkbox index=&quot;loading&quot; v-model=&quot;loading&quot;&gt;Loading&lt;/fish-checkbox&gt;
+&lt;fish-table :columns=&quot;columns_1&quot; :data=&quot;data_1&quot; :loading=&quot;loading&quot;&gt;&lt;/fish-table&gt;&lt;br/&gt;
+&lt;fish-table :columns=&quot;columns_2&quot; :data=&quot;data_2&quot; :loading=&quot;loading&quot; :expandedRowRender=&quot;(record)=&gt;record&quot;&gt;&lt;/fish-table&gt;
 &lt;br/&gt;
-&lt;vui-table :columns=&quot;columns_3&quot; :data=&quot;data_3&quot; border  :pagination=&quot;pagination&quot; @change=&quot;changeHandler&quot;&gt;&lt;/vui-table&gt;
+&lt;fish-table :columns=&quot;columns_3&quot; :data=&quot;data_3&quot; border  :pagination=&quot;pagination&quot; @change=&quot;changeHandler&quot;&gt;&lt;/fish-table&gt;
 &lt;br/&gt;
-&lt;vui-table :columns=&quot;columns_4&quot; :data=&quot;data_4&quot; border height=&quot;200&quot;&gt;&lt;/vui-table&gt;
+&lt;fish-table :columns=&quot;columns_4&quot; :data=&quot;data_4&quot; border height=&quot;200&quot;&gt;&lt;/fish-table&gt;
 &lt;br/&gt;
-&lt;vui-table :columns=&quot;columns_5&quot; :data=&quot;data_5&quot; border&gt;&lt;/vui-table&gt;
+&lt;fish-table :columns=&quot;columns_5&quot; :data=&quot;data_5&quot; border&gt;&lt;/fish-table&gt;
 &lt;br/&gt;
-&lt;vui-table :columns=&quot;columns_6&quot; :data=&quot;data_6&quot; border height=&quot;200&quot;&gt;&lt;/vui-table&gt;
+&lt;fish-table :columns=&quot;columns_6&quot; :data=&quot;data_6&quot; border height=&quot;200&quot;&gt;&lt;/fish-table&gt;
 &lt;br/&gt;
-&lt;vui-table :columns=&quot;columns_7&quot; :data=&quot;data_7&quot; border height=&quot;200&quot;&gt;&lt;/vui-table&gt;</code></pre><br/>
+&lt;fish-table :columns=&quot;columns_7&quot; :data=&quot;data_7&quot; border height=&quot;200&quot;&gt;&lt;/fish-table&gt;</code></pre><br/>
         <pre v-highlightjs><code class="javascript">data () {
   return {
     loading: false,
@@ -166,10 +166,10 @@
   }
 }</code></pre>
       </footer>
-    </vui-card>
+    </fish-card>
 
     <h3>Table Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -184,7 +184,7 @@
       </table>
     </div>
     <h3>Table Column Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

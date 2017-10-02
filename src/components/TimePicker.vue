@@ -1,5 +1,5 @@
 <template>
-  <div class="vui input time-picker"
+  <div class="fish input time-picker"
        @click="clickHandler"
        @mouseover="mouseOverHandler"
        @mouseout="mouseOutHandler"
@@ -8,7 +8,7 @@
     <i class="fa fa-times-circle" style="opacity: .6;" @click.stop="clearHandler" v-if="showClear && !valueEmpty"></i>
     <i class="fa fa-calendar" v-else></i>
     <div v-if="visible" class="content" :style="{width: `${(62 + 2) * groups.length}px`}">
-      <ul class="vui menu vertical" v-for="(group, groupIndex) in groups">
+      <ul class="fish menu vertical" v-for="(group, groupIndex) in groups">
         <li :class="['item', {'active': item === (value.split(':')[groupIndex] || '00')}]"
             @click.stop="selectHandler(item, groupIndex)"
             v-for="item in group">{{ item }}</li>
@@ -20,7 +20,7 @@
   import clickoutside from '../directives/clickoutside'
   import { calendar } from '../config'
   export default {
-    name: 'vui-time-picker',
+    name: 'fish-time-picker',
     directives: { clickoutside },
     props: {
       value: { type: String, default: '00:00:00' },

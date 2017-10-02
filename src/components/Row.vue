@@ -1,11 +1,11 @@
 <template>
-  <div :class="['vui row', align, justify]">
+  <div :class="['fish row', align, justify]">
     <slot></slot>
   </div>
 </template>
 <script>
   export default {
-    name: 'vui-row',
+    name: 'fish-row',
     props: {
       gutter: { type: [String, Number], default: 0 },
       align: { type: [String, Number], default: 'top' },

@@ -1,10 +1,10 @@
 <template>
   <div :class="classObject" v-if="edited">
-    <vui-tag :key="item" :index="item" v-for="(item, index) in items"
+    <fish-tag :key="item" :index="item" v-for="(item, index) in items"
             @click="clickHandler($event, index)" @close="closeHandler($event, index)">
       {{typeof item === 'object' ? item[1] : item}}
-    </vui-tag>
-    <a class="vui tag" v-if="onAddExists && !isClickAdd" @click="addHandler">
+    </fish-tag>
+    <a class="fish tag" v-if="onAddExists && !isClickAdd" @click="addHandler">
       <i class="fa fa-plus" style="margin-left:0;"></i>
     </a>
     <input type="text"
@@ -15,7 +15,7 @@
            v-if="onAddExists && isClickAdd"/>
   </div>
   <div :class="classObject" v-else>
-    <a :class="['vui tag', typeof item === 'object' && item[0] && 'primary']"
+    <a :class="['fish tag', typeof item === 'object' && item[0] && 'primary']"
        @click="clickHandler($event, index)"
        :key="index" v-for="(item, index) in items">
       {{typeof item === 'object' ? item[1] : item}}
@@ -23,11 +23,11 @@
   </div>
 </template>
 <script>
-  import VuiTag from './Tag'
+  import fishTag from './Tag'
   export default {
-    name: 'vui-tags',
+    name: 'fish-tags',
     components: {
-      VuiTag
+      fishTag
     },
     props: {
       size: String,
@@ -36,7 +36,7 @@
     },
     computed: {
       classObject () {
-        return ['vui tags', this.size]
+        return ['fish tags', this.size]
       },
       onAddExists () {
         return this._events.add

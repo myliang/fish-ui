@@ -1,5 +1,5 @@
 <template>
-  <div class="vui input tree-select"
+  <div class="fish input tree-select"
        @click="clickHandler"
        @mouseover="mouseOverHandler"
        @mouseout="mouseOutHandler"
@@ -8,16 +8,16 @@
     <i class="fa fa-times-circle" style="opacity: .6;" @click.stop="clearHandler" v-if="showClear && !valueEmpty"></i>
     <i class="fa fa-angle-down" v-else></i>
     <div class="content" v-if="visible">
-      <vui-tree :data="data" :value="value" @select="selectHandler"></vui-tree>
+      <fish-tree :data="data" :value="value" @select="selectHandler"></fish-tree>
     </div>
   </div>
 </template>
 <script>
   import clickoutside from '../directives/clickoutside'
-  import VuiTree from './Tree.vue'
+  import fishTree from './Tree.vue'
   export default {
-    components: {VuiTree},
-    name: 'vui-tree-select',
+    components: {fishTree},
+    name: 'fish-tree-select',
     directives: { clickoutside },
     props: {
       value: { type: String, default: '' },

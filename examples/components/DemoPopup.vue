@@ -1,12 +1,12 @@
 <template>
   <main-layout menuActiveIndex="popup">
     <h3>Popup 弹出框</h3>
-    <vui-card>
-      <vui-button @click="popupHandler">弹出确认框</vui-button>
-      <vui-button @click="popup2Handler">弹出确认框2</vui-button>
+    <fish-card>
+      <fish-button @click="popupHandler">弹出确认框</fish-button>
+      <fish-button @click="popup2Handler">弹出确认框2</fish-button>
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-button @click=&quot;popupHandler&quot;&gt;弹出确认框&lt;/vui-button&gt;
-&lt;vui-button @click=&quot;popup2Handler&quot;&gt;弹出确认框2&lt;/vui-button&gt;</code></pre><br/>
+        <pre v-highlightjs><code class="html">&lt;fish-button @click=&quot;popupHandler&quot;&gt;弹出确认框&lt;/fish-button&gt;
+&lt;fish-button @click=&quot;popup2Handler&quot;&gt;弹出确认框2&lt;/fish-button&gt;</code></pre><br/>
         <pre v-highlightjs><code class="javascript">popupHandler (event) {
   popup.confirm(event, '确定要删除这条记录吗？', () => {
     console.log('OK....')
@@ -18,7 +18,7 @@ popup2Handler (event) {
   }, '确认', '取消')
 }</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Popup API</h3>
     <ul class="api">
@@ -26,7 +26,7 @@ popup2Handler (event) {
     </ul>
 
     <h3>函数参数说明</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

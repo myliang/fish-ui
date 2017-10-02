@@ -1,58 +1,58 @@
 <template>
   <main-layout menuActiveIndex="select">
     <h3>Select 下拉选框</h3>
-    <vui-card>
-      <vui-select v-model="singleSelectedValue">
-        <vui-option index="0" content="Option-1"></vui-option>
-        <vui-option index="1" content="Option-2"></vui-option>
-        <vui-option index="2" content="Option-3"></vui-option>
-        <vui-option index="3" content="Option-4"></vui-option>
-        <vui-option index="4" content="Option-5"></vui-option>
-      </vui-select>
-      <vui-select search v-model="singleSelectedValueWthSearch">
-        <vui-option index="10" content="abcd"></vui-option>
-        <vui-option index="11" content="abc"></vui-option>
-        <vui-option index="12" content="ab"></vui-option>
-        <vui-option index="13" content="abd"></vui-option>
-        <vui-option index="14" content="abdf"></vui-option>
-      </vui-select>
+    <fish-card>
+      <fish-select v-model="singleSelectedValue">
+        <fish-option index="0" content="Option-1"></fish-option>
+        <fish-option index="1" content="Option-2"></fish-option>
+        <fish-option index="2" content="Option-3"></fish-option>
+        <fish-option index="3" content="Option-4"></fish-option>
+        <fish-option index="4" content="Option-5"></fish-option>
+      </fish-select>
+      <fish-select search v-model="singleSelectedValueWthSearch">
+        <fish-option index="10" content="abcd"></fish-option>
+        <fish-option index="11" content="abc"></fish-option>
+        <fish-option index="12" content="ab"></fish-option>
+        <fish-option index="13" content="abd"></fish-option>
+        <fish-option index="14" content="abdf"></fish-option>
+      </fish-select>
       [{{ singleSelectedValueWthSearch }}]
-      <vui-select search multiple v-model="multipleValues" style="width: 300px;" @change="changeHandler">
-        <vui-option index="0" content="abcd"></vui-option>
-        <vui-option index="1" content="abc"></vui-option>
-        <vui-option index="2" content="ab"></vui-option>
-        <vui-option index="3" content="abd"></vui-option>
-        <vui-option index="4" content="abdf"></vui-option>
-        <vui-option index="5" content="abdf5"></vui-option>
-        <vui-option index="6" content="abdf6"></vui-option>
-        <vui-option index="7" content="abdf7"></vui-option>
-      </vui-select>
+      <fish-select search multiple v-model="multipleValues" style="width: 300px;" @change="changeHandler">
+        <fish-option index="0" content="abcd"></fish-option>
+        <fish-option index="1" content="abc"></fish-option>
+        <fish-option index="2" content="ab"></fish-option>
+        <fish-option index="3" content="abd"></fish-option>
+        <fish-option index="4" content="abdf"></fish-option>
+        <fish-option index="5" content="abdf5"></fish-option>
+        <fish-option index="6" content="abdf6"></fish-option>
+        <fish-option index="7" content="abdf7"></fish-option>
+      </fish-select>
       [{{ multipleValues }}]
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-select v-model=&quot;singleSelectedValue&quot;&gt;
-  &lt;vui-option index=&quot;0&quot; content=&quot;Option-1&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;1&quot; content=&quot;Option-2&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;2&quot; content=&quot;Option-3&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;3&quot; content=&quot;Option-4&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;4&quot; content=&quot;Option-5&quot;&gt;&lt;/vui-option&gt;
-&lt;/vui-select&gt;
-&lt;vui-select search v-model=&quot;singleSelectedValueWthSearch&quot;&gt;
-  &lt;vui-option index=&quot;10&quot; content=&quot;abcd&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;11&quot; content=&quot;abc&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;12&quot; content=&quot;ab&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;13&quot; content=&quot;abd&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;14&quot; content=&quot;abdf&quot;&gt;&lt;/vui-option&gt;
-&lt;/vui-select&gt;
-&lt;vui-select search multiple v-model=&quot;multipleValues&quot; style=&quot;width: 300px;&quot; @change=&quot;changeHandler&quot;&gt;
-  &lt;vui-option index=&quot;0&quot; content=&quot;abcd&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;1&quot; content=&quot;abc&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;2&quot; content=&quot;ab&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;3&quot; content=&quot;abd&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;4&quot; content=&quot;abdf&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;5&quot; content=&quot;abdf5&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;6&quot; content=&quot;abdf6&quot;&gt;&lt;/vui-option&gt;
-  &lt;vui-option index=&quot;7&quot; content=&quot;abdf7&quot;&gt;&lt;/vui-option&gt;
-&lt;/vui-select&gt;</code></pre>
+        <pre v-highlightjs><code class="html">&lt;fish-select v-model=&quot;singleSelectedValue&quot;&gt;
+  &lt;fish-option index=&quot;0&quot; content=&quot;Option-1&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;1&quot; content=&quot;Option-2&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;2&quot; content=&quot;Option-3&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;3&quot; content=&quot;Option-4&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;4&quot; content=&quot;Option-5&quot;&gt;&lt;/fish-option&gt;
+&lt;/fish-select&gt;
+&lt;fish-select search v-model=&quot;singleSelectedValueWthSearch&quot;&gt;
+  &lt;fish-option index=&quot;10&quot; content=&quot;abcd&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;11&quot; content=&quot;abc&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;12&quot; content=&quot;ab&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;13&quot; content=&quot;abd&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;14&quot; content=&quot;abdf&quot;&gt;&lt;/fish-option&gt;
+&lt;/fish-select&gt;
+&lt;fish-select search multiple v-model=&quot;multipleValues&quot; style=&quot;width: 300px;&quot; @change=&quot;changeHandler&quot;&gt;
+  &lt;fish-option index=&quot;0&quot; content=&quot;abcd&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;1&quot; content=&quot;abc&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;2&quot; content=&quot;ab&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;3&quot; content=&quot;abd&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;4&quot; content=&quot;abdf&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;5&quot; content=&quot;abdf5&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;6&quot; content=&quot;abdf6&quot;&gt;&lt;/fish-option&gt;
+  &lt;fish-option index=&quot;7&quot; content=&quot;abdf7&quot;&gt;&lt;/fish-option&gt;
+&lt;/fish-select&gt;</code></pre>
       <pre v-highlightjs><code class="javascript">data () {
   return {
     multipleValues: [],
@@ -66,10 +66,10 @@ methods: {
   }
 }</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Select Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -85,7 +85,7 @@ methods: {
     </div>
 
     <h3>Select Events</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -101,7 +101,7 @@ methods: {
     </div>
 
     <h3>Select Option Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

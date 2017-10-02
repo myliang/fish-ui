@@ -1,11 +1,11 @@
 <template>
-  <div :class="['vui message', type]">
+  <div :class="['fish message', type]">
     <slot></slot>
   </div>
 </template>
 <script>
   export default {
-    name: 'vui-message',
+    name: 'fish-message',
     props: {
       type: { type: String, default: 'warning' }
     }

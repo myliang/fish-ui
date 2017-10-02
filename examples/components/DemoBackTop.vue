@@ -1,15 +1,15 @@
 <template>
   <main-layout menuActiveIndex="backtop" style="height: 1200px;">
     <h3>BackTop 返回顶部</h3>
-    <vui-card>
-      <vui-back-top></vui-back-top> 当出现纵向滚动条，同事向下滚动时候，在浏览器右下脚会出现此按钮，点击可返回顶部
+    <fish-card>
+      <fish-back-top></fish-back-top> 当出现纵向滚动条，同事向下滚动时候，在浏览器右下脚会出现此按钮，点击可返回顶部
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-back-top&gt;&lt;/vui-back-top&gt;</code></pre>
+        <pre v-highlightjs><code class="html">&lt;fish-back-top&gt;&lt;/fish-back-top&gt;</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>BackTop Events</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

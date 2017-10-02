@@ -1,35 +1,35 @@
 <template>
   <main-layout menuActiveIndex="checkbox">
     <h3>Checkbox 多选</h3>
-    <vui-card>
-      <vui-checkbox index="x">Checkbox</vui-checkbox>
-      <vui-checkbox index="x" disabled>Checkbox</vui-checkbox>
-      <vui-checkboxes v-model="checkboxesValue">
-        <vui-checkbox :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index">checkbox:<span v-html="c"></span></vui-checkbox>
-      </vui-checkboxes>
-      <vui-checkboxes v-model="checkboxesValue" mode="vertical">
-        <vui-checkbox :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index">checkbox:<span v-html="c"></span></vui-checkbox>
-      </vui-checkboxes>
+    <fish-card>
+      <fish-checkbox index="x">Checkbox</fish-checkbox>
+      <fish-checkbox index="x" disabled>Checkbox</fish-checkbox>
+      <fish-checkboxes v-model="checkboxesValue">
+        <fish-checkbox :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index">checkbox:<span v-html="c"></span></fish-checkbox>
+      </fish-checkboxes>
+      <fish-checkboxes v-model="checkboxesValue" mode="vertical">
+        <fish-checkbox :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index">checkbox:<span v-html="c"></span></fish-checkbox>
+      </fish-checkboxes>
       [{{checkboxesValue}}]
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-checkbox index=&quot;x&quot;&gt;Checkbox&lt;/vui-checkbox&gt;
-&lt;vui-checkbox index=&quot;x&quot; disabled&gt;Checkbox&lt;/vui-checkbox&gt;
-&lt;vui-checkboxes v-model=&quot;checkboxesValue&quot;&gt;
-  &lt;vui-checkbox :index=&quot;index&quot; v-for=&quot;(c, index) in [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]&quot; :key=&quot;index&quot;&gt;checkbox:&lt;span v-html=&quot;c&quot;&gt;&lt;/span&gt;&lt;/vui-checkbox&gt;
-&lt;/vui-checkboxes&gt;
-&lt;vui-checkboxes v-model=&quot;checkboxesValue&quot; type=&quot;list&quot;&gt;
-  &lt;vui-checkbox :index=&quot;index&quot; v-for=&quot;(c, index) in [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]&quot; :key=&quot;index&quot;&gt;checkbox:&lt;span v-html=&quot;c&quot;&gt;&lt;/span&gt;&lt;/vui-checkbox&gt;
-&lt;/vui-checkboxes&gt;</code></pre><br/>
+        <pre v-highlightjs><code class="html">&lt;fish-checkbox index=&quot;x&quot;&gt;Checkbox&lt;/fish-checkbox&gt;
+&lt;fish-checkbox index=&quot;x&quot; disabled&gt;Checkbox&lt;/fish-checkbox&gt;
+&lt;fish-checkboxes v-model=&quot;checkboxesValue&quot;&gt;
+  &lt;fish-checkbox :index=&quot;index&quot; v-for=&quot;(c, index) in [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]&quot; :key=&quot;index&quot;&gt;checkbox:&lt;span v-html=&quot;c&quot;&gt;&lt;/span&gt;&lt;/fish-checkbox&gt;
+&lt;/fish-checkboxes&gt;
+&lt;fish-checkboxes v-model=&quot;checkboxesValue&quot; type=&quot;list&quot;&gt;
+  &lt;fish-checkbox :index=&quot;index&quot; v-for=&quot;(c, index) in [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]&quot; :key=&quot;index&quot;&gt;checkbox:&lt;span v-html=&quot;c&quot;&gt;&lt;/span&gt;&lt;/fish-checkbox&gt;
+&lt;/fish-checkboxes&gt;</code></pre><br/>
         <pre v-highlightjs><code class="javascript">data () {
   return {
     checkboxesValue: []
   }
 }</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
 
     <h3>Checkboxes Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
@@ -45,7 +45,7 @@
     </div>
 
     <h3>Checkbox Attributes</h3>
-    <div class="vui table attributes">
+    <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>

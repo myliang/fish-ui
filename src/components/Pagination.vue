@@ -1,5 +1,5 @@
 <template>
-  <ul class="vui pagination">
+  <ul class="fish pagination">
     <li class="item total" v-html="totalRender(total, [(current - 1) * rows + 1, current * rows])"></li>
     <li :class="['item', {'disabled': current <= 1}]" @click.stop.prevent="prevHandler" v-html="prevRender()"></li>
     <li :class="['item', { 'active': current == 1 }]" @click.stop.prevent="firstHandler">1</li>
@@ -14,7 +14,7 @@
 </template>
 <script>
   export default {
-    name: 'vui-pagination',
+    name: 'fish-pagination',
     props: {
       total: { type: Number, required: true },
       current: { type: Number, default: 1 },

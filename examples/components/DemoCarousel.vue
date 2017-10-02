@@ -1,20 +1,20 @@
 <template>
   <main-layout menuActiveIndex="carousel">
     <h3>Carousel 走马灯</h3>
-    <vui-card>
-      <vui-carousel>
-        <vui-carousel-item v-for="index in 4" :key="index">
+    <fish-card>
+      <fish-carousel>
+        <fish-carousel-item v-for="index in 4" :key="index">
           <h3 class="carousel-xx" v-html="index"></h3>
-        </vui-carousel-item>
-      </vui-carousel>
+        </fish-carousel-item>
+      </fish-carousel>
       <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;vui-carousel&gt;
-  &lt;vui-carousel-item v-for=&quot;index in 4&quot; :key=&quot;index&quot;&gt;
+        <pre v-highlightjs><code class="html">&lt;fish-carousel&gt;
+  &lt;fish-carousel-item v-for=&quot;index in 4&quot; :key=&quot;index&quot;&gt;
     &lt;h3 class=&quot;carousel-xx&quot; v-html=&quot;index&quot;&gt;&lt;/h3&gt;
-  &lt;/vui-carousel-item&gt;
-&lt;/vui-carousel&gt;</code></pre>
+  &lt;/fish-carousel-item&gt;
+&lt;/fish-carousel&gt;</code></pre>
       </div>
-    </vui-card>
+    </fish-card>
   </main-layout>
 </template>
 <script>
