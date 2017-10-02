@@ -13,7 +13,7 @@ var env = config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
   entry: {
-    app: './src/vui.js'
+    app: './src/index.js'
   },
   module: {
     rules: utils.styleLoaders({
@@ -24,7 +24,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: 'vui.js',
+    filename: 'index.js',
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
