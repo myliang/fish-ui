@@ -62,11 +62,13 @@
         items = this.items
         index.toString().split('-').forEach((i) => {
           // console.log('::::::::::', i, '>>>', items[i])
-          items[i].active = true
-          try {
-            if (items[i].mode === 'inline') items[i].visible = true
-            items = items[i].$children
-          } catch (e) {}
+          if (items[i] !== undefined) {
+            items[i].active = true
+            try {
+              if (items[i].mode === 'inline') items[i].visible = true
+              items = items[i].$children
+            } catch (e) {}
+          }
         })
       }
     }
