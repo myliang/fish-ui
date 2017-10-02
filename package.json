@@ -1,11 +1,15 @@
 {
-  "name": "vui",
+  "name": "vui-y",
   "version": "1.0.0",
   "description": "vue ui",
   "author": "myliang <liangyuliang0335@126.com>",
   "private": false,
   "license": "MIT",
   "main": "./src/vui.js",
+  "repository": { 
+    "type": "git", 
+    "url": "https://github.com/myliang/vui.git" 
+  },
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",

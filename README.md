@@ -1,17 +1,24 @@
-<p align="center">VUI UI Components, based on Vue.js and semantic-ui CSS.</p>
+# v-ui
 
-## Demo
-<p align="center">
-  <a href="https://myliang.github.io/vui/docs/">https://myliang.github.io/vui/docs/</a>
-</p>
+> A Vue.js 2.0 UI Toolkit for Web.
 
-## Notice
-- 1.0.0.beta released.
-
-```bash
-$ npm install vui
+## Install
+```shell
+npm install vui -S
 ```
 
+## Quick Start
+``` javascript
+import Vue from 'vue'
+import Vui from 'vui'
+
+Vue.use(Vui)
+
+```
+And if you start with [vue-webpack-boilerplate](https://github.com/vuejs-templates/webpack) by vue-cli
+
+## Demo
+[https://myliang.github.io/vui/](ttps://myliang.github.io/vui/)
 
 ## Features
 - Equip with Vue.js, Vue-Router, ES6 & Babel 6
@@ -20,33 +27,48 @@ $ npm install vui
 - Stylesheets in Sass
 
 ## Components
-- 
+  - BackTop
+  - Button
+  - Buttons
+  - Calendar
+  - Card
+  - Carousel
+  - CarouselItem
+  - Cascader
+  - Checkbox
+  - Checkboxes
+  - Col
+  - DatePicker
+  - Dropdown
+  - Field
+  - Fields
+  - Form
+  - Input
+  - InputNumber
+  - Layout
+  - Menu
+  - Message
+  - Modal
+  - Option
+  - Pagination
+  - Radio
+  - Radios
+  - Row
+  - Select
+  - Steps
+  - Step
+  - Submenu
+  - Table
+  - TabPane
+  - Tabs
+  - Tag
+  - Tags
+  - TimePicker
+  - Upload
 
 
-## Getting started
-
-quick start with vue-cli.
-```
-$ npm i vue-cli -g
-$ vue init webpack test
-$ cd test
-$ yarn install
-```
-
-```
-import Vui from 'vui'
-Vue.use(Vui)
-```
-
-Run project
-```bash
-$ npm run dev
-```
-
-That's it.
-
-And if you start with [vue-webpack-boilerplate](https://github.com/vuejs-templates/webpack) by vue-cli, check the following starter for your reference.
-https://github.com/wangdahoo/vonic-webpack-starter
+## Browser Support
+Modern browsers and Internet Explorer 9+(no test).
 
 ## Thanks to
 - [semantic-ui](http://semantic-ui.cn/)
