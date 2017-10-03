@@ -3,7 +3,7 @@
     <div class="header">
       <a :class="['prev', {'disabled': state === 'year'}]" @click.stop.prevent="pageHandler(-1)"><i class="fa fa-chevron-left"></i></a>
       <a :class="mode" @click.stop="showItemsHandler(mode)" v-for="(mode, index) in modes" v-if="modeIndex >= index">{{ mode === 'month' ? current[mode] + 1 : current[mode] }}</a>
-      <a class="reset" @click.stop="reset" v-html="today" v-if="mode === 'day'"></a>
+      <!--<a class="reset" @click.stop="todayHandler" v-html="today" v-if="mode === 'day'"></a>-->
       <a :class="['next', {'disabled': state === 'year'}]" @click.stop="pageHandler(1)"><i class="fa fa-chevron-right"></i></a>
     </div>
 
@@ -104,10 +104,17 @@
         return this.cellRenderTemplate(title, content)
       },
       cellActive (item) {
+        const { current, state, valueDate } = this
         if (this.state === 'day') {
-          return this.current[this.state] === item.date() && this.current.month === item.month()
+          return valueDate.date() === item.date() && valueDate.month() === item.month() && valueDate.year() === item.year()
         }
-        return this.current[this.state] === item
+        for (let mode of modes) {
+          if (mode === state) {
+            return valueDate[mode]() === item
+          } else {
+            if (valueDate[mode]() !== current[mode]) return false
+          }
+        }
       },
       cellDisabled (item) {
         if (this.state === 'day') {
