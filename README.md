@@ -4,6 +4,7 @@
 
 ## Install
 ```shell
+npm install less less-loader -S
 npm install fish-ui -S
 ```
 
