@@ -4,10 +4,10 @@
     <fish-card>
       <fish-form>
         <fish-fields>
-          <fish-field label="First Name" span="eight">
+          <fish-field label="First Name" span="12">
             <fish-input></fish-input>
           </fish-field>
-          <fish-field label="Last Name" span="eight">
+          <fish-field label="Last Name" span="12">
             <fish-input></fish-input>
           </fish-field>
         </fish-fields>
@@ -23,7 +23,26 @@
         <fish-button type="primary" @click="showModal = false">Submit</fish-button>
       </fish-form>
       <div slot="footer">
-        <pre v-highlightjs><code class="html"></code></pre>
+        <pre v-highlightjs><code class="html">&lt;fish-form&gt;
+  &lt;fish-fields&gt;
+    &lt;fish-field label=&quot;First Name&quot; span=&quot;12&quot;&gt;
+      &lt;fish-input&gt;&lt;/fish-input&gt;
+    &lt;/fish-field&gt;
+    &lt;fish-field label=&quot;Last Name&quot; span=&quot;12&quot;&gt;
+      &lt;fish-input&gt;&lt;/fish-input&gt;
+    &lt;/fish-field&gt;
+  &lt;/fish-fields&gt;
+  &lt;fish-field label=&quot;Username&quot; inline&gt;
+    &lt;fish-input&gt;&lt;/fish-input&gt;
+  &lt;/fish-field&gt;
+  &lt;fish-field label=&quot;Password&quot;&gt;
+    &lt;fish-input type=&quot;password&quot;&gt;&lt;/fish-input&gt;
+  &lt;/fish-field&gt;
+  &lt;fish-field&gt;
+    &lt;fish-checkbox index=&quot;0&quot;&gt;I agree to the terms and conditions&lt;/fish-checkbox&gt;
+  &lt;/fish-field&gt;
+  &lt;fish-button type=&quot;primary&quot; @click=&quot;showModal = false&quot;&gt;Submit&lt;/fish-button&gt;
+&lt;/fish-form&gt;</code></pre>
       </div>
     </fish-card>
 
@@ -73,7 +92,7 @@
         ],
         api_data2: [
           ['label', '标签内容', 'String', '-'],
-          ['span', '占用的宽度', 'String', '-'],
+          ['span', '栅格占位格数 (可填写1-24中的值)', 'String, Number', '-'],
           ['inline', '是否一行显示', 'Boolean', 'false']
         ]
       }

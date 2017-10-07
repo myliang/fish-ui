@@ -1,6 +1,6 @@
 <template>
   <main-layout menuActiveIndex="menu">
-    <h3>Button 按钮</h3>
+    <h3>Menu 菜单</h3>
     <fish-row gutter="1">
       <fish-col span="12">
         <fish-card>

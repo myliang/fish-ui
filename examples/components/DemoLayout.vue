@@ -21,22 +21,22 @@
       </fish-layout>
       <div slot="footer">
         <pre v-highlightjs><code class="html">&lt;fish-layout class=&quot;demo&quot;&gt;
-      &lt;div slot=&quot;header&quot;&gt;Header&lt;/div&gt;
-      &lt;div slot=&quot;content&quot; style=&quot;height: 120px;&quot;&gt;Content&lt;/div&gt;
-      &lt;div slot=&quot;footer&quot;&gt;Footer&lt;/div&gt;
-    &lt;/fish-layout&gt;
-    &lt;fish-layout sider=&quot;l&quot; class=&quot;demo&quot;&gt;
-      &lt;div slot=&quot;header&quot;&gt;Header&lt;/div&gt;
-      &lt;div slot=&quot;sider&quot;&gt;Left&lt;/div&gt;
-      &lt;div slot=&quot;content&quot; style=&quot;height: 120px;&quot;&gt;Content&lt;/div&gt;
-      &lt;div slot=&quot;footer&quot;&gt;Footer&lt;/div&gt;
-    &lt;/fish-layout&gt;
-    &lt;fish-layout sider=&quot;tl&quot; class=&quot;demo&quot;&gt;
-      &lt;div slot=&quot;sider&quot;&gt;Top Left&lt;/div&gt;
-      &lt;div slot=&quot;header&quot;&gt;Header&lt;/div&gt;
-      &lt;div slot=&quot;content&quot; style=&quot;height: 120px;&quot;&gt;Content&lt;/div&gt;
-      &lt;div slot=&quot;footer&quot;&gt;Footer&lt;/div&gt;
-    &lt;/fish-layout&gt;</code></pre>
+  &lt;div slot=&quot;header&quot;&gt;Header&lt;/div&gt;
+  &lt;div slot=&quot;content&quot; style=&quot;height: 120px;&quot;&gt;Content&lt;/div&gt;
+  &lt;div slot=&quot;footer&quot;&gt;Footer&lt;/div&gt;
+&lt;/fish-layout&gt;
+&lt;fish-layout sider=&quot;l&quot; class=&quot;demo&quot;&gt;
+  &lt;div slot=&quot;header&quot;&gt;Header&lt;/div&gt;
+  &lt;div slot=&quot;sider&quot;&gt;Left&lt;/div&gt;
+  &lt;div slot=&quot;content&quot; style=&quot;height: 120px;&quot;&gt;Content&lt;/div&gt;
+  &lt;div slot=&quot;footer&quot;&gt;Footer&lt;/div&gt;
+&lt;/fish-layout&gt;
+&lt;fish-layout sider=&quot;tl&quot; class=&quot;demo&quot;&gt;
+  &lt;div slot=&quot;sider&quot;&gt;Top Left&lt;/div&gt;
+  &lt;div slot=&quot;header&quot;&gt;Header&lt;/div&gt;
+  &lt;div slot=&quot;content&quot; style=&quot;height: 120px;&quot;&gt;Content&lt;/div&gt;
+  &lt;div slot=&quot;footer&quot;&gt;Footer&lt;/div&gt;
+&lt;/fish-layout&gt;</code></pre>
       </div>
     </fish-card>
     <br/>

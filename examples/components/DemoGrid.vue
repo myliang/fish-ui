@@ -186,7 +186,7 @@
           ['justify', 'flex 布局下的水平排列方式 <code>start</code> <code>end</code> <code>center</code> <code>space-around</code> <code>space-between</code>', 'String', 'start']
         ],
         colData: [
-          ['span', '栅格占位格数,必填', 'String, Number', '-'],
+          ['span', '栅格占位格数,必填(可填写1-24中的值)', 'String, Number', '-'],
           ['offset', '栅格左侧的间隔格数，间隔内不可以有栅格', 'String, Number', '0'],
           ['push', '栅格向右移动格数', 'String, Number', '0'],
           ['pull', '栅格向左移动格数', 'String, Number', '0']

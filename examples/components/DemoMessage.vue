@@ -15,20 +15,18 @@
         Success Description Success Description Success Description Success Description
       </fish-message>
       <div slot="footer">
-      <pre v-highlightjs><code class="html">&lt;fish-card&gt;
-  &lt;fish-message&gt;
-    Warning Description Warning Description Warning Description Warning Description
-  &lt;/fish-message&gt;
-  &lt;fish-message type=&quot;error&quot;&gt;
-    Error Description Error Description Error Description Error Description
-  &lt;/fish-message&gt;
-  &lt;fish-message type=&quot;info&quot;&gt;
-    Info Description Info Description Info Description Info Description
-  &lt;/fish-message&gt;
-  &lt;fish-message type=&quot;success&quot;&gt;
-    Success Description Success Description Success Description Success Description
-  &lt;/fish-message&gt;
-&lt;/fish-card&gt;</code></pre>
+      <pre v-highlightjs><code class="html">&lt;fish-message&gt;
+  Warning Description Warning Description Warning Description Warning Description
+&lt;/fish-message&gt;
+&lt;fish-message type=&quot;error&quot;&gt;
+  Error Description Error Description Error Description Error Description
+&lt;/fish-message&gt;
+&lt;fish-message type=&quot;info&quot;&gt;
+  Info Description Info Description Info Description Info Description
+&lt;/fish-message&gt;
+&lt;fish-message type=&quot;success&quot;&gt;
+  Success Description Success Description Success Description Success Description
+&lt;/fish-message&gt;</code></pre>
       </div>
     </fish-card>
 

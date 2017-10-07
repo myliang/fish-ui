@@ -12,11 +12,18 @@
 &lt;fish-button @click=&quot;messageSuccessHandler&quot;&gt;success&lt;/fish-button&gt;
 &lt;fish-button @click=&quot;messageTipHandler&quot;&gt;提示信息&lt;/fish-button&gt;</code></pre>
       <br/>
-      <pre v-highlightjs><code class="javascript">import message from '../components/message.js'
-message.warning('welcome to you 黄英你朋友!!!', 5000)
-message.error('error: welcome to you 黄英你朋友!!!', 5000)
-message.success('success: welcome to you 黄英你朋友!!!', 5000)
-message.tip('Notification Title', 'I will never close automatically. I will be close automatically. I will never close automatically.')</code></pre>
+      <pre v-highlightjs><code class="javascript">messageWarningHandler () {
+  this.$message.warning('welcome to you 黄英你朋友!!!', 5000)
+},
+messageErrorHandler () {
+  this.$message.error('error: welcome to you 黄英你朋友!!!', 5000)
+},
+messageSuccessHandler () {
+  this.$message.success('success: welcome to you 黄英你朋友!!!', 5000)
+},
+messageTipHandler () {
+  this.$message.tip('Notification Title', 'I will never close automatically. I will be close automatically. I will never close automatically.')
+}</code></pre>
       </div>
     </fish-card>
 
