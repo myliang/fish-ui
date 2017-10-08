@@ -15,7 +15,6 @@
       <div slot="footer">
         <pre v-highlightjs><code class="html">&lt;fish-input v-model=&quot;defaultValue&quot;&gt;&lt;/fish-input&gt;
 &lt;fish-input hint=&quot;trasaction&quot; transparent&gt;&lt;/fish-input&gt;
-&lt;fish-button&gt;GO&gt;&gt;&lt;/fish-button&gt;&lt;br/&gt;
 &lt;fish-input loading&gt;&lt;/fish-input&gt;
 &lt;fish-input size=&quot;small&quot; disabled&gt;&lt;/fish-input&gt;
 &lt;fish-input icon=&quot;fa fa-search&quot;&gt;&lt;/fish-input&gt;

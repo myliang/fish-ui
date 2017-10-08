@@ -28,7 +28,7 @@
         </fish-col>
         <fish-col span="8">
           <fish-card>
-            <div slot="header">Header</div>
+            <div slot="header">卡片标题</div>
             Kristy is an art director living in New York.<br/>
             Veronika Ossi是一名居住在纽约的舞美师，她喜爱小猫、音乐和派对。<br/>
             萌萌狗有各种形状和大小。有的小狗因为呆萌的表情惹人疼爱，有的则因为五短身材令人怜惜。甚至还有一些会因为巨大的体型也会显得傻缺。

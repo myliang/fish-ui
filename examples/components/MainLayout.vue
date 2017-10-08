@@ -101,7 +101,7 @@
     padding: 20px;
   }
 
-  .hljs {
+  .fish.card .hljs {
     padding: 0;
     background-color: #ffffff;
     margin: 0;

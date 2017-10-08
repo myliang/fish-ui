@@ -175,8 +175,9 @@
 
   export default {
     components: {
-      MainLayout},
-    data () {
+      MainLayout
+    },
+    data() {
       return {
         columns: ['属性', '说明', '类型', '默认值'],
         data: [
@@ -194,6 +195,7 @@
       }
     }
   }
+
 </script>
 <style>
   .demo-col {
@@ -202,7 +204,9 @@
     text-align: center;
     margin-bottom: 5px;
   }
+  
   .demo-col2 {
     background: #7dbcea;
   }
+
 </style>
