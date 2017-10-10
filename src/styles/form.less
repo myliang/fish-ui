@@ -6,7 +6,7 @@
   width: 100%;
 
   .inline {
-    .item {
+    .field {
       display: inline-block;
       margin-right: 1.2em;
       margin-bottom: 0;
@@ -36,6 +36,19 @@
     display: block;
     font-size: 1em;
     margin: 0 0 1em;
+
+    &.disabled {
+      .disabled;
+    }
+
+    &.required {
+      .label:after {
+        margin: 0 0 0 .3em;
+        content: '*';
+        color: #DB2828;
+        display: inline-block;
+      }
+    }
 
     &.inline {
       //display: inline-block;

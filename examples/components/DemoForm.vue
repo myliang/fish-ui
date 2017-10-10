@@ -4,10 +4,10 @@
     <fish-card>
       <fish-form>
         <fish-fields>
-          <fish-field label="First Name" span="12">
+          <fish-field label="First Name" span="12" disabled>
             <fish-input></fish-input>
           </fish-field>
-          <fish-field label="Last Name" span="12">
+          <fish-field label="Last Name" span="12" required>
             <fish-input></fish-input>
           </fish-field>
         </fish-fields>
@@ -17,7 +17,7 @@
         <fish-field label="Password">
           <fish-input type="password"></fish-input>
         </fish-field>
-        <fish-field>
+        <fish-field required>
           <fish-checkbox index="0">I agree to the terms and conditions</fish-checkbox>
         </fish-field>
         <fish-button type="primary" @click="showModal = false">Submit</fish-button>
@@ -25,10 +25,10 @@
       <div slot="footer">
         <pre v-highlightjs><code class="html">&lt;fish-form&gt;
   &lt;fish-fields&gt;
-    &lt;fish-field label=&quot;First Name&quot; span=&quot;12&quot;&gt;
+    &lt;fish-field label=&quot;First Name&quot; span=&quot;12&quot; disabled&gt;
       &lt;fish-input&gt;&lt;/fish-input&gt;
     &lt;/fish-field&gt;
-    &lt;fish-field label=&quot;Last Name&quot; span=&quot;12&quot;&gt;
+    &lt;fish-field label=&quot;Last Name&quot; span=&quot;12&quot; required&gt;
       &lt;fish-input&gt;&lt;/fish-input&gt;
     &lt;/fish-field&gt;
   &lt;/fish-fields&gt;
@@ -92,6 +92,10 @@
         ],
         api_data2: [
           ['label', '标签内容', 'String', '-'],
+          ['labelWidth', '标签内容的宽度, 当 inline === true 是生效', 'String', 'auto'],
+          ['labelAlign', '标签内容对其方式, 当 inline === true 是生效', 'String', 'right'],
+          ['disabled', '是否不可用', 'Boolean', 'false'],
+          ['required', '是否显示必填*', 'Boolean', 'false'],
           ['span', '栅格占位格数 (可填写1-24中的值)', 'String, Number', '-'],
           ['inline', '是否一行显示', 'Boolean', 'false']
         ]

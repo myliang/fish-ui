@@ -38,6 +38,7 @@ import Tag from './components/Tag.vue'
 import Tags from './components/Tags.vue'
 import TimePicker from './components/TimePicker.vue'
 import Upload from './components/Upload.vue'
+import Tree from './components/Tree.vue'
 
 import $message from './components/message.js'
 import $popup from './components/popup.js'
@@ -80,7 +81,8 @@ const components = {
   Tag,
   Tags,
   TimePicker,
-  Upload
+  Upload,
+  Tree
 }
 const install = function (Vue, opts = {}) {
   Object.values(components).forEach((component) => {

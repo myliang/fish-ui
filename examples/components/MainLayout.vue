@@ -55,7 +55,8 @@
         {index: 'carousel', text: 'Carousel 走马灯'},
         {index: 'tabs', text: 'Tabs 标签页'},
         {index: 'modal', text: 'Modal 对话框'},
-        {index: 'upload', text: 'Upload 上传'}
+        {index: 'upload', text: 'Upload 上传'},
+        {index: 'tree', text: 'Tree 树'}
       ]}
     },
     mounted () {

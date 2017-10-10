@@ -2,7 +2,7 @@
   <div :class="classObject" @click="clickHandler">
     <input type="checkbox"/>
     <label></label>
-    <span v-if="$slots.default"><slot/></span>
+    <span class="label" v-if="$slots.default"><slot/></span>
   </div>
 </template>
 <script>

@@ -1,13 +1,15 @@
 <template>
   <ul class="fish tree">
     <li v-for="(item, index) in data" :key="item[0]" :class="{'active': valueIncludes(item[0])}">
-      <i class="fa fa-caret-right" v-if="item[2]" @click.stop="showChildrenHandler(item, index)"></i>
+      <i :class="item[2] && visible[index] ? iconCaretDown : iconCaretRight" v-if="item[2]" @click.stop="showChildrenHandler(item, index)"></i>
       <i v-else>&nbsp;</i>
-      <span class="title" @click="selectHandler(item)">{{ item[1] }}</span>
+      <span class="title" @click="selectHandler(item)" @dbclick="itemDoubleClickHandler(item)">{{ item[1] }}</span>
+      <strong v-if="item.length < 3 && edited" @click="itemRemoveHandler(item, index)">&times;</strong>
       <fish-tree :data="item[2]" v-if="item[2] && visible[index]"
-                :expand="expand"
-                :value="value"
-                @select="selectHandler"></fish-tree>
+                 :edited="edited"
+                 :expand="expand"
+                 :value="value"
+                 @select="selectHandler" @item-remove="itemRemoveHandler"></fish-tree>
     </li>
   </ul>
 </template>
@@ -17,7 +19,10 @@
     props: {
       value: { type: [String, Array], default: '' },
       expand: { type: Boolean, default: false },
-      data: { type: Array, required: true }
+      data: { type: Array, required: true },
+      edited: { type: Boolean, default: false },
+      iconCaretRight: { type: String, default: 'fa fa-caret-right' },
+      iconCaretDown: { type: String, default: 'fa fa-caret-down' }
     },
     data () {
       return {
@@ -32,6 +37,12 @@
     methods: {
       showChildrenHandler (item, index) {
         this.visible.splice(index, 1, !this.visible[index])
+      },
+      itemDoubleClickHandler (item) {
+        this.$emit('item-dbclick', item)
+      },
+      itemRemoveHandler (item, index) {
+        this.$emit('item-remove', this.data, item, index)
       },
       selectHandler (item) {
         if (!this.multiple) {

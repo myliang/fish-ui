@@ -1,6 +1,6 @@
 <template>
-  <div :class="['field', {'inline': this.inline }]" :style="styleObject">
-    <label v-if="label">{{ label }}</label>
+  <div :class="['field', {'inline': inline, 'disabled': disabled, 'required': required }]" :style="styleObject">
+    <label v-if="label" class="label" :style="inline ? {'width': `${labelWidth}`, 'text-align': labelAlign} : {}">{{ label }}</label>
     <slot></slot>
   </div>
 </template>
@@ -11,7 +11,11 @@
     name: 'fish-field',
     props: {
       label: { type: String },
+      labelWidth: { type: String, default: 'auto' },
+      labelAlign: { type: String, default: 'right' },
       span: { type: [String, Number], default: 0 },
+      disabled: { type: Boolean, default: false },
+      required: { type: Boolean, default: false },
       inline: { type: Boolean, default: false }
     },
     computed: {
