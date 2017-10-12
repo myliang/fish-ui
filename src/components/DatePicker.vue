@@ -19,6 +19,7 @@
   import moment from 'moment'
   import clickoutside from '../directives/clickoutside'
   import fishCalendar from './Calendar.vue'
+  import { notify } from '../config'
 
   const formats = {
     year: 'YYYY',
@@ -64,7 +65,7 @@
       },
       clearHandler () {
         this.visible = false
-        this.$emit('input', '')
+        this.changeHandler('')
       },
       awayHandler () {
         this.visible = false
@@ -74,11 +75,15 @@
         this.visible = false
         this.showClear = false
         const v = moment(item).format(this.format || formats[this.mode])
-        this.$emit('input', v)
-        this.$emit('change', v)
+        this.changeHandler(v)
       },
       cellRender (title, content) {
         return title
+      },
+      changeHandler (v) {
+        this.$emit('input', v)
+        this.$emit('change', v)
+        notify.field.change(this)
       }
     }
   }

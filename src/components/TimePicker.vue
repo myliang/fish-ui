@@ -18,7 +18,7 @@
 </template>
 <script>
   import clickoutside from '../directives/clickoutside'
-  import { calendar } from '../config'
+  import { calendar, notify } from '../config'
   export default {
     name: 'fish-time-picker',
     directives: { clickoutside },
@@ -51,17 +51,20 @@
       selectHandler (item, index) {
         let values = (this.valueEmpty ? '00:00:00' : this.value).split(':')
         values[index] = item
-        this.$emit('input', values.join(':'))
-        this.$emit('change', values.join(':'))
+        this.changeHandler(values.join(':'))
       },
       clearHandler () {
         this.visible = false
-        this.$emit('input', '')
-        this.$emit('change', '')
+        this.changeHandler('')
       },
       awayHandler () {
         this.visible = false
         this.showClear = false
+      },
+      changeHandler (v) {
+        this.$emit('input', v)
+        this.$emit('change', v)
+        notify.field.change(this)
       }
     }
   }

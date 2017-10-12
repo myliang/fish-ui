@@ -69,6 +69,7 @@ export default {
   import MainLayout from './MainLayout.vue'
 
   export default {
+    name: 'index',
     components: {MainLayout}
   }
 </script>

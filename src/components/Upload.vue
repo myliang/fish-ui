@@ -39,6 +39,7 @@
 <script>
   import ajax from './ajax.js'
   import fishModal from './Modal.vue'
+  import { notify } from '../config'
 
   export default {
     components: {fishModal},
@@ -82,7 +83,7 @@
           this.abort(this.uploadingFiles[index], index)
           this.uploadingFiles.splice(index, 1)
         }
-        this.$emit('input', this.value.filter((f, i) => i !== index))
+        this.emitChange(this.value.filter((f, i) => i !== index))
       },
       clickHandler () {
         this.$refs.input.click()
@@ -148,7 +149,7 @@
               })
               console.log(nValue)
               this.uploadingFiles = []
-              this.$emit('input', nValue)
+              this.emitChange(nValue)
             }
           },
           onError: err => {
@@ -164,6 +165,10 @@
         if (req && req.then) {
           req.then(options.onSuccess, options.onError)
         }
+      },
+      emitChange (v) {
+        this.$emit('input', v)
+        notify.field.change(this)
       }
     }
   }

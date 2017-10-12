@@ -4,7 +4,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueHighlightJS from 'vue-highlightjs'
 import FishUI from '../src/index.js'
-import App from './Demo'
 
 import DemoButton from './components/DemoButton.vue'
 import DemoLayout from './components/DemoLayout.vue'
@@ -71,7 +70,7 @@ const routes = [
   { path: '/components/form', component: DemoForm },
   { path: '/components/index', component: DemoIndex },
   { path: '/components/tree', component: DemoTree },
-  { path: '/', component: DemoIndex }
+  { path: '/', redirect: '/components/index' }
 ]
 const router = new VueRouter({
   routes: routes
@@ -83,6 +82,5 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router: router,
-  template: '<App/>',
-  components: { App }
+  template: '<router-view></router-view>'
 })

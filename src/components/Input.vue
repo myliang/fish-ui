@@ -8,7 +8,7 @@
     <input :type="type"
            :placeholder="hint"
            :value="value" @input="updateValue($event.target.value)"
-           autocomplete="off"v-else/>
+           autocomplete="off" v-else/>
     <i :class="iconClose" style="opacity: .6;" @click.stop="clearHandler" v-if="clear && !valueEmpty"></i>
     <i :class="icon" v-if="icon"></i>
     <i v-if="loading"></i>
@@ -16,6 +16,7 @@
   </div>
 </template>
 <script>
+  import { notify } from '../config'
   export default {
     name: 'fish-input',
     props: {
@@ -33,6 +34,7 @@
     },
     data () {
       return {
+//        currentValue
       }
     },
     computed: {
@@ -52,10 +54,14 @@
     },
     methods: {
       updateValue (v) {
-        this.$emit('input', v)
+        this.changeHandler(v)
       },
       clearHandler () {
-        this.$emit('input', '')
+        this.changeHandler('')
+      },
+      changeHandler (v) {
+        this.$emit('input', v)
+        notify.field.change(this)
       }
     }
   }

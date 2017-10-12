@@ -22,3 +22,15 @@ exports.calendar = {
   ]
 }
 exports.cssPrefix = 'fish'
+exports.notify = {
+  field: {
+    change (el) {
+      el.$nextTick(() => {
+        // 通知parent, 值发生了变化
+        if (el.$parent && el.$parent.$options.name === 'fish-field') {
+          el.$parent['fieldValueChange']()
+        }
+      })
+    }
+  }
+}

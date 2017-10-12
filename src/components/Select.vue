@@ -40,6 +40,7 @@
 </template>
 <script>
   import clickoutside from '../directives/clickoutside'
+  import { notify } from '../config'
   export default {
     name: 'fish-select',
     directives: { clickoutside },
@@ -179,6 +180,7 @@
       emitChange (values) {
         this.$emit('input', values)
         this.$emit('change', values)
+        notify.field.change(this)
       },
       awayHandler () {
         this.visible = false

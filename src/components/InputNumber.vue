@@ -13,6 +13,7 @@
 </template>
 <script>
   const maxInteger = 1000000000000.00
+  import { notify } from '../config'
 
   const add = (v1, v2) => {
     v1 *= maxInteger
@@ -36,11 +37,11 @@
       updateValue (evt) {
         let v = evt.target.value
         if (/^\s*$/.test(v)) {
-          this.$emit('input', 0)
+          this.changeHandler('')
           return
         }
         if (this.testExpress.test(v) && parseFloat(v) <= parseFloat(this.max) && parseFloat(v) >= parseFloat(this.min)) {
-          this.$emit('input', v.indexOf('.') !== -1 ? parseFloat(v) : parseInt(v))
+          this.changeHandler(v.indexOf('.') !== -1 ? parseFloat(v) : parseInt(v))
         } else {
           evt.target.value = this.value
         }
@@ -48,14 +49,18 @@
       upHandler () {
         let nv = add(this.value, this.step)
         if (parseFloat(nv) < parseFloat(this.max)) {
-          this.$emit('input', nv)
+          this.changeHandler(nv)
         }
       },
       downHandler () {
         let nv = add(this.value, -this.step)
         if (parseFloat(nv) > parseFloat(this.min)) {
-          this.$emit('input', nv)
+          this.changeHandler(nv)
         }
+      },
+      changeHandler (v) {
+        this.$emit('input', v)
+        notify.field.change(this)
       }
     }
   }

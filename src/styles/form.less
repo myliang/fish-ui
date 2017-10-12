@@ -45,8 +45,8 @@
       .label:after {
         margin: 0 0 0 .3em;
         content: '*';
-        color: #DB2828;
-        display: inline-block;
+        color: @error-color;
+        //display: inline-block;
       }
     }
 
@@ -63,10 +63,14 @@
         display: inline-block;
         margin: 0 1em 0 0;
       }
+
+      &.error .tip {
+        margin-left: 0.6em;
+      }
     }
 
-    .@{css-prefix}.input, input {
-      width: 100%;
+    .@{css-prefix}.input, input, .select {
+      width: 100%!important;
     }
 
     > label {
@@ -76,6 +80,24 @@
       text-align: left;
       vertical-align: middle;
       text-transform: none;
+    }
+
+    .radios {
+      padding: @input-padding-vertical 0;
+    }
+
+    .input.number .step {
+      top: 2px;
+    }
+
+    &.error {
+      .tip {
+        color: @error-color;
+        font-size: .9em;
+      }
+      input, .select {
+        border-color: @error-color;
+      }
     }
 
   }

@@ -4,6 +4,7 @@
   </div>
 </template>
 <script>
+  import { notify } from '../config'
   export default {
     name: 'fish-radios',
     props: {
@@ -19,6 +20,7 @@
       clickHandler (evt) {
         this.$emit('input', evt.index)
         this.$emit('change', evt.index)
+        notify.field.change(this)
       },
       reRender () {
         // console.log(this.value, '????')
