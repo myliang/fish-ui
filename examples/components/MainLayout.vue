@@ -3,6 +3,9 @@
     <fish-layout sider="l" class="main-layout">
       <div slot="header" style="padding: 20px 10px;">
         <strong style="font-size: 3em; text-shadow: 2px 2px 0 #ddd;">fish-ui</strong>
+        <div style="float: right">
+          <h2><strong><a href="https://github.com/myliang/fish-ui" title="github"><i class="fa fa-github"></i></a></strong></h2>
+        </div>
       </div>
       <div slot="sider">
         <fish-menu mode="inline">
@@ -14,7 +17,10 @@
       <div slot="content">
         <slot></slot>
       </div>
-      <div slot="footer"> 2017@copyright myliang</div>
+      <div slot="footer">
+        <h2><strong><a href="https://github.com/myliang/fish-ui"><i class="fa fa-github"></i> fish-ui</a></strong></h2>
+        <p>copyright@2017 myliang</p>
+      </div>
     </fish-layout>
   </div>
 </template>
