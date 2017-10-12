@@ -12,7 +12,8 @@
           </fish-field>
         </fish-fields>
         <fish-fields>
-          <fish-field label="Email" name="email" :rules="[{ type: 'email', message: 'The input is not valid E-mail!' }, {required: true}]">
+          <fish-field label="类型">GOOD, Bad, 不错</fish-field>
+          <fish-field label="电子邮件" name="email" :rules="[{ type: 'email', message: 'The input is not valid E-mail!' }, {required: true}]">
             <fish-input v-model="email"></fish-input>
           </fish-field>
           <fish-field label="Username" name="userName" :rules="[{ required: true, message: '用户名不能为空'}]">
@@ -187,8 +188,10 @@ export default {
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import FishField from '../../src/components/Field.vue'
 
   export default {components: {
+    FishField,
     MainLayout},
     data () {
       return {

@@ -34,7 +34,7 @@
         return this.$children[0]
       },
       fieldValue () {
-        return this.field.value
+        return this.field && this.field.value
       },
       required () {
         const { rules } = this
