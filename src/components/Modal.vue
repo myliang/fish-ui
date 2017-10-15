@@ -1,6 +1,6 @@
 <template>
   <div :class="['fish dimmer active']" v-if="visible" style="position: fixed;">
-    <div :class="['fish modal']" ref="modal">
+    <div :class="['fish modal']" ref="modal" :style="{'margin-top': marginTop}">
       <i class="fa fa-times" @click="closeHandler"></i>
       <div class="header" v-if="title">
         {{ title }}
@@ -16,14 +16,15 @@
     name: 'fish-modal',
     props: {
       title: { type: String },
-      visible: { type: Boolean, default: false }
+      visible: { type: Boolean, default: false },
+      marginTop: { type: String, default: '100px' }
     },
     watch: {
-      visible (nowVal, oldVal) {
-        if (nowVal) {
-          this.setMarginTop()
-        }
-      }
+//      visible (nowVal, oldVal) {
+//        if (nowVal) {
+//          this.setMarginTop()
+//        }
+//      }
     },
     methods: {
       closeHandler () {

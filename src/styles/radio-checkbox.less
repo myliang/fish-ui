@@ -16,7 +16,7 @@
     padding: 0 8px;
   }
 
-  &.active {
+  &.active, &.open {
     > label:before {
       border-color: @color-primary;
     }
@@ -79,15 +79,25 @@
 }
 
 .@{css-prefix}.checkbox {
-  &.active {
+  &.active, &.open {
     > label:after {
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
-      content: '\f00c'!important;
       transform: scale(.8222);
       color: #fff;
       border-radius: @border-radius;
     }
+    > label:before {
+      background: @color-primary;
+    }
+  }
+  &.active {
+    > label:after {
+      content: '\f00c' !important;
+    }
+  }
+
+  &.open {
     > label:before {
       background: @color-primary;
     }

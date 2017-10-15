@@ -1,71 +1,79 @@
 <template>
-  <ul class="fish tree">
-    <li v-for="(item, index) in data" :key="item[0]" :class="{'active': valueIncludes(item[0])}">
-      <i :class="item[2] && visible[index] ? iconCaretDown : iconCaretRight" v-if="item[2]" @click.stop="showChildrenHandler(item, index)"></i>
-      <i v-else>&nbsp;</i>
-      <span class="title" @click="selectHandler(item)" @dbclick="itemDoubleClickHandler(item)">{{ item[1] }}</span>
-      <strong v-if="item.length < 3 && edited" @click="itemRemoveHandler(item, index)">&times;</strong>
-      <fish-tree :data="item[2]" v-if="item[2] && visible[index]"
-                 :edited="edited"
-                 :expand="expand"
-                 :value="value"
-                 @select="selectHandler" @item-remove="itemRemoveHandler"></fish-tree>
-    </li>
-  </ul>
+  <fish-tree-node
+      :data="data"
+      :multiple="multiple"
+      :selected-key="selectedKey"
+      :data-key-map="dataKeyMap"
+      :expand="expand"
+      :edited="edited"
+      :delimiter="delimiter"
+      :iconCaretRight="iconCaretRight"
+      :iconCaretDown="iconCaretDown"
+      :on-item-checked="onItemChecked"
+      :on-item-dblclick="onItemDblclick"
+      :on-item-click="onItemClick">
+  </fish-tree-node>
 </template>
 <script>
+  import FishTreeNode from './TreeNode.vue'
+
   export default {
+    components: {FishTreeNode},
     name: 'fish-tree',
     props: {
-      value: { type: [String, Array], default: '' },
+      defaultSelectedKey: { type: String, default: '' },
+      defaultCheckedKeys: { type: Array, default: () => [] },
+      multiple: { type: Boolean, default: false },
       expand: { type: Boolean, default: false },
-      data: { type: Array, required: true },
+      data: { type: Array, required: true }, // [{title: '', key: '', children: '', checked: false}]
       edited: { type: Boolean, default: false },
+      delimiter: { type: String, default: '-' },
       iconCaretRight: { type: String, default: 'fa fa-caret-right' },
       iconCaretDown: { type: String, default: 'fa fa-caret-down' }
     },
     data () {
+      const setKeys = new Set(this.defaultCheckedKeys)
+      const dataKeyMap = {}
+      initDataKeysMap(dataKeyMap, setKeys, this.data)
+      console.log('>>>', setKeys, dataKeyMap)
       return {
-        visible: this.data.map((ele) => this.expand)
-      }
-    },
-    computed: {
-      multiple () {
-        return typeof this.value !== 'string'
+        selectedKey: this.defaultSelected,
+        // checkedKeys: Array.from(this.defaultCheckedKeys),
+        dataKeyMap
       }
     },
     methods: {
-      showChildrenHandler (item, index) {
-        this.visible.splice(index, 1, !this.visible[index])
-      },
-      itemDoubleClickHandler (item) {
-        this.$emit('item-dbclick', item)
-      },
-      itemRemoveHandler (item, index) {
-        this.$emit('item-remove', this.data, item, index)
-      },
-      selectHandler (item) {
-        if (!this.multiple) {
-          this.$emit('select', item)
-          this.$emit('input', item[0])
+      onItemChecked (item) {
+        if (this.dataKeyMap[item.key][0] === 'checked') {
+          this.dataKeyMap[item.key].splice(0, 1, '')
         } else {
-//          let vSet = new Set(this.value)
-//          if (vSet.has(item[0])) {
-//            vSet.delete(item[0])
-//          } else {
-//            vSet.add(item[0])
-//          }
-//          this.$emit('select', values)
-//          this.$emit('input', [...values])
+          this.dataKeyMap[item.key].splice(0, 1, 'checked')
         }
+        this.$emit('item-checked', item)
       },
-      valueIncludes (v) {
-        if (!this.multiple) {
-          return this.value === v
-        } else {
-          return this.value.includes(v)
-        }
+      onItemDblclick (item) {
+        this.$emit('item-dblclick', item)
+      },
+      onItemClick (item) {
+        this.selectedKey = item.key
+        this.$emit('item-click', item)
       }
     }
+  }
+
+  const getKeyState = (setKeys, key) => {
+    if (setKeys.has(key)) return 'checked'
+    for (let setKey of setKeys.keys()) {
+      if (setKey.startsWith(key)) return 'open'
+    }
+    return ''
+  }
+  const initDataKeysMap = (dataKeysMap, setKeys, items) => {
+    items && items.forEach((item) => {
+      dataKeysMap[item.key] = [
+        getKeyState(setKeys, item.key),
+        item.children && item.children.map((child) => [child.key, getKeyState(setKeys, child.key)])]
+      initDataKeysMap(dataKeysMap, setKeys, item.children)
+    })
   }
 </script>

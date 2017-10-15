@@ -10,6 +10,7 @@
       size: { type: String },
       mode: { type: String, default: 'vertical' }, // vertical, horizontal, inline
       compact: { type: Boolean, default: false }, // 紧凑
+      indexDelimiter: { type: String, default: '-' }, // option index内容的分隔符
       defaultActive: { type: String }
     },
     data () {
@@ -49,7 +50,7 @@
         if (index === undefined) return
         // console.log('index:', index, 'lastIndex:', this.lastActiveIndex)
         let items = this.items
-        this.lastActiveIndex && this.lastActiveIndex.toString().split('-').forEach((i) => {
+        this.lastActiveIndex && this.lastActiveIndex.toString().split(this.indexDelimiter).forEach((i) => {
           // console.log('last.i:', i, '>>>', items[i])
           items[i].active = false
           try {
@@ -60,7 +61,7 @@
 
         this.lastActiveIndex = index
         items = this.items
-        index.toString().split('-').forEach((i) => {
+        index.toString().split(this.indexDelimiter).forEach((i) => {
           // console.log('::::::::::', i, '>>>', items[i])
           if (items[i] !== undefined) {
             items[i].active = true

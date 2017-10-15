@@ -1,7 +1,7 @@
 <template>
   <div>
     <div :class="['fish table', {'border': border, 'stripe': stripe}]" ref="root">
-      <div :class="['fish dimmer', {'active': loading}]"></div>
+      <div :class="['fish dimmer loading', {'active': loading}]"></div>
       <div class="header" ref="header">
         <fish-table-head :columns="allLeafColumns" :rows="rows" :scrollY="scrollY"
                         :expandedRowRender="fixedLeftColumns.length <= 0 && fixedRightColumns.length <= 0 && expandedRowRender || undefined"

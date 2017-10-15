@@ -28,7 +28,7 @@
     directives: { clickoutside },
     props: {
       value: Array,
-      textSplit: { type: String, default: ' / ' },
+      textDelimiter: { type: String, default: ' / ' },
       menuWidth: { type: Number, default: 160 },
       hint: { type: String, default: 'Please select' },
       options: { type: Array, required: true } // [[key, label, children]]
@@ -44,7 +44,7 @@
     },
     mounted () {
       this.selectedItems = this.parseSelectedItems()
-      this.selectedText = this.selectedItems.map((ele) => ele[1]).join(this.textSplit)
+      this.selectedText = this.selectedItems.map((ele) => ele[1]).join(this.textDelimiter)
     },
     computed: {
       valueEmpty () {
@@ -80,7 +80,7 @@
           this.groups.splice(groupIndex + 1, groupHowMany, children)
         } else {
           this.awayHandler()
-          this.selectedText = this.selectedItems.map((ele) => ele[1]).join(this.textSplit)
+          this.selectedText = this.selectedItems.map((ele) => ele[1]).join(this.textDelimiter)
           this.emitChange(this.selectedItems.map((ele) => ele[0]))
         }
       },

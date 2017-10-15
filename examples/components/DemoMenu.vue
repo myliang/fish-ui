@@ -249,11 +249,13 @@
         data: [
           ['mode', '菜单类型，现在支持垂直<code>vertical</code>、水平<code>horizontal</code>、和内嵌模式<code>inline</code>三种', 'String', 'vertical'],
           ['size', '设置菜单大小，可选值为<code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
+          ['indexDelimiter', 'option.index内容的分隔符', 'String', '-'],
           ['default-active', '初始激活菜单的 index', 'String', '-']
         ],
         subData: [
           ['mode', '子菜单类型，现在支持垂直<code>vertical</code>、水平<code>horizontal</code>、和内嵌模式<code>inline</code>三种', 'String', 'vertical'],
           ['trigger', '子菜单展示触发事件，可选值<code>hover</code> <code>click</code>', 'String', 'hover'],
+          ['indexDelimiter', 'option.index内容的分隔符', 'String', '-'],
           ['index', '子菜单唯一标志, 必填', 'String', '-']
         ],
         optionData: [

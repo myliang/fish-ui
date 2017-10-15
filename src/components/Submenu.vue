@@ -16,6 +16,7 @@
     props: {
       trigger: { type: String, default: 'hover' },
       index: { type: String },
+      indexDelimiter: { type: String, default: '-' }, // option index内容的分隔符
       mode: { type: String, default: 'vertical' }
     },
     data () {
@@ -30,7 +31,7 @@
       if (this.mode !== 'inline') return
       this.$children.forEach((ele) => {
         if (ele.$el.className.indexOf('submenu') === -1) {
-          let indexes = ele.index.split('-')
+          let indexes = ele.index.split(this.indexDelimiter)
           ele.$el.style.paddingLeft = `${1 * (indexes.length)}em`
         }
       })
@@ -40,7 +41,7 @@
     },
     computed: {
       indexes () {
-        return this.index.split('-')
+        return this.index.split(this.indexDelimiter)
       }
     },
     methods: {

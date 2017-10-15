@@ -10,16 +10,27 @@
     name: 'fish-checkbox',
     props: {
       index: { type: [String, Number], required: true },
-      disabled: { type: Boolean, default: false }
+      disabled: { type: Boolean, default: false },
+      state: { type: String, default: '' } // checked, open
     },
     data () {
       return {
-        active: false
+        active: this.state === 'checked'
+      }
+    },
+    watch: {
+      state (nowVal, oldVal) {
+        this.active = nowVal === 'checked'
       }
     },
     computed: {
       classObject () {
-        return ['fish checkbox', {'active': this.active}, {'disabled': this.disabled}]
+        return [
+          'fish checkbox',
+          {'active': this.state === 'checked' || this.active},
+          {'open': this.state === 'open'},
+          {'disabled': this.disabled}
+        ]
       }
     },
     methods: {

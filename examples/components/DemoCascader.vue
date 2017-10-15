@@ -79,7 +79,7 @@
         api_columns: ['属性', '说明', '类型', '默认值'],
         api_data: [
           ['value', '值，用v-model绑定', 'Array', '[]'],
-          ['textSplit', '文本分隔符', 'String', '/'],
+          ['textDelimiter', '文本分隔符', 'String', ' / '],
           ['menuWidth', '弹出菜单的宽度', 'Number', '160'],
           ['hint', '提示信息', 'String', 'Please select'],
           ['options', '数据选项数组', 'Array[[value, key],...]', '-']

@@ -21,7 +21,9 @@
   will-change: opacity;
   z-index: 1000;
 
-  .loading(2em);
+  &.loading {
+    .loading(2em);
+  }
 
   &.active {
     display: block;
