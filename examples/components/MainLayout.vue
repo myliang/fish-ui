@@ -62,7 +62,8 @@
         {index: 'tabs', text: 'Tabs 标签页'},
         {index: 'modal', text: 'Modal 对话框'},
         {index: 'upload', text: 'Upload 上传'},
-        {index: 'tree', text: 'Tree 树'}
+        {index: 'tree', text: 'Tree 树'},
+        {index: 'tree-select', text: 'Tree 树选框'}
       ]}
     },
     mounted () {

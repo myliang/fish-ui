@@ -35,6 +35,7 @@ import DemoModal from './components/DemoModal.vue'
 import DemoForm from './components/DemoForm.vue'
 import DemoIndex from './components/DemoIndex.vue'
 import DemoTree from './components/DemoTree.vue'
+import DemoTreeSelect from './components/DemoTreeSelect.vue'
 
 Vue.use(FishUI)
 Vue.use(VueHighlightJS)
@@ -70,6 +71,7 @@ const routes = [
   { path: '/components/form', component: DemoForm },
   { path: '/components/index', component: DemoIndex },
   { path: '/components/tree', component: DemoTree },
+  { path: '/components/tree-select', component: DemoTreeSelect },
   { path: '/', redirect: '/components/index' }
 ]
 const router = new VueRouter({

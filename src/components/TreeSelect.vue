@@ -1,41 +1,88 @@
 <template>
-  <div class="fish input tree-select"
+  <div :class="['fish select', {'multiple': multiple}]"
        @click="clickHandler"
        @mouseover="mouseOverHandler"
        @mouseout="mouseOutHandler"
        v-clickoutside="awayHandler">
-    <input type="text" :placeholder="hint" :value="value" style="width: 125px;" readonly/>
+    <template v-if="multiple">
+      <a class="tag" @click.stop=""
+         v-for="(item, index) in checkedItems" :key="index">
+        {{ item.title }}
+        <i :class="iconClose" @click.stop="closeItemHandler(item)"></i>
+      </a>
+      <div class="text hint" v-html="valueEmpty ? hint : ''"></div>
+    </template>
+    <div :class="['text', {'hint': valueEmpty}]" v-else>
+      {{ selectedItem && selectedItem.title || hint }}
+    </div>
     <i class="fa fa-times-circle" style="opacity: .6;" @click.stop="clearHandler" v-if="showClear && !valueEmpty"></i>
     <i class="fa fa-angle-down" v-else></i>
-    <div class="content" v-if="visible">
-      <fish-tree :data="data" :value="value" @select="selectHandler"></fish-tree>
+    <div class="content" v-show="visible" @click.stop="">
+      <fish-tree
+          :data="data"
+          :default-selected-key="selectedKey"
+          :default-checked-keys="checkedKeys"
+          :multiple="multiple"
+          :expand="expand"
+          :delimiter="delimiter"
+          :iconCaretRight="iconCaretRight"
+          :iconCaretDown="iconCaretDown"
+          @item-click="itemClickHandler"
+          @item-checked="itemCheckedHandler"></fish-tree>
     </div>
   </div>
 </template>
 <script>
   import clickoutside from '../directives/clickoutside'
+  import { notify } from '../config'
   import fishTree from './Tree.vue'
+
   export default {
     components: {fishTree},
     name: 'fish-tree-select',
     directives: { clickoutside },
     props: {
-      value: { type: String, default: '' },
+      value: { type: Array, default: [] },
       data: { type: Array, required: true },
-      hint: { type: String, default: 'Please' }
+      hint: { type: String, default: 'Please' },
+      expand: { type: Boolean, default: false },
+      multiple: { type: Boolean, default: false },
+      delimiter: { type: String, default: '-' },
+      iconClose: { type: String, default: 'fa fa-close' },
+      iconCaretRight: { type: String, default: 'fa fa-caret-right' },
+      iconCaretDown: { type: String, default: 'fa fa-caret-down' }
     },
     data () {
       return {
+        selectedItem: null,
+        selectedKey: this.value[0] || '',
+        checkedItems: [],
+        checkedKeys: this.value,
         showClear: false,
         visible: false
       }
     },
+    mounted () {
+      this.resetValuesWithData(this.data)
+    },
     computed: {
       valueEmpty () {
-        return /^\s*$/.test(this.value)
+        return this.value.length <= 0
       }
     },
     methods: {
+      resetValuesWithData (items) {
+        items && items.forEach((item) => {
+          if (this.multiple) {
+            if (this.checkedKeys.includes(item.key)) {
+              this.checkedItems.push(item)
+            }
+          } else if (this.selectedKey === item.key) {
+            this.selectedItem = item
+          }
+          this.resetValuesWithData(item.children)
+        })
+      },
       mouseOverHandler () {
         this.showClear = true
       },
@@ -45,12 +92,31 @@
       clickHandler () {
         this.visible = !this.visible
       },
-      selectHandler (item) {
-        this.$emit('input', item[0])
+      itemClickHandler (item) {
+        this.emitChange([item.key])
+        this.awayHandler()
+      },
+      itemCheckedHandler (checkedKeys) {
+        this.emitChange(checkedKeys)
+      },
+      closeItemHandler (item) {
+        this.emitChange(this.checkedKeys.filter((key) => key !== item.key))
       },
       clearHandler () {
         this.visible = false
-        this.$emit('input', '')
+        this.emitChange([])
+      },
+      emitChange (v) {
+        if (this.multiple) {
+          this.checkedKeys = v
+          this.checkedItems = []
+        } else {
+          this.selectedKey = v[0] || ''
+        }
+        this.resetValuesWithData(this.data)
+        this.$emit('input', v)
+        this.$emit('change', v)
+        notify.field.change(this)
       },
       awayHandler () {
         this.visible = false

@@ -17,7 +17,7 @@
       <strong v-if="edited && (!item.children || item.children.length <= 0)"
               @click="itemRemoveHandler(item, index)">&times;</strong>
       <fish-tree-node
-          :data="item.children"
+          :data="item.children || []"
           :multiple="multiple"
           :edited="edited"
           :expand="expand"
@@ -51,7 +51,6 @@
       onItemClick: { type: Function, default: (item) => {} }
     },
     data () {
-      // console.log('node:::', this.dataKeyMap)
       return {
         visible: this.data.map((ele) => this.expand)
       }
@@ -62,22 +61,6 @@
       },
       itemRemoveHandler (item, index) {
         this.data.splice(index, 1)
-      },
-      getCheckState (item) {
-//        let { checkedKeys, delimiter } = this
-//        // const itemKeys = checkedKeys.split(delimiter)
-//        for (let key of checkedKeys) {
-//          if (item.key.startsWith(key)) return 'checked'
-//          // 计算state = open
-//          const keys = key.split(delimiter)
-//          let kstr = null
-//          for (let k of keys) {
-//            if (kstr === null) kstr = k
-//            else kstr += delimiter + k
-//            if (item.key === kstr) return 'open'
-//          }
-//        }
-        return ''
       }
     }
   }

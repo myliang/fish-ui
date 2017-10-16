@@ -1,13 +1,16 @@
 <template>
   <div>
-    <fish-tree :data="data" :default-checked-keys="['0-1']" multiple @item-checked="itemCheckedHandler"></fish-tree>
+    <fish-tree-select :data="data" v-model="v" multiple @change="changeHandler"></fish-tree-select>
+    <fish-tree-select :data="data" v-model="v1" multiple @change="changeHandler"></fish-tree-select>
   </div>
 </template>
 <script>
   export default {
-    name: 'demo-tree-checkbox',
+    name: 'demo-tree-select-multiple',
     data () {
       return {
+        v: ['0-0-0-1', '0-2'],
+        v1: [],
         data: [{
           title: '0-0',
           key: '0-0',
@@ -46,8 +49,8 @@
       }
     },
     methods: {
-      itemCheckedHandler (checkedKeys) {
-        console.log('checkedKeys:', checkedKeys)
+      changeHandler (keys) {
+        console.log('keys:', keys)
       }
     }
   }
