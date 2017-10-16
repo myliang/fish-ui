@@ -5,11 +5,129 @@
       <fish-col span="12">
         <code-card title="单选树" desc="最简单的用法">
           <demo-tree-select-single slot="demo"></demo-tree-select-single>
+          <template slot="codeHtml">
+            <pre v-highlightjs><code class="xml">&lt;template&gt;
+  &lt;div&gt;
+    &lt;fish-tree-select :data=&quot;data&quot; v-model=&quot;v&quot; @change=&quot;changeHandler&quot;&gt;&lt;/fish-tree-select&gt;
+    &lt;fish-tree-select :data=&quot;data&quot; v-model=&quot;v1&quot; @change=&quot;changeHandler&quot;&gt;&lt;/fish-tree-select&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-tree-select-single&#x27;,
+    data () {
+      return {
+        v: [&#x27;0-0-0-1&#x27;],
+        v1: [],
+        data: [{
+          title: &#x27;0-0&#x27;,
+          key: &#x27;0-0&#x27;,
+          children: [{
+            title: &#x27;0-0-0&#x27;,
+            key: &#x27;0-0-0&#x27;,
+            children: [
+              { title: &#x27;0-0-0-0&#x27;, key: &#x27;0-0-0-0&#x27; },
+              { title: &#x27;0-0-0-1&#x27;, key: &#x27;0-0-0-1&#x27; },
+              { title: &#x27;0-0-0-2&#x27;, key: &#x27;0-0-0-2&#x27; }
+            ]
+          }, {
+            title: &#x27;0-0-1&#x27;,
+            key: &#x27;0-0-1&#x27;,
+            children: [
+              { title: &#x27;0-0-1-0&#x27;, key: &#x27;0-0-1-0&#x27; },
+              { title: &#x27;0-0-1-1&#x27;, key: &#x27;0-0-1-1&#x27; },
+              { title: &#x27;0-0-1-2&#x27;, key: &#x27;0-0-1-2&#x27; }
+            ]
+          }, {
+            title: &#x27;0-0-2&#x27;,
+            key: &#x27;0-0-2&#x27;
+          }]
+        }, {
+          title: &#x27;0-1&#x27;,
+          key: &#x27;0-1&#x27;,
+          children: [
+            { title: &#x27;0-1-0-0&#x27;, key: &#x27;0-1-0-0&#x27; },
+            { title: &#x27;0-1-0-1&#x27;, key: &#x27;0-1-0-1&#x27; },
+            { title: &#x27;0-1-0-2&#x27;, key: &#x27;0-1-0-2&#x27; }
+          ]
+        }, {
+          title: &#x27;0-2&#x27;,
+          key: &#x27;0-2&#x27;
+        }]
+      }
+    },
+    methods: {
+      changeHandler (keys) {
+        console.log(&#x27;keys:&#x27;, keys)
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+          </template>
         </code-card>
       </fish-col>
       <fish-col span="12">
         <code-card title="多选树" desc="使用勾选框实现多选功能">
           <demo-tree-select-multiple slot="demo"></demo-tree-select-multiple>
+          <template slot="codeHtml">
+            <pre v-highlightjs><code class="xml">&lt;template&gt;
+  &lt;div&gt;
+    &lt;fish-tree-select :data=&quot;data&quot; v-model=&quot;v&quot; multiple @change=&quot;changeHandler&quot;&gt;&lt;/fish-tree-select&gt;
+    &lt;fish-tree-select :data=&quot;data&quot; v-model=&quot;v1&quot; multiple @change=&quot;changeHandler&quot;&gt;&lt;/fish-tree-select&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-tree-select-multiple&#x27;,
+    data () {
+      return {
+        v: [&#x27;0-0-0-1&#x27;, &#x27;0-2&#x27;],
+        v1: [],
+        data: [{
+          title: &#x27;0-0&#x27;,
+          key: &#x27;0-0&#x27;,
+          children: [{
+            title: &#x27;0-0-0&#x27;,
+            key: &#x27;0-0-0&#x27;,
+            children: [
+              { title: &#x27;0-0-0-0&#x27;, key: &#x27;0-0-0-0&#x27; },
+              { title: &#x27;0-0-0-1&#x27;, key: &#x27;0-0-0-1&#x27; },
+              { title: &#x27;0-0-0-2&#x27;, key: &#x27;0-0-0-2&#x27; }
+            ]
+          }, {
+            title: &#x27;0-0-1&#x27;,
+            key: &#x27;0-0-1&#x27;,
+            children: [
+              { title: &#x27;0-0-1-0&#x27;, key: &#x27;0-0-1-0&#x27; },
+              { title: &#x27;0-0-1-1&#x27;, key: &#x27;0-0-1-1&#x27; },
+              { title: &#x27;0-0-1-2&#x27;, key: &#x27;0-0-1-2&#x27; }
+            ]
+          }, {
+            title: &#x27;0-0-2&#x27;,
+            key: &#x27;0-0-2&#x27;
+          }]
+        }, {
+          title: &#x27;0-1&#x27;,
+          key: &#x27;0-1&#x27;,
+          children: [
+            { title: &#x27;0-1-0-0&#x27;, key: &#x27;0-1-0-0&#x27; },
+            { title: &#x27;0-1-0-1&#x27;, key: &#x27;0-1-0-1&#x27; },
+            { title: &#x27;0-1-0-2&#x27;, key: &#x27;0-1-0-2&#x27; }
+          ]
+        }, {
+          title: &#x27;0-2&#x27;,
+          key: &#x27;0-2&#x27;
+        }]
+      }
+    },
+    methods: {
+      changeHandler (keys) {
+        console.log(&#x27;keys:&#x27;, keys)
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+          </template>
         </code-card>
       </fish-col>
     </fish-row>
