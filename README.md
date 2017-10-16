@@ -66,6 +66,8 @@ And if you start with [vue-webpack-boilerplate](https://github.com/vuejs-templat
   - Tags
   - TimePicker
   - Upload
+  - Tree
+  - Tree Select
 
 
 ## Browser Support
