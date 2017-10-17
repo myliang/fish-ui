@@ -21,8 +21,12 @@
         background: #F9FAFB;
 
         > a:not(.prev):not(.next) {
-          padding-left: .5em;
-          padding-right: .5em;
+          padding-left: .1em;
+          padding-right: .1em;
+
+          &:hover {
+            background-color: transparent;
+          }
         }
 
         > .prev {
@@ -43,9 +47,9 @@
         }
 
         td {
-          //border: 1px solid #ccc;
 
           > .cell {
+            box-shadow: 0 0 1px rgba(0,0,0,.1);
             cursor: pointer;
             margin: 0;
             border: 0;

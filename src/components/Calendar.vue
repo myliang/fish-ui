@@ -2,7 +2,12 @@
   <div class="fish calendar" v-if="current.year">
     <div class="header">
       <a :class="['prev', {'disabled': state === 'year'}]" @click.stop.prevent="pageHandler(-1)"><i class="fa fa-chevron-left"></i></a>
-      <a :class="mode" @click.stop="showItemsHandler(mode)" v-for="(mode, index) in modes" v-if="modeIndex >= index">{{ mode === 'month' ? current[mode] + 1 : current[mode] }}</a>
+      <template v-for="(mode, index) in modes" v-if="modeIndex >= index">
+        <a :class="mode" @click.stop="showItemsHandler(mode)">
+          {{ mode === 'month' ? current[mode] + 1 : current[mode] }}
+        </a>
+        {{index <= 1 ? '-' : index === 2 ? ' ' : index <= 4 ? ':' : ''}}
+      </template>
       <!--<a class="reset" @click.stop="todayHandler" v-html="today" v-if="mode === 'day'"></a>-->
       <a :class="['next', {'disabled': state === 'year'}]" @click.stop="pageHandler(1)"><i class="fa fa-chevron-right"></i></a>
     </div>
@@ -104,17 +109,18 @@
         return this.cellRenderTemplate(title, content)
       },
       cellActive (item) {
-        const { current, state, valueDate } = this
+        const { current, state } = this
         if (this.state === 'day') {
-          return valueDate.date() === item.date() && valueDate.month() === item.month() && valueDate.year() === item.year()
+          return current.day === item.date() && current.month === item.month() && current.year === item.year()
         }
-        for (let mode of modes) {
-          if (mode === state) {
-            return valueDate[mode]() === item
-          } else {
-            if (valueDate[mode]() !== current[mode]) return false
-          }
-        }
+        return current[state] === item
+//        for (let mode of modes) {
+//          if (mode === state) {
+//            return current[mode] === item
+//          } else {
+//            if (valueDate[mode]() !== current[mode]) return false
+//          }
+//        }
       },
       cellDisabled (item) {
         if (this.state === 'day') {
