@@ -123,7 +123,7 @@
     padding: 0;
     margin: 0;
   }
-  table code, ul li code {
+  table code, ul li code, .code-card code:not(.hljs) {
     margin: 0 1px;
     background: #f7f7f7;
     padding: .2em .4em;

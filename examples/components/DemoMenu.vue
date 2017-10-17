@@ -3,18 +3,20 @@
     <h3>Menu 菜单</h3>
     <fish-row gutter="1">
       <fish-col span="12">
-        <fish-card>
-          <fish-menu default-active="2">
-            <fish-option index="0" content="Jack"></fish-option>
-            <fish-option index="1" content="Lucy"></fish-option>
-            <fish-option index="2" content="Active"></fish-option>
-            <fish-option index="3" disabled content="disabled"></fish-option>
-            <fish-option index="4" content="Option 4"></fish-option>
-            <fish-option index="5" content="Option 5"></fish-option>
-            <fish-option index="6" content="Option 6"></fish-option>
-          </fish-menu>
-          <template slot="footer">
-            <pre v-highlightjs><code class="html">&lt;fish-menu default-active=&quot;2&quot;&gt;
+        <code-card title="基本菜单" desc="默认是垂直菜单 <code>default-active</code>指定默认选中项">
+          <template slot="demo">
+            <fish-menu default-active="2">
+              <fish-option index="0" content="Jack"></fish-option>
+              <fish-option index="1" content="Lucy"></fish-option>
+              <fish-option index="2" content="Active"></fish-option>
+              <fish-option index="3" disabled content="disabled"></fish-option>
+              <fish-option index="4" content="Option 4"></fish-option>
+              <fish-option index="5" content="Option 5"></fish-option>
+              <fish-option index="6" content="Option 6"></fish-option>
+            </fish-menu>
+          </template>
+          <template slot="codeHtml">
+            <pre v-highlightjs><code class="xml">&lt;fish-menu default-active=&quot;2&quot;&gt;
   &lt;fish-option index=&quot;0&quot; content=&quot;Jack&quot;&gt;&lt;/fish-option&gt;
   &lt;fish-option index=&quot;1&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
   &lt;fish-option index=&quot;2&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
@@ -24,32 +26,34 @@
   &lt;fish-option index=&quot;6&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
 &lt;/fish-menu&gt;</code></pre>
           </template>
-        </fish-card>
+        </code-card>
       </fish-col>
       <fish-col span="12">
-        <fish-card>
-          <fish-menu mode="horizontal" defaultActive="3-3-1">
-            <fish-option index="0" content="内容管理"></fish-option>
-            <fish-option index="1" content="用户管理"></fish-option>
-            <fish-option index="2" content="统计分析"></fish-option>
-            <fish-submenu index="3">
-              <template slot="title">submenu</template>
-              <fish-option index="3-0" content="Jack"></fish-option>
-              <fish-option index="3-1" content="Lucy"></fish-option>
-              <fish-option index="3-2" content="Active"></fish-option>
-              <!--<fish-option index="3-3">Option-3</fish-option>-->
-              <fish-submenu index="3-3">
-                <template slot="title">submenu-3</template>
-                <fish-option index="3-3-0" content="Jack"></fish-option>
-                <fish-option index="3-3-1" content="Lucy"></fish-option>
-                <fish-option index="3-3-2" content="Active"></fish-option>
+        <code-card title="水平菜单" desc="水平菜单，可以用作导航菜单">
+          <template slot="demo">
+            <fish-menu mode="horizontal" defaultActive="3-3-1">
+              <fish-option index="0" content="内容管理"></fish-option>
+              <fish-option index="1" content="用户管理"></fish-option>
+              <fish-option index="2" content="统计分析"></fish-option>
+              <fish-submenu index="3">
+                <template slot="title">submenu</template>
+                <fish-option index="3-0" content="Jack"></fish-option>
+                <fish-option index="3-1" content="Lucy"></fish-option>
+                <fish-option index="3-2" content="Active"></fish-option>
+                <!--<fish-option index="3-3">Option-3</fish-option>-->
+                <fish-submenu index="3-3">
+                  <template slot="title">submenu-3</template>
+                  <fish-option index="3-3-0" content="Jack"></fish-option>
+                  <fish-option index="3-3-1" content="Lucy"></fish-option>
+                  <fish-option index="3-3-2" content="Active"></fish-option>
+                </fish-submenu>
+                <fish-option index="3-4" content="Option-4">Option-4</fish-option>
+                <fish-option index="3-5" content="Option-5">Option-5</fish-option>
               </fish-submenu>
-              <fish-option index="3-4" content="Option-4">Option-4</fish-option>
-              <fish-option index="3-5" content="Option-5">Option-5</fish-option>
-            </fish-submenu>
-          </fish-menu>
-          <template slot="footer">
-            <pre v-highlightjs><code class="html">&lt;fish-menu mode=&quot;horizontal&quot; defaultActive=&quot;1&quot;&gt;
+            </fish-menu>
+          </template>
+          <template slot="codeHtml">
+            <pre v-highlightjs><code class="xml">&lt;fish-menu mode=&quot;horizontal&quot; defaultActive=&quot;1&quot;&gt;
   &lt;fish-option index=&quot;0&quot; content=&quot;内容管理&quot;&gt;&lt;/fish-option&gt;
   &lt;fish-option index=&quot;1&quot; content=&quot;用户管理&quot;&gt;&lt;/fish-option&gt;
   &lt;fish-option index=&quot;2&quot; content=&quot;统计分析&quot;&gt;&lt;/fish-option&gt;
@@ -70,33 +74,35 @@
   &lt;/fish-submenu&gt;
 &lt;/fish-menu&gt;</code></pre>
           </template>
-        </fish-card>
+        </code-card>
       </fish-col>
 
     </fish-row>
 
     <fish-row gutter="1">
       <fish-col span="12">
-        <fish-card>
-          <fish-menu style="width: 200px;" defaultActive="0-3-1">
-            <fish-submenu index="0">
-              <template slot="title">submenu</template>
-              <fish-option index="0-0" content="Jack"></fish-option>
-              <fish-option index="0-1" content="Lucy"></fish-option>
-              <fish-option index="0-2" content="Active"></fish-option>
-              <fish-submenu index="0-3">
-                <template slot="title">submenu-3</template>
-                <fish-option index="0-3-0" content="Jack"></fish-option>
-                <fish-option index="0-3-1" content="Lucy"></fish-option>
-                <fish-option index="0-3-2" content="Active"></fish-option>
+        <code-card title="垂直含子菜单的菜单" desc="需要指定根菜单的css样式<code>width</code>">
+          <template slot="demo">
+            <fish-menu style="width: 200px;" defaultActive="0-3-1">
+              <fish-submenu index="0">
+                <template slot="title">submenu</template>
+                <fish-option index="0-0" content="Jack"></fish-option>
+                <fish-option index="0-1" content="Lucy"></fish-option>
+                <fish-option index="0-2" content="Active"></fish-option>
+                <fish-submenu index="0-3">
+                  <template slot="title">submenu-3</template>
+                  <fish-option index="0-3-0" content="Jack"></fish-option>
+                  <fish-option index="0-3-1" content="Lucy"></fish-option>
+                  <fish-option index="0-3-2" content="Active"></fish-option>
+                </fish-submenu>
               </fish-submenu>
-            </fish-submenu>
-            <fish-option index="1" content="Lucy"></fish-option>
-            <fish-option index="2" content="Active"></fish-option>
-            <fish-option index="3" disabled content="disabled"></fish-option>
-          </fish-menu>
-          <template slot="footer">
-            <pre v-highlightjs><code class="html">&lt;fish-menu style=&quot;width: 200px;&quot;&gt;
+              <fish-option index="1" content="Lucy"></fish-option>
+              <fish-option index="2" content="Active"></fish-option>
+              <fish-option index="3" disabled content="disabled"></fish-option>
+            </fish-menu>
+          </template>
+          <template slot="codeHtml">
+            <pre v-highlightjs><code class="xml">&lt;fish-menu style=&quot;width: 200px;&quot;&gt;
   &lt;fish-submenu index=&quot;0&quot;&gt;
     &lt;template slot=&quot;title&quot;&gt;submenu&lt;/template&gt;
     &lt;fish-option index=&quot;0-0&quot; content=&quot;Jack&quot;&gt;&lt;/fish-option&gt;
@@ -114,35 +120,36 @@
   &lt;fish-option index=&quot;3&quot; disabled content=&quot;disabled&quot;&gt;&lt;/fish-option&gt;
 &lt;/fish-menu&gt;</code></pre>
           </template>
-        </fish-card>
+        </code-card>
       </fish-col>
       <fish-col span="12">
-        <fish-card>
-          <fish-menu mode="inline" style="width: 200px;" defaultActive="3-3-0" @change="changeHandler">
-            <fish-option index="0" content="内容管理"></fish-option>
-            <fish-submenu index="1" mode="inline">
-              <template slot="title">用户管理</template>
-              <fish-option index="1-0" content="Jack"></fish-option>
-              <fish-option index="1-1" content="Lucy"></fish-option>
-              <fish-option index="1-2" content="Active"></fish-option>
-            </fish-submenu>
-            <fish-option index="2" content="统计分析"></fish-option>
-            <fish-submenu index="3" mode="inline">
-              <template slot="title">submenu</template>
-              <fish-option index="3-0" content="Jack"></fish-option>
-              <fish-option index="3-1" content="Lucy"></fish-option>
-              <fish-option index="3-2" content="Active"></fish-option>
-              <fish-submenu index="3-3" mode="inline">
-                <template slot="title">submenu-3</template>
-                <fish-option index="3-3-0" content="Jack"></fish-option>
-                <fish-option index="3-3-1" content="Lucy"></fish-option>
-                <fish-option index="3-3-2" content="Active"></fish-option>
+        <code-card title="内嵌菜单" desc="内嵌菜单可以被缩起/展开">
+          <template slot="demo">
+            <fish-menu mode="inline" style="width: 200px;" defaultActive="3-3-0" @change="changeHandler">
+              <fish-option index="0" content="内容管理"></fish-option>
+              <fish-submenu index="1" mode="inline">
+                <template slot="title">用户管理</template>
+                <fish-option index="1-0" content="Jack"></fish-option>
+                <fish-option index="1-1" content="Lucy"></fish-option>
+                <fish-option index="1-2" content="Active"></fish-option>
               </fish-submenu>
-            </fish-submenu>
-          </fish-menu>
-
-          <template slot="footer">
-            <pre v-highlightjs><code class="html">&lt;fish-menu mode=&quot;inline&quot; style=&quot;width: 200px;&quot; defaultActive=&quot;3-3-0&quot;&gt;
+              <fish-option index="2" content="统计分析"></fish-option>
+              <fish-submenu index="3" mode="inline">
+                <template slot="title">submenu</template>
+                <fish-option index="3-0" content="Jack"></fish-option>
+                <fish-option index="3-1" content="Lucy"></fish-option>
+                <fish-option index="3-2" content="Active"></fish-option>
+                <fish-submenu index="3-3" mode="inline">
+                  <template slot="title">submenu-3</template>
+                  <fish-option index="3-3-0" content="Jack"></fish-option>
+                  <fish-option index="3-3-1" content="Lucy"></fish-option>
+                  <fish-option index="3-3-2" content="Active"></fish-option>
+                </fish-submenu>
+              </fish-submenu>
+            </fish-menu>
+          </template>
+          <template slot="codeHtml">
+            <pre v-highlightjs><code class="xml">&lt;fish-menu mode=&quot;inline&quot; style=&quot;width: 200px;&quot; defaultActive=&quot;3-3-0&quot;&gt;
   &lt;fish-option index=&quot;0&quot; content=&quot;内容管理&quot;&gt;&lt;/fish-option&gt;
   &lt;fish-submenu index=&quot;1&quot; mode=&quot;inline&quot;&gt;
     &lt;template slot=&quot;title&quot;&gt;用户管理&lt;/template&gt;
@@ -165,7 +172,7 @@
   &lt;/fish-submenu&gt;
 &lt;/fish-menu&gt;</code></pre>
           </template>
-        </fish-card>
+        </code-card>
       </fish-col>
     </fish-row>
 
@@ -234,9 +241,11 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
+      CodeCard,
       MainLayout
     },
     data () {

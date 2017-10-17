@@ -5,7 +5,7 @@
     </div>
     <div class="code-card-meta">
       <div class="code-card-title">{{ title }}</div>
-      <span>{{ desc }}</span>
+      <span v-html="desc"></span>
       <span class="code-expand" @click="expandHandler">
         <img alt="expand code" src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg" class="code-expand-icon-show">
         <img alt="expand code" src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg" class="code-expand-icon-hide">
