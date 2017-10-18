@@ -1,24 +1,35 @@
 <template>
   <main-layout menuActiveIndex="popup">
     <h3>Popup 弹出框</h3>
-    <fish-card>
-      <fish-button @click="popupHandler">弹出确认框</fish-button>
-      <fish-button @click="popup2Handler">弹出确认框2</fish-button>
-      <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;fish-button @click=&quot;popupHandler&quot;&gt;弹出确认框&lt;/fish-button&gt;
-&lt;fish-button @click=&quot;popup2Handler&quot;&gt;弹出确认框2&lt;/fish-button&gt;</code></pre><br/>
-        <pre v-highlightjs><code class="javascript">popupHandler (event) {
-  popup.confirm(event, '确定要删除这条记录吗？', () => {
-    console.log('OK....')
-  })
-},
-popup2Handler (event) {
-  popup.confirm(event, '确定要删除这条记录吗？', () => {
-    console.log('OK....')
-  }, '确认', '取消')
-}</code></pre>
-      </div>
-    </fish-card>
+    <code-card title="基本用法" desc="多用于确认提示">
+      <template slot="demo">
+        <fish-button @click="popupHandler">弹出确认框</fish-button>
+        <fish-button @click="popup2Handler">弹出确认框2</fish-button>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;div&gt;
+    &lt;fish-button @click=&quot;popupHandler&quot;&gt;弹出确认框&lt;/fish-button&gt;
+    &lt;fish-button @click=&quot;popup2Handler&quot;&gt;弹出确认框2&lt;/fish-button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    methods: {
+      popupHandler (event) {
+        this.$popup.confirm(event, &#x27;确定要删除这条记录吗？&#x27;, () =&gt; {
+          console.log(&#x27;OK....&#x27;)
+        })
+      },
+      popup2Handler (event) {
+        this.$popup.confirm(event, &#x27;确定要删除这条记录吗？&#x27;, () =&gt; {
+          console.log(&#x27;OK....&#x27;)
+        }, &#x27;确认&#x27;, &#x27;取消&#x27;)
+      }
+    }
+  }
+&lt;/script&gt;
+</code></pre>
+    </code-card>
 
     <h3>Popup API</h3>
     <ul class="api">
@@ -44,9 +55,11 @@ popup2Handler (event) {
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
+      CodeCard,
       MainLayout
     },
     data () {

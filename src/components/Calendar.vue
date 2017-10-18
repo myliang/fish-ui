@@ -6,7 +6,7 @@
         <a :class="mode" @click.stop="showItemsHandler(mode)">
           {{ mode === 'month' ? current[mode] + 1 : current[mode] }}
         </a>
-        {{index <= 1 ? '-' : index === 2 ? ' ' : index <= 4 ? ':' : ''}}
+        {{index < modeIndex ? (index <= 1 ? '-' : index === 2 ? ' ' : index <= 4 ? ':' : '') : ''}}
       </template>
       <!--<a class="reset" @click.stop="todayHandler" v-html="today" v-if="mode === 'day'"></a>-->
       <a :class="['next', {'disabled': state === 'year'}]" @click.stop="pageHandler(1)"><i class="fa fa-chevron-right"></i></a>

@@ -7,8 +7,8 @@
       <div class="code-card-title">{{ title }}</div>
       <span v-html="desc"></span>
       <span class="code-expand" @click="expandHandler">
-        <img alt="expand code" src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg" class="code-expand-icon-show">
-        <img alt="expand code" src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg" class="code-expand-icon-hide">
+        <img alt="expand code" title="show code" src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg" :class="['code-expand-icon-' + (showHtml ? 'hide' : 'show')]">
+        <img alt="expand code" title="hide code" src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg" :class="['code-expand-icon-' + (!showHtml ? 'hide' : 'show')]">
       </span>
     </div>
     <div class="code-card-highlight" v-if="showHtml">

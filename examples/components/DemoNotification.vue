@@ -1,31 +1,40 @@
 <template>
   <main-layout menuActiveIndex="notification">
     <h3>Notification 全局提示</h3>
-    <fish-card>
-      <fish-button @click="messageWarningHandler">warning</fish-button>
-      <fish-button @click="messageErrorHandler">error</fish-button>
-      <fish-button @click="messageSuccessHandler">success</fish-button>
-      <fish-button @click="messageTipHandler">提示信息</fish-button>
-      <div slot="footer">
-      <pre v-highlightjs><code class="html">&lt;fish-button @click=&quot;messageWarningHandler&quot;&gt;warning&lt;/fish-button&gt;
-&lt;fish-button @click=&quot;messageErrorHandler&quot;&gt;error&lt;/fish-button&gt;
-&lt;fish-button @click=&quot;messageSuccessHandler&quot;&gt;success&lt;/fish-button&gt;
-&lt;fish-button @click=&quot;messageTipHandler&quot;&gt;提示信息&lt;/fish-button&gt;</code></pre>
-      <br/>
-      <pre v-highlightjs><code class="javascript">messageWarningHandler () {
-  this.$message.warning('welcome to you 黄英你朋友!!!', 5000)
-},
-messageErrorHandler () {
-  this.$message.error('error: welcome to you 黄英你朋友!!!', 5000)
-},
-messageSuccessHandler () {
-  this.$message.success('success: welcome to you 黄英你朋友!!!', 5000)
-},
-messageTipHandler () {
-  this.$message.tip('Notification Title', 'I will never close automatically. I will be close automatically. I will never close automatically.')
-}</code></pre>
-      </div>
-    </fish-card>
+    <code-card title="基本用法" desc="基本用法, 支持多种提示">
+      <template slot="demo">
+        <fish-button @click="messageWarningHandler">warning</fish-button>
+        <fish-button @click="messageErrorHandler">error</fish-button>
+        <fish-button @click="messageSuccessHandler">success</fish-button>
+        <fish-button @click="messageTipHandler">提示信息</fish-button>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;div&gt;
+    &lt;fish-button @click=&quot;messageWarningHandler&quot;&gt;warning&lt;/fish-button&gt;
+    &lt;fish-button @click=&quot;messageErrorHandler&quot;&gt;error&lt;/fish-button&gt;
+    &lt;fish-button @click=&quot;messageSuccessHandler&quot;&gt;success&lt;/fish-button&gt;
+    &lt;fish-button @click=&quot;messageTipHandler&quot;&gt;提示信息&lt;/fish-button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    methods: {
+      messageWarningHandler () {
+        this.$message.warning(&#x27;welcome to you 黄英你朋友!!!&#x27;, 5000)
+      },
+      messageErrorHandler () {
+        this.$message.error(&#x27;error: welcome to you 黄英你朋友!!!&#x27;, 5000)
+      },
+      messageSuccessHandler () {
+        this.$message.success(&#x27;success: welcome to you 黄英你朋友!!!&#x27;, 5000)
+      },
+      messageTipHandler () {
+        this.$message.tip(&#x27;Notification Title&#x27;, &#x27;I will never close automatically. I will be close automatically. I will never close automatically.&#x27;)
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
 
     <h3>Notification API</h3>
     <ul class="api">
@@ -55,9 +64,11 @@ messageTipHandler () {
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
+      CodeCard,
       MainLayout
     },
     data () {

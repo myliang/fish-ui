@@ -11,7 +11,7 @@
       <td v-for="column in columns" :style="{'text-align': column.align || 'left'}">
         <div v-if="'index' === column.type">{{ rowIndex + 1 }}</div>
         <div v-else-if="'checkbox' === column.type">
-          <fish-checkbox :index="cellRender(item, column)" @click="checkboxSelectHandler" ref="checkboxes"></fish-checkbox>
+          <fish-checkbox :index="rowIndex" @click="checkboxSelectHandler" ref="checkboxes"></fish-checkbox>
         </div>
         <div v-else v-html="cellRender(item, column)"></div>
       </td>

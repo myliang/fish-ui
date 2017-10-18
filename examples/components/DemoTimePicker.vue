@@ -1,12 +1,25 @@
 <template>
   <main-layout menuActiveIndex="timepicker">
     <h3>TimePicker 时间选框</h3>
-    <fish-card>
-      <fish-time-picker v-model="timePickerValue"></fish-time-picker> [{{timePickerValue}}]
-      <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;fish-time-picker v-model=&quot;timePickerValue&quot;&gt;&lt;/fish-time-picker&gt;</code></pre>
-      </div>
-    </fish-card>
+
+    <code-card title="基本" desc="基本用法">
+      <template slot="demo">
+        <fish-time-picker v-model="timePickerValue"></fish-time-picker>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-time-picker v-model=&quot;timePickerValue&quot;&gt;&lt;/fish-time-picker&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    data () {
+      return {
+        timePickerValue: &#x27;&#x27;
+      }
+    }
+  }
+&lt;/script&gt;
+</code></pre>
+    </code-card>
 
     <h3>TimePicker Attributes</h3>
     <div class="fish table attributes">
@@ -43,9 +56,11 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
+      CodeCard,
       MainLayout
     },
     data () {

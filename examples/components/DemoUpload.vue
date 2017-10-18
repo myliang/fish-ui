@@ -1,24 +1,56 @@
 <template>
   <main-layout menuActiveIndex="upload">
     <h3>Upload 上传</h3>
-    <fish-card>
-      <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files"
-                  :withCredentials="true" :multiple="true">
-        <fish-button><i class="fa fa-upload" aria-hidden="true" style="margin-right: 5px;"></i> Upload</fish-button>
-      </fish-upload>
-      <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files"
-                  :withCredentials="true" type="picture">
-      </fish-upload><br/>
-      <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;fish-upload action=&quot;//jsonplaceholder.typicode.com/posts/&quot; v-model=&quot;files&quot;
-            :withCredentials=&quot;true&quot; :multiple=&quot;true&quot;&gt;
-  &lt;fish-button&gt;&lt;i class=&quot;fa fa-upload&quot; aria-hidden=&quot;true&quot; style=&quot;margin-right: 5px;&quot;&gt;&lt;/i&gt; Upload&lt;/fish-button&gt;
-&lt;/fish-upload&gt;
-&lt;fish-upload action=&quot;//jsonplaceholder.typicode.com/posts/&quot; v-model=&quot;files&quot;
-            :withCredentials=&quot;true&quot; type=&quot;picture&quot;&gt;
-&lt;/fish-upload&gt;</code></pre><br/>
-      </div>
-    </fish-card>
+
+    <code-card title="基本用法" desc="基本用法，参数<code>withCredentials</code>可以实现跨越">
+      <template slot="demo">
+        <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files1"
+                     :withCredentials="true">
+          <fish-button><i class="fa fa-upload" aria-hidden="true" style="margin-right: 5px;"></i> Upload</fish-button>
+        </fish-upload>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-upload action=&quot;//jsonplaceholder.typicode.com/posts/&quot; v-model=&quot;files1&quot;
+               :withCredentials=&quot;true&quot;&gt;
+    &lt;fish-button&gt;&lt;i class=&quot;fa fa-upload&quot; aria-hidden=&quot;true&quot; style=&quot;margin-right: 5px;&quot;&gt;&lt;/i&gt; Upload&lt;/fish-button&gt;
+  &lt;/fish-upload&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    data () {
+      return {
+        files1: [{name: &#x27;xxx.png&#x27;,url: &#x27;https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png&#x27;}]
+      }
+    }
+  }
+&lt;/script&gt;
+</code></pre>
+    </code-card>
+
+    <code-card title="图片类型" desc="上传的是图片">
+      <template slot="demo">
+        <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files"
+                     :withCredentials="true" type="picture">
+        </fish-upload>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-upload action=&quot;//jsonplaceholder.typicode.com/posts/&quot; v-model=&quot;files&quot;
+               :withCredentials=&quot;true&quot; type=&quot;picture&quot;&gt;
+  &lt;/fish-upload&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    data () {
+      return {
+        files: [{name: &#x27;xxx.png&#x27;, url: &#x27;https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png&#x27;},
+          {name: &#x27;yyy.png&#x27;, url: &#x27;https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png&#x27;},
+          {name: &#x27;zzz.png&#x27;, url: &#x27;https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png&#x27;}]
+      }
+    }
+  }
+&lt;/script&gt;
+</code></pre>
+    </code-card>
 
     <h3>Upload Attributes</h3>
     <div class="fish table attributes">
@@ -39,9 +71,11 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
+      CodeCard,
       MainLayout
     },
     data () {
@@ -64,11 +98,10 @@
           ['onError', '上传出错触发', 'Function(err, file)', '() => {}'],
           ['formatUrlFromResponse', '解析返回值取得url', 'Function(res)', '(res) => res']
         ],
-        previewUrl: '',
-        previewShow: false,
-        files: [{name: 'xxx.png', url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505396231761&di=a27f825a7b2597ebf70e5a8323a88841&imgtype=0&src=http%3A%2F%2Fimage.tianjimedia.com%2FuploadImages%2F2011%2F360%2F6163TLR088W0.jpg'},
-          {name: 'yyy.png', url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505396232089&di=c1d198378d24a175a1a6445906b78556&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201401%2F04%2F20140104235918_uNikH.jpeg'},
-          {name: 'zzz.png', url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505396232088&di=eac61759e89fb8913fcf75bb122335fb&imgtype=0&src=http%3A%2F%2Fwww.dingniu8.com%2Fdesk%2FUploadPic%2F2013-1%2F2013112205556695.jpg'}]
+        files1: [{name: 'xxx.png', url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'}],
+        files: [{name: 'xxx.png', url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'},
+          {name: 'yyy.png', url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'},
+          {name: 'zzz.png', url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'}]
       }
     }
   }

@@ -1,39 +1,67 @@
 <template>
   <main-layout menuActiveIndex="tag">
     <h3>Tag 标签</h3>
-    <fish-card>
-      <fish-tag index="1">标签</fish-tag>
-      <fish-tag index="2">TAG</fish-tag>
-      <fish-tag index="3" @close="{}">关闭</fish-tag>
-      <fish-tag index="3" color="primary">关闭</fish-tag><br/><br/>
-      <fish-tags :items="tags" edited @close="groupCloseHandler" @add="addCheckHandler"></fish-tags> {{ tags }}
-      <fish-tags :items="tags1" @click="checkClickHandler"></fish-tags>{{ tags1 }}
-      <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;fish-tag index=&quot;1&quot;&gt;标签&lt;/fish-tag&gt;
+    <fish-row gutter="1">
+      <fish-col span="8">
+        <code-card title="基本用法" desc="基本标签的用法，可以通过@close变为可关闭标签">
+          <template slot="demo">
+            <fish-tag index="1">标签</fish-tag>
+            <fish-tag index="2">TAG</fish-tag>
+            <fish-tag index="3" @close="{}">关闭</fish-tag>
+            <fish-tag index="3" color="primary">关闭</fish-tag>
+          </template>
+          <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-tag index=&quot;1&quot;&gt;标签&lt;/fish-tag&gt;
 &lt;fish-tag index=&quot;2&quot;&gt;TAG&lt;/fish-tag&gt;
 &lt;fish-tag index=&quot;3&quot; @close=&quot;{}&quot;&gt;关闭&lt;/fish-tag&gt;
-&lt;fish-tag index=&quot;3&quot; color=&quot;primary&quot;&gt;关闭&lt;/fish-tag&gt;&lt;br/&gt;&lt;br/&gt;
-&lt;fish-tags :items=&quot;tags&quot; edited @close=&quot;groupCloseHandler&quot; @add=&quot;addCheckHandler&quot;&gt;&lt;/fish-tags&gt;
-&lt;fish-tags :items=&quot;tags1&quot; @click=&quot;checkClickHandler&quot;&gt;&lt;/fish-tags&gt;</code></pre><br/>
-        <pre v-highlightjs><code class="javascript">data () {
-  return {
-    tags1: [[true, 'tag1-radio'], [false, 'tag2-radio'], [false, 'tag3-radio']],
-    tags: ['tag1', 'tag2', 'tag3']
+&lt;fish-tag index=&quot;3&quot; color=&quot;primary&quot;&gt;关闭&lt;/fish-tag&gt;</code></pre>
+        </code-card>
+      </fish-col>
+
+      <fish-col span="8">
+        <code-card title="动态添加和删除" desc="用数组生成一组标签，可以动态添加和删除">
+          <template slot="demo">
+            <fish-tags :items="tags" edited @close="groupCloseHandler" @add="addCheckHandler"></fish-tags>
+          </template>
+          <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-tags :items=&quot;tags&quot; edited @close=&quot;groupCloseHandler&quot; @add=&quot;addCheckHandler&quot;&gt;&lt;/fish-tags&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    data () { return {tags: ['tag1', 'tag2', 'tag3']} },
+    methods: {
+      addCheckHandler (v) {
+        this.tags.push(v)
+      },
+      groupCloseHandler (index) {
+        this.tags.splice(index, 1)
+      }
+    }
   }
-},
-methods: {
-  checkClickHandler (event, index, checked) {
-    this.tags1.splice(index, 1, [checked, this.tags1[index][1]])
-  },
-  addCheckHandler (event, v) {
-    this.tags.push(v)
-  },
-  groupCloseHandler (event, index) {
-    this.tags.splice(index, 1)
+&lt;/script&gt;</code></pre>
+        </code-card>
+      </fish-col>
+
+      <fish-col span="8">
+        <code-card title="可选择" desc="可通过 @click 事件实现类似 Checkbox 的效果，点击切换选中效果">
+          <template slot="demo">
+            <fish-tags :items="tags1" @click="checkClickHandler"></fish-tags>
+          </template>
+          <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-tags :items=&quot;tags1&quot; @click=&quot;checkClickHandler&quot;&gt;&lt;/fish-tags&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    data () { return {tags1: [[true, &#x27;tag1-radio&#x27;], [false, &#x27;tag2-radio&#x27;], [false, &#x27;tag3-radio&#x27;]]} },
+    methods: {
+      checkClickHandler (event, index, checked) {
+        this.tags1.splice(index, 1, [checked, this.tags1[index][1]])
+      }
+    }
   }
-}</code></pre>
-      </div>
-    </fish-card>
+&lt;/script&gt;</code></pre>
+        </code-card>
+      </fish-col>
+    </fish-row>
 
     <h3>Tags Attributes</h3>
     <div class="fish table attributes">
@@ -86,9 +114,11 @@ methods: {
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
+      CodeCard,
       MainLayout
     },
     data () {

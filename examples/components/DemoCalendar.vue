@@ -1,18 +1,51 @@
 <template>
   <main-layout menuActiveIndex="calendar">
     <h3>Calendar 日历</h3>
-    <fish-card>
-      <fish-calendar mode="year" min="2017-01" max="2018-01"></fish-calendar>
-      <fish-calendar mode="month" min="2017-07"></fish-calendar>
-      <fish-calendar value="2017-01-08" min="2017-01-07" @select="selectHandler" @change="changeHandler"></fish-calendar>
-      <fish-calendar mode="second" value="2017-01-08" min="2017-01-07"></fish-calendar>
-      <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;fish-calendar mode=&quot;year&quot; min=&quot;2017-01&quot; max=&quot;2018-01&quot;&gt;&lt;/fish-calendar&gt;
-&lt;fish-calendar mode=&quot;month&quot; min=&quot;2017-07&quot;&gt;&lt;/fish-calendar&gt;
-&lt;fish-calendar value=&quot;2017-01-08&quot; min=&quot;2017-01-07&quot;&gt;&lt;/fish-calendar&gt;
-&lt;fish-calendar mode=&quot;second&quot; value=&quot;2017-01-08&quot; min=&quot;2017-01-07&quot;&gt;&lt;/fish-calendar&gt;</code></pre>
-      </div>
-    </fish-card>
+    <code-card title="年历" desc="展示年信息">
+      <template slot="demo">
+        <fish-calendar mode="year" min="2017-01" max="2018-01"></fish-calendar>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-calendar mode=&quot;year&quot; min=&quot;2017-01&quot; max=&quot;2018-01&quot;&gt;&lt;/fish-calendar&gt;</code></pre>
+    </code-card>
+
+    <code-card title="年月历" desc="展示年，月信息">
+      <template slot="demo">
+        <fish-calendar mode="month" min="2017-07"></fish-calendar>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-calendar mode=&quot;month&quot; min=&quot;2017-07&quot;&gt;&lt;/fish-calendar&gt;</code></pre>
+    </code-card>
+
+    <code-card title="年月日历" desc="展示年，月，日信息">
+      <template slot="demo">
+        <fish-calendar value="2017-01-08" min="2017-01-07" @select="selectHandler" @change="changeHandler"></fish-calendar>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-calendar value=&quot;2017-01-08&quot; min=&quot;2017-01-07&quot; @select=&quot;selectHandler&quot; @change=&quot;changeHandler&quot;&gt;&lt;/fish-calendar&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    data () {
+      return {}
+    },
+    methods: {
+      selectHandler (current) {
+        console.log(&#x27;current: &#x27;, current)
+      },
+      changeHandler (state, arrays, current) {
+        console.log(&#x27;change: &#x27;, state, &#x27;; &#x27;, arrays, &#x27;; &#x27;, current)
+      }
+    }
+  }
+&lt;/script&gt;</code>
+</pre>
+    </code-card>
+
+    <code-card title="年月日时分秒历" desc="展示年，月，日，时，分，秒信息">
+      <template slot="demo">
+        <fish-calendar mode="second" value="2017-01-08" min="2017-01-07"></fish-calendar>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-calendar mode=&quot;second&quot; value=&quot;2017-01-08&quot; min=&quot;2017-01-07&quot;&gt;&lt;/fish-calendar&gt;</code></pre>
+    </code-card>
 
     <h3>Calendar Attributes</h3>
     <div class="fish table attributes">
@@ -49,9 +82,11 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
+      CodeCard,
       MainLayout
     },
     data () {

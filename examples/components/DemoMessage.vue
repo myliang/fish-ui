@@ -1,21 +1,22 @@
 <template>
   <main-layout menuActiveIndex="message">
     <h3>Message 消息</h3>
-    <fish-card>
-      <fish-message>
-        Warning Description Warning Description Warning Description Warning Description
-      </fish-message>
-      <fish-message type="error">
-        Error Description Error Description Error Description Error Description
-      </fish-message>
-      <fish-message type="info">
-        Info Description Info Description Info Description Info Description
-      </fish-message>
-      <fish-message type="success">
-        Success Description Success Description Success Description Success Description
-      </fish-message>
-      <div slot="footer">
-      <pre v-highlightjs><code class="html">&lt;fish-message&gt;
+    <code-card title="基本用法" desc="基本使用方法，可以通过指定type显示不一样的样式">
+      <template slot="demo">
+        <fish-message>
+          Warning Description Warning Description Warning Description Warning Description
+        </fish-message>
+        <fish-message type="error">
+          Error Description Error Description Error Description Error Description
+        </fish-message>
+        <fish-message type="info">
+          Info Description Info Description Info Description Info Description
+        </fish-message>
+        <fish-message type="success">
+          Success Description Success Description Success Description Success Description
+        </fish-message>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-message&gt;
   Warning Description Warning Description Warning Description Warning Description
 &lt;/fish-message&gt;
 &lt;fish-message type=&quot;error&quot;&gt;
@@ -27,8 +28,7 @@
 &lt;fish-message type=&quot;success&quot;&gt;
   Success Description Success Description Success Description Success Description
 &lt;/fish-message&gt;</code></pre>
-      </div>
-    </fish-card>
+    </code-card>
 
     <h3>Message Attributes</h3>
     <div class="fish table attributes">
@@ -49,9 +49,11 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
+      CodeCard,
       MainLayout
     },
     data () {

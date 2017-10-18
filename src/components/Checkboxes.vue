@@ -24,7 +24,7 @@
         } else {
           v.push(evt.index)
         }
-        console.log('after:', v)
+        // console.log('after:', v)
         this.$emit('input', v)
         this.$emit('change', v)
       },

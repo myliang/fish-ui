@@ -1,5 +1,5 @@
 <template>
-  <div :class="['fish select', {'multiple': multiple}]"
+  <div :class="['fish select tree-select', {'multiple': multiple}]"
        @click="clickHandler"
        @mouseover="mouseOverHandler"
        @mouseout="mouseOutHandler"

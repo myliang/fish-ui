@@ -1,33 +1,41 @@
 <template>
   <main-layout menuActiveIndex="cascader">
     <h3>Cascader 练级下拉选框</h3>
-    <fish-card>
-      <fish-cascader :options="options" v-model="cascaderValue" style="width: 260px;" @change="changeHandler"></fish-cascader> [{{ cascaderValue }}]
-      <div slot="footer">
-        <pre v-highlightjs><code class="html">&lt;fish-cascader :options=&quot;options&quot; v-model=&quot;cascaderValue&quot; style=&quot;width: 260px;&quot; @change=&quot;changeHandler&quot;&gt;&lt;/fish-cascader&gt;</code></pre>
-        <pre v-highlightjs><code class="javascript">data () {
-  return {
-    cascaderValue: [],
-    options: [
-      ['zhejiang', 'Zhejiang', [
-        ['hangzhou', 'Hangzhou', [
-          ['xihu', 'West Lake']
-        ]]
-      ]],
-      ['jiangsu', 'Jiangsu', [
-        ['nanjing', 'Nanjing', [
-          ['zhonghuamen', 'Zhong Hua Men']
-        ]]
-      ]]
-    ]
+    <code-card title="基本" desc="基本用法，可以使用v-model绑定数据">
+      <template slot="demo">
+        <fish-cascader :options="options" v-model="cascaderValue" style="width: 260px;" @change="changeHandler"></fish-cascader>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-cascader :options=&quot;options&quot; v-model=&quot;cascaderValue&quot; style=&quot;width: 260px;&quot; @change=&quot;changeHandler&quot;&gt;&lt;/fish-cascader&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    data () {
+      return {
+        cascaderValue: [],
+        options: [
+          [&#x27;zhejiang&#x27;, &#x27;Zhejiang&#x27;, [
+            [&#x27;hangzhou&#x27;, &#x27;Hangzhou&#x27;, [
+              [&#x27;xihu&#x27;, &#x27;West Lake&#x27;]
+            ]]
+          ]],
+          [&#x27;jiangsu&#x27;, &#x27;Jiangsu&#x27;, [
+            [&#x27;nanjing&#x27;, &#x27;Nanjing&#x27;, [
+              [&#x27;zhonghuamen&#x27;, &#x27;Zhong Hua Men&#x27;]
+            ]]
+          ]]
+        ]
+      }
+    },
+    methods: {
+      changeHandler (values) {
+        console.log(&#x27;values:&#x27;, values)
+      }
+    }
   }
-  methods: {
-    changeHandler (values) {
-    console.log('values: ', values)
-  }
-}</code></pre>
-      </div>
-    </fish-card>
+&lt;/script&gt;
+</code></pre>
+    </code-card>
 
     <h3>Cascader Attributes</h3>
     <div class="fish table attributes">
@@ -64,9 +72,11 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
+      CodeCard,
       MainLayout
     },
     data () {

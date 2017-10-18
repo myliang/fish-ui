@@ -1,12 +1,21 @@
 <template>
   <main-layout menuActiveIndex="pagination">
     <h3>Pagination 分页</h3>
-    <fish-card>
-      <fish-pagination :total="500" :current="page" @change="(current) => page = current"></fish-pagination>
-      <footer slot="footer">
-        <pre v-highlightjs><code class="html">&lt;fish-pagination :total=&quot;500&quot; :current=&quot;page&quot; @change=&quot;(current) =&gt; page = current&quot;&gt;&lt;/fish-pagination&gt;</code></pre>
-      </footer>
-    </fish-card>
+    <code-card title="典型" desc="典型分页">
+      <template slot="demo">
+        <fish-pagination :total="500" :current="page" @change="(current) => page = current"></fish-pagination>
+      </template>
+      <template slot="codeHtml">
+        <pre v-highlightjs><code class="xml">&lt;template&gt;
+  &lt;fish-pagination :total=&quot;500&quot; :current=&quot;page&quot; @change=&quot;(current) =&gt; page = current&quot;&gt;&lt;/fish-pagination&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    data () { return {page: 2} }
+  }
+&lt;/script&gt;</code></pre>
+      </template>
+    </code-card>
 
     <h3>Pagination Attributes</h3>
     <div class="fish table attributes">
@@ -43,14 +52,16 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
+      CodeCard,
       MainLayout
     },
     data () {
       return {
-        page: 1,
+        page: 2,
         api_columns: ['属性', '说明', '类型', '默认值'],
         api_data: [
           ['total', '数据总数', 'Number', '-'],

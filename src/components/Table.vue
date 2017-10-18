@@ -110,7 +110,7 @@
             tb.$refs.checkboxes.forEach((cb) => { cb.active = checkbox.active })
           }
         })
-        this.$emit('select', vtb.$refs.checkboxes.map((cb) => { return cb.index }))
+        this.$emit('select', vtb.$refs.checkboxes.filter((cb) => cb.active).map((cb) => { return this.data[cb.index] }))
       },
       bodySelectHandler (event, $vue) {
         let checkboxes = $vue.$refs.checkboxes
@@ -119,7 +119,7 @@
         const { vth, lVth, rVth, vtb } = this.$refs
         Array.of(vth, lVth, rVth).forEach((th) => { if (th) th.$refs.checkboxes[0].active = headActiveCheckbox })
 
-        this.$emit('select', vtb.$refs.checkboxes.map((cb) => { return cb.index }))
+        this.$emit('select', vtb.$refs.checkboxes.filter((cb) => cb.active).map((cb) => { return this.data[cb.index] }))
       },
       calScroll () {
         this.$nextTick(() => this.calScrollY())

@@ -1,42 +1,50 @@
 <template>
   <main-layout menuActiveIndex="step">
     <h3>Step 步骤</h3>
-    <fish-card>
-      <fish-steps>
-        <fish-step title="Finished"></fish-step>
-        <fish-step title="in Progress" active icon="fa fa-usd"></fish-step>
-        <fish-step title="Waiting" disabled description="this is description"></fish-step>
-      </fish-steps>
-      <fish-steps size="big">
-        <fish-step title="Finished" description="这是描述"></fish-step>
-        <fish-step title="in Progress" active description="this is description" icon="fa fa-usd"></fish-step>
-        <fish-step title="Waiting" disabled description="this is description"></fish-step>
-      </fish-steps>
-      <fish-steps mode="vertical" width="300">
-        <fish-step title="Finished" description="这是描述"></fish-step>
-        <fish-step title="in Progress" active description="this is description" icon="fa fa-usd"></fish-step>
-        <fish-step title="Waiting" disabled description="this is description"></fish-step>
-      </fish-steps>
-
-      <div slot="footer">
-      <pre v-highlightjs><code class="html">&lt;fish-steps&gt;
+    <code-card title="基本用法" desc="简单的步骤条。">
+      <template slot="demo">
+        <fish-steps>
+          <fish-step title="Finished"></fish-step>
+          <fish-step title="in Progress" active icon="fa fa-usd"></fish-step>
+          <fish-step title="Waiting" disabled description="this is description"></fish-step>
+        </fish-steps>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-steps&gt;
   &lt;fish-step title=&quot;Finished&quot;&gt;&lt;/fish-step&gt;
   &lt;fish-step title=&quot;in Progress&quot; active icon=&quot;usd&quot;&gt;&lt;/fish-step&gt;
   &lt;fish-step title=&quot;Waiting&quot; disabled description=&quot;this is description&quot;&gt;&lt;/fish-step&gt;
-&lt;/fish-steps&gt;
-&lt;fish-steps size=&quot;big&quot;&gt;
+&lt;/fish-steps&gt;</code></pre>
+    </code-card>
+
+    <code-card title="大小" desc="可用通过设置size: <code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>。">
+      <template slot="demo">
+        <fish-steps size="big">
+          <fish-step title="Finished" description="这是描述"></fish-step>
+          <fish-step title="in Progress" active description="this is description" icon="fa fa-usd"></fish-step>
+          <fish-step title="Waiting" disabled description="this is description"></fish-step>
+        </fish-steps>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-steps size=&quot;big&quot;&gt;
   &lt;fish-step title=&quot;Finished&quot; description=&quot;这是描述&quot;&gt;&lt;/fish-step&gt;
   &lt;fish-step title=&quot;in Progress&quot; active description=&quot;this is description&quot; icon=&quot;usd&quot;&gt;&lt;/fish-step&gt;
   &lt;fish-step title=&quot;Waiting&quot; disabled description=&quot;this is description&quot;&gt;&lt;/fish-step&gt;
-&lt;/fish-steps&gt;
-&lt;fish-steps mode=&quot;vertical&quot; width=&quot;300&quot;&gt;
+&lt;/fish-steps&gt;</code></pre>
+    </code-card>
+
+    <code-card title="竖直展示" desc="简单的竖直方向的步骤条">
+      <template slot="demo">
+        <fish-steps mode="vertical" width="300">
+          <fish-step title="Finished" description="这是描述"></fish-step>
+          <fish-step title="in Progress" active description="this is description" icon="fa fa-usd"></fish-step>
+          <fish-step title="Waiting" disabled description="this is description"></fish-step>
+        </fish-steps>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-steps mode=&quot;vertical&quot; width=&quot;300&quot;&gt;
   &lt;fish-step title=&quot;Finished&quot; description=&quot;这是描述&quot;&gt;&lt;/fish-step&gt;
   &lt;fish-step title=&quot;in Progress&quot; active description=&quot;this is description&quot; icon=&quot;usd&quot;&gt;&lt;/fish-step&gt;
   &lt;fish-step title=&quot;Waiting&quot; disabled description=&quot;this is description&quot;&gt;&lt;/fish-step&gt;
-&lt;/fish-steps&gt;
-&lt;/fish-card&gt;</code></pre>
-      </div>
-    </fish-card>
+&lt;/fish-steps&gt;</code></pre>
+    </code-card>
 
     <h3>Steps Attributes</h3>
     <div class="fish table attributes">
@@ -73,9 +81,11 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
+      CodeCard,
       MainLayout
     },
     data () {

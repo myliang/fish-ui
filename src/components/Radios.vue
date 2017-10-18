@@ -1,5 +1,5 @@
 <template>
-  <div class="fish radios" @click="clickHandler">
+  <div :class="['fish radios', mode]" @click="clickHandler">
     <slot></slot>
   </div>
 </template>
@@ -8,7 +8,8 @@
   export default {
     name: 'fish-radios',
     props: {
-      value: { type: [Number, String] }
+      value: { type: [Number, String] },
+      mode: { type: String, default: 'horizontal' } // horizontal, vertical
     },
     mounted () {
       this.reRender()

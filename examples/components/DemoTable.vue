@@ -1,172 +1,337 @@
 <template>
   <main-layout menuActiveIndex="table">
     <h3>Table 表格</h3>
-    <fish-card>
-      <fish-checkbox index="loading" v-model="loading">Loading</fish-checkbox>
-      <fish-table :columns="columns_1" :data="data_1" :loading="loading"></fish-table><br/>
-      <fish-table :columns="columns_2" :data="data_2" :loading="loading" :expandedRowRender="(record)=>record"></fish-table>
-      <br/>
-      <fish-table :columns="columns_3" :data="data_3" border  :pagination="pagination" @change="changeHandler"></fish-table>
-      <br/>
-      <fish-table :columns="columns_4" :data="data_4" border height="200"></fish-table>
-      <br/>
-      <fish-table :columns="columns_5" :data="data_5" border></fish-table>
-      <br/>
-      <fish-table :columns="columns_6" :data="data_6" border height="200"></fish-table>
-      <br/>
-      <fish-table :columns="columns_7" :data="data_7" border height="200"></fish-table>
-      <footer slot="footer">
-        <pre v-highlightjs><code class="html">&lt;fish-checkbox index=&quot;loading&quot; v-model=&quot;loading&quot;&gt;Loading&lt;/fish-checkbox&gt;
-&lt;fish-table :columns=&quot;columns_1&quot; :data=&quot;data_1&quot; :loading=&quot;loading&quot;&gt;&lt;/fish-table&gt;&lt;br/&gt;
-&lt;fish-table :columns=&quot;columns_2&quot; :data=&quot;data_2&quot; :loading=&quot;loading&quot; :expandedRowRender=&quot;(record)=&gt;record&quot;&gt;&lt;/fish-table&gt;
-&lt;br/&gt;
-&lt;fish-table :columns=&quot;columns_3&quot; :data=&quot;data_3&quot; border  :pagination=&quot;pagination&quot; @change=&quot;changeHandler&quot;&gt;&lt;/fish-table&gt;
-&lt;br/&gt;
-&lt;fish-table :columns=&quot;columns_4&quot; :data=&quot;data_4&quot; border height=&quot;200&quot;&gt;&lt;/fish-table&gt;
-&lt;br/&gt;
-&lt;fish-table :columns=&quot;columns_5&quot; :data=&quot;data_5&quot; border&gt;&lt;/fish-table&gt;
-&lt;br/&gt;
-&lt;fish-table :columns=&quot;columns_6&quot; :data=&quot;data_6&quot; border height=&quot;200&quot;&gt;&lt;/fish-table&gt;
-&lt;br/&gt;
-&lt;fish-table :columns=&quot;columns_7&quot; :data=&quot;data_7&quot; border height=&quot;200&quot;&gt;&lt;/fish-table&gt;</code></pre><br/>
-        <pre v-highlightjs><code class="javascript">data () {
-  return {
-    loading: false,
-    pagination: {total: 50, current: 1},
-    columns_1: [{title: '姓名', key: 'name'}, {title: '年龄', key: 'age'}, {title: '住址', key: 'address'}],
-    data_1: [
-      {name: '胡彦斌', age: 32, address: '西湖区湖底公园1号'},
-      {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'},
-      {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'},
-      {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'}
-    ],
-    columns_2: [{title: '姓名', key: 'name'}, {title: '年龄', key: 'age'}, {title: '住址', key: 'address'}],
-    data_2: [
-      {name: '胡彦斌', age: 32, address: '西湖区湖底公园1号'},
-      {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'},
-      {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'},
-      {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'}
-    ],
-    columns_3: [
-      {title: '#', type: 'index', width: '50', align: 'center'},
-      {title: '', key: 'name', type: 'checkbox', width: '50', align: 'center'},
-      {title: '姓名', key: 'name'},
-      {title: '年龄', key: 'age', filters: [{label: '32岁', value: 32}, {label: '35岁', value: 35}]},
-      {title: '住址', key: 'address'}
-    ],
-    data_3: [
-      {name: '胡彦斌', age: 32, address: '西湖区湖底公园1号'},
-      {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'}
-    ],
-    columns_4: [
-      {title: '日期', key: 'date'},
-      {
-        title: '配送信息',
-        children: [
-          {title: '姓名', key: 'name'},
-          {
-            title: '地址',
-            children: [
-            {title: '省份', key: 'province'},
-            {title: '市区', key: 'city'},
-            {title: '地址', key: 'address'},
-            {title: '邮编', key: 'zip'}
-            ]
-          }
+    <code-card title="基本用法" desc="简单的表格，最后一列是各种操作。">
+      <template slot="demo">
+        <demo-table-base></demo-table-base>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot;&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-base&#x27;,
+    data () {
+      return {
+        columns: [{title: &#x27;姓名&#x27;, key: &#x27;name&#x27;}, {title: &#x27;年龄&#x27;, key: &#x27;age&#x27;}, {title: &#x27;住址&#x27;, key: &#x27;address&#x27;}],
+        data: [
+          {name: &#x27;胡彦斌&#x27;, age: 32, address: &#x27;西湖区湖底公园1号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;}
         ]
       }
-    ],
-    data_4: [
-      {date: '2016-05-03', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-02', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-01', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-08', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-06', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-07', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333}
-    ],
-    columns_5: [
-      {title: '日期', key: 'date', width: '200'},
-      {title: '姓名', key: 'name', width: '200'},
-      {title: '性别', key: 'sex', width: '200'},
-      {title: '出生日期', key: 'birthDate', width: '200'},
-      {title: '大学', key: 'university', width: '300'},
-      {title: '省份', key: 'province', width: '200'},
-      {title: '市区', key: 'city', width: '200'},
-      {title: '地址', key: 'address', width: '300'},
-      {title: '邮编', key: 'zip', width: '200'}],
-    data_5: [
-      {date: '2016-05-03', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海',city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-02', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-01', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333}],
-    columns_6: [
-      {title: '日期', key: 'date', width: '200'},
-      {title: '姓名', key: 'name', width: '200'},
-      {title: '性别', key: 'sex', width: '200'},
-      {title: '出生日期', key: 'birthDate', width: '200'},
-      {title: '大学', key: 'university', width: '300'},
-      {title: '省份', key: 'province', width: '200'},
-      {title: '市区', key: 'city', width: '200'},
-      {title: '地址', key: 'address', width: '300'},
-      {title: '邮编', key: 'zip', width: '200'}],
-    data_6: [
-      {date: '2016-05-03', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-02', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-01', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333}],
-    columns_7: [
-      {title: '日期', key: 'date', width: '200', fixed: 'left'},
-      {title: '姓名', key: 'name', width: '200'},
-      {title: '性别', key: 'sex', width: '200'},
-      {title: '出生日期', key: 'birthDate', width: '200'},
-      {title: '大学', key: 'university', width: '300'},
-      {title: '省份', key: 'province', width: '200'},
-      {title: '市区', key: 'city', width: '200'},
-      {title: '地址', key: 'address', width: '300'},
-      {title: '邮编', key: 'zip', width: '200', fixed: 'right'}],
-    data_7: [
-      {date: '2016-05-03', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-02', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-      {date: '2016-05-01', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学',
-          province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333}]
-  },
-  methods: {
-    changeHandler (pagination, filters) {
-      console.log('pagination: ', pagination, '; filters:', filters)
     }
   }
-}</code></pre>
-      </footer>
-    </fish-card>
+&lt;/script&gt;</code></pre>
+    </code-card>
+
+    <code-card title="指定列类型" desc="列类型可以指定：<code>index</code>, <code>checkbox</code>">
+      <template slot="demo">
+        <demo-table-column-type></demo-table-column-type>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; @select=&quot;selectHandler&quot;&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-column-type&#x27;,
+    data () {
+      return {
+        columns: [
+          {title: &#x27;#&#x27;, type: &#x27;index&#x27;, width: &#x27;50&#x27;, align: &#x27;center&#x27;},
+          {title: &#x27;&#x27;, key: &#x27;name&#x27;, type: &#x27;checkbox&#x27;, width: &#x27;50&#x27;, align: &#x27;center&#x27;},
+          {title: &#x27;姓名&#x27;, key: &#x27;name&#x27;},
+          {title: &#x27;年龄&#x27;, key: &#x27;age&#x27;},
+          {title: &#x27;住址&#x27;, key: &#x27;address&#x27;}
+        ],
+        data: [
+          {name: &#x27;胡彦斌&#x27;, age: 32, address: &#x27;西湖区湖底公园1号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;}
+        ]
+      }
+    },
+    methods: {
+      selectHandler (selectedItems) {
+        console.log(&#x27;selectedItems:&#x27;, selectedItems)
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
+
+    <code-card title="筛选" desc="使用受控属性对筛选进行控制 <code>columns.filters</code>。">
+      <template slot="demo">
+        <demo-table-column-filters></demo-table-column-filters>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; @change=&quot;changeHandler&quot;&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-column-filters&#x27;,
+    data () {
+      const data = [
+        {name: &#x27;胡彦斌&#x27;, age: 32, address: &#x27;西湖区湖底公园1号&#x27;},
+        {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;},
+        {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;},
+        {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;}
+      ]
+      return {
+        columns: [
+          {title: &#x27;#&#x27;, type: &#x27;index&#x27;, width: &#x27;50&#x27;, align: &#x27;center&#x27;},
+          {title: &#x27;姓名&#x27;, key: &#x27;name&#x27;},
+          {title: &#x27;年龄&#x27;, key: &#x27;age&#x27;, filters: [{label: &#x27;32岁&#x27;, value: 32}, {label: &#x27;35岁&#x27;, value: 35}]},
+          {title: &#x27;住址&#x27;, key: &#x27;address&#x27;}
+        ],
+        data,
+        oldData: data
+      }
+    },
+    methods: {
+      changeHandler (pagination, filters) {
+        let nData = this.oldData
+        for (let key of Object.keys(filters)) {
+          nData = nData.filter((item) =&gt; filters[key].includes(item[key]))
+        }
+        this.data = nData
+        console.log(&#x27;pagination:&#x27;, pagination, &#x27;, filters:&#x27;, filters)
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
+
+    <code-card title="带边框" desc="添加表格边框线。">
+      <template slot="demo">
+        <demo-table-border></demo-table-border>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; border&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-border&#x27;,
+    data () {
+      return {
+        columns: [{title: &#x27;姓名&#x27;, key: &#x27;name&#x27;}, {title: &#x27;年龄&#x27;, key: &#x27;age&#x27;}, {title: &#x27;住址&#x27;, key: &#x27;address&#x27;}],
+        data: [
+          {name: &#x27;胡彦斌&#x27;, age: 32, address: &#x27;西湖区湖底公园1号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;}
+        ]
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
+
+    <code-card title="可展开" desc="当表格内容较多不能一次性完全展示时。">
+      <template slot="demo">
+        <demo-table-expand></demo-table-expand>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; :expandedRowRender=&quot;(record)=&gt;record&quot;&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-expand&#x27;,
+    data () {
+      return {
+        columns: [{title: &#x27;姓名&#x27;, key: &#x27;name&#x27;}, {title: &#x27;年龄&#x27;, key: &#x27;age&#x27;}, {title: &#x27;住址&#x27;, key: &#x27;address&#x27;}],
+        data: [
+          {name: &#x27;胡彦斌&#x27;, age: 32, address: &#x27;西湖区湖底公园1号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;},
+          {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;}
+        ]
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
+
+    <code-card title="固定表头" desc="方便一页内展示大量数据">
+      <template slot="demo">
+        <demo-table-fixed-header></demo-table-fixed-header>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; border height=&quot;200&quot;&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-fixed-header&#x27;,
+    data () {
+      return {
+        columns: [
+          {title: &#x27;日期&#x27;, key: &#x27;date&#x27;},
+          {
+            title: &#x27;配送信息&#x27;,
+            children: [
+              {title: &#x27;姓名&#x27;, key: &#x27;name&#x27;},
+              {
+                title: &#x27;地址&#x27;,
+                children: [
+                  {title: &#x27;省份&#x27;, key: &#x27;province&#x27;},
+                  {title: &#x27;市区&#x27;, key: &#x27;city&#x27;},
+                  {title: &#x27;地址&#x27;, key: &#x27;address&#x27;},
+                  {title: &#x27;邮编&#x27;, key: &#x27;zip&#x27;}
+                ]
+              }
+            ]
+          }
+        ],
+        data: [
+          {date: &#x27;2016-05-03&#x27;, name: &#x27;王小虎&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;,
+            address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-02&#x27;, name: &#x27;王小虎&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;,
+            address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;,
+            address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-01&#x27;, name: &#x27;王小虎&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;,
+            address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-08&#x27;, name: &#x27;王小虎&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;,
+            address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-06&#x27;, name: &#x27;王小虎&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;,
+            address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-07&#x27;, name: &#x27;王小虎&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;,
+            address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333}
+        ]
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
+
+    <code-card title="横向滚动" desc="方便一行内展示大量数据">
+      <template slot="demo">
+        <demo-table-scroll-y></demo-table-scroll-y>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot;&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-scroll-y&#x27;,
+    data () {
+      return {
+        columns: [
+          {title: &#x27;日期&#x27;, key: &#x27;date&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;姓名&#x27;, key: &#x27;name&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;性别&#x27;, key: &#x27;sex&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;出生日期&#x27;, key: &#x27;birthDate&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;大学&#x27;, key: &#x27;university&#x27;, width: &#x27;300&#x27;},
+          {title: &#x27;省份&#x27;, key: &#x27;province&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;市区&#x27;, key: &#x27;city&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;地址&#x27;, key: &#x27;address&#x27;, width: &#x27;300&#x27;},
+          {title: &#x27;邮编&#x27;, key: &#x27;zip&#x27;, width: &#x27;200&#x27;}],
+        data: [
+          {date: &#x27;2016-05-03&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-02&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-01&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333}]
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
+
+    <code-card title="横向,纵向滚动" desc="方便一行，列内展示大量数据">
+      <template slot="demo">
+        <demo-table-scroll-xy></demo-table-scroll-xy>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; border height=&quot;200&quot;&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-scroll-xy&#x27;,
+    data () {
+      return {
+        columns: [
+          {title: &#x27;日期&#x27;, key: &#x27;date&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;姓名&#x27;, key: &#x27;name&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;性别&#x27;, key: &#x27;sex&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;出生日期&#x27;, key: &#x27;birthDate&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;大学&#x27;, key: &#x27;university&#x27;, width: &#x27;300&#x27;},
+          {title: &#x27;省份&#x27;, key: &#x27;province&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;市区&#x27;, key: &#x27;city&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;地址&#x27;, key: &#x27;address&#x27;, width: &#x27;300&#x27;},
+          {title: &#x27;邮编&#x27;, key: &#x27;zip&#x27;, width: &#x27;200&#x27;}],
+        data: [
+          {date: &#x27;2016-05-03&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-02&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-01&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333}]
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
+
+    <code-card title="固定左，右列" desc="适合同时展示有大量数据和数据列">
+      <template slot="demo">
+        <demo-table-column-fixed></demo-table-column-fixed>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; border height=&quot;200&quot;&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-column-fixed&#x27;,
+    data () {
+      return {
+        columns: [
+          {title: &#x27;日期&#x27;, key: &#x27;date&#x27;, width: &#x27;200&#x27;, fixed: &#x27;left&#x27;},
+          {title: &#x27;姓名&#x27;, key: &#x27;name&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;性别&#x27;, key: &#x27;sex&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;出生日期&#x27;, key: &#x27;birthDate&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;大学&#x27;, key: &#x27;university&#x27;, width: &#x27;300&#x27;},
+          {title: &#x27;省份&#x27;, key: &#x27;province&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;市区&#x27;, key: &#x27;city&#x27;, width: &#x27;200&#x27;},
+          {title: &#x27;地址&#x27;, key: &#x27;address&#x27;, width: &#x27;300&#x27;},
+          {title: &#x27;邮编&#x27;, key: &#x27;zip&#x27;, width: &#x27;200&#x27;, fixed: &#x27;right&#x27;}],
+        data: [
+          {date: &#x27;2016-05-03&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-02&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-04&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333},
+          {date: &#x27;2016-05-01&#x27;, name: &#x27;王小虎&#x27;, sex: &#x27;男&#x27;, birthDate: &#x27;2001-01-01&#x27;,
+            university: &#x27;北京大学&#x27;, province: &#x27;上海&#x27;, city: &#x27;普陀区&#x27;, address: &#x27;上海市普陀区金沙江路 1518 弄&#x27;, zip: 200333}]
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
 
     <h3>Table Attributes</h3>
     <div class="fish table attributes">
@@ -202,9 +367,29 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
+  import DemoTableBase from './DemoTableBase.vue'
+  import DemoTableColumnType from './DemoTableColumnType.vue'
+  import DemoTableColumnFilters from './DemoTableColumnFilters.vue'
+  import DemoTableBorder from './DemoTableBorder.vue'
+  import DemoTableExpand from './DemoTableExpand.vue'
+  import DemoTableFixedHeader from './DemoTableFixedHeader.vue'
+  import DemoTableScrollY from './DemoTableScrollY.vue'
+  import DemoTableScrollXy from './DemoTableScrollXY.vue'
+  import DemoTableColumnFixed from './DemoTableColumnFixed.vue'
 
   export default {
     components: {
+      DemoTableColumnFixed,
+      DemoTableScrollXy,
+      DemoTableScrollY,
+      DemoTableFixedHeader,
+      DemoTableExpand,
+      DemoTableBorder,
+      DemoTableColumnFilters,
+      DemoTableColumnType,
+      DemoTableBase,
+      CodeCard,
       MainLayout
     },
     data () {
@@ -227,113 +412,7 @@
           ['fixed', '列是否固定，可选 <code>left</code> <code>right</code>', 'string', 'left'],
           ['render', '生成复杂数据的渲染函数，参数分别为当前行的值', 'function(record, column)', '-'],
           ['filters', '头的筛选菜单项', 'Array[{lable: \'\', value: \'\'}]', '-']
-        ],
-        pagination: {total: 50, current: 1},
-        columns_1: [{title: '姓名', key: 'name'}, {title: '年龄', key: 'age'}, {title: '住址', key: 'address'}],
-        data_1: [
-          {name: '胡彦斌', age: 32, address: '西湖区湖底公园1号'},
-          {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'},
-          {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'},
-          {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'}
-        ],
-        columns_2: [{title: '姓名', key: 'name'}, {title: '年龄', key: 'age'}, {title: '住址', key: 'address'}],
-        data_2: [
-          {name: '胡彦斌', age: 32, address: '西湖区湖底公园1号'},
-          {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'},
-          {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'},
-          {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'}
-        ],
-        columns_3: [
-          {title: '#', type: 'index', width: '50', align: 'center'},
-          {title: '', key: 'name', type: 'checkbox', width: '50', align: 'center'},
-          {title: '姓名', key: 'name'},
-          {title: '年龄', key: 'age', filters: [{label: '32岁', value: 32}, {label: '35岁', value: 35}]},
-          {title: '住址', key: 'address'}
-        ],
-        data_3: [
-          {name: '胡彦斌', age: 32, address: '西湖区湖底公园1号'},
-          {name: '吴彦祖', age: 35, address: '西湖区湖底公园5号'}
-        ],
-        columns_4: [
-          {title: '日期', key: 'date'},
-          {
-            title: '配送信息',
-            children: [
-              {title: '姓名', key: 'name'},
-              {
-                title: '地址',
-                children: [
-                {title: '省份', key: 'province'},
-                {title: '市区', key: 'city'},
-                {title: '地址', key: 'address'},
-                {title: '邮编', key: 'zip'}
-                ]
-              }
-            ]
-          }
-        ],
-        data_4: [
-          {date: '2016-05-03', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-02', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-01', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-08', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-06', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-07', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333}
-        ],
-        columns_5: [
-          {title: '日期', key: 'date', width: '200'},
-          {title: '姓名', key: 'name', width: '200'},
-          {title: '性别', key: 'sex', width: '200'},
-          {title: '出生日期', key: 'birthDate', width: '200'},
-          {title: '大学', key: 'university', width: '300'},
-          {title: '省份', key: 'province', width: '200'},
-          {title: '市区', key: 'city', width: '200'},
-          {title: '地址', key: 'address', width: '300'},
-          {title: '邮编', key: 'zip', width: '200'}],
-        data_5: [
-          {date: '2016-05-03', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-02', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-01', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333}],
-        columns_6: [
-          {title: '日期', key: 'date', width: '200'},
-          {title: '姓名', key: 'name', width: '200'},
-          {title: '性别', key: 'sex', width: '200'},
-          {title: '出生日期', key: 'birthDate', width: '200'},
-          {title: '大学', key: 'university', width: '300'},
-          {title: '省份', key: 'province', width: '200'},
-          {title: '市区', key: 'city', width: '200'},
-          {title: '地址', key: 'address', width: '300'},
-          {title: '邮编', key: 'zip', width: '200'}],
-        data_6: [
-          {date: '2016-05-03', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-02', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-01', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333}],
-        columns_7: [
-          {title: '日期', key: 'date', width: '200', fixed: 'left'},
-          {title: '姓名', key: 'name', width: '200'},
-          {title: '性别', key: 'sex', width: '200'},
-          {title: '出生日期', key: 'birthDate', width: '200'},
-          {title: '大学', key: 'university', width: '300'},
-          {title: '省份', key: 'province', width: '200'},
-          {title: '市区', key: 'city', width: '200'},
-          {title: '地址', key: 'address', width: '300'},
-          {title: '邮编', key: 'zip', width: '200', fixed: 'right'}],
-        data_7: [
-          {date: '2016-05-03', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-02', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-01', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333}]
+        ]
       }
     },
     methods: {

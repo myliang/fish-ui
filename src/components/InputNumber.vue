@@ -25,8 +25,8 @@
     name: 'fish-input-number',
     props: {
       value: { type: [Number, String], default: '' },
-      min: { type: [Number, String], required: true },
-      max: { type: [Number, String], required: true },
+      min: { type: [Number, String], default: 0 },
+      max: { type: [Number, String], default: maxInteger },
       step: { type: [Number, String], default: 1 },
       hint: { type: String, default: '' },
       size: { type: String },
