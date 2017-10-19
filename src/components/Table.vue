@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="['fish table', {'border': border, 'stripe': stripe}]" ref="root">
+    <div :class="['fish table', {'bordered': bordered, 'striped': striped}]" ref="root">
       <div :class="['fish dimmer loading', {'active': loading}]"></div>
       <div class="header" ref="header">
         <fish-table-head :columns="allLeafColumns" :rows="rows" :scrollY="scrollY"
@@ -54,8 +54,8 @@
     props: {
       columns: { type: Array, required: true }, // [{title: '', key: '', width: 100, render: () => {}}]
       data: { type: Array, required: true },
-      border: { type: Boolean, default: false },
-      stripe: { type: Boolean, default: false },
+      bordered: { type: Boolean, default: false },
+      striped: { type: Boolean, default: false },
       loading: { type: Boolean, default: false },
       expandedRowRender: { type: Function, default: null }, // 没有fixed列，方可展开详情
       height: [Number, String], // 指定高度，固定表头

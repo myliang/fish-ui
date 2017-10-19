@@ -399,8 +399,8 @@
         api_data: [
           ['columns', '列信息 Column', 'Array', '-'],
           ['data', '数据信息 [{key: v, key2: v2, ...}]', 'Array', '-'],
-          ['border', '是否带有纵向边框', 'boolean', 'false'],
-          ['stripe', '是否为斑马纹', 'boolean', 'false'],
+          ['bordered', '是否带有纵向边框', 'boolean', 'false'],
+          ['striped', '是否为斑马纹', 'boolean', 'false'],
           ['loading', '是否加载中', 'boolean', 'false'],
           ['height', '固定高度', 'string, number', '-'],
           ['expandedRowRender', '展开渲染函数,参数record', 'function(record)', '-']

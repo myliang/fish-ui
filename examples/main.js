@@ -36,6 +36,8 @@ import DemoForm from './components/DemoForm.vue'
 import DemoIndex from './components/DemoIndex.vue'
 import DemoTree from './components/DemoTree.vue'
 import DemoTreeSelect from './components/DemoTreeSelect.vue'
+import DemoDivider from './components/DemoDivider.vue'
+import DemoImage from './components/DemoImage.vue'
 
 Vue.use(FishUI)
 Vue.use(VueHighlightJS)
@@ -72,6 +74,8 @@ const routes = [
   { path: '/components/index', component: DemoIndex },
   { path: '/components/tree', component: DemoTree },
   { path: '/components/tree-select', component: DemoTreeSelect },
+  { path: '/components/divider', component: DemoDivider },
+  { path: '/components/image', component: DemoImage },
   { path: '/', redirect: '/components/index' }
 ]
 const router = new VueRouter({

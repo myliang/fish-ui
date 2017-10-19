@@ -67,7 +67,9 @@
         {index: 'modal', text: 'Modal 对话框'},
         {index: 'upload', text: 'Upload 上传'},
         {index: 'tree', text: 'Tree 树'},
-        {index: 'tree-select', text: 'Tree 树选框'}
+        {index: 'tree-select', text: 'Tree 树选框'},
+        {index: 'divider', text: 'Divider 分割线'},
+        {index: 'image', text: 'Image 图片'}
       ]}
     },
     mounted () {

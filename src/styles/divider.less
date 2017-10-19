@@ -1,0 +1,19 @@
+@import "./base.less";
+
+.@{css-prefix}.divider {
+  margin: 1em 0;
+  line-height: 1;
+  height: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  .user-select(none);
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1rem;
+
+  border-top: 1px solid rgba(34,36,38,.15);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+
+  &.fitted {
+    margin: 0;
+  }
+}

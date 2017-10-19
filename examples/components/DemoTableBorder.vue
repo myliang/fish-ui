@@ -1,5 +1,5 @@
 <template>
-  <fish-table :columns="columns" :data="data" border></fish-table>
+  <fish-table :columns="columns" :data="data" bordered></fish-table>
 </template>
 <script>
   export default {

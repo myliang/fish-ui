@@ -40,6 +40,8 @@ import TimePicker from './components/TimePicker.vue'
 import Upload from './components/Upload.vue'
 import Tree from './components/Tree.vue'
 import TreeSelect from './components/TreeSelect.vue'
+import Divider from './components/Divider.vue'
+import Image from './components/Image.vue'
 
 import $message from './components/message.js'
 import $popup from './components/popup.js'
@@ -84,7 +86,9 @@ const components = {
   TimePicker,
   Upload,
   Tree,
-  TreeSelect
+  TreeSelect,
+  Divider,
+  Image
 }
 const install = function (Vue, opts = {}) {
   Object.values(components).forEach((component) => {
