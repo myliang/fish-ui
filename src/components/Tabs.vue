@@ -1,11 +1,14 @@
 <template>
   <div :class="['fish tabs', `-${this.type}`]">
-    <ul :class="['nav', position]">
+    <div class="content" v-if="navPosition === 'bottom' || navPosition === 'right'">
+      <slot></slot>
+    </div>
+    <ul :class="['nav', navPosition]">
       <li v-for="(tab, index) in tabs" v-html="tab" :key="tab"
           :class="{'active': index === activeIndex }"
           @click.stop="tabClickHandler(index)"></li>
     </ul>
-    <div class="content">
+    <div class="content" v-if="navPosition === 'top' || navPosition === 'left'">
       <slot></slot>
     </div>
   </div>
@@ -16,7 +19,7 @@
     props: {
       value: { type: [Number, String], required: true },
       type: { type: String, default: '' },
-      position: { type: String, default: 'top' }
+      navPosition: { type: String, default: 'top' }
     },
     data () {
       return {

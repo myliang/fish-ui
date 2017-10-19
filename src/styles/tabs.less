@@ -13,10 +13,17 @@
       margin: 0;
 
       li {
-        margin-top: -1px;
         &:first-child {
           margin-left: -1px;
         }
+      }
+
+      &.top li {
+        margin-top: -1px;
+      }
+
+      &.bottom li {
+        margin-bottom: -1px;
       }
     }
 
@@ -26,9 +33,8 @@
   }
 
   .nav {
-    border-bottom: @border-style;
     padding: 0;
-    margin: 0 0 @padding-vertical;
+    margin: 0;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -38,12 +44,10 @@
     li {
       .padding;
       cursor: pointer;
-      margin-bottom: -1px;
       border: 1px solid transparent;
 
       &.active {
         .border;
-        border-bottom-color: #fff;
         color: @active-color;
         background: #fff;
       }
@@ -52,11 +56,28 @@
         color: @active-color;
       }
     }
+
+    &.top {
+      border-bottom: @border-style;
+      li {
+        margin-bottom: -1px;
+        &.active {
+          border-bottom-color: #fff;
+        }
+      }
+    }
+    &.bottom {
+      border-top: @border-style;
+      li {
+        margin-top: -1px;
+        &.active {
+          border-top-color: #fff;
+        }
+      }
+    }
   }
 
   .content {
-    .pane {
-
-    }
+    .padding;
   }
 }
