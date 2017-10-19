@@ -19,7 +19,10 @@
       iconClose: { type: String, default: 'fa fa-close' },
       index: { type: [String, Number], required: true },
       size: { type: String, default: '' },
-      color: { type: String, default: '' }
+      color: { type: String, default: '' },
+      shape: { type: String, default: 'square' }, // square, circle
+      floating: { type: Boolean, default: false },
+      attached: { type: String } // 依附在什么地方 top, bottom, top left, top left, bottom left, bottom right
     },
     data () {
       return {
@@ -31,7 +34,11 @@
         return [
           'fish tag',
           this.size,
-          this.color
+          this.color,
+          this.shape,
+          {'floating': this.floating},
+          {'attached': this.attached},
+          this.attached
         ]
       },
       closeExists () {

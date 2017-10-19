@@ -8,7 +8,6 @@
   line-height: 1em;
   font-size: @tag-font-size;
   vertical-align: baseline;
-  margin: 0 0.14285714em;
   background-color: #E8E8E8;
   background-image: none;
   padding: 0.5833em 0.833em;
@@ -19,6 +18,7 @@
   border-radius: @border-radius;
   .transition(background 0.1s ease);
   .user-select(none);
+  margin: 0em 0.5em 0.5em 0em;
 
   &:first-child {
     margin-left: 0;
@@ -32,10 +32,53 @@
     margin-left: 0.5em;
   }
 
-  &:hover {
+  &:not(.attached):hover {
     color: rgba(0, 0, 0, 0.8);
     background: rgba(0, 0, 0, 0.15);
   }
+
+  &.circle {
+    border-radius: 50em;
+  }
+
+  &.floating {
+    position: absolute;
+    z-index: 100;
+    top: -1em;
+    left: 100%;
+    margin: 0 0 0 -1.5em!important;
+    padding: .4em .5em;
+  }
+
+  &.attached {
+    position: absolute;
+    padding: @input-padding;
+    font-size: 1em;
+    border-radius: 0;
+    margin: 0;
+    border: 1px solid transparent;
+
+    &.top, &.bottom {
+      width: 100%;
+      left: 0;
+      &.left, &.right {
+        width: auto;
+      }
+      &.right {
+        right: 0;
+        left: auto;
+      }
+    }
+
+    &.top {
+      top: 0;
+    }
+    &.bottom {
+      bottom: 0;
+    }
+  }
+
+  .colors;
 
   &.positive {
     .type-positive;
@@ -92,7 +135,4 @@
     box-shadow: 0 0 0 2px rgba(16,142,233,.2);
   }
 
-  .tag {
-      margin: 0em 0.5em 0.5em 0em;
-  }
 }
