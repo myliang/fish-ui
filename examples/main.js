@@ -38,6 +38,7 @@ import DemoTree from './components/DemoTree.vue'
 import DemoTreeSelect from './components/DemoTreeSelect.vue'
 import DemoDivider from './components/DemoDivider.vue'
 import DemoImage from './components/DemoImage.vue'
+import DemoChart from './components/DemoChart.vue'
 
 Vue.use(FishUI)
 Vue.use(VueHighlightJS)
@@ -76,6 +77,7 @@ const routes = [
   { path: '/components/tree-select', component: DemoTreeSelect },
   { path: '/components/divider', component: DemoDivider },
   { path: '/components/image', component: DemoImage },
+  { path: '/components/chart', component: DemoChart },
   { path: '/', redirect: '/components/index' }
 ]
 const router = new VueRouter({

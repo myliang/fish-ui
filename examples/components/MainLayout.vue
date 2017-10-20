@@ -70,6 +70,7 @@
         {index: 'tree-select', text: 'Tree 树选框'},
         {index: 'divider', text: 'Divider 分割线'},
         {index: 'image', text: 'Image 图片'}
+//        {index: 'chart', text: 'Chart 图表'}
       ]}
     },
     mounted () {
