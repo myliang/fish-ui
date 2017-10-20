@@ -42,6 +42,7 @@ import Tree from './components/Tree.vue'
 import TreeSelect from './components/TreeSelect.vue'
 import Divider from './components/Divider.vue'
 import Image from './components/Image.vue'
+// import ChartLine from './components/ChartLine.vue'
 
 import $message from './components/message.js'
 import $popup from './components/popup.js'

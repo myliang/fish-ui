@@ -1,0 +1,35 @@
+@import './base.less';
+
+.@{css-prefix}.chart {
+  &.line {
+    .grids {
+      .grid {
+        stroke: rgba(0,0,0,.1);
+        stroke-width: 1px;
+        //stroke-dasharray: 5px;
+      }
+    }
+    .labels {
+      .label {
+        fill: rgba(0,0,0,.4);
+        color: rgba(0,0,0,.4);
+        font-size: .75rem;
+        line-height: 1;
+
+        &.vertical {
+          text-align: right;
+          justify-content: flex-end;
+          .align-items(right);
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+        }
+      }
+    }
+  }
+
+  &.pie {
+
+  }
+
+}
