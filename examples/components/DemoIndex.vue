@@ -18,9 +18,10 @@ $ npm install less less-loader fish-ui --save // 安装fish-ui
       <pre v-highlightjs><code class="javascript">import FishUI from 'fish-ui'
 Vue.use(FishUI)</code></pre>
       <h4>main.js文件内容</h4>
-      <pre v-highlightjs><code class="javascript">import Vue from 'vue'
-import App from './App'
-import FishUI from 'fish-ui'
+      <pre v-highlightjs><code class="javascript">
+import Vue from &#x27;vue&#x27;
+import App from &#x27;./App&#x27;
+import FishUI from &#x27;fish-ui&#x27;
 
 Vue.use(FishUI)
 
@@ -28,8 +29,8 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  template: '<App/>',
+  el: &#x27;#app&#x27;,
+  template: &#x27;&lt;App/&gt;&#x27;,
   components: { App }
 })
 </code></pre>
@@ -67,7 +68,6 @@ export default {
   import MainLayout from './MainLayout.vue'
 
   export default {
-    name: 'index',
     components: {MainLayout}
   }
 </script>
