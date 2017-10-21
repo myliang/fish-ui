@@ -88,6 +88,6 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  router,
+  router: router,
   template: '<router-view></router-view>'
 }).$mount('#app')
