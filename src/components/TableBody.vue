@@ -39,7 +39,7 @@
     },
     data () {
       return {
-        expands: []
+        expands: this.rows.map((row) => false)
       }
     },
     methods: {
@@ -50,8 +50,7 @@
         return column.render === undefined ? item[column.key] : column.render(item[column.key], column)
       },
       expandHandler (rowIndex) {
-        const { expands } = this
-        expands.splice(rowIndex, 1, !expands[rowIndex])
+        this.expands.splice(rowIndex, 1, !this.expands[rowIndex])
       }
     }
   }
