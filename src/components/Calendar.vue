@@ -22,8 +22,14 @@
       <tr v-for="array in arrays">
         <td v-for="item in array">
           <div :class="['cell', {'active': cellActive(item)}, {'disabled': cellDisabled(item)}]"
-               @click.stop="selectItemHandler(item)"
-               v-html="cellRender(item)">
+               @click.stop="selectItemHandler(item)">
+            <content-render v-if="cellRender" :render="cellRender" :params="[stateTitleRenderMap[state](item)]"></content-render>
+            <template v-else>
+              <div class="title">{{stateTitleRenderMap[state](item)}}</div>
+              <div class="content">
+                <content-render :render="cellRenderFunc" :params="[item]"></content-render>
+              </div>
+            </template>
           </div>
         </td>
       </tr>
@@ -34,8 +40,10 @@
 <script>
   import moment from 'moment'
   import { calendar } from '../config'
+  import ContentRender from './ContentRender.vue'
 
   export default {
+    components: {ContentRender},
     name: 'fish-calendar',
     props: {
       value: { type: String },
@@ -45,13 +53,13 @@
       today: { type: String, default: calendar.today },
       weeks: { type: Array, default: () => calendar.weeks },
       months: { type: Array, default: () => calendar.months },
-      secondRender: { type: Function, default: (second) => '' },
-      minuteRender: { type: Function, default: (minute) => '' },
-      hourRender: { type: Function, default: (hour) => '' },
-      dayRender: { type: Function, default: (day) => '' },
-      monthRender: { type: Function, default: (month) => '' },
-      yearRender: { type: Function, default: (year) => '' },
-      cellRenderTemplate: { type: Function, default: (title, content) => `<div class="title">${title}</div><div class="content">${content}</div>` }
+      secondRender: { type: Function, default: (h, second) => '' },
+      minuteRender: { type: Function, default: (h, minute) => '' },
+      hourRender: { type: Function, default: (h, hour) => '' },
+      dayRender: { type: Function, default: (h, day) => '' },
+      monthRender: { type: Function, default: (h, month) => '' },
+      yearRender: { type: Function, default: (h, year) => '' },
+      cellRender: { type: Function } // (h, item)
     },
     mounted () {
       this.reset()
@@ -60,6 +68,7 @@
       return {
         state: this.mode, // second, minute, hour, day, month, year
         modes: modes,
+        stateTitleRenderMap: stateTitleRenderMap,
         modeIndex: modes.indexOf(this.mode),
         valueDate: moment(this.value),
         current: {year: null, month: null, day: null, hour: null, minute: null, second: null},
@@ -103,11 +112,14 @@
           this.emitSelect()
         }
       },
-      cellRender (item) {
-        let title = stateTitleRenderMap[this.state](item)
-        let content = this[this.state + 'Render'](item)
-        return this.cellRenderTemplate(title, content)
+      cellRenderFunc () {
+        return this[this.state + 'Render']
       },
+//      cellTitleRender (item) {
+//        let title = stateTitleRenderMap[this.state](item)
+//        let content = this[this.state + 'Render'](item)
+//        return this.cellRenderTemplate(title, content)
+//      },
       cellActive (item) {
         const { current, state } = this
         if (this.state === 'day') {

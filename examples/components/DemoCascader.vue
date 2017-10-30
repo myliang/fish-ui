@@ -1,6 +1,6 @@
 <template>
   <main-layout menuActiveIndex="cascader">
-    <h3>Cascader 练级下拉选框</h3>
+    <h3>Cascader 联级下拉选框</h3>
     <code-card title="基本" desc="基本用法，可以使用v-model绑定数据">
       <template slot="demo">
         <fish-cascader :options="options" v-model="cascaderValue" style="width: 260px;" @change="changeHandler"></fish-cascader>

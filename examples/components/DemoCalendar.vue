@@ -105,13 +105,12 @@
           ['today', '显示今天的描述', 'String', 'Today'],
           ['weeks', '显示周一到日的描述', 'Array', '\'Sun\', \'Mon\', \'Tue\', \'Wed\', \'Thu\', \'Fri\', \'Sat\']'],
           ['months', '显示月的描述', 'Array', '[\'January\', \'February\', \'March\', \'April\', \'May\', \'June\', \'July\', \'August\', \'September\', \'October\', \'November\', \'December\']'],
-          ['secondRender', '渲染秒的内容', 'Function(second)', '-'],
-          ['minuteRender', '渲染分的内容', 'Function(minute)', '-'],
-          ['hourRender', '渲染时的内容', 'Function(hour)', '-'],
-          ['dayRender', '渲染日的内容', 'Function(day)', '-'],
-          ['monthRender', '渲染月的内容', 'Function(month)', '-'],
-          ['yearRender', '渲染年的内容', 'Function(year)', '-'],
-          ['cellRenderTemplate', '单元格渲染模板', 'Function(title, content)', '-']
+          ['secondRender', '渲染秒的内容', 'Function(h, second)', '-'],
+          ['minuteRender', '渲染分的内容', 'Function(h, minute)', '-'],
+          ['hourRender', '渲染时的内容', 'Function(h, hour)', '-'],
+          ['dayRender', '渲染日的内容', 'Function(h, day)', '-'],
+          ['monthRender', '渲染月的内容', 'Function(h, month)', '-'],
+          ['yearRender', '渲染年的内容', 'Function(h, year)', '-']
         ]
       }
     },

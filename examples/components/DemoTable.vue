@@ -13,7 +13,12 @@
     name: &#x27;demo-table-base&#x27;,
     data () {
       return {
-        columns: [{title: &#x27;姓名&#x27;, key: &#x27;name&#x27;}, {title: &#x27;年龄&#x27;, key: &#x27;age&#x27;}, {title: &#x27;住址&#x27;, key: &#x27;address&#x27;}],
+        columns: [{title: &#x27;姓名&#x27;, key: &#x27;name&#x27;},
+          {title: &#x27;年龄&#x27;, key: &#x27;age&#x27;},
+          {title: &#x27;住址&#x27;, key: &#x27;address&#x27;},
+          {title: &#x27;操作&#x27;,
+            key: &#x27;operate&#x27;,
+            render: (h, record, column) =&gt; h(&#x27;a&#x27;, &#x27;编辑&#x27;)}],
         data: [
           {name: &#x27;胡彦斌&#x27;, age: 32, address: &#x27;西湖区湖底公园1号&#x27;},
           {name: &#x27;吴彦祖&#x27;, age: 35, address: &#x27;西湖区湖底公园5号&#x27;},
@@ -134,7 +139,7 @@
         <demo-table-expand></demo-table-expand>
       </template>
       <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
-  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; :expandedRowRender=&quot;(record)=&gt;record&quot;&gt;&lt;/fish-table&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; :expandedRowRender=&quot;(h, record)=&gt; h(&#x27;fish-button&#x27;, JSON.stringify(record))&quot;&gt;&lt;/fish-table&gt;
 &lt;/template&gt;
 &lt;script&gt;
   export default {
@@ -403,14 +408,14 @@
           ['striped', '是否为斑马纹', 'boolean', 'false'],
           ['loading', '是否加载中', 'boolean', 'false'],
           ['height', '固定高度', 'string, number', '-'],
-          ['expandedRowRender', '展开渲染函数,参数record', 'function(record)', '-']
+          ['expandedRowRender', '展开渲染函数,参数record', 'function(h, record)', '-']
         ],
         api_data2: [
           ['title', '标题', 'string', '-'],
           ['key', '列column.key', 'string', '-'],
           ['type', '列类型，可选值：<code>index</code> <code>checkbox</code>', 'string', '-'],
           ['fixed', '列是否固定，可选 <code>left</code> <code>right</code>', 'string', 'left'],
-          ['render', '生成复杂数据的渲染函数，参数分别为当前行的值', 'function(record, column)', '-'],
+          ['render', '生成复杂数据的渲染函数，参数分别为当前行的值', 'function(h, record, column)', '-'],
           ['filters', '头的筛选菜单项', 'Array[{lable: \'\', value: \'\'}]', '-']
         ]
       }

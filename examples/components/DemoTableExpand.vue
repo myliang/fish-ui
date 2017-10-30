@@ -1,5 +1,5 @@
 <template>
-  <fish-table :columns="columns" :data="data" :expandedRowRender="(record)=>record"></fish-table>
+  <fish-table :columns="columns" :data="data" :expandedRowRender="(h, record)=> h('fish-button', JSON.stringify(record))"></fish-table>
 </template>
 <script>
   export default {

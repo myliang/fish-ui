@@ -9,7 +9,7 @@
     <i class="fa fa-calendar" v-else></i>
     <div class="content" v-if="visible">
       <fish-calendar @select="selectHandler"
-                  :cellRenderTemplate="cellRender"
+                  :cellRender="cellRender"
                   :min="min" :max="max" :mode="mode"
                   :value="value === '' ? undefined : value"></fish-calendar>
     </div>
@@ -77,8 +77,8 @@
         const v = moment(item).format(this.format || formats[this.mode])
         this.changeHandler(v)
       },
-      cellRender (title, content) {
-        return title
+      cellRender (h, item) {
+        return h('span', item)
       },
       changeHandler (v) {
         this.$emit('input', v)

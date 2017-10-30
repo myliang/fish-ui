@@ -13,12 +13,14 @@
         <div v-else-if="'checkbox' === column.type">
           <fish-checkbox :index="rowIndex" @click="checkboxSelectHandler" ref="checkboxes"></fish-checkbox>
         </div>
-        <div v-else v-html="cellRender(item, column)"></div>
+        <content-render :render="column.render || ((h, item, column) => h('div', item[column.key]))" :params="[item, column]" v-else></content-render>
       </td>
       <td v-if="scrollY" style="width: 0;"></td>
     </tr>
     <tr v-if="expandedRowRender && expands[rowIndex]">
-      <td :colspan="columns.length + 1" v-html="expandedRowRender(item)"></td>
+      <td :colspan="columns.length + 1">
+        <content-render :render="expandedRowRender" :params="[item]"></content-render>
+      </td>
     </tr>
     </template>
     </tbody>
@@ -26,9 +28,12 @@
 </template>
 <script>
   import fishCheckbox from './Checkbox.vue'
+  import ContentRender from './ContentRender.vue'
 
   export default {
-    components: {fishCheckbox},
+    components: {
+      ContentRender,
+      fishCheckbox},
     name: 'fish-table-body',
     props: {
       columns: { type: Array, required: true },
@@ -45,9 +50,6 @@
     methods: {
       checkboxSelectHandler (evt) {
         this.$emit('select', evt, this)
-      },
-      cellRender (item, column) {
-        return column.render === undefined ? item[column.key] : column.render(item[column.key], column)
       },
       expandHandler (rowIndex) {
         this.expands.splice(rowIndex, 1, !this.expands[rowIndex])
