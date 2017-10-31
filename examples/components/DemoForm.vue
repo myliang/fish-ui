@@ -1,8 +1,8 @@
 <template>
   <main-layout menuActiveIndex="form">
-    <h3>Form 表单</h3>
+    <h3>Form</h3>
 
-    <code-card title="水平登录栏" desc="水平登录栏，常用在顶部导航栏中。">
+    <code-card title="Horizontal Login Form" desc="Horizontal login form is often used in navigation bar.">
       <template slot="demo">
         <fish-form inline>
           <fish-field>
@@ -25,7 +25,7 @@
 &lt;/fish-form&gt;</code></pre>
     </code-card>
 
-    <code-card title="登录框" desc="普通的登录框，可以容纳更多的元素。">
+    <code-card title="Login Form" desc="Normal login form which can contain more elements.">
       <template slot="demo">
         <fish-form style="width: 300px;">
           <fish-field>
@@ -54,7 +54,7 @@
 &lt;/fish-form&gt;</code></pre>
     </code-card>
 
-    <code-card title="带校验表单" desc="验证所有的表单信息">
+    <code-card title="Validate Form" desc="Validate form input">
       <template slot="demo">
         <demo-form-validate></demo-form-validate>
       </template>
@@ -64,19 +64,19 @@
       &lt;fish-field label=&quot;First Name&quot; span=&quot;12&quot; disabled&gt;
         &lt;fish-input&gt;&lt;/fish-input&gt;
       &lt;/fish-field&gt;
-      &lt;fish-field label=&quot;Last Name&quot; span=&quot;12&quot; name=&quot;lastName&quot; :rules=&quot;[{ required: true, message: &#x27;姓名不能为空&#x27;}]&quot;&gt;
+      &lt;fish-field label=&quot;Last Name&quot; span=&quot;12&quot; name=&quot;lastName&quot; :rules=&quot;[{ required: true, message: &#x27;The name is not empty&#x27;}]&quot;&gt;
         &lt;fish-input v-model=&quot;lastName&quot;&gt;&lt;/fish-input&gt;
       &lt;/fish-field&gt;
     &lt;/fish-fields&gt;
     &lt;fish-fields&gt;
-      &lt;fish-field label=&quot;类型&quot;&gt;GOOD, Bad, 不错&lt;/fish-field&gt;
-      &lt;fish-field label=&quot;电子邮件&quot; name=&quot;email&quot; :rules=&quot;[{ type: &#x27;email&#x27;, message: &#x27;The input is not valid E-mail!&#x27; }, {required: true}]&quot;&gt;
+      &lt;fish-field label=&quot;Type&quot;&gt;GOOD, Bad,&lt;/fish-field&gt;
+      &lt;fish-field label=&quot;Email&quot; name=&quot;email&quot; :rules=&quot;[{ type: &#x27;email&#x27;, message: &#x27;The input is not valid E-mail!&#x27; }, {required: true}]&quot;&gt;
         &lt;fish-input v-model=&quot;email&quot;&gt;&lt;/fish-input&gt;
       &lt;/fish-field&gt;
-      &lt;fish-field label=&quot;Username&quot; name=&quot;userName&quot; :rules=&quot;[{ required: true, message: &#x27;用户名不能为空&#x27;}]&quot;&gt;
+      &lt;fish-field label=&quot;Username&quot; name=&quot;userName&quot; :rules=&quot;[{ required: true, message: &#x27;The user name is not empty&#x27;}]&quot;&gt;
         &lt;fish-input v-model=&quot;userName&quot;&gt;&lt;/fish-input&gt;
       &lt;/fish-field&gt;
-      &lt;fish-field label=&quot;Password&quot; name=&quot;password&quot; :rules=&quot;[{ required: true, message: &#x27;密码不能为空&#x27;}]&quot;&gt;
+      &lt;fish-field label=&quot;Password&quot; name=&quot;password&quot; :rules=&quot;[{ required: true, message: &#x27;The password is not empty&#x27;}]&quot;&gt;
         &lt;fish-input type=&quot;password&quot; v-model=&quot;password&quot;&gt;&lt;/fish-input&gt;
       &lt;/fish-field&gt;
     &lt;/fish-fields&gt;
@@ -201,19 +201,19 @@
     MainLayout},
     data () {
       return {
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['inline', '是否一行显示', 'Boolean', 'false']
+          ['inline', 'Whether is inline or not', 'Boolean', 'false']
         ],
         api_data2: [
-          ['label', '标签内容', 'String', '-'],
-          ['labelWidth', '标签内容的宽度, 当 inline === true 是生效', 'String', 'auto'],
-          ['labelAlign', '标签内容对其方式, 当 inline === true 是生效', 'String', 'right'],
-          ['disabled', '是否不可用', 'Boolean', 'false'],
-          ['name', '需校验的字段名', 'String', ''],
-          ['rules', '校验的规则,详细可参考 <a href="https://github.com/yiminghe/async-validator" target="_blank"><i class="fa fa-github"></i> async-validator</a>', 'Array', ''],
-          ['span', '栅格占位格数 (可填写1-24中的值)', 'String, Number', '-'],
-          ['inline', '是否一行显示', 'Boolean', 'false']
+          ['label', 'Label content', 'String', '-'],
+          ['labelWidth', 'Label width is able when inline === true', 'String', 'auto'],
+          ['labelAlign', 'Label align is able when inline === true', 'String', 'right'],
+          ['disabled', 'Whether is disabled or not', 'Boolean', 'false'],
+          ['name', 'Validate the specified field Name', 'String', ''],
+          ['rules', 'Validate Rules, See more advanced usage at <a href="https://github.com/yiminghe/async-validator" target="_blank"><i class="fa fa-github"></i> async-validator</a>', 'Array', ''],
+          ['span', 'Span number (1-24)', 'String, Number', '-'],
+          ['inline', 'Whether is inline or not', 'Boolean', 'false']
         ]
       }
     }

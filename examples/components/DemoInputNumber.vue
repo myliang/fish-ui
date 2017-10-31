@@ -1,10 +1,10 @@
 <template>
   <main-layout menuActiveIndex="input-number">
-    <h3>Input Number 数字输入框</h3>
+    <h3>Input Number</h3>
 
     <fish-row gutter="1">
       <fish-col span="8">
-        <code-card title="基本用法" desc="基本用法，需要 <code>v-model</code>绑定">
+        <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
             <fish-input-number v-model="v"></fish-input-number>
           </template>
@@ -24,7 +24,7 @@
         </code-card>
       </fish-col>
       <fish-col span="8">
-        <code-card title="取值范围" desc="可以通过设置<code>min</code>, <code>max</code>设置范围">
+        <code-card title="Range" desc="can be set <code>min</code>, <code>max</code>">
           <template slot="demo">
             <fish-input-number min="0" max="10" v-model="vMinMax"></fish-input-number>
           </template>
@@ -44,7 +44,7 @@
         </code-card>
       </fish-col>
       <fish-col span="8">
-        <code-card title="步调范围" desc="可以通过<code>step</code>设置">
+        <code-card title="Step" desc="The number to which the current value is increased or decreased. It can be an integer or decimal.">
           <template slot="demo">
             <fish-input-number step="5.5" v-model="vStep"></fish-input-number>
           </template>
@@ -96,14 +96,14 @@
         v: 1.234,
         vMinMax: 2,
         vStep: 5.5,
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['min', '最小值，必填', 'String, Number', '0'],
-          ['max', '最大值，必填', 'String, Number', '1000000000000.00'],
-          ['step', '每次改变步数，可以为小数', 'String, Number', '1'],
-          ['hint', '提示信息', 'String', 'Please ...'],
-          ['size', '大小，可选值: <code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
-          ['disabled', '是否可用', 'Boolean', 'false']
+          ['min', 'The min value', 'String, Number', '0'],
+          ['max', 'The max value', 'String, Number', '1000000000000.00'],
+          ['step', 'The number to which the current value is increased or decreased. It can be an integer or decimal.', 'String, Number', '1'],
+          ['hint', 'Hint', 'String', 'Please ...'],
+          ['size', 'optional: <code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
+          ['disabled', 'Whether it is disabled', 'Boolean', 'false']
         ]
       }
     }

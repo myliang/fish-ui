@@ -1,24 +1,24 @@
 <template>
   <main-layout menuActiveIndex="tag">
-    <h3>Tag 标签</h3>
+    <h3>Tag</h3>
     <fish-row gutter="1">
       <fish-col span="8">
-        <code-card title="基本用法" desc="基本标签的用法，可以通过@close变为可关闭标签">
+        <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
-            <fish-tag index="1">标签</fish-tag>
+            <fish-tag index="1">Tag1</fish-tag>
             <fish-tag index="2">TAG</fish-tag>
-            <fish-tag index="3" @close="{}">关闭</fish-tag>
-            <fish-tag index="3" color="primary">关闭</fish-tag>
+            <fish-tag index="3" @close="{}">close</fish-tag>
+            <fish-tag index="3" color="primary">close</fish-tag>
           </template>
-          <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-tag index=&quot;1&quot;&gt;标签&lt;/fish-tag&gt;
+          <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-tag index=&quot;1&quot;&gt;Tag1&lt;/fish-tag&gt;
 &lt;fish-tag index=&quot;2&quot;&gt;TAG&lt;/fish-tag&gt;
-&lt;fish-tag index=&quot;3&quot; @close=&quot;{}&quot;&gt;关闭&lt;/fish-tag&gt;
-&lt;fish-tag index=&quot;3&quot; color=&quot;primary&quot;&gt;关闭&lt;/fish-tag&gt;</code></pre>
+&lt;fish-tag index=&quot;3&quot; @close=&quot;{}&quot;&gt;close&lt;/fish-tag&gt;
+&lt;fish-tag index=&quot;3&quot; color=&quot;primary&quot;&gt;close&lt;/fish-tag&gt;</code></pre>
         </code-card>
       </fish-col>
 
       <fish-col span="8">
-        <code-card title="动态添加和删除" desc="用数组生成一组标签，可以动态添加和删除">
+        <code-card title="Add, Remove" desc="Add, Remove Tag">
           <template slot="demo">
             <fish-tags :items="tags" edited @close="groupCloseHandler" @add="addCheckHandler"></fish-tags>
           </template>
@@ -42,7 +42,7 @@
       </fish-col>
 
       <fish-col span="8">
-        <code-card title="可选择" desc="可通过 @click 事件实现类似 Checkbox 的效果，点击切换选中效果">
+        <code-card title="Checkboxs" desc="checkbox tags">
           <template slot="demo">
             <fish-tags :items="tags1" @click="checkClickHandler"></fish-tags>
           </template>
@@ -63,7 +63,7 @@
       </fish-col>
     </fish-row>
 
-    <code-card title="依附用法" desc="依附在特定的位置显示">
+    <code-card title="Attached" desc="close to special position">
       <template slot="demo">
         <fish-row gutter="1">
           <fish-col span="8">
@@ -128,7 +128,7 @@
 
     <fish-row gutter="1">
       <fish-col span="8">
-        <code-card title="颜色" desc="支持多种颜色: ">
+        <code-card title="Color" desc="Color tag">
           <template slot="demo">
             <fish-tag :index="color" :color="color" :key="color" v-for="color in ['red', 'orange', 'yellow', 'olive', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']" v-html="color"></fish-tag>
           </template>
@@ -137,7 +137,7 @@
         </code-card>
       </fish-col>
       <fish-col span="8">
-        <code-card title="浮动微标" desc="通常用于消息提示。">
+        <code-card title="Floating" desc="Floating tag">
           <template slot="demo">
             <fish-button style="position: relative;">
               myliang
@@ -159,7 +159,7 @@
         </code-card>
       </fish-col>
       <fish-col span="8">
-        <code-card title="圆形" desc="两种图形：<code>circle</code>, <code>square</code>">
+        <code-card title="Circle" desc="optional：<code>circle</code>, <code>square</code>">
           <template slot="demo">
             <fish-tag index="circle" shape="circle">2</fish-tag>
             <fish-tag index="circle" shape="circle" color="primary">4</fish-tag>
@@ -231,26 +231,26 @@
     },
     data () {
       return {
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['size', '大小，可选值: <code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
-          ['edited', '是否可编辑', 'Boolean', 'false'],
-          ['items', '标签项', 'Array', '-']
+          ['size', 'optional: <code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
+          ['edited', 'whether it is edited or not', 'Boolean', 'false'],
+          ['items', 'tag items', 'Array', '-']
         ],
         api_data2: [
-          ['icon', '图标, fontawesome icon 字体', 'String', '-'],
-          ['index', '子菜单唯一标志, 必填', 'string', '-'],
-          ['floating', '是否一微标的形式展示', 'Boolean', 'false'],
-          ['shape', '以什么形状展示，可选值：<code>circle</code>, <code>square</code>', 'string', 'square'],
-          ['attached', '依附在什么位置，可选值：<code>top</code>, <code>top left</code>, <code>top right</code>, <code>bottom</code>, <code>bottom left</code>, <code>bottom right</code>', 'string', '-'],
-          ['size', '设置菜单大小，可选值为<code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
-          ['color', '颜色类型，可选值: <code>red</code>, <code>orange</code>, <code>yellow</code>, <code>olive</code>, <code>green</code>, <code>teal</code>, <code>blue</code>, <code>violet</code>, <code>purple</code>, <code>pink</code>, <code>brown</code>, <code>grey</code>, <code>black</code>', 'String', '-']
+          ['icon', 'fontawesome icon font', 'String', '-'],
+          ['index', 'unique key of the tag', 'string', '-'],
+          ['floating', 'whether it is floating or not', 'Boolean', 'false'],
+          ['shape', 'optional：<code>circle</code>, <code>square</code>', 'string', 'square'],
+          ['attached', 'optional：<code>top</code>, <code>top left</code>, <code>top right</code>, <code>bottom</code>, <code>bottom left</code>, <code>bottom right</code>', 'string', '-'],
+          ['size', 'optional: <code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
+          ['color', 'optional: <code>red</code>, <code>orange</code>, <code>yellow</code>, <code>olive</code>, <code>green</code>, <code>teal</code>, <code>blue</code>, <code>violet</code>, <code>purple</code>, <code>pink</code>, <code>brown</code>, <code>grey</code>, <code>black</code>', 'String', '-']
         ],
-        event_columns: ['事件名称', '说明', '回调参数'],
+        event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
-          ['add (v)', '添加新标签触发，当可编辑是，此方法会触发', '输入的内容'],
-          ['close (index)', '删除标签触发，当可编辑是，此方法会触发', '标签组中标签的索引index'],
-          ['click (index, checked)', '点击标签触发，当不可编辑是，此方法会触发', '标签组中标签的索引index, checked是否选中']
+          ['add (v)', 'callback when tag is added', 'v(input text)'],
+          ['close (index)', 'callback when tag is removed', 'index'],
+          ['click (index, checked)', 'callback when tag is clicked', 'index, checked']
         ],
         tags1: [[true, 'tag1-radio'], [false, 'tag2-radio'], [false, 'tag3-radio']],
         tags: ['tag1', 'tag2', 'tag3']

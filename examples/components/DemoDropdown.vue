@@ -1,6 +1,6 @@
 <template>
   <main-layout menuActiveIndex="dropdown">
-    <h3>Dropdown 下拉菜单</h3>
+    <h3>Dropdown</h3>
     <fish-card>
       <fish-dropdown>
         <a slot="title">Dropdown<i class="fa fa-arrow-circle-down" style="margin-left: 10px;"></i></a>

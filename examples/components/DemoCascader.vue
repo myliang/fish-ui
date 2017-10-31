@@ -1,7 +1,7 @@
 <template>
   <main-layout menuActiveIndex="cascader">
-    <h3>Cascader 联级下拉选框</h3>
-    <code-card title="基本" desc="基本用法，可以使用v-model绑定数据">
+    <h3>Cascader</h3>
+    <code-card title="Basic" desc="Cascade selection box">
       <template slot="demo">
         <fish-cascader :options="options" v-model="cascaderValue" style="width: 260px;" @change="changeHandler"></fish-cascader>
       </template>
@@ -82,17 +82,17 @@
     data () {
       return {
         cascaderValue: [],
-        event_columns: ['事件名称', '说明', '回调参数'],
+        event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
-          ['change(values)', '选择option的时候触发', '值数组 <code>values</code>']
+          ['change(values)', 'Callback when finishing cascader select', '<code>values</code>']
         ],
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['value', '值，用v-model绑定', 'Array', '[]'],
-          ['textDelimiter', '文本分隔符', 'String', ' / '],
-          ['menuWidth', '弹出菜单的宽度', 'Number', '160'],
-          ['hint', '提示信息', 'String', 'Please select'],
-          ['options', '数据选项数组', 'Array[[value, key],...]', '-']
+          ['value', 'v-model', 'Array', '[]'],
+          ['textDelimiter', 'Text delimiter', 'String', ' / '],
+          ['menuWidth', 'The width of menu', 'Number', '160'],
+          ['hint', 'Hint message', 'String', 'Please select'],
+          ['options', 'Data option', 'Array[[value, key],...]', '-']
         ],
         options: [
           ['zhejiang', 'Zhejiang', [

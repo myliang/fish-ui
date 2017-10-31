@@ -1,7 +1,7 @@
 <template>
   <main-layout menuActiveIndex="grid">
-    <h3>Grid 格栅</h3>
-    <code-card title="基本格栅" desc="从堆叠到水平排列。使用单一的一组 Row 和 Col 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 Row 内。">
+    <h3>Grid</h3>
+    <code-card title="Basic" desc="From the stack to the horizontal arrangement.">
       <template slot="demo">
         <demo-grid-base></demo-grid-base>
       </template>
@@ -75,7 +75,7 @@
       </template>
     </code-card>
 
-    <code-card title="间隔，偏移" desc="栅格常常需要和间隔进行配合，使用 offset 可以将列向右侧偏。">
+    <code-card title="Gutter, Offset" desc="<code>offset</code> can set the column to the right side">
       <template slot="demo">
         <demo-grid-gutter-offset></demo-grid-gutter-offset>
       </template>
@@ -167,18 +167,18 @@
     },
     data() {
       return {
-        columns: ['属性', '说明', '类型', '默认值'],
+        columns: ['Attribute', 'Description', 'Type', 'Default'],
         data: [
-          ['gutter', '栅格间隔，单位为em', 'String, Number', '-'],
-          ['type', '布局模式，可选 <code>flex</code>', 'String', 'flex'],
-          ['align', 'flex 布局下的垂直对齐方式 <code>top</code> <code>middle</code> <code>bottom</code>', 'Number', 'top'],
-          ['justify', 'flex 布局下的水平排列方式 <code>start</code> <code>end</code> <code>center</code> <code>space-around</code> <code>space-between</code>', 'String', 'start']
+          ['gutter', 'spacing between grids, unit: em', 'String, Number', '-'],
+          ['type', 'layout mode，optional: <code>flex</code>', 'String', 'flex'],
+          ['align', 'the vertical alignment of the flex layout: <code>top</code> <code>middle</code> <code>bottom</code>', 'Number', 'top'],
+          ['justify', 'horizontal arrangement of the flex layout: <code>start</code> <code>end</code> <code>center</code> <code>space-around</code> <code>space-between</code>', 'String', 'start']
         ],
         colData: [
-          ['span', '栅格占位格数,必填(可填写1-24中的值)', 'String, Number', '-'],
-          ['offset', '栅格左侧的间隔格数，间隔内不可以有栅格', 'String, Number', '0'],
-          ['push', '栅格向右移动格数', 'String, Number', '0'],
-          ['pull', '栅格向左移动格数', 'String, Number', '0']
+          ['span', 'raster number of cells to occupy (1-24)', 'String, Number', '-'],
+          ['offset', 'the number of cells to offset Col from the left', 'String, Number', '0'],
+          ['push', 'the number of cells that raster is moved to the right', 'String, Number', '0'],
+          ['pull', 'the number of cells that raster is moved to the left', 'String, Number', '0']
         ]
       }
     }

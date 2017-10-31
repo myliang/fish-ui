@@ -1,7 +1,7 @@
 <template>
   <main-layout menuActiveIndex="message">
-    <h3>Message 消息</h3>
-    <code-card title="基本用法" desc="基本使用方法，可以通过指定type显示不一样的样式">
+    <h3>Message</h3>
+    <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
         <fish-message>
           Warning Description Warning Description Warning Description Warning Description
@@ -58,9 +58,9 @@
     },
     data () {
       return {
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['type', '类型(主要就是颜色) 可选值：<code>warning</code> <code>info</code> <code>success</code> <code>error</code>', 'String', 'warning']
+          ['type', 'optional：<code>warning</code> <code>info</code> <code>success</code> <code>error</code>', 'String', 'warning']
         ]
       }
     }

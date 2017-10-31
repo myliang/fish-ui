@@ -1,8 +1,8 @@
 <template>
   <main-layout menuActiveIndex="backtop" style="height: 1200px;">
-    <h3>BackTop 返回顶部</h3>
+    <h3>BackTop</h3>
     <fish-card>
-      <fish-back-top></fish-back-top> 当出现纵向滚动条，同事向下滚动时候，在浏览器右下脚会出现此按钮，点击可返回顶部
+      <fish-back-top></fish-back-top> makes it easy to go back to the top of the page.
       <div slot="footer">
         <pre v-highlightjs><code class="html">&lt;fish-back-top&gt;&lt;/fish-back-top&gt;</code></pre>
       </div>
@@ -34,9 +34,9 @@
     },
     data () {
       return {
-        event_columns: ['事件名称', '说明', '回调参数'],
+        event_columns: ['Event Name', 'Description', 'Parameters'],
         event_data: [
-          ['click(event)', '点击时触发', 'event 事件参数']
+          ['click(event)', 'a callback function, which can be executed when you click the button', 'event']
         ]
       }
     }

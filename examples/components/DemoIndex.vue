@@ -1,23 +1,22 @@
 <template>
     <main-layout menuActiveIndex="index">
       <h2>Fish-UI</h2>
-      <p>基于 <a href="https://vuejs.org/"><strong>vue2</strong></a>, <a href="http://semantic-ui.cn/"><strong>semantic-ui</strong></a>  实现，开发和服务于后台产品, 其中icon font用到了<a href="http://fontawesome.io/"><strong>fontawesome</strong></a></p>
-      <h3>支持环境</h3>
-      <p>现代浏览器</p>
-      <h3>安装</h3>
-      <p>我们推荐使用 npm 的方式进行开发，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。</p>
-      <p>如果你的网络环境不佳，推荐使用 cnpm。</p>
+      <h5>A Vue.js 2.0 UI Toolkit for Web.</h5>
+      <h3>Environment Support</h3>
+      <p>Modern browsers</p>
+      <h3>Install</h3>
+      <p>Install Fish-UI with the node package manager. It can work with webpack and ES2015 very well.</p>
+      <p>If you are in a bad network environment，you can try other registries and tools like cnpm。</p>
       <pre v-highlightjs><code class="bash">$ npm install less less-loader fish-ui --save</code></pre>
-      <h3>快速上手</h3>
-      <p>推荐是用vue-cli创建项目</p>
+      <h3>Quick Start</h3>
+      <p>vue-cli</p>
       <pre v-highlightjs><code class="bash">$ npm install -g vue-cli
-$ vue init webpack test // 创建一个项目名为test的vue项目
+$ vue init webpack test
 $ cd test
-$ npm install less less-loader fish-ui --save // 安装fish-ui
-// 之后向main.js(src/main.js)文件中添加如下内容，全局引用fish-ui</code></pre>
+$ npm install less less-loader fish-ui --save </code></pre>
       <pre v-highlightjs><code class="javascript">import FishUI from 'fish-ui'
 Vue.use(FishUI)</code></pre>
-      <h4>main.js文件内容</h4>
+      <h4>main.js</h4>
       <pre v-highlightjs><code class="javascript">
 import Vue from &#x27;vue&#x27;
 import App from &#x27;./App&#x27;
@@ -34,7 +33,7 @@ new Vue({
   components: { App }
 })
 </code></pre>
-      <h4>App.vue文件内容</h4>
+      <h4>App.vue</h4>
       <pre v-highlightjs><code class="html">&lt;template&gt;
   &lt;div id=&quot;app&quot;&gt;
     &lt;img src=&quot;./assets/logo.png&quot;&gt;
@@ -60,7 +59,7 @@ export default {
 }
 &lt;/style&gt;
 </code></pre>
-      <h4>运行就可以看到fish-ui 的button效果了</h4>
+      <h4>run</h4>
       <pre v-highlightjs><code class="bash">$ npm run dev</code></pre>
     </main-layout>
 </template>

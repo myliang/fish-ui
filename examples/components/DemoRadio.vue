@@ -1,9 +1,9 @@
 <template>
   <main-layout menuActiveIndex="radio">
-    <h3>Radio 单选</h3>
+    <h3>Radio</h3>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="基本用法" desc="最简单的用法">
+        <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
             <fish-radio index="x">Choice</fish-radio>
           </template>
@@ -11,7 +11,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="不可用" desc="不可用的用法">
+        <code-card title="Disabled" desc="Disabled Radio">
           <template slot="demo">
             <fish-radio disabled index="2">Choice</fish-radio>
           </template>
@@ -21,7 +21,7 @@
     </fish-row>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="单选组合" desc="一组互斥的 Radio 配合使用">
+        <code-card title="Group" desc="Radio Group">
           <template slot="demo">
             <fish-radios v-model="radiosValue">
               <fish-radio :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index"><span v-html="c"></span></fish-radio>
@@ -40,7 +40,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="垂直显示" desc="一组 Radio 垂直显示">
+        <code-card title="vertical" desc="Vertical RadioGroup">
           <template slot="demo">
             <fish-radios v-model="radiosValue1" mode="vertical">
               <fish-radio :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index"><span v-html="c"></span></fish-radio>
@@ -90,10 +90,10 @@
       return {
         radiosValue: 0,
         radiosValue1: 0,
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['index', '对应的唯一值', 'String, Number', '-'],
-          ['disabled', '是否可用', 'Boolean', 'false']
+          ['index', 'unique key of the radio', 'String, Number', '-'],
+          ['disabled', 'whether it is disabled', 'Boolean', 'false']
         ]
       }
     }

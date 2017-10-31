@@ -1,9 +1,9 @@
 <template>
   <main-layout menuActiveIndex="tree-select">
-    <h3>Tree Select 树选框</h3>
+    <h3>Tree Select</h3>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="单选树" desc="最简单的用法">
+        <code-card title="Single" desc="Single Tree Select">
           <demo-tree-select-single slot="demo"></demo-tree-select-single>
           <template slot="codeHtml">
             <pre v-highlightjs><code class="xml">&lt;template&gt;
@@ -67,7 +67,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="多选树" desc="使用勾选框实现多选功能">
+        <code-card title="Multiple" desc="Multiple Tree Select">
           <demo-tree-select-multiple slot="demo"></demo-tree-select-multiple>
           <template slot="codeHtml">
             <pre v-highlightjs><code class="xml">&lt;template&gt;
@@ -179,18 +179,18 @@
       MainLayout},
     data () {
       return {
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['value', '值, v-model绑定', 'Array', '[]'],
-          ['data', '展示使用的数据，必填。<strong style="color: red;">其中key的规则是有层级关系的，比如本级00,那么自己就是00-11..., 通过key可以知道上级的key</strong>', 'Array', ''],
-          ['hint', '值为空时的提示信息', 'String', 'Please'],
-          ['multiple', '是否为多选模式', 'Boolean', 'false'],
-          ['expand', '是否自动展开', 'Boolean', 'false'],
-          ['delimiter', 'data中key的分割符号', 'String', '-']
+          ['value', 'v-model', 'Array', '[]'],
+          ['data', 'tree data, <strong style="color: red;">the rules of <code>key</code>code> are hierarchical, such as the level of 00, then they are 00-11... Through <code>key</code> can know the superior key</strong>', 'Array', ''],
+          ['hint', 'hint', 'String', 'Please'],
+          ['multiple', 'whether it is multiple or not', 'Boolean', 'false'],
+          ['expand', 'whether it is expand or not', 'Boolean', 'false'],
+          ['delimiter', 'data.key delimiter', 'String', '-']
         ],
-        event_columns: ['事件名称', '说明', '回调参数'],
+        event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
-          ['change(keys)', '当选中节点的时候触发', '选中的keys']
+          ['change(keys)', 'callback when changing', 'keys']
         ]
       }
     }

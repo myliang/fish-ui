@@ -1,7 +1,7 @@
 <template>
   <main-layout menuActiveIndex="step">
     <h3>Step 步骤</h3>
-    <code-card title="基本用法" desc="简单的步骤条。">
+    <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
         <fish-steps>
           <fish-step title="Finished"></fish-step>
@@ -16,31 +16,31 @@
 &lt;/fish-steps&gt;</code></pre>
     </code-card>
 
-    <code-card title="大小" desc="可用通过设置size: <code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>。">
+    <code-card title="size" desc="optional: <code>mini</code><code>tiny</code><code>small</code><code>medium</code><code>large</code><code>big</code><code>huge</code><code>massive</code>">
       <template slot="demo">
         <fish-steps size="big">
-          <fish-step title="Finished" description="这是描述"></fish-step>
+          <fish-step title="Finished" description="this is description"></fish-step>
           <fish-step title="in Progress" active description="this is description" icon="fa fa-usd"></fish-step>
           <fish-step title="Waiting" disabled description="this is description"></fish-step>
         </fish-steps>
       </template>
       <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-steps size=&quot;big&quot;&gt;
-  &lt;fish-step title=&quot;Finished&quot; description=&quot;这是描述&quot;&gt;&lt;/fish-step&gt;
+  &lt;fish-step title=&quot;Finished&quot; description=&quot;this is description&quot;&gt;&lt;/fish-step&gt;
   &lt;fish-step title=&quot;in Progress&quot; active description=&quot;this is description&quot; icon=&quot;usd&quot;&gt;&lt;/fish-step&gt;
   &lt;fish-step title=&quot;Waiting&quot; disabled description=&quot;this is description&quot;&gt;&lt;/fish-step&gt;
 &lt;/fish-steps&gt;</code></pre>
     </code-card>
 
-    <code-card title="竖直展示" desc="简单的竖直方向的步骤条">
+    <code-card title="Vertical" desc="vertical step">
       <template slot="demo">
         <fish-steps mode="vertical" width="300">
-          <fish-step title="Finished" description="这是描述"></fish-step>
+          <fish-step title="Finished" description="this is description"></fish-step>
           <fish-step title="in Progress" active description="this is description" icon="fa fa-usd"></fish-step>
           <fish-step title="Waiting" disabled description="this is description"></fish-step>
         </fish-steps>
       </template>
       <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-steps mode=&quot;vertical&quot; width=&quot;300&quot;&gt;
-  &lt;fish-step title=&quot;Finished&quot; description=&quot;这是描述&quot;&gt;&lt;/fish-step&gt;
+  &lt;fish-step title=&quot;Finished&quot; description=&quot;this is description&quot;&gt;&lt;/fish-step&gt;
   &lt;fish-step title=&quot;in Progress&quot; active description=&quot;this is description&quot; icon=&quot;usd&quot;&gt;&lt;/fish-step&gt;
   &lt;fish-step title=&quot;Waiting&quot; disabled description=&quot;this is description&quot;&gt;&lt;/fish-step&gt;
 &lt;/fish-steps&gt;</code></pre>
@@ -90,18 +90,18 @@
     },
     data () {
       return {
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['size', '步骤大小，可选值: <code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
-          ['mode', '步骤类型，现在支持垂直<code>vertical</code>、水平<code>horizontal</code>可选', 'String', 'horizontal'],
-          ['width', '步骤宽度，当mode === vertical, 单位为px, 当mode === horizontal，单位为%', 'String, Number', '100']
+          ['size', 'optional: <code>mini</code><code>tiny</code><code>small</code><code>medium</code><code>large</code><code>big</code><code>huge</code><code>massive</code>', 'String', '-'],
+          ['mode', 'optional:<code>vertical</code><code>horizontal</code>', 'String', 'horizontal'],
+          ['width', 'step width:，unit is <code>px</code> when mode === vertical, unit is <code>%</code> when mode === horizontal', 'String, Number', '100']
         ],
         api_data2: [
-          ['icon', '图标, fontawesome icon 字体', 'String', '-'],
-          ['title', '标题', 'String', '-'],
-          ['description', '步骤的详情描述，可选', 'String', '-'],
-          ['active', '是否为选中状态', 'Boolean', 'false'],
-          ['disabled', '是否不可选状态', 'Boolean', 'false']
+          ['icon', 'icon, fontawesome icon font', 'String', '-'],
+          ['title', 'title', 'String', '-'],
+          ['description', 'step description', 'String', '-'],
+          ['active', 'whether it is active or not', 'Boolean', 'false'],
+          ['disabled', 'whether it is disabled or not', 'Boolean', 'false']
         ]
       }
     }

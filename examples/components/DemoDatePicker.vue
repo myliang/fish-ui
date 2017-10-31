@@ -1,9 +1,9 @@
 <template>
   <main-layout menuActiveIndex="datepicker">
-    <h3>DatePicker 日期选框</h3>
+    <h3>DatePicker</h3>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="基本" desc="基本语法">
+        <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
             <fish-date-picker v-model="datePickerValue"></fish-date-picker>
           </template>
@@ -23,7 +23,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="指定范围" desc="指定最大，最小值">
+        <code-card title="Min, Max" desc="Can be set min, max">
           <template slot="demo">
             <fish-date-picker v-model="datePickerValue2" min="2017-01-01" max="2022-01-01"></fish-date-picker>
           </template>
@@ -45,20 +45,20 @@
     </fish-row>
     <fish-row>
       <fish-col span="24">
-        <code-card title="展示模式" desc="可以通过 mode 指定日历展示类型">
+        <code-card title="Mode" desc="Show Mode">
           <template slot="demo">
-            <fish-date-picker v-model="datePickerYValue" mode="year" hint="年份"></fish-date-picker>
-            <fish-date-picker v-model="datePickerMonValue" mode="month" hint="年月"></fish-date-picker>
-            <fish-date-picker v-model="datePickerHValue" mode="hour" hint="年月日时"></fish-date-picker>
-            <fish-date-picker v-model="datePickerMValue" mode="minute" hint="年月日时分"></fish-date-picker>
-            <fish-date-picker v-model="datePickerSValue" mode="second" hint="年月日时分秒"></fish-date-picker>
+            <fish-date-picker v-model="datePickerYValue" mode="year" hint="yyyy"></fish-date-picker>
+            <fish-date-picker v-model="datePickerMonValue" mode="month" hint="yyyy-MM"></fish-date-picker>
+            <fish-date-picker v-model="datePickerHValue" mode="hour" hint="yyyy-MM-dd hh"></fish-date-picker>
+            <fish-date-picker v-model="datePickerMValue" mode="minute" hint="yyyy-MM-dd hh:mm"></fish-date-picker>
+            <fish-date-picker v-model="datePickerSValue" mode="second" hint="yyyy-MM-dd hh:mm:ss"></fish-date-picker>
           </template>
           <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
-  &lt;fish-date-picker v-model=&quot;datePickerYValue&quot; mode=&quot;year&quot; hint=&quot;年份&quot;&gt;&lt;/fish-date-picker&gt;
-  &lt;fish-date-picker v-model=&quot;datePickerMonValue&quot; mode=&quot;month&quot; hint=&quot;年月&quot;&gt;&lt;/fish-date-picker&gt;
-  &lt;fish-date-picker v-model=&quot;datePickerHValue&quot; mode=&quot;hour&quot; hint=&quot;年月日时&quot;&gt;&lt;/fish-date-picker&gt;
-  &lt;fish-date-picker v-model=&quot;datePickerMValue&quot; mode=&quot;minute&quot; hint=&quot;年月日时分&quot;&gt;&lt;/fish-date-picker&gt;
-  &lt;fish-date-picker v-model=&quot;datePickerSValue&quot; mode=&quot;second&quot; hint=&quot;年月日时分秒&quot;&gt;&lt;/fish-date-picker&gt;
+  &lt;fish-date-picker v-model=&quot;datePickerYValue&quot; mode=&quot;year&quot; hint=&quot;yyyy&quot;&gt;&lt;/fish-date-picker&gt;
+  &lt;fish-date-picker v-model=&quot;datePickerMonValue&quot; mode=&quot;month&quot; hint=&quot;yyyy-MM&quot;&gt;&lt;/fish-date-picker&gt;
+  &lt;fish-date-picker v-model=&quot;datePickerHValue&quot; mode=&quot;hour&quot; hint=&quot;yyyy-MM-dd hh&quot;&gt;&lt;/fish-date-picker&gt;
+  &lt;fish-date-picker v-model=&quot;datePickerMValue&quot; mode=&quot;minute&quot; hint=&quot;yyyy-MM-dd hh:mm&quot;&gt;&lt;/fish-date-picker&gt;
+  &lt;fish-date-picker v-model=&quot;datePickerSValue&quot; mode=&quot;second&quot; hint=&quot;yyyy-MM-dd hh:mm:ss&quot;&gt;&lt;/fish-date-picker&gt;
 &lt;/template&gt;
 &lt;script&gt;
   export default {
@@ -129,18 +129,18 @@
         datePickerHValue: '',
         datePickerMValue: '',
         datePickerSValue: '',
-        event_columns: ['事件名称', '说明', '回调参数'],
+        event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
-          ['change(v)', '选择之后触发', 'v为选中的值']
+          ['change(v)', 'Callback when finishing select', 'v(selected item)']
         ],
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['value', '值 可以使用v-model', 'String', '-'],
-          ['mode', '日历模式 可选值：<code>minute</code>, <code>hour</code>, <code>day</code>, <code>month</code>, <code>year</code>', 'String', 'day'],
-          ['min', '日历最小值', 'String', '-1'],
-          ['max', '日历最大值', 'String', '-1'],
-          ['hint', '提示信息', 'String', 'Please date'],
-          ['format', '格式化value', 'String', '-']
+          ['value', 'v-model', 'String', '-'],
+          ['mode', 'can be set to <code>minute</code><code>hour</code><code>day</code><code>month</code><code>year</code>', 'String', 'day'],
+          ['min', 'The min value', 'String', '-1'],
+          ['max', 'The max value', 'String', '-1'],
+          ['hint', 'Hint message', 'String', 'Please date'],
+          ['format', 'Format value', 'String', '-']
         ]
       }
     }

@@ -3,14 +3,14 @@
     <div slot="sider">
       <div class="logo" style="background: #e0f0fa;">Logo / System</div>
       <fish-menu mode="inline" style="width: 200px;">
-        <fish-option index="0" content="内容管理"></fish-option>
+        <fish-option index="0" content="Content"></fish-option>
         <fish-submenu index="1" mode="inline">
-          <template slot="title">用户管理</template>
+          <template slot="title">User</template>
           <fish-option index="1-0" content="Jack"></fish-option>
           <fish-option index="1-1" content="Lucy"></fish-option>
           <fish-option index="1-2" content="Active"></fish-option>
         </fish-submenu>
-        <fish-option index="2" content="统计分析"></fish-option>
+        <fish-option index="2" content="Tongji"></fish-option>
         <fish-submenu index="3" mode="inline">
           <template slot="title">submenu</template>
           <fish-option index="3-0" content="Jack"></fish-option>

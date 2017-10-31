@@ -7,20 +7,20 @@
     data () {
       return {
         columns: [
-          {title: '日期', key: 'date', width: '200'},
-          {title: '姓名', key: 'name', width: '200'},
-          {title: '性别', key: 'sex', width: '200'},
-          {title: '出生日期', key: 'birthDate', width: '200'},
-          {title: '大学', key: 'university', width: '300'},
-          {title: '省份', key: 'province', width: '200'},
-          {title: '市区', key: 'city', width: '200'},
-          {title: '地址', key: 'address', width: '300'},
-          {title: '邮编', key: 'zip', width: '200'}],
+          {title: 'Date', key: 'date', width: '200'},
+          {title: 'Name', key: 'name', width: '200'},
+          {title: 'Sex', key: 'sex', width: '200'},
+          {title: 'birthDate', key: 'birthDate', width: '200'},
+          {title: 'University', key: 'university', width: '300'},
+          {title: 'Province', key: 'province', width: '200'},
+          {title: 'City', key: 'city', width: '200'},
+          {title: 'Address', key: 'address', width: '300'},
+          {title: 'Postcode', key: 'zip', width: '200'}],
         data: [
-          {date: '2016-05-03', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-02', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-01', name: '王小虎', sex: '男', birthDate: '2001-01-01', university: '北京大学', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333}]
+          {date: '2016-05-03', name: 'xiaohu.wang', sex: 'male', birthDate: '2001-01-01', university: 'Beijing University', province: 'Shanghai', city: 'Putuo', address: 'Shanghai City Putuo jinshajing 1518 ', zip: 200333},
+          {date: '2016-05-02', name: 'xiaohu.wang', sex: 'male', birthDate: '2001-01-01', university: 'Beijing University', province: 'Shanghai', city: 'Putuo', address: 'Shanghai City Putuo jinshajing 1518 ', zip: 200333},
+          {date: '2016-05-04', name: 'xiaohu.wang', sex: 'male', birthDate: '2001-01-01', university: 'Beijing University', province: 'Shanghai', city: 'Putuo', address: 'Shanghai City Putuo jinshajing 1518 ', zip: 200333},
+          {date: '2016-05-01', name: 'xiaohu.wang', sex: 'male', birthDate: '2001-01-01', university: 'Beijing University', province: 'Shanghai', city: 'Putuo', address: 'Shanghai City Putuo jinshajing 1518 ', zip: 200333}]
       }
     }
   }

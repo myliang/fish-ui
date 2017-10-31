@@ -1,7 +1,7 @@
 <template>
   <main-layout menuActiveIndex="layout">
-    <h3>Layout 布局</h3>
-    <code-card title="基本结构" desc="典型的页面布局">
+    <h3>Layout</h3>
+    <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
         <demo-layout-base></demo-layout-base>
       </template>
@@ -54,7 +54,7 @@
       </template>
     </code-card>
 
-    <code-card title="上中下布局" desc="最基本的『上-中-下』布局">
+    <code-card title="Header-Content-Footer" desc="The most basic header-content-footer layout.">
       <template slot="demo">
         <demo-layout-up-middle-down></demo-layout-up-middle-down>
       </template>
@@ -99,7 +99,7 @@
       </template>
     </code-card>
 
-    <code-card title="顶部－侧边－通栏" desc="同样拥有顶部导航及侧边栏，区别是两边未留边距，多用于应用型的网站。">
+    <code-card title="Header-Sider" desc="Both the top navigation and the sidebar, commonly used in application site.">
       <template slot="demo">
         <demo-layout-top-sider-header></demo-layout-top-sider-header>
       </template>
@@ -111,14 +111,14 @@
     &lt;/nav&gt;
     &lt;div slot=&quot;sider&quot;&gt;
       &lt;fish-menu mode=&quot;inline&quot; style=&quot;width: 200px;&quot;&gt;
-        &lt;fish-option index=&quot;0&quot; content=&quot;内容管理&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;0&quot; content=&quot;Content&quot;&gt;&lt;/fish-option&gt;
         &lt;fish-submenu index=&quot;1&quot; mode=&quot;inline&quot;&gt;
-          &lt;template slot=&quot;title&quot;&gt;用户管理&lt;/template&gt;
+          &lt;template slot=&quot;title&quot;&gt;User&lt;/template&gt;
           &lt;fish-option index=&quot;1-0&quot; content=&quot;Jack&quot;&gt;&lt;/fish-option&gt;
           &lt;fish-option index=&quot;1-1&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
           &lt;fish-option index=&quot;1-2&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
         &lt;/fish-submenu&gt;
-        &lt;fish-option index=&quot;2&quot; content=&quot;统计分析&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;2&quot; content=&quot;Tongji&quot;&gt;&lt;/fish-option&gt;
         &lt;fish-submenu index=&quot;3&quot; mode=&quot;inline&quot;&gt;
           &lt;template slot=&quot;title&quot;&gt;submenu&lt;/template&gt;
           &lt;fish-option index=&quot;3-0&quot; content=&quot;Jack&quot;&gt;&lt;/fish-option&gt;
@@ -162,7 +162,7 @@
       </template>
     </code-card>
 
-    <code-card title="侧边布局" desc="侧边两列式布局">
+    <code-card title="Sider" desc="Two-columns layout. The sider menu can be collapsed when horizontal space is limited.">
       <template slot="demo">
         <demo-layout-sider></demo-layout-sider>
       </template>
@@ -172,14 +172,14 @@
     &lt;div slot=&quot;sider&quot;&gt;
       &lt;div class=&quot;logo&quot; style=&quot;background: #e0f0fa;&quot;&gt;Logo / System&lt;/div&gt;
       &lt;fish-menu mode=&quot;inline&quot; style=&quot;width: 200px;&quot;&gt;
-        &lt;fish-option index=&quot;0&quot; content=&quot;内容管理&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;0&quot; content=&quot;Content&quot;&gt;&lt;/fish-option&gt;
         &lt;fish-submenu index=&quot;1&quot; mode=&quot;inline&quot;&gt;
-          &lt;template slot=&quot;title&quot;&gt;用户管理&lt;/template&gt;
+          &lt;template slot=&quot;title&quot;&gt;User&lt;/template&gt;
           &lt;fish-option index=&quot;1-0&quot; content=&quot;Jack&quot;&gt;&lt;/fish-option&gt;
           &lt;fish-option index=&quot;1-1&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
           &lt;fish-option index=&quot;1-2&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
         &lt;/fish-submenu&gt;
-        &lt;fish-option index=&quot;2&quot; content=&quot;统计分析&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;2&quot; content=&quot;Tongji&quot;&gt;&lt;/fish-option&gt;
         &lt;fish-submenu index=&quot;3&quot; mode=&quot;inline&quot;&gt;
           &lt;template slot=&quot;title&quot;&gt;submenu&lt;/template&gt;
           &lt;fish-option index=&quot;3-0&quot; content=&quot;Jack&quot;&gt;&lt;/fish-option&gt;
@@ -259,9 +259,9 @@
     },
     data () {
       return {
-        columns: ['属性', '说明', '类型', '默认值'],
+        columns: ['Attribute', 'Description', 'Type', 'Default'],
         data: [
-          ['sider', '侧边栏位置，可选值<code>l</code> <code>tl</code> <code>r</code> <code>tr</code>', 'String', '-']
+          ['sider', 'optional: <code>l</code> <code>tl</code> <code>r</code> <code>tr</code>', 'String', '-']
         ]
       }
     }

@@ -1,21 +1,21 @@
 <template>
   <main-layout menuActiveIndex="calendar">
-    <h3>Calendar 日历</h3>
-    <code-card title="年历" desc="展示年信息">
+    <h3>Calendar</h3>
+    <code-card title="Year" desc="show year">
       <template slot="demo">
         <fish-calendar mode="year" min="2017-01" max="2018-01"></fish-calendar>
       </template>
       <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-calendar mode=&quot;year&quot; min=&quot;2017-01&quot; max=&quot;2018-01&quot;&gt;&lt;/fish-calendar&gt;</code></pre>
     </code-card>
 
-    <code-card title="年月历" desc="展示年，月信息">
+    <code-card title="Month" desc="show year, month">
       <template slot="demo">
         <fish-calendar mode="month" min="2017-07"></fish-calendar>
       </template>
       <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-calendar mode=&quot;month&quot; min=&quot;2017-07&quot;&gt;&lt;/fish-calendar&gt;</code></pre>
     </code-card>
 
-    <code-card title="年月日历" desc="展示年，月，日信息">
+    <code-card title="Date" desc="show year, month, day">
       <template slot="demo">
         <fish-calendar value="2017-01-08" min="2017-01-07" @select="selectHandler" @change="changeHandler"></fish-calendar>
       </template>
@@ -40,7 +40,7 @@
 </pre>
     </code-card>
 
-    <code-card title="年月日时分秒历" desc="展示年，月，日，时，分，秒信息">
+    <code-card title="Second" desc="show year, month, day, hour, minute, second">
       <template slot="demo">
         <fish-calendar mode="second" value="2017-01-08" min="2017-01-07"></fish-calendar>
       </template>
@@ -91,26 +91,26 @@
     },
     data () {
       return {
-        event_columns: ['事件名称', '说明', '回调参数'],
+        event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
-          ['change(state, arrays, current)', '非最终选择之后触发', 'state 状态, arrays, current 选中的值对象'],
-          ['select(current)', '最终选择之后触发', 'state 状态, arrays, current 选中的值对象']
+          ['change(state, arrays, current)', 'Callback for when panel changes', 'state, arrays, current(selected item)'],
+          ['select(current)', 'Callback for when a date is selected', 'state, arrays, current(selected item)']
         ],
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['value', '值 可以使用v-model', 'String', '-'],
-          ['mode', '日历模式 可选值：<code>minute</code>, <code>hour</code>, <code>day</code>, <code>month</code>, <code>year</code>', 'String', 'day'],
-          ['min', '日历最小值', 'String', '-1'],
-          ['max', '日历最大值', 'String', '-1'],
-          ['today', '显示今天的描述', 'String', 'Today'],
-          ['weeks', '显示周一到日的描述', 'Array', '\'Sun\', \'Mon\', \'Tue\', \'Wed\', \'Thu\', \'Fri\', \'Sat\']'],
-          ['months', '显示月的描述', 'Array', '[\'January\', \'February\', \'March\', \'April\', \'May\', \'June\', \'July\', \'August\', \'September\', \'October\', \'November\', \'December\']'],
-          ['secondRender', '渲染秒的内容', 'Function(h, second)', '-'],
-          ['minuteRender', '渲染分的内容', 'Function(h, minute)', '-'],
-          ['hourRender', '渲染时的内容', 'Function(h, hour)', '-'],
-          ['dayRender', '渲染日的内容', 'Function(h, day)', '-'],
-          ['monthRender', '渲染月的内容', 'Function(h, month)', '-'],
-          ['yearRender', '渲染年的内容', 'Function(h, year)', '-']
+          ['value', 'v-model', 'String', '-'],
+          ['mode', 'Can be set to <code>minute</code><code>hour</code><code>day</code><code>month</code><code>year</code>', 'String', 'day'],
+          ['min', 'The min value', 'String', '-1'],
+          ['max', 'The max value', 'String', '-1'],
+          ['today', 'Today text', 'String', 'Today'],
+          ['weeks', 'Weeks text', 'Array', '\'Sun\', \'Mon\', \'Tue\', \'Wed\', \'Thu\', \'Fri\', \'Sat\']'],
+          ['months', 'Months text', 'Array', '[\'January\', \'February\', \'March\', \'April\', \'May\', \'June\', \'July\', \'August\', \'September\', \'October\', \'November\', \'December\']'],
+          ['secondRender', 'Customize the display of the second cell', 'Function(h, second)', '-'],
+          ['minuteRender', 'Customize the display of the minute cell', 'Function(h, minute)', '-'],
+          ['hourRender', 'Customize the display of the hour cell', 'Function(h, hour)', '-'],
+          ['dayRender', 'Customize the display of the day cell', 'Function(h, day)', '-'],
+          ['monthRender', 'Customize the display of the month cell', 'Function(h, month)', '-'],
+          ['yearRender', 'Customize the display of the year cell', 'Function(h, year)', '-']
         ]
       }
     },

@@ -1,9 +1,9 @@
 <template>
   <main-layout menuActiveIndex="select">
-    <h3>Select 下拉选框</h3>
+    <h3>Select</h3>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="基本" desc="基本下拉框">
+        <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
             <fish-select v-model="singleSelectedValue">
               <fish-option index="0" content="Option-1"></fish-option>
@@ -31,7 +31,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="带搜索" desc="展开后可对选项进行搜索。">
+        <code-card title="Search" desc="Search the options while expanded.">
           <template slot="demo">
             <fish-select search v-model="singleSelectedValueWthSearch1">
               <fish-option index="10" content="abcd"></fish-option>
@@ -62,7 +62,7 @@
 
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="多选" desc="多选，从已有条目中选择">
+        <code-card title="Multiple" desc="Multiple selection">
           <template slot="demo">
             <fish-select multiple v-model="multipleValues" style="width: 300px;" @change="changeHandler">
               <fish-option index="0" content="abcd"></fish-option>
@@ -101,7 +101,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="带搜索多选" desc="展开后可对选项进行搜索。">
+        <code-card title="Search, Multiple" desc="Search, Multiple selection。">
           <template slot="demo">
             <fish-select search multiple v-model="multipleValues1" style="width: 300px;" @change="changeHandler">
               <fish-option index="0" content="abcd"></fish-option>
@@ -206,24 +206,24 @@
         singleSelectedValue: [],
         singleSelectedValueWthSearch: [],
         singleSelectedValueWthSearch1: [],
-        event_columns: ['事件名称', '说明', '回调参数'],
+        event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
-          ['change(values)', '选择Option的时候触发', '值数组 <code>values</code>']
+          ['change(values)', 'callback when changing', '<code>values</code>']
         ],
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['value', '值，用v-model绑定', 'Array', '[]'],
-          ['hint', '提示信息', 'String', 'Please select'],
-          ['multiple', '是否为多选', 'Boolean', 'false'],
-          ['search', '是否支持查询', 'Boolean', 'false'],
-          ['iconDownArrow', '下拉图标', 'String', 'fa fa-angle-down'],
-          ['iconClose', '清空图标', 'String', 'fa fa-close'],
-          ['iconCloseCircle', '删除选项(多选)', 'String', 'fa fa-times-circle']
+          ['value', 'v-model', 'Array', '[]'],
+          ['hint', 'hint', 'String', 'Please select'],
+          ['multiple', 'whether it is multiple or not', 'Boolean', 'false'],
+          ['search', 'whether it is search or not', 'Boolean', 'false'],
+          ['iconDownArrow', 'icon down arrow', 'String', 'fa fa-angle-down'],
+          ['iconClose', 'icon close', 'String', 'fa fa-close'],
+          ['iconCloseCircle', 'icon close circle', 'String', 'fa fa-times-circle']
         ],
         optionData: [
-          ['index', '唯一标志, 必填', 'String', '-'],
-          ['content', '显示内容', 'String', '-'],
-          ['disabled', '是否禁用', 'Boolean', 'false']
+          ['index', 'unique key of the select', 'String', '-'],
+          ['content', 'content', 'String', '-'],
+          ['disabled', 'whether it is disabled or not', 'Boolean', 'false']
         ]
       }
     },

@@ -1,9 +1,9 @@
 <template>
   <main-layout menuActiveIndex="checkbox">
-    <h3>Checkbox 多选</h3>
+    <h3>Checkbox</h3>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="基本用法" desc="最简单的用法">
+        <code-card title="Basic" desc="Basic usage of checkbox.">
           <template slot="demo">
             <fish-checkbox index="x">Checkbox</fish-checkbox>
           </template>
@@ -11,7 +11,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="不可用" desc="不可用的用法">
+        <code-card title="Disabled" desc="Disabled checkbox">
           <template slot="demo">
             <fish-checkbox index="x" disabled>Checkbox</fish-checkbox>
           </template>
@@ -21,7 +21,7 @@
     </fish-row>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="多选组合" desc="联动 checkbox。">
+        <code-card title="Checkbox Group" desc="Generate a group of checkboxes from an array.">
           <template slot="demo">
             <fish-checkboxes v-model="checkboxesValue">
               <fish-checkbox :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index">checkbox:<span v-html="c"></span></fish-checkbox>
@@ -40,7 +40,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="垂直展示" desc="多选组合垂直展示">
+        <code-card title="Vertical checkbox group" desc="Vertical checkbox group">
           <template slot="demo">
             <fish-checkboxes v-model="checkboxesValue1" mode="vertical">
               <fish-checkbox :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index">checkbox:<span v-html="c"></span></fish-checkbox>
@@ -106,14 +106,14 @@
       return {
         checkboxesValue: [],
         checkboxesValue1: [],
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['mode', '类型，现在支持垂直<code>vertical</code>、水平<code>horizontal</code>', 'String', 'horizontal'],
-          ['disabled', '不可选', 'Boolean', 'false']
+          ['mode', 'Can be set to <code>vertical</code><code>horizontal</code>', 'String', 'horizontal'],
+          ['disabled', 'Whether checkbox is disabled or not', 'Boolean', 'false']
         ],
         api_data2: [
-          ['index', '对应的唯一值', 'String, Number', '-'],
-          ['disabled', '是否可用', 'Boolean', 'false']
+          ['index', 'unique id of checkbox', 'String, Number', '-'],
+          ['disabled', 'whether checkbox is disabled or not', 'Boolean', 'false']
         ]
       }
     }

@@ -1,11 +1,11 @@
 <template>
   <main-layout menuActiveIndex="modal">
-    <h3>Modal 对话框</h3>
+    <h3>Modal</h3>
 
-    <code-card title="基本用法" desc="基本用法，需要抓哟 <code>:visible<code>需要指定<code>.sync</code>">
+    <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
         <fish-button @click="showModalFunc">show Modal</fish-button>
-        <fish-modal title="什么鬼吗？欢迎!" :visible.sync="showModal">
+        <fish-modal title="Welcome.." :visible.sync="showModal">
           <fish-form>
             <fish-fields>
               <fish-field label="First Name" span="eight">
@@ -31,7 +31,7 @@
       <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
   &lt;div&gt;
     &lt;fish-button @click=&quot;showModalFunc&quot;&gt;show Modal&lt;/fish-button&gt;
-    &lt;fish-modal title=&quot;什么鬼吗？欢迎!&quot; :visible.sync=&quot;showModal&quot;&gt;
+    &lt;fish-modal title=&quot;Welcome..&quot; :visible.sync=&quot;showModal&quot;&gt;
       &lt;fish-form&gt;
         &lt;fish-fields&gt;
           &lt;fish-field label=&quot;First Name&quot; span=&quot;eight&quot;&gt;
@@ -99,10 +99,10 @@
     data () {
       return {
         showModal: false,
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['title', '标题', 'String', '-'],
-          ['visible', '是否显示', 'Boolean', 'false']
+          ['title', 'title', 'String', '-'],
+          ['visible', 'whether it is visible or not', 'Boolean', 'false']
         ]
       }
     },

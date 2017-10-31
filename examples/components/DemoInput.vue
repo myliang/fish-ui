@@ -1,9 +1,9 @@
 <template>
   <main-layout menuActiveIndex="input">
-    <h3>Input 输入框</h3>
+    <h3>Input</h3>
     <fish-row gutter="1">
       <fish-col span="8">
-        <code-card title="基本用法" desc="基本用法">
+        <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
             <fish-input></fish-input>
           </template>
@@ -11,7 +11,7 @@
         </code-card>
       </fish-col>
       <fish-col span="8">
-        <code-card title="加载状态" desc="输入框处于loading状态">
+        <code-card title="Loading" desc="Set the loading status of input">
           <template slot="demo">
             <fish-input loading></fish-input>
           </template>
@@ -19,7 +19,7 @@
         </code-card>
       </fish-col>
       <fish-col span="8">
-        <code-card title="不可用" desc="输入框不可编辑">
+        <code-card title="Disabled" desc="Set the disabled status of input">
           <template slot="demo">
             <fish-input disabled></fish-input>
           </template>
@@ -29,7 +29,7 @@
     </fish-row>
     <fish-row gutter="1">
       <fish-col span="8">
-        <code-card title="图标" desc="指定输入框中的图标">
+        <code-card title="Icon" desc="Input icon">
           <template slot="demo">
             <fish-input icon="fa fa-search"></fish-input><br/><br/>
             <fish-input icon="fa fa-search" :iconLeft="true"></fish-input>
@@ -39,7 +39,7 @@
         </code-card>
       </fish-col>
       <fish-col span="8">
-        <code-card title="文本域" desc="用于多行输入。">
+        <code-card title="TextArea" desc="use textarea for multirow input">
           <template slot="demo">
             <fish-input type="textarea" style="height: 50px;"></fish-input>
           </template>
@@ -47,7 +47,7 @@
         </code-card>
       </fish-col>
       <fish-col span="8">
-        <code-card title="大小" desc="可通过<code>size</code>设置">
+        <code-card title="Size" desc="Input size">
           <template slot="demo">
             <fish-input size="big"></fish-input><br/><br/>
             <fish-input size="small"></fish-input>
@@ -87,18 +87,18 @@
     data () {
       return {
         defaultValue: '',
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['type', '输入框类型，可选值：<code>text</code> <code>textarea</code> <code>password</code>...', 'String', 'text'],
-          ['hint', '提示信息', 'String', 'Please ...'],
-          ['icon', '图标(默认位置靠右), fontawesome icon 字体', 'String', '-'],
-          ['iconLeft', '图标是否靠左', 'Boolean', 'false'],
-          ['iconClose', '关闭图标', 'String', 'fa fa-times-circle'],
-          ['loading', '加载中..', 'Boolean', 'false'],
-          ['size', '大小，可选值: <code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
-          ['transparent', '是否透明', 'Boolean', 'false'],
-          ['disabled', '是否可用', 'Boolean', 'false'],
-          ['clear', '是否可清除输入的内容', 'Boolean', 'false']
+          ['type', 'input type, optional：<code>text</code><code>textarea</code><code>password</code>...', 'String', 'text'],
+          ['hint', 'hint', 'String', 'Please ...'],
+          ['icon', 'input icon, fontawesome icon font', 'String', '-'],
+          ['iconLeft', 'icon position is left', 'Boolean', 'false'],
+          ['iconClose', 'icon close', 'String', 'fa fa-times-circle'],
+          ['loading', 'Whether the input is loading', 'Boolean', 'false'],
+          ['size', 'optional: <code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
+          ['transparent', 'Whether the input is transparent.', 'Boolean', 'false'],
+          ['disabled', 'Whether the input is disabled.', 'Boolean', 'false'],
+          ['clear', 'Whether the input is cleared', 'Boolean', 'false']
         ]
       }
     }

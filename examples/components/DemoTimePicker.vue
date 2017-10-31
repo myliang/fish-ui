@@ -1,8 +1,8 @@
 <template>
   <main-layout menuActiveIndex="timepicker">
-    <h3>TimePicker 时间选框</h3>
+    <h3>TimePicker</h3>
 
-    <code-card title="基本" desc="基本用法">
+    <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
         <fish-time-picker v-model="timePickerValue"></fish-time-picker>
       </template>
@@ -66,14 +66,14 @@
     data () {
       return {
         timePickerValue: '',
-        event_columns: ['事件名称', '说明', '回调参数'],
+        event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
-          ['change(v)', '选择之后触发', 'v为选中的值']
+          ['change(v)', 'callback when changing', 'v(selected value)']
         ],
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['value', '值，用v-model绑定', 'String', '00:00:00'],
-          ['hint', '提示信息', 'String', 'Please time']
+          ['value', 'v-model', 'String', '00:00:00'],
+          ['hint', 'hint', 'String', 'Please time']
         ]
       }
     }

@@ -1,7 +1,7 @@
 <template>
   <main-layout menuActiveIndex="pagination">
-    <h3>Pagination 分页</h3>
-    <code-card title="典型" desc="典型分页">
+    <h3>Pagination</h3>
+    <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
         <fish-pagination :total="500" :current="page" @change="(current) => page = current"></fish-pagination>
       </template>
@@ -62,16 +62,16 @@
     data () {
       return {
         page: 2,
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['total', '数据总数', 'Number', '-'],
-          ['current', '当前页数', 'Number', '1'],
-          ['rows', '每页条数', 'Number', '10'],
-          ['totalRender', '用于显示数据总量和当前数据顺序', 'Function(total, range)', '-']
+          ['total', 'the data total', 'Number', '-'],
+          ['current', 'current page', 'Number', '1'],
+          ['rows', 'the rows of page', 'Number', '10'],
+          ['totalRender', 'the total render Function', 'Function(total, range)', '-']
         ],
-        event_columns: ['事件名称', '说明', '回调参数'],
+        event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
-          ['change', 'current 改变时会触发', '当前页 <code>current</code>']
+          ['change(current)', 'Callback when changing', '<code>current</code>']
         ]
       }
     }

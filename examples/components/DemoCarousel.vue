@@ -1,9 +1,9 @@
 <template>
   <main-layout menuActiveIndex="carousel">
-    <h3>Carousel 走马灯</h3>
+    <h3>Carousel</h3>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="基本用法" desc="基本用法">
+        <code-card title="Basic" desc="Basic">
           <template slot="demo">
             <fish-carousel>
               <fish-carousel-item v-for="index in 4" :key="index">
@@ -34,7 +34,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="自动切换" desc="定时切换下一张">
+        <code-card title="Auto play" desc="Timing of scrolling to the next card/picture.">
           <template slot="demo">
             <fish-carousel autoPlay>
               <fish-carousel-item v-for="index in 4" :key="index">
@@ -93,9 +93,9 @@
     MainLayout},
     data () {
       return {
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['autoPlay', '是否自动播放', 'Boolean', 'false']
+          ['autoPlay', 'Whether to scroll automatically', 'Boolean', 'false']
         ]
       }
     }

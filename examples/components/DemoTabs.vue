@@ -1,36 +1,36 @@
 <template>
   <main-layout menuActiveIndex="tabs">
-    <h3>Tabs 标签页</h3>
+    <h3>Tabs</h3>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="基本用法" desc="可用通过value指定默认选中的tab">
+        <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
             <fish-tabs value="role">
-              <fish-tab-pane label="用户管理" index="user">用户管理</fish-tab-pane>
-              <fish-tab-pane label="角色管理" index="role">角色管理</fish-tab-pane>
-              <fish-tab-pane label="配置管理" index="config">配置管理</fish-tab-pane>
+              <fish-tab-pane label="User" index="user">User</fish-tab-pane>
+              <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
+              <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
             </fish-tabs>
           </template>
           <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-tabs value=&quot;role&quot;&gt;
-  &lt;fish-tab-pane label=&quot;用户管理&quot; index=&quot;user&quot;&gt;用户管理&lt;/fish-tab-pane&gt;
-  &lt;fish-tab-pane label=&quot;角色管理&quot; index=&quot;role&quot;&gt;角色管理&lt;/fish-tab-pane&gt;
-  &lt;fish-tab-pane label=&quot;配置管理&quot; index=&quot;config&quot;&gt;配置管理&lt;/fish-tab-pane&gt;
+  &lt;fish-tab-pane label=&quot;User&quot; index=&quot;user&quot;&gt;User&lt;/fish-tab-pane&gt;
+  &lt;fish-tab-pane label=&quot;Role&quot; index=&quot;role&quot;&gt;Role&lt;/fish-tab-pane&gt;
+  &lt;fish-tab-pane label=&quot;Config&quot; index=&quot;config&quot;&gt;Config&lt;/fish-tab-pane&gt;
 &lt;/fish-tabs&gt;</code></pre>
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="导航在底部" desc="通过设置<code>navPosition</code>为<code>bottom</code>">
+        <code-card title="Nav in bottom" desc="Nav in bottom">
           <template slot="demo">
             <fish-tabs value="role" navPosition="bottom">
-              <fish-tab-pane label="用户管理" index="user">用户管理</fish-tab-pane>
-              <fish-tab-pane label="角色管理" index="role">角色管理</fish-tab-pane>
-              <fish-tab-pane label="配置管理" index="config">配置管理</fish-tab-pane>
+              <fish-tab-pane label="User" index="user">User</fish-tab-pane>
+              <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
+              <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
             </fish-tabs>
           </template>
           <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-tabs value=&quot;role&quot; navPosition=&quot;bottom&quot;&gt;
-  &lt;fish-tab-pane label=&quot;用户管理&quot; index=&quot;user&quot;&gt;用户管理&lt;/fish-tab-pane&gt;
-  &lt;fish-tab-pane label=&quot;角色管理&quot; index=&quot;role&quot;&gt;角色管理&lt;/fish-tab-pane&gt;
-  &lt;fish-tab-pane label=&quot;配置管理&quot; index=&quot;config&quot;&gt;配置管理&lt;/fish-tab-pane&gt;
+  &lt;fish-tab-pane label=&quot;User&quot; index=&quot;user&quot;&gt;User&lt;/fish-tab-pane&gt;
+  &lt;fish-tab-pane label=&quot;Role&quot; index=&quot;role&quot;&gt;Role&lt;/fish-tab-pane&gt;
+  &lt;fish-tab-pane label=&quot;Config&quot; index=&quot;config&quot;&gt;Config&lt;/fish-tab-pane&gt;
 &lt;/fish-tabs&gt;</code></pre>
         </code-card>
       </fish-col>
@@ -38,19 +38,19 @@
 
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="卡片展示" desc="以卡片形式展示，可以 @tab-change 执行变换回调">
+        <code-card title="Card" desc="Card tabs">
           <template slot="demo">
             <fish-tabs type="card" value="user" @tab-change="tabChangeHandler">
-              <fish-tab-pane label="用户管理" index="user">用户管理</fish-tab-pane>
-              <fish-tab-pane label="角色管理" index="role">角色管理</fish-tab-pane>
-              <fish-tab-pane label="配置管理" index="config">配置管理</fish-tab-pane>
+              <fish-tab-pane label="User" index="user">User</fish-tab-pane>
+              <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
+              <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
             </fish-tabs>
           </template>
           <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
   &lt;fish-tabs type=&quot;card&quot; value=&quot;user&quot; @tab-change=&quot;tabChangeHandler&quot;&gt;
-    &lt;fish-tab-pane label=&quot;用户管理&quot; index=&quot;user&quot;&gt;用户管理&lt;/fish-tab-pane&gt;
-    &lt;fish-tab-pane label=&quot;角色管理&quot; index=&quot;role&quot;&gt;角色管理&lt;/fish-tab-pane&gt;
-    &lt;fish-tab-pane label=&quot;配置管理&quot; index=&quot;config&quot;&gt;配置管理&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label=&quot;User&quot; index=&quot;user&quot;&gt;User&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label=&quot;Role&quot; index=&quot;role&quot;&gt;Role&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label=&quot;Config&quot; index=&quot;config&quot;&gt;Config&lt;/fish-tab-pane&gt;
   &lt;/fish-tabs&gt;
 &lt;/template&gt;
 &lt;script&gt;
@@ -66,19 +66,19 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-          <code-card title="卡片展示,导航在底部" desc="以卡片形式展示，导航在底部">
+          <code-card title="Card, Nav in bottom" desc="Card, Nav in bottom">
             <template slot="demo">
               <fish-tabs type="card" value="user" navPosition="bottom">
-                <fish-tab-pane label="用户管理" index="user">用户管理</fish-tab-pane>
-                <fish-tab-pane label="角色管理" index="role">角色管理</fish-tab-pane>
-                <fish-tab-pane label="配置管理" index="config">配置管理</fish-tab-pane>
+                <fish-tab-pane label="User" index="user">User</fish-tab-pane>
+                <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
+                <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
               </fish-tabs>
             </template>
             <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
   &lt;fish-tabs type=&quot;card&quot; value=&quot;user&quot; navPosition=&quot;bottom&quot;&gt;
-    &lt;fish-tab-pane label=&quot;用户管理&quot; index=&quot;user&quot;&gt;用户管理&lt;/fish-tab-pane&gt;
-    &lt;fish-tab-pane label=&quot;角色管理&quot; index=&quot;role&quot;&gt;角色管理&lt;/fish-tab-pane&gt;
-    &lt;fish-tab-pane label=&quot;配置管理&quot; index=&quot;config&quot;&gt;配置管理&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label=&quot;User&quot; index=&quot;user&quot;&gt;User&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label=&quot;Role&quot; index=&quot;role&quot;&gt;Role&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label=&quot;Config&quot; index=&quot;config&quot;&gt;Config&lt;/fish-tab-pane&gt;
   &lt;/fish-tabs&gt;
 &lt;/template&gt;
 &lt;script&gt;
@@ -157,18 +157,18 @@
     },
     data () {
       return {
-        event_columns: ['事件名称', '说明', '回调参数'],
+        event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
-          ['tab-change(index)', '切换tab时触发', 'TabPanel.index <code>index</code>']
+          ['tab-change(index)', 'callback when tab changing', 'TabPanel.index <code>index</code>']
         ],
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['value', '值，必填', 'String, Number', '-'],
-          ['type', '类型，可选值：<code>card</code> 可空', 'String', '-']
+          ['value', 'value', 'String, Number', '-'],
+          ['type', 'optional：<code>card</code> or empty', 'String', '-']
         ],
         api_data2: [
-          ['label', '显示的tab标题，必填', 'String', '-'],
-          ['index', '唯一值', 'String', '-']
+          ['label', 'tab label', 'String', '-'],
+          ['index', 'unique key of tab', 'String', '-']
         ]
       }
     },

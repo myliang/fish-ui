@@ -4,19 +4,19 @@
       <fish-field label="First Name" span="12" disabled>
         <fish-input></fish-input>
       </fish-field>
-      <fish-field label="Last Name" span="12" name="lastName" :rules="[{ required: true, message: '姓名不能为空'}]">
+      <fish-field label="Last Name" span="12" name="lastName" :rules="[{ required: true, message: 'The name is not empty'}]">
         <fish-input v-model="lastName"></fish-input>
       </fish-field>
     </fish-fields>
     <fish-fields>
-      <fish-field label="类型">GOOD, Bad, 不错</fish-field>
-      <fish-field label="电子邮件" name="email" :rules="[{ type: 'email', message: 'The input is not valid E-mail!' }, {required: true}]">
+      <fish-field label="Type">GOOD, Bad,</fish-field>
+      <fish-field label="Email" name="email" :rules="[{ type: 'email', message: 'The input is not valid E-mail!' }, {required: true}]">
         <fish-input v-model="email"></fish-input>
       </fish-field>
-      <fish-field label="Username" name="userName" :rules="[{ required: true, message: '用户名不能为空'}]">
+      <fish-field label="Username" name="userName" :rules="[{ required: true, message: 'The user name is not empty'}]">
         <fish-input v-model="userName"></fish-input>
       </fish-field>
-      <fish-field label="Password" name="password" :rules="[{ required: true, message: '密码不能为空'}]">
+      <fish-field label="Password" name="password" :rules="[{ required: true, message: 'The password is not empty'}]">
         <fish-input type="password" v-model="password"></fish-input>
       </fish-field>
     </fish-fields>

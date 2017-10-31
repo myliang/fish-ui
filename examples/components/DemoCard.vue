@@ -1,15 +1,16 @@
 <template>
   <main-layout menuActiveIndex="card">
-    <h3>Card 卡片</h3>
+    <h3>Card</h3>
     <fish-row gutter="1">
-      <fish-col span="8">
-        <code-card title="典型卡片" desc="包含标题、内容、操作区域。">
+      <fish-col span="12">
+        <code-card title="Basic" desc="A basic card containing a header, content and footer">
           <template slot="demo">
             <fish-card>
-              <div slot="header">卡片标题</div>
+              <div slot="header">Title</div>
               Kristy is an art director living in New York.<br/>
-              Veronika Ossi是一名居住在纽约的舞美师，她喜爱小猫、音乐和派对。<br/>
-              萌萌狗有各种形状和大小。有的小狗因为呆萌的表情惹人疼爱，有的则因为五短身材令人怜惜。甚至还有一些会因为巨大的体型也会显得傻缺。
+              Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
+              Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+              pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
               <br/>
               Many people also have their own barometers for what makes a cute dog.
               <div slot="footer">
@@ -19,10 +20,11 @@
           </template>
           <template slot="codeHtml">
             <pre v-highlightjs><code class="xml">&lt;fish-card&gt;
-  &lt;div slot=&quot;header&quot;&gt;卡片标题&lt;/div&gt;
+  &lt;div slot=&quot;header&quot;&gt;Title&lt;/div&gt;
   Kristy is an art director living in New York.&lt;br/&gt;
-  Veronika Ossi是一名居住在纽约的舞美师，她喜爱小猫、音乐和派对。&lt;br/&gt;
-  萌萌狗有各种形状和大小。有的小狗因为呆萌的表情惹人疼爱，有的则因为五短身材令人怜惜。甚至还有一些会因为巨大的体型也会显得傻缺。
+  Veronika OssiIs a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
+Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love, pity others because of short of stature.
+              There are even some people who can be stupid because of their huge body shapes.
   &lt;br/&gt;
   Many people also have their own barometers for what makes a cute dog.
   &lt;div slot=&quot;footer&quot;&gt;
@@ -32,8 +34,38 @@
           </template>
         </code-card>
       </fish-col>
-      <fish-col span="4">
-        <code-card title="标题-图片卡片" desc="标题-图片卡片">
+      <fish-col span="12">
+        <code-card title="Content" desc="containing content">
+          <template slot="demo">
+            <fish-card>
+              <h4>Elliot Fu</h4>
+              <p>好友</p>
+              Kristy is an art director living in New York.<br/>
+              Veronika OssiIs a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
+              Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+              pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+              <br/>
+              Many people also have their own barometers for what makes a cute dog.
+            </fish-card>
+          </template>
+          <template slot="codeHtml">
+            <pre v-highlightjs><code class="xml">&lt;fish-card&gt;
+  &lt;h4&gt;Elliot Fu&lt;/h4&gt;
+  &lt;p&gt;好友&lt;/p&gt;
+  Kristy is an art director living in New York.&lt;br/&gt;
+  Veronika OssiIs a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
+Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love, pity others because of short of stature.
+              There are even some people who can be stupid because of their huge body shapes.
+  &lt;br/&gt;
+  Many people also have their own barometers for what makes a cute dog.
+&lt;/fish-card&gt;</code></pre>
+          </template>
+        </code-card>
+      </fish-col>
+    </fish-row>
+    <fish-row gutter="1">
+      <fish-col span="6">
+        <code-card title="Header-Image" desc="containing a header and image">
           <template slot="demo">
             <fish-card>
               <strong slot="header">Elliot requested permission</strong>
@@ -48,8 +80,8 @@
           </template>
         </code-card>
       </fish-col>
-      <fish-col span="4">
-        <code-card title="图片-内容卡片" desc="包含图片、内容。">
+      <fish-col span="6">
+        <code-card title="Header-Content" desc="containing a header and content">
           <template slot="demo">
             <fish-card>
               <img src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" slot="image" width="100%"/>
@@ -64,32 +96,7 @@
           </template>
         </code-card>
       </fish-col>
-      <fish-col span="8">
-        <code-card title="内容卡片" desc="只有内容。">
-          <template slot="demo">
-            <fish-card>
-              <h4>Elliot Fu</h4>
-              <p>好友</p>
-              Kristy is an art director living in New York.<br/>
-              Veronika Ossi是一名居住在纽约的舞美师，她喜爱小猫、音乐和派对。<br/>
-              萌萌狗有各种形状和大小。有的小狗因为呆萌的表情惹人疼爱，有的则因为五短身材令人怜惜。甚至还有一些会因为巨大的体型也会显得傻缺。
-              <br/>
-              Many people also have their own barometers for what makes a cute dog.
-            </fish-card>
-          </template>
-          <template slot="codeHtml">
-            <pre v-highlightjs><code class="xml">&lt;fish-card&gt;
-  &lt;h4&gt;Elliot Fu&lt;/h4&gt;
-  &lt;p&gt;好友&lt;/p&gt;
-  Kristy is an art director living in New York.&lt;br/&gt;
-  Veronika Ossi是一名居住在纽约的舞美师，她喜爱小猫、音乐和派对。&lt;br/&gt;
-  萌萌狗有各种形状和大小。有的小狗因为呆萌的表情惹人疼爱，有的则因为五短身材令人怜惜。甚至还有一些会因为巨大的体型也会显得傻缺。
-  &lt;br/&gt;
-  Many people also have their own barometers for what makes a cute dog.
-&lt;/fish-card&gt;</code></pre>
-          </template>
-        </code-card>
-      </fish-col>
+
     </fish-row>
     <h3>Card Slots</h3>
     <div class="fish table attributes">
@@ -119,11 +126,11 @@
     },
     data () {
       return {
-        columns: ['属性', '说明', '类型', '默认值'],
+        columns: ['Attribute', 'Description', 'Type', 'Default'],
         data: [
-          ['header', '标题', 'String', '-'],
-          ['image', '图片', 'String', '-'],
-          ['footer', '底部', 'String', '-']
+          ['header', 'Card title(header)', 'String', '-'],
+          ['image', 'Card image', 'String', '-'],
+          ['footer', 'Card footer', 'String', '-']
         ]
       }
     }

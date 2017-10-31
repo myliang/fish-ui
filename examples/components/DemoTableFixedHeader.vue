@@ -7,31 +7,31 @@
     data () {
       return {
         columns: [
-          {title: '日期', key: 'date'},
+          {title: 'Date', key: 'date'},
           {
-            title: '配送信息',
+            title: 'Delivery',
             children: [
-              {title: '姓名', key: 'name'},
+              {title: 'Name', key: 'name'},
               {
-                title: '地址',
+                title: 'Address',
                 children: [
-                  {title: '省份', key: 'province'},
-                  {title: '市区', key: 'city'},
-                  {title: '地址', key: 'address'},
-                  {title: '邮编', key: 'zip'}
+                  {title: 'Province', key: 'province'},
+                  {title: 'City', key: 'city'},
+                  {title: 'Address', key: 'address'},
+                  {title: 'Postcode', key: 'zip'}
                 ]
               }
             ]
           }
         ],
         data: [
-          {date: '2016-05-03', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-02', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-04', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-01', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-08', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-06', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333},
-          {date: '2016-05-07', name: '王小虎', province: '上海', city: '普陀区', address: '上海市普陀区金沙江路 1518 弄', zip: 200333}
+          {date: '2016-05-03', name: 'xiaohu.wang', province: 'Shanghai', city: 'Putuo', address: 'Shanghai City Putuo jinshajing 1518 ', zip: 200333},
+          {date: '2016-05-02', name: 'xiaohu.wang', province: 'Shanghai', city: 'Putuo', address: 'Shanghai City Putuo jinshajing 1518 ', zip: 200333},
+          {date: '2016-05-04', name: 'xiaohu.wang', province: 'Shanghai', city: 'Putuo', address: 'Shanghai City Putuo jinshajing 1518 ', zip: 200333},
+          {date: '2016-05-01', name: 'xiaohu.wang', province: 'Shanghai', city: 'Putuo', address: 'Shanghai City Putuo jinshajing 1518 ', zip: 200333},
+          {date: '2016-05-08', name: 'xiaohu.wang', province: 'Shanghai', city: 'Putuo', address: 'Shanghai City Putuo jinshajing 1518 ', zip: 200333},
+          {date: '2016-05-06', name: 'xiaohu.wang', province: 'Shanghai', city: 'Putuo', address: 'Shanghai City Putuo jinshajing 1518 ', zip: 200333},
+          {date: '2016-05-07', name: 'xiaohu.wang', province: 'Shanghai', city: 'Putuo', address: 'Shanghai City Putuo jinshajing 1518 ', zip: 200333}
         ]
       }
     }

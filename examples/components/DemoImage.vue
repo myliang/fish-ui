@@ -3,7 +3,7 @@
     <h3>Image 图片</h3>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="基本用法" desc="展示图片">
+        <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
             <fish-image :url="require('../static/image.png')" style="height: 300px;"></fish-image>
           </template>
@@ -11,7 +11,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="边框" desc="为图片添加边框">
+        <code-card title="Border" desc="Add border to image">
           <template slot="demo">
             <fish-image :url="require('../static/white-image.png')" bordered style="height: 300px;"></fish-image>
           </template>
@@ -21,7 +21,7 @@
     </fish-row>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="圆角" desc="图片圆角">
+        <code-card title="Rounded" desc="Add rounded to image">
           <template slot="demo">
             <fish-image :url="require('../static/image.png')" rounded style="height: 300px;"></fish-image>
           </template>
@@ -29,7 +29,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="圆形" desc="圆形图片">
+        <code-card title="Circle" desc="the circle image">
           <template slot="demo">
             <fish-image :url="require('../static/square-image.png')" shape="circle" style="height: 300px;"></fish-image>
           </template>
@@ -64,11 +64,11 @@
     MainLayout},
     data () {
       return {
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['bordered', '是否添加边框', 'Boolean', 'false'],
-          ['rounded', '是否支持圆角', 'Boolean', 'false'],
-          ['shape', '图片形状，可选值: <code>square</code> <code>circle</code>', 'String', 'square']
+          ['bordered', 'whether is bordered or not', 'Boolean', 'false'],
+          ['rounded', 'whether is rounded or not', 'Boolean', 'false'],
+          ['shape', 'optional: <code>square</code> <code>circle</code>', 'String', 'square']
         ]
       }
     }

@@ -1,9 +1,9 @@
 <template>
   <main-layout menuActiveIndex="divider">
-    <h3>Divider 分割线</h3>
+    <h3>Divider</h3>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="基本用法" desc="分割线">
+        <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
             <fish-divider></fish-divider>
@@ -13,7 +13,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="fitted" desc="分割线margin:0;">
+        <code-card title="fitted" desc="set style to margin:0;">
           <template slot="demo">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
             <fish-divider fitted></fish-divider>
@@ -51,9 +51,9 @@
     MainLayout},
     data () {
       return {
-        api_columns: ['属性', '说明', '类型', '默认值'],
+        api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['fitted', '去掉margin', 'Boolean', 'false']
+          ['fitted', 'remove margin', 'Boolean', 'false']
         ]
       }
     }

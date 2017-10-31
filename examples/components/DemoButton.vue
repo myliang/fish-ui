@@ -1,9 +1,9 @@
 <template>
   <main-layout>
-    <h3>Button 按钮</h3>
+    <h3>Button</h3>
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="按钮类型" desc="按钮有五种类型：默认, <code>primary</code>、<code>positive</code>、<code>negative</code>、<code>basic</code>">
+        <code-card title="Type" desc="Types of buttons: default, <code>primary</code><code>positive</code><code>negative</code><code>basic</code>">
           <template slot="demo">
             <fish-button>Default</fish-button>
             <fish-button type="primary">Primary</fish-button>
@@ -21,7 +21,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="图标，形状按钮" desc="形状有：方形，圆形">
+        <code-card title="Icon & Shape" desc="Shapes: <code>square</code><code>circle</code>">
           <template slot="demo">
             <fish-button shape="circle"><i class="fa fa-search"></i></fish-button>
             <fish-button><i class="fa fa-search"></i></fish-button>
@@ -38,7 +38,7 @@
 
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="按钮大小" desc="大小可选值为<code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>中">
+        <code-card title="Size" desc="Size: <code>mini</code><code>tiny</code><code>small</code><code>medium</code><code>large</code><code>big</code><code>huge</code><code>massive</code>">
           <template slot="demo">
             <fish-button size="large">Large</fish-button>
             <fish-button>default</fish-button>
@@ -56,7 +56,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="不可用状态" desc="添加 <code>disabled</code> 属性即可让按钮处于不可用状态，同时按钮样式也会改变。">
+        <code-card title="Disabled" desc="To mark a button as disabled">
           <template slot="demo">
             <fish-button >Disabled</fish-button>
             <fish-button disabled>Disabled</fish-button>
@@ -79,7 +79,7 @@
 
     <fish-row gutter="1">
       <fish-col span="12">
-        <code-card title="加载中状态" desc="添加 <code>loading</code> 属性即可让按钮处于加载状态">
+        <code-card title="Loading" desc="A loading indicator can be added to a button by setting the <code>loading</code> property on the Button.">
           <template slot="demo">
             <fish-button loading>Loading</fish-button>
             <fish-button loading type="primary">Loading</fish-button>
@@ -95,7 +95,7 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="按钮组合" desc="可以讲多个button放到buttons容器中">
+        <code-card title="Button Group" desc="Displayed as a button group">
           <template slot="demo">
             <fish-buttons>
               <fish-button>Left</fish-button>
@@ -180,18 +180,18 @@
     },
     data () {
       return {
-        columns: ['属性', '说明', '类型', '默认值'],
+        columns: ['Attribute', 'Description', 'Type', 'Default'],
         data: [
-          ['type', '设置按钮类型，可选值为 <code>primary</code>, <code>positive</code>, <code>negative</code>, <code>basic</code> 或者不设', 'String', '-'],
-          ['shape', '设置按钮形状，可选值为 <code>circle</code> 或者不设', 'String', '-'],
-          ['size', '设置按钮大小，可选值为<code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
-          ['active', '设置按钮选中状态', 'Boolean', 'false'],
-          ['disabled', '设置按钮不可选', 'Boolean', 'false'],
-          ['loading', '设置按钮加载中', 'Boolean', 'false']
+          ['type', 'button size, can be set to <code>primary</code><code>positive</code><code>negative</code><code>basic</code> or omitted', 'String', '-'],
+          ['shape', 'button shape，can be set to <code>circle</code> or omitted', 'String', '-'],
+          ['size', 'button size，can be set to <code>mini</code><code>tiny</code><code>small</code><code>medium</code><code>large</code><code>big</code><code>huge</code><code>massive</code>', 'String', '-'],
+          ['active', 'set the active status of button', 'Boolean', 'false'],
+          ['disabled', 'set the disabled status of button', 'Boolean', 'false'],
+          ['loading', 'set the loading status of button', 'Boolean', 'false']
         ],
         datas: [
-          ['type', '设置按钮类型，可选值为 <code>primary</code>, <code>positive</code>, <code>negative</code>, <code>basic</code> 或者不设', 'String', '-'],
-          ['size', '设置按钮大小，可选值为<code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-']
+          ['type', 'can be set to <code>primary</code><code>positive</code><code>negative</code><code>basic</code> or omitted', 'String', '-'],
+          ['size', 'can be set to <code>mini</code><code>tiny</code><code>small</code><code>medium</code><code>large</code><code>big</code><code>huge</code><code>massive</code>', 'String', '-']
         ]
       }
     },

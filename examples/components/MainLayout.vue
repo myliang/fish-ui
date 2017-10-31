@@ -39,39 +39,39 @@
     },
     data () {
       return {menus: [
-        {index: 'index', text: '介绍'},
-        {index: 'layout', text: 'Layout 布局'},
-        {index: 'grid', text: 'Grid 格栅'},
-        {index: 'button', text: 'Button 按钮'},
-        {index: 'menu', text: 'Menu 按钮'},
-        {index: 'card', text: 'Card 卡片'},
-        {index: 'pagination', text: 'Pagination 分页'},
-        {index: 'table', text: 'Table 表格'},
-        {index: 'dropdown', text: 'Dropdown 下拉菜单'},
-        {index: 'step', text: 'Step 步骤'},
-        {index: 'tag', text: 'Tag 标签'},
-        {index: 'input', text: 'Input 输入框'},
-        {index: 'input-number', text: 'Input Number 输入框'},
-        {index: 'radio', text: 'Radio 单选'},
-        {index: 'checkbox', text: 'Checkbox 多选'},
-        {index: 'select', text: 'Select 下拉选框'},
-        {index: 'cascader', text: 'Cascader 联级下拉选框'},
-        {index: 'calendar', text: 'Calendar 日历'},
-        {index: 'datepicker', text: 'DatePicker 日期选框'},
-        {index: 'timepicker', text: 'timePicker 时间选框'},
-        {index: 'form', text: 'Form 表单'},
-        {index: 'message', text: 'Message 消息'},
-        {index: 'notification', text: 'Notification 全局提示'},
-        {index: 'popup', text: 'Popup 弹出框'},
-        {index: 'backtop', text: 'BackTop 返回顶部'},
-        {index: 'carousel', text: 'Carousel 走马灯'},
-        {index: 'tabs', text: 'Tabs 标签页'},
-        {index: 'modal', text: 'Modal 对话框'},
-        {index: 'upload', text: 'Upload 上传'},
-        {index: 'tree', text: 'Tree 树'},
-        {index: 'tree-select', text: 'Tree 树选框'},
-        {index: 'divider', text: 'Divider 分割线'},
-        {index: 'image', text: 'Image 图片'}
+        {index: 'index', text: 'Introduce'},
+        {index: 'layout', text: 'Layout'},
+        {index: 'grid', text: 'Grid'},
+        {index: 'button', text: 'Button'},
+        {index: 'menu', text: 'Menu'},
+        {index: 'card', text: 'Card'},
+        {index: 'pagination', text: 'Pagination'},
+        {index: 'table', text: 'Table'},
+        {index: 'dropdown', text: 'Dropdown'},
+        {index: 'step', text: 'Step'},
+        {index: 'tag', text: 'Tag'},
+        {index: 'input', text: 'Input'},
+        {index: 'input-number', text: 'Input Number'},
+        {index: 'radio', text: 'Radio'},
+        {index: 'checkbox', text: 'Checkbox'},
+        {index: 'select', text: 'Select'},
+        {index: 'cascader', text: 'Cascader'},
+        {index: 'calendar', text: 'Calendar'},
+        {index: 'datepicker', text: 'DatePicker'},
+        {index: 'timepicker', text: 'timePicker'},
+        {index: 'form', text: 'Form'},
+        {index: 'message', text: 'Message'},
+        {index: 'notification', text: 'Notification'},
+        {index: 'popup', text: 'Popup'},
+        {index: 'backtop', text: 'BackTop'},
+        {index: 'carousel', text: 'Carousel'},
+        {index: 'tabs', text: 'Tabs'},
+        {index: 'modal', text: 'Modal'},
+        {index: 'upload', text: 'Upload'},
+        {index: 'tree', text: 'Tree'},
+        {index: 'tree-select', text: 'Tree Select'},
+        {index: 'divider', text: 'Divider'},
+        {index: 'image', text: 'Image'}
 //        {index: 'chart', text: 'Chart 图表'}
       ]}
     },
@@ -129,7 +129,7 @@
     margin: 0;
   }
   table code, ul li code, .code-card code:not(.hljs) {
-    margin: 0 1px;
+    margin: 0 3px;
     background: #f7f7f7;
     padding: .2em .4em;
     border-radius: 3px;
