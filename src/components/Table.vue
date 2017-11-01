@@ -89,7 +89,10 @@
         }
       })
       this.calScroll()
-      window.addEventListener('resize', () => { this.calScroll() })
+      window.addEventListener('resize', this.calScroll)
+    },
+    destroyed () {
+      window.removeEventListener('resize', this.calScroll)
     },
     methods: {
       pageChangeHandler (currentPage) {
