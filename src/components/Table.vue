@@ -64,6 +64,7 @@
     data () {
       return {
         scrollY: false,
+        windowWidth: getWindowWidth(),
         maxRows: getMaxDeepColumns(this.columns),
         allColumns: getColumns(this.columns),
         rows: [],
@@ -160,20 +161,22 @@
         this.scrollY = true
       },
       calScrollX () {
-        const rootWidth = this.$refs.root.scrollWidth
-//        console.log(this.$refs)
+        let rootWidth = this.$refs.root.getBoundingClientRect().width
+        const currentWindowWidth = getWindowWidth()
+        rootWidth += currentWindowWidth - this.windowWidth
         const totalWidth = this.allLeafColumns.map((e) => e.width || 0).reduce((arg1, arg2) => { return parseInt(arg1) + parseInt(arg2) }, 0)
-//        console.log('root-width:', rootWidth, ':totalWidth:', totalWidth)
-        // console.log('offsetWidth:', scrollWidth, ':::total:', totalWidth)
-        if (totalWidth <= rootWidth) return
         const { header, body, root } = this.$refs
-//        console.log(':::', vtb, '::', totalWidth)
-//        if (vtb) vtb.$el.style.width = `${totalWidth}px`
+        if (totalWidth <= rootWidth) {
+          root.style.width = 'auto'
+          body.style.overflowX = 'hidden'
+          return
+        }
         root.style.width = `${rootWidth}px`
         body.style.overflowX = 'scroll'
         body.addEventListener('scroll', (event) => {
           header.scrollLeft = event.target.scrollLeft
         }, false)
+        this.windowWidth = currentWindowWidth
       },
       cellRender (item, column) {
         return column.render === undefined ? item[column.key] : column.render(item[column.key], column)
@@ -220,5 +223,13 @@
     })
     if (maxDeeps.length <= 0) return 1
     return Math.max.apply(null, maxDeeps)
+  }
+
+  const getWindowWidth = () => {
+    if (window.innerWidth) {
+      return window.innerWidth
+    } else {
+      return document.body.clientWidth
+    }
   }
 </script>
