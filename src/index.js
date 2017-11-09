@@ -106,4 +106,8 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
+// install message, popup to window
+window.$message = $message
+window.$popup = $popup
+
 export default Object.assign({}, components, {install})  // eslint-disable-line no-undef
