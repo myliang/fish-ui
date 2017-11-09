@@ -16,21 +16,51 @@
         <fish-option index="2" content="Active"></fish-option>
         <fish-option index="3" disabled content="disabled"></fish-option>
       </fish-dropdown>
+      <fish-dropdown align="bottom-right">
+        <fish-button slot="title">BottomRight<i class="fa fa-angle-down" style="margin-left: 10px;"></i></fish-button>
+        <fish-option index="1" content="Lucy"></fish-option>
+        <fish-option index="2" content="Active"></fish-option>
+      </fish-dropdown>
+      <fish-dropdown align="top-left">
+        <fish-button slot="title">TopLeft<i class="fa fa-angle-down" style="margin-left: 10px;"></i></fish-button>
+        <fish-option index="1" content="Lucy"></fish-option>
+        <fish-option index="2" content="Active"></fish-option>
+      </fish-dropdown>
+      <fish-dropdown align="top-right">
+        <fish-button slot="title">TopRight<i class="fa fa-angle-down" style="margin-left: 10px;"></i></fish-button>
+        <fish-option index="1" content="Lucy"></fish-option>
+        <fish-option index="2" content="Active"></fish-option>
+      </fish-dropdown>
       <footer slot="footer">
         <pre v-highlightjs><code class="html">&lt;fish-dropdown&gt;
-  &lt;a slot=&quot;title&quot;&gt;Dropdown&lt;i class=&quot;fa fa-arrow-circle-down&quot; style=&quot;margin-left: 10px;&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-  &lt;fish-option index=&quot;0&quot; content=&quot;Jack&quot;&gt;&lt;/fish-option&gt;
-  &lt;fish-option index=&quot;1&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
-  &lt;fish-option index=&quot;2&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
-  &lt;fish-option index=&quot;3&quot; disabled content=&quot;disabled&quot;&gt;&lt;/fish-option&gt;
-&lt;/fish-dropdown&gt;
-&lt;fish-dropdown&gt;
-  &lt;fish-button slot=&quot;title&quot;&gt;Dropdown&lt;i class=&quot;fa fa-arrow-circle-down&quot; style=&quot;margin-left: 10px;&quot;&gt;&lt;/i&gt;&lt;/fish-button&gt;
-  &lt;fish-option index=&quot;0&quot; content=&quot;&lt;a href=&#x27;http://www.baidu.com&#x27; target=&#x27;_blank&#x27;&gt;Jack&lt;/a&gt;&quot;&gt;&lt;/fish-option&gt;
-  &lt;fish-option index=&quot;1&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
-  &lt;fish-option index=&quot;2&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
-  &lt;fish-option index=&quot;3&quot; disabled content=&quot;disabled&quot;&gt;&lt;/fish-option&gt;
-&lt;/fish-dropdown&gt;</code></pre>
+        &lt;a slot=&quot;title&quot;&gt;Dropdown&lt;i class=&quot;fa fa-arrow-circle-down&quot; style=&quot;margin-left: 10px;&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;fish-option index=&quot;0&quot; content=&quot;Jack&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;1&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;2&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;3&quot; disabled content=&quot;disabled&quot;&gt;&lt;/fish-option&gt;
+      &lt;/fish-dropdown&gt;
+      &lt;fish-dropdown&gt;
+        &lt;fish-button slot=&quot;title&quot;&gt;Dropdown&lt;i class=&quot;fa fa-arrow-circle-down&quot; style=&quot;margin-left: 10px;&quot;&gt;&lt;/i&gt;&lt;/fish-button&gt;
+        &lt;fish-option index=&quot;0&quot; content=&quot;&lt;a href=&#x27;http://www.baidu.com&#x27; target=&#x27;_blank&#x27;&gt;Jack&lt;/a&gt;&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;1&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;2&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;3&quot; disabled content=&quot;disabled&quot;&gt;&lt;/fish-option&gt;
+      &lt;/fish-dropdown&gt;
+      &lt;fish-dropdown align=&quot;bottom-right&quot;&gt;
+        &lt;fish-button slot=&quot;title&quot;&gt;BottomRight&lt;i class=&quot;fa fa-angle-down&quot; style=&quot;margin-left: 10px;&quot;&gt;&lt;/i&gt;&lt;/fish-button&gt;
+        &lt;fish-option index=&quot;1&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;2&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
+      &lt;/fish-dropdown&gt;
+      &lt;fish-dropdown align=&quot;top-left&quot;&gt;
+        &lt;fish-button slot=&quot;title&quot;&gt;TopLeft&lt;i class=&quot;fa fa-angle-down&quot; style=&quot;margin-left: 10px;&quot;&gt;&lt;/i&gt;&lt;/fish-button&gt;
+        &lt;fish-option index=&quot;1&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;2&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
+      &lt;/fish-dropdown&gt;
+      &lt;fish-dropdown align=&quot;top-right&quot;&gt;
+        &lt;fish-button slot=&quot;title&quot;&gt;TopRight&lt;i class=&quot;fa fa-angle-down&quot; style=&quot;margin-left: 10px;&quot;&gt;&lt;/i&gt;&lt;/fish-button&gt;
+        &lt;fish-option index=&quot;1&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
+        &lt;fish-option index=&quot;2&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
+      &lt;/fish-dropdown&gt;</code></pre>
       </footer>
     </fish-card>
   </main-layout>

@@ -3,8 +3,24 @@
   position: relative;
 
   .content {
-    margin-top: 5px;
     position: absolute;
     z-index: 100;
+  }
+
+  &.bottom-left .content {
+    top: calc(~"100% + 5px");
+    left: 0;
+  }
+  &.bottom-right .content {
+    top: calc(~"100% + 5px");
+    right: 0;
+  }
+  &.top-left .content {
+    bottom: calc(~"100% + 5px");
+    left: 0;
+  }
+  &.top-right .content {
+    bottom: calc(~"100% + 5px");
+    right: 0;
   }
 }

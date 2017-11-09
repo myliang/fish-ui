@@ -1,5 +1,5 @@
 <template>
-  <div class="fish dropdown" @click="clickHandler" v-clickoutside="awayHandler">
+  <div :class="classObject" @click="clickHandler" v-clickoutside="awayHandler">
     <slot name="title"></slot>
     <fish-menu v-show="visible" class="content" @click="menusClickHandler">
       <slot></slot>
@@ -13,7 +13,9 @@
     components: {fishMenu},
     directives: { clickoutside },
     name: 'fish-dropdown',
-    props: {},
+    props: {
+      align: { type: String, default: 'bottom-left' } // bottom-left, bottom-right, top-left, top-right
+    },
     data () {
       return {
         visible: false
@@ -22,7 +24,8 @@
     computed: {
       classObject () {
         return [
-          'fish dropdown'
+          'fish dropdown',
+          this.align
         ]
       }
     },
