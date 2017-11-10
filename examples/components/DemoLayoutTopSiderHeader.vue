@@ -28,6 +28,7 @@
       </fish-menu>
     </div>
     <div slot="content">Content...</div>
+    <div slot="footer">2017@copyright myliang</div>
   </fish-layout>
 </template>
 <script>

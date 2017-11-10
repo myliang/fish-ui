@@ -40,6 +40,5 @@
   }
   .fish.layout.demo .content {
     background: rgba(16, 142, 233, 1);
-    line-height: 120px;
   }
 </style>
