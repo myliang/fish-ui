@@ -55,7 +55,7 @@
           items[i].active = false
           try {
             if (items[i].mode === 'inline') items[i].visible = false
-            items = items[i].$children
+            items = items[i].items
           } catch (e) {}
         })
 
@@ -67,7 +67,8 @@
             items[i].active = true
             try {
               if (items[i].mode === 'inline') items[i].visible = true
-              items = items[i].$children
+              // console.log('sub', items[i])
+              items = items[i].items
             } catch (e) {}
           }
         })

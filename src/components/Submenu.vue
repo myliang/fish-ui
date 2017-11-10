@@ -21,12 +21,17 @@
     },
     data () {
       return {
+        items: {},
         visible: false,
         timeout: null,
         active: false // 针对根节点 li
       }
     },
     mounted () {
+      this.items = {}
+      this.$children.forEach((ele) => {
+        if (ele._isVue) this.items[ele.index.split(this.indexDelimiter).pop()] = ele
+      })
       // 设置children padding left
       if (this.mode !== 'inline') return
       this.$children.forEach((ele) => {

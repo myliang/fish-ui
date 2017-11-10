@@ -83,17 +83,17 @@
       <fish-col span="12">
         <code-card title="Submenu" desc="containing submenu">
           <template slot="demo">
-            <fish-menu style="width: 200px;" defaultActive="0-3-1">
-              <fish-submenu index="0">
+            <fish-menu style="width: 200px;" defaultActive="sys-l1-l21">
+              <fish-submenu index="sys">
                 <template slot="title">submenu</template>
-                <fish-option index="0-0" content="Jack"></fish-option>
-                <fish-option index="0-1" content="Lucy"></fish-option>
-                <fish-option index="0-2" content="Active"></fish-option>
-                <fish-submenu index="0-3">
+                <fish-option index="sys-l2" content="Jack"></fish-option>
+                <fish-option index="sys-l3" content="Lucy"></fish-option>
+                <fish-option index="sys-l4" content="Active"></fish-option>
+                <fish-submenu index="sys-l1">
                   <template slot="title">submenu-3</template>
-                  <fish-option index="0-3-0" content="Jack"></fish-option>
-                  <fish-option index="0-3-1" content="Lucy"></fish-option>
-                  <fish-option index="0-3-2" content="Active"></fish-option>
+                  <fish-option index="sys-l1-l20" content="Jack"></fish-option>
+                  <fish-option index="sys-l1-l21" content="Lucy"></fish-option>
+                  <fish-option index="sys-l1-l22" content="Active"></fish-option>
                 </fish-submenu>
               </fish-submenu>
               <fish-option index="1" content="Lucy"></fish-option>
@@ -125,13 +125,13 @@
       <fish-col span="12">
         <code-card title="inline" desc="Vertical menu with inline submenus.">
           <template slot="demo">
-            <fish-menu mode="inline" style="width: 200px;" defaultActive="3-3-0" @change="changeHandler">
+            <fish-menu mode="inline" style="width: 200px;" @change="changeHandler">
               <fish-option index="0" content="Content"></fish-option>
-              <fish-submenu index="1" mode="inline">
+              <fish-submenu index="sys" mode="inline">
                 <template slot="title">User</template>
-                <fish-option index="1-0" content="Jack"></fish-option>
-                <fish-option index="1-1" content="Lucy"></fish-option>
-                <fish-option index="1-2" content="Active"></fish-option>
+                <fish-option index="sys-jack" content="Jack"></fish-option>
+                <fish-option index="sys-lucy" content="Lucy"></fish-option>
+                <fish-option index="sys-active" content="Active"></fish-option>
               </fish-submenu>
               <fish-option index="2" content="Tongji"></fish-option>
               <fish-submenu index="3" mode="inline">
