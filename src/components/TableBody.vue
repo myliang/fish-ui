@@ -1,7 +1,7 @@
 <template>
   <table>
     <colgroup>
-      <col v-if="expandedRowRender" width="40"/>
+      <col v-if="rows.length > 0 && expandedRowRender" width="40"/>
       <col v-for="column in columns" :width="column.width"/>
     </colgroup>
     <tbody>
@@ -23,6 +23,9 @@
       </td>
     </tr>
     </template>
+    <tr v-if="rows.length <= 0 && noMoreText">
+      <td class="no-more" :colspan="columns.length">{{ noMoreText }}</td>
+    </tr>
     </tbody>
   </table>
 </template>
@@ -40,7 +43,8 @@
       rows: { type: Array, required: true },
       expandIcon: { type: String, default: 'fa fa-angle-right' },
       expandedRowRender: { type: Function, default: undefined }, // 没有fixed列，方可展开详情
-      scrollY: { type: Boolean, default: false }
+      scrollY: { type: Boolean, default: false },
+      noMoreText: { type: String }
     },
     data () {
       return {

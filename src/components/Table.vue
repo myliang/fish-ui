@@ -8,7 +8,7 @@
                         @select="headSelectHandler" @filter-change="filterChangeHandler" ref="vth"></fish-table-head>
       </div>
       <div class="body" ref="body">
-        <fish-table-body :columns="allLeafColumns" :rows="data" :scrollY="scrollY"
+        <fish-table-body :columns="allLeafColumns" :rows="data" :scrollY="scrollY" :noMoreText="noMoreText"
                         :expandedRowRender="fixedLeftColumns.length <= 0 && fixedRightColumns.length <= 0 && expandedRowRender || undefined"
                         @select="bodySelectHandler" ref="vtb"></fish-table-body>
       </div>
@@ -59,6 +59,7 @@
       loading: { type: Boolean, default: false },
       expandedRowRender: { type: Function, default: null }, // 没有fixed列，方可展开详情
       height: [Number, String], // 指定高度，固定表头
+      noMoreText: { type: String, default: 'No more data...' },
       pagination: { type: Object, default: undefined } // 关联pagination组件
     },
     data () {

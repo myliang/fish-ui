@@ -31,6 +31,62 @@
 &lt;/script&gt;</code></pre>
     </code-card>
 
+    <code-card title="No more data" desc="No more data">
+      <template slot="demo">
+        <demo-table-no-more></demo-table-no-more>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; noMoreText=&quot;no more data&gt;&gt;&gt;&quot;&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-no-more&#x27;,
+    data () {
+      return {
+        columns: [{title: &#x27;Name&#x27;, key: &#x27;name&#x27;},
+          {title: &#x27;age&#x27;, key: &#x27;age&#x27;},
+          {title: &#x27;Address&#x27;, key: &#x27;address&#x27;},
+          {title: &#x27;Operate&#x27;,
+            key: &#x27;operate&#x27;,
+            render: (h, record, column) =&gt; h(&#x27;a&#x27;, &#x27;编辑&#x27;)}],
+        data: []
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
+
+    <code-card title="Pagination" desc="table with pagination">
+      <template slot="demo">
+        <demo-table-pagination></demo-table-pagination>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; :pagination=&quot;page&quot;&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-pagination&#x27;,
+    data () {
+      return {
+        page: {total: 15, current: 1},
+        columns: [{title: &#x27;Name&#x27;, key: &#x27;name&#x27;},
+          {title: &#x27;age&#x27;, key: &#x27;age&#x27;},
+          {title: &#x27;Address&#x27;, key: &#x27;address&#x27;},
+          {title: &#x27;Operate&#x27;,
+            key: &#x27;operate&#x27;,
+            render: (h, record, column) =&gt; h(&#x27;a&#x27;, &#x27;编辑&#x27;)}],
+        data: [
+          {name: &#x27;yanbin.hu&#x27;, age: 32, address: &#x27;haidi part 1, xihu, Hangzhou&#x27;},
+          {name: &#x27;yanzu.wu&#x27;, age: 35, address: &#x27;haidi part 5, xihu, Hangzhou&#x27;},
+          {name: &#x27;yanzu.wu&#x27;, age: 35, address: &#x27;haidi part 5, xihu, Hangzhou&#x27;},
+          {name: &#x27;yanzu.wu&#x27;, age: 35, address: &#x27;haidi part 5, xihu, Hangzhou&#x27;}
+        ]
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
+
     <code-card title="Column type" desc="optional：<code>index</code>, <code>checkbox</code>">
       <template slot="demo">
         <demo-table-column-type></demo-table-column-type>
@@ -382,9 +438,13 @@
   import DemoTableScrollY from './DemoTableScrollY.vue'
   import DemoTableScrollXy from './DemoTableScrollXY.vue'
   import DemoTableColumnFixed from './DemoTableColumnFixed.vue'
+  import DemoTableNoMore from './DemoTableNoMore.vue'
+  import DemoTablePagination from './DemoTablePagination.vue'
 
   export default {
     components: {
+      DemoTablePagination,
+      DemoTableNoMore,
       DemoTableColumnFixed,
       DemoTableScrollXy,
       DemoTableScrollY,
