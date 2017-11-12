@@ -17,8 +17,8 @@
     name: &#x27;demo-tree-select-single&#x27;,
     data () {
       return {
-        v: [&#x27;0-0-0-1&#x27;],
-        v1: [],
+        v: &#x27;0-0-0-1&#x27;,
+        v1: '',
         data: [{
           title: &#x27;0-0&#x27;,
           key: &#x27;0-0&#x27;,

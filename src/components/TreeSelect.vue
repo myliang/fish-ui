@@ -42,7 +42,7 @@
     name: 'fish-tree-select',
     directives: { clickoutside },
     props: {
-      value: { type: Array, default: [] },
+      value: { type: [String, Number, Array], default: [] },
       data: { type: Array, required: true },
       hint: { type: String, default: 'Please' },
       expand: { type: Boolean, default: false },
@@ -55,9 +55,9 @@
     data () {
       return {
         selectedItem: null,
-        selectedKey: this.value[0] || '',
+        selectedKey: Array.isArray(this.value) ? (this.value[0] || '') : this.value,
         checkedItems: [],
-        checkedKeys: this.value,
+        checkedKeys: this.multiple ? this.value : [],
         showClear: false,
         visible: false
       }
@@ -67,7 +67,7 @@
     },
     computed: {
       valueEmpty () {
-        return this.value.length <= 0
+        return Array.isArray(this.value) ? this.value.length <= 0 : this.value.toString() === ''
       }
     },
     methods: {
@@ -93,7 +93,7 @@
         this.visible = !this.visible
       },
       itemClickHandler (item) {
-        this.emitChange([item.key])
+        this.emitChange(item.key)
         this.awayHandler()
       },
       itemCheckedHandler (checkedKeys) {
@@ -111,7 +111,7 @@
           this.checkedKeys = v
           this.checkedItems = []
         } else {
-          this.selectedKey = v[0] || ''
+          this.selectedKey = v || ''
         }
         this.resetValuesWithData(this.data)
         this.$emit('input', v)

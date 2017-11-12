@@ -9,8 +9,8 @@
     name: 'demo-tree-select-single',
     data () {
       return {
-        v: ['0-0-0-1'],
-        v1: [],
+        v: '0-0-0-1',
+        v1: '',
         data: [{
           title: '0-0',
           key: '0-0',
