@@ -24,7 +24,7 @@
 &lt;/template&gt;
 &lt;script&gt;
   export default {
-    data () { return {singleSelectedValue: []} }
+    data () { return {singleSelectedValue: ''} }
   }
 &lt;/script&gt;
 </code></pre>
@@ -52,7 +52,7 @@
 &lt;/template&gt;
 &lt;script&gt;
   export default {
-    data () { return {singleSelectedValueWthSearch1: []} }
+    data () { return {singleSelectedValueWthSearch1: ''} }
   }
 &lt;/script&gt;
 </code></pre>
@@ -203,16 +203,16 @@
       return {
         multipleValues: [],
         multipleValues1: [],
-        singleSelectedValue: [],
+        singleSelectedValue: '',
         singleSelectedValueWthSearch: [],
-        singleSelectedValueWthSearch1: [],
+        singleSelectedValueWthSearch1: '',
         event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
           ['change(values)', 'callback when changing', '<code>values</code>']
         ],
         api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
-          ['value', 'v-model', 'Array', '[]'],
+          ['value', 'v-model', 'String, Array', ''],
           ['hint', 'hint', 'String', 'Please select'],
           ['multiple', 'whether it is multiple or not', 'Boolean', 'false'],
           ['search', 'whether it is search or not', 'Boolean', 'false'],

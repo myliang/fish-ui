@@ -45,7 +45,7 @@
     name: 'fish-select',
     directives: { clickoutside },
     props: {
-      value: [Array],
+      value: [Number, String, Array],
       hint: { type: String, default: 'Please select' },
       multiple: { type: Boolean, default: false },
       search: { type: Boolean, default: false },
@@ -55,6 +55,7 @@
     },
     data () {
       return {
+        values: Array.isArray(this.value) ? this.value : (this.value.toString() !== '' ? [this.value] : []),
         visible: false,
         selectedHtml: null,
         selectedItems: [],
@@ -77,7 +78,7 @@
     },
     computed: {
       valueEmpty () {
-        return this.value.length === 0
+        return this.values.length === 0
       },
       currentItem () {
         if (this.keyChildrenIndex === -1) {
@@ -108,7 +109,7 @@
       keyUpHandler () {
         let dLength = this.displayItems.length
         if (dLength <= 0) return
-        if (!this.value.includes(this.currentItem.index)) {
+        if (!this.values.includes(this.currentItem.index)) {
           this.currentItem.active = false
         }
         if (this.keyChildrenIndex <= 0) {
@@ -122,7 +123,7 @@
         let dLength = this.displayItems.length
         // console.log(dLength, ':::', this.keyChildrenIndex)
         if (dLength <= 0) return
-        if (!this.value.includes(this.currentItem.index)) {
+        if (!this.values.includes(this.currentItem.index)) {
           this.currentItem.active = false
         }
         if (this.keyChildrenIndex >= dLength - 1) {
@@ -134,7 +135,7 @@
       },
       keyEnterHandler () {
         if (this.displayItems.length <= 0) return
-        if (!this.value.includes(this.currentItem.index)) {
+        if (!this.values.includes(this.currentItem.index)) {
           this.currentItem.active = false
           this.changeHandler(this.currentItem)
         }
@@ -147,7 +148,7 @@
         this.showClear = false
       },
       closeItemHandler (index, item, evt) { // 针对多线
-        let nValue = Array.from(this.value)
+        let nValue = Array.from(this.values)
         this.emitChange(nValue.filter((ele) => ele !== item.index))
         this.resetValues()
       },
@@ -166,7 +167,7 @@
         // console.log(this.multiple, '::', vt.index)
         if (this.multiple) {
           // console.log('value:', this.value)
-          let nValue = Array.from(this.value)
+          let nValue = Array.from(this.values)
           if (vt.active) nValue = nValue.filter((ele) => ele !== vt.index)
           else nValue.push(vt.index)
           // console.log('nValue:', nValue)
@@ -178,8 +179,10 @@
         }
       },
       emitChange (values) {
-        this.$emit('input', values)
-        this.$emit('change', values)
+        this.values = values
+        let v = this.multiple ? values : values[0]
+        this.$emit('input', v)
+        this.$emit('change', v)
         notify.field.change(this)
       },
       awayHandler () {
@@ -199,7 +202,7 @@
         this.selectedItems = []
         this.$children.forEach((ele) => {
           ele.$el.style.display = 'block'
-          if (this.value.includes(ele.index)) {
+          if (this.values.includes(ele.index)) {
             ele.active = true
             this.selectedItems.push(ele)
           } else {
