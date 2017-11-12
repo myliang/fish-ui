@@ -55,7 +55,7 @@
     },
     data () {
       return {
-        values: Array.isArray(this.value) ? this.value : (this.value.toString() !== '' ? [this.value] : []),
+        values: Array.isArray(this.value) ? this.value : (this.value && this.value.toString() !== '' ? [this.value] : []),
         visible: false,
         selectedHtml: null,
         selectedItems: [],
