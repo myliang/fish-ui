@@ -1,5 +1,6 @@
 <template>
-  <fish-table :columns="columns" :data="data" :pagination="page"></fish-table>
+  <fish-table :columns="columns" :data="data" :pagination="page">
+  </fish-table>
 </template>
 <script>
   export default {
