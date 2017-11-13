@@ -42,7 +42,7 @@
     name: 'fish-tree-select',
     directives: { clickoutside },
     props: {
-      value: { type: [String, Number, Array], default: [] },
+      value: { type: [String, Number, Array], default: () => [] },
       data: { type: Array, required: true },
       hint: { type: String, default: 'Please' },
       expand: { type: Boolean, default: false },
