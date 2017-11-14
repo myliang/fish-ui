@@ -481,8 +481,8 @@
       }
     },
     methods: {
-      changeHandler (pagination, filters) {
-        console.log('pagination: ', pagination, '; filters:', filters)
+      changeHandler (currentPage, filters) {
+        console.log('pagination: ', currentPage, '; filters:', filters)
       }
     }
   }

@@ -69,6 +69,7 @@
     },
     data () {
       return {
+        currentPage: 1,
         scrollY: false,
         windowWidth: getWindowWidth(),
         maxRows: getMaxDeepColumns(this.columns),
@@ -102,7 +103,7 @@
     },
     methods: {
       pageChangeHandler (currentPage) {
-        this.pagination.current = currentPage
+        this.currentPage = currentPage
         this.changeHandler()
       },
       filterChangeHandler (filters) {
@@ -110,7 +111,7 @@
         this.changeHandler()
       },
       changeHandler () {
-        this.$emit('change', this.pagination, this.filters)
+        this.$emit('change', this.currentPage, this.filters)
       },
       headSelectHandler ($vue) {
         let checkbox = $vue.$refs.checkboxes[0]
