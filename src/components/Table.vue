@@ -69,7 +69,7 @@
     },
     data () {
       return {
-        currentPage: this.pagination.current,
+        currentPage: this.pagination ? this.pagination.current : 1,
         scrollY: false,
         windowWidth: getWindowWidth(),
         maxRows: getMaxDeepColumns(this.columns),
