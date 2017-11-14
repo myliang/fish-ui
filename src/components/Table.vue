@@ -34,7 +34,7 @@
       <div style="float: left"><slot name="bottomLeft"></slot></div>
       <div style="float: right" v-if="pagination">
         <fish-pagination :total="pagination.total"
-                         :current="pagination.current"
+                         :current="currentPage"
                          :rows="pagination.rows"
                          :noMoreText="pagination.noMoreText"
                          @change="pageChangeHandler"></fish-pagination>
@@ -69,7 +69,7 @@
     },
     data () {
       return {
-        currentPage: 1,
+        currentPage: this.pagination.current,
         scrollY: false,
         windowWidth: getWindowWidth(),
         maxRows: getMaxDeepColumns(this.columns),
