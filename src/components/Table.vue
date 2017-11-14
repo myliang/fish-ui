@@ -33,7 +33,11 @@
     <div style="margin: 10px 0; overflow: hidden" v-if="$slots.bottomLeft || pagination">
       <div style="float: left"><slot name="bottomLeft"></slot></div>
       <div style="float: right" v-if="pagination">
-        <fish-pagination :total="pagination.total" :current="pagination.current" @change="pageChangeHandler"></fish-pagination>
+        <fish-pagination :total="pagination.total"
+                         :current="pagination.current"
+                         :rows="pagination.rows"
+                         :noMoreText="pagination.noMoreText"
+                         @change="pageChangeHandler"></fish-pagination>
       </div>
     </div>
   </div>
