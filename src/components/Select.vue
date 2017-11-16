@@ -1,5 +1,5 @@
 <template>
-  <div :class="['fish select', {'active': visible, 'multiple': multiple}]"
+  <div :class="['fish select', {'active': visible, 'multiple': multiple, 'disabled': disabled}]"
        @click="clickHandler"
        @mouseover="mouseOverHandler"
        @mouseout="mouseOutHandler"
@@ -49,6 +49,7 @@
       hint: { type: String, default: 'Please select' },
       multiple: { type: Boolean, default: false },
       search: { type: Boolean, default: false },
+      disabled: { type: Boolean, default: false },
       iconDownArrow: { type: String, default: 'fa fa-angle-down' },
       iconClose: { type: String, default: 'fa fa-close' },
       iconCloseCircle: { type: String, default: 'fa fa-times-circle' }

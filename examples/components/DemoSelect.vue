@@ -2,7 +2,7 @@
   <main-layout menuActiveIndex="select">
     <h3>Select</h3>
     <fish-row gutter="1">
-      <fish-col span="12">
+      <fish-col span="8">
         <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
             <fish-select v-model="singleSelectedValue">
@@ -30,7 +30,35 @@
 </code></pre>
         </code-card>
       </fish-col>
-      <fish-col span="12">
+      <fish-col span="8">
+        <code-card title="Disabled" desc="Disabled">
+          <template slot="demo">
+            <fish-select v-model="singleSelectedValue" disabled>
+              <fish-option index="0" content="Option-1"></fish-option>
+              <fish-option index="1" content="Option-2"></fish-option>
+              <fish-option index="2" content="Option-3"></fish-option>
+              <fish-option index="3" content="Option-4"></fish-option>
+              <fish-option index="4" content="Option-5"></fish-option>
+            </fish-select>
+          </template>
+          <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-select v-model=&quot;singleSelectedValue&quot; disabled&gt;
+    &lt;fish-option index=&quot;0&quot; content=&quot;Option-1&quot;&gt;&lt;/fish-option&gt;
+    &lt;fish-option index=&quot;1&quot; content=&quot;Option-2&quot;&gt;&lt;/fish-option&gt;
+    &lt;fish-option index=&quot;2&quot; content=&quot;Option-3&quot;&gt;&lt;/fish-option&gt;
+    &lt;fish-option index=&quot;3&quot; content=&quot;Option-4&quot;&gt;&lt;/fish-option&gt;
+    &lt;fish-option index=&quot;4&quot; content=&quot;Option-5&quot;&gt;&lt;/fish-option&gt;
+  &lt;/fish-select&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    data () { return {singleSelectedValue: ''} }
+  }
+&lt;/script&gt;
+</code></pre>
+        </code-card>
+      </fish-col>
+      <fish-col span="8">
         <code-card title="Search" desc="Search the options while expanded.">
           <template slot="demo">
             <fish-select search v-model="singleSelectedValueWthSearch1">
