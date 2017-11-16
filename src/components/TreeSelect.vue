@@ -57,7 +57,7 @@
         selectedItem: null,
         selectedKey: Array.isArray(this.value) ? (this.value[0] || '') : this.value || '',
         checkedItems: [],
-        checkedKeys: this.multiple ? this.value : [],
+        checkedKeys: this.multiple ? this.value || [] : [],
         showClear: false,
         visible: false
       }
@@ -67,7 +67,7 @@
     },
     computed: {
       valueEmpty () {
-        return Array.isArray(this.value) ? this.value.length <= 0 : (this.value === undefined || this.value.toString() === '')
+        return Array.isArray(this.value) ? this.value.length <= 0 : (this.value === undefined || this.value === null || this.value.toString() === '')
       }
     },
     methods: {
