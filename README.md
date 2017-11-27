@@ -9,6 +9,8 @@ npm install fish-ui -S
 ```
 
 ## Quick Start
+
+### Import all components
 ``` javascript
 import Vue from 'vue'
 import FishUI from 'fish-ui'
@@ -16,6 +18,16 @@ import FishUI from 'fish-ui'
 Vue.use(FishUI)
 
 ```
+
+### Manually import
+``` javascript
+import Button from 'fish-ui/src/components/Button.vue'
+import 'fish-ui/styles/base.less'
+import 'fish-ui/styles/button.less'
+
+```
+
+
 And if you start with [vue-webpack-boilerplate](https://github.com/vuejs-templates/webpack) by vue-cli
 
 ## Demo
