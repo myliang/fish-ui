@@ -96,6 +96,45 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
           </template>
         </code-card>
       </fish-col>
+      <fish-col span="12">
+        <code-card title="Header-Content" desc="containing a header and content">
+          <template slot="demo">
+            <fish-card>
+              <strong slot="header">Card table</strong>
+              <demo-table-base></demo-table-base>
+            </fish-card>
+          </template>
+          <template slot="codeHtml">
+            <pre v-highlightjs><code class="xml">&lt;template&gt;
+&lt;fish-card&gt;
+  &lt;strong slot=&quot;header&quot;&gt;Card table&lt;/strong&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot;&gt;&lt;/fish-table&gt;
+&lt;/fish-card&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-base&#x27;,
+    data () {
+      return {
+        columns: [{title: &#x27;Name&#x27;, key: &#x27;name&#x27;},
+          {title: &#x27;age&#x27;, key: &#x27;age&#x27;},
+          {title: &#x27;Address&#x27;, key: &#x27;address&#x27;},
+          {title: &#x27;Operate&#x27;,
+            key: &#x27;operate&#x27;,
+            render: (h, record, column) =&gt; h(&#x27;a&#x27;, &#x27;编辑&#x27;)}],
+        data: [
+          {name: &#x27;yanbin.hu&#x27;, age: 32, address: &#x27;haidi part 1, xihu, Hangzhou&#x27;},
+          {name: &#x27;yanzu.wu&#x27;, age: 35, address: &#x27;haidi part 5, xihu, Hangzhou&#x27;},
+          {name: &#x27;yanzu.wu&#x27;, age: 35, address: &#x27;haidi part 5, xihu, Hangzhou&#x27;},
+          {name: &#x27;yanzu.wu&#x27;, age: 35, address: &#x27;haidi part 5, xihu, Hangzhou&#x27;}
+        ]
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+          </template>
+        </code-card>
+      </fish-col>
 
     </fish-row>
     <h3>Card Slots</h3>
@@ -118,9 +157,11 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
 <script>
   import MainLayout from './MainLayout.vue'
   import CodeCard from './CodeCard.vue'
+  import DemoTableBase from './DemoTableBase.vue'
 
   export default {
     components: {
+      DemoTableBase,
       CodeCard,
       MainLayout
     },
