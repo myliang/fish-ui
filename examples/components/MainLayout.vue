@@ -71,6 +71,7 @@
         {index: 'tree', text: 'Tree'},
         {index: 'tree-select', text: 'Tree Select'},
         {index: 'divider', text: 'Divider'},
+        {index: 'transfer', text: 'Transfer'},
         {index: 'image', text: 'Image'}
 //        {index: 'chart', text: 'Chart 图表'}
       ]}

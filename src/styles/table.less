@@ -1,8 +1,5 @@
 // @import "./base.less";
 
-@table-cell-padding: .7em .8em;
-@table-cell-hover-background-color: #f8f8f9;
-
 .@{css-prefix}.table {
   position: relative;
   // overflow: hidden;
@@ -48,7 +45,7 @@
     }
 
     thead th, tfoot th {
-      background: @table-cell-hover-background-color;
+      background: @table-th-background-color;
       font-weight: bold;
     }
 
@@ -63,7 +60,7 @@
     tbody {
       tr {
         &:hover {
-          background: #fcfcfd;
+          background: @table-cell-hover-background-color;
         }
         td {
           &.no-more {

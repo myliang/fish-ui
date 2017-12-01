@@ -1,0 +1,55 @@
+.@{css-prefix}.transfer {
+  line-height: 1em;
+  font-size: @base-font-size;
+  .user-select(none);
+
+  .panel {
+    .border;
+    display: inline-block;
+    border-radius: @border-radius;
+    vertical-align: middle;
+
+    > .header {
+      padding: @transfer-padding;
+      border-radius: @border-radius @border-radius 0 0;
+      border-bottom: @border-style;
+      overflow: hidden;
+      background: @transfer-header-background-color;
+    }
+
+    > .body {
+      overflow-y: auto;
+
+      .item {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: @transfer-padding;
+        .transition(all .3s);
+        cursor: pointer;
+
+        &.disabled {
+          .disabled;
+        }
+
+        &:hover {
+          background: @transfer-item-hover-background-color;
+        }
+      }
+    }
+  }
+
+  > .operation {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 1em;
+
+    .button {
+      display: block;
+      margin-bottom: .6em;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
