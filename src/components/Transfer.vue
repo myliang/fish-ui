@@ -19,6 +19,8 @@
         :height="height"
         :noDataText="noDataText"
         @change="rightChangeHandler"
+        @reorder="emitInput"
+        :draggable="true"
     ></fish-transfer-panel>
   </div>
 </template>

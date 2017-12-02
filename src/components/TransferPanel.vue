@@ -5,7 +5,15 @@
     </div>
     <div class="body" :style="{'height': `${height}px`}">
       <template v-if="data && data.length > 0">
-        <div :class="[`item`, {'disabled': item.disabled}]" v-for="item in data" :key="item.key">
+        <div :class="[`item`, {'disabled': item.disabled}]" v-for="(item, index) in data" :key="item.key"
+             :draggable="draggable"
+             :drag-index="index"
+             @dragstart="dragStartHandler"
+             @dragover.prevent="dragOverHandler"
+             @dragenter.prevent="dragEnterHandler"
+             @dragleave.prevent="dragLeaveHandler"
+             @drop.prevent="dropHandler($event, index)"
+             @dragend="dragEndHandler">
           <fish-checkbox :disabled="item.disabled" :index="item.key" @click="checkboxClickHandler" ref="checkboxes">{{ item.label }}</fish-checkbox>
         </div>
       </template>
@@ -20,13 +28,15 @@
       title: { type: String, default: 'item' },
       width: { type: Number, default: 200 },
       height: { type: Number, default: 200 },
+      draggable: { type: Boolean, default: false },
       data: { type: Array, default: () => [] }, // [{key: '', label: '', disabled: false}]
       noDataText: { type: String, default: 'no data' }
     },
     data () {
       return {
         allDisabled: false,
-        selectedKeys: []
+        selectedKeys: [],
+        eleDrag: null
       }
     },
     watch: {
@@ -53,6 +63,31 @@
       }
     },
     methods: {
+      dragStartHandler (evt) {
+        evt.dataTransfer.effectAllowed = 'move'
+        this.eleDrag = evt.target
+      },
+      dragOverHandler (evt) {
+        evt.dataTransfer.dropEffect = 'move'
+      },
+      dragEnterHandler (evt) {
+        // evt.target.addClassName('active')
+      },
+      dragLeaveHandler (evt) {
+        // evt.target.removeClassName('active')
+      },
+      dropHandler (evt, index) {
+        if (this.eleDrag !== evt.target) {
+          const oldIndex = this.eleDrag.getAttribute('drag-index')
+          let nData = Array.from(this.data)
+          let tmp = nData[oldIndex]
+          nData[oldIndex] = nData[index]
+          nData[index] = tmp
+          this.$emit('reorder', nData.map((item) => item.key))
+        }
+      },
+      dragEndHandler (evt) {
+      },
       allCheckboxClickHandler (evt) {
         let _cb = this.$refs.checkbox
         this.$refs.checkboxes.forEach((cb) => {

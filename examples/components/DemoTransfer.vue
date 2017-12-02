@@ -1,7 +1,7 @@
 <template>
   <main-layout menuActiveIndex="transfer">
     <h3>Transfer</h3>
-    <code-card title="Basic" desc="Basic transfer">
+    <code-card title="Basic" desc="Basic transfer with drag">
       <template slot="demo">
         <demo-transfer-base></demo-transfer-base>
       </template>
