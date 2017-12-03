@@ -56,6 +56,55 @@
 &lt;/script&gt;</code></pre>
     </code-card>
 
+    <code-card title="Sorting" desc="Sort the data to find or compare data quickly">
+      <template slot="demo">
+        <demo-table-column-order></demo-table-column-order>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-table :columns=&quot;columns&quot; :data=&quot;data&quot; @change=&quot;changeHandler&quot;&gt;&lt;/fish-table&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    name: &#x27;demo-table-column-order&#x27;,
+    data () {
+      const data = [
+        {name: &#x27;a.hu&#x27;, age: 32, address: &#x27;haidi part 1, xihu, Hangzhou&#x27;},
+        {name: &#x27;b.wu&#x27;, age: 33, address: &#x27;haidi part 5, xihu, Hangzhou&#x27;},
+        {name: &#x27;c.wu&#x27;, age: 34, address: &#x27;haidi part 5, xihu, Hangzhou&#x27;},
+        {name: &#x27;d.wu&#x27;, age: 35, address: &#x27;haidi part 5, xihu, Hangzhou&#x27;}
+      ]
+      return {
+        columns: [
+          {title: &#x27;#&#x27;, type: &#x27;index&#x27;, width: &#x27;50&#x27;, align: &#x27;center&#x27;},
+          {title: &#x27;Name&#x27;, key: &#x27;name&#x27;, sortable: true},
+          {title: &#x27;age&#x27;, key: &#x27;age&#x27;, filters: [{label: &#x27;32岁&#x27;, value: 32}], sortable: true},
+          {title: &#x27;Address&#x27;, key: &#x27;address&#x27;}
+        ],
+        data,
+        oldData: data
+      }
+    },
+    methods: {
+      changeHandler (pagination, filters, sorter) {
+        let nData = this.oldData
+        for (let key of Object.keys(filters)) {
+          nData = nData.filter((item) =&gt; filters[key].includes(item[key]))
+        }
+        if (sorter) {
+          nData.sort((a, b) =&gt; {
+            let bv = b[sorter.key] + &#x27;&#x27;
+            let av = a[sorter.key] + &#x27;&#x27;
+            return sorter.by === &#x27;desc&#x27; ? bv.localeCompare(av) : av.localeCompare(bv)
+          })
+        }
+
+        this.data = nData
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
+    </code-card>
+
     <code-card title="Pagination" desc="table with pagination">
       <template slot="demo">
         <demo-table-pagination></demo-table-pagination>
@@ -440,9 +489,11 @@
   import DemoTableColumnFixed from './DemoTableColumnFixed.vue'
   import DemoTableNoMore from './DemoTableNoMore.vue'
   import DemoTablePagination from './DemoTablePagination.vue'
+  import DemoTableColumnOrder from './DemoTableColumnOrder.vue'
 
   export default {
     components: {
+      DemoTableColumnOrder,
       DemoTablePagination,
       DemoTableNoMore,
       DemoTableColumnFixed,
@@ -475,6 +526,7 @@
           ['key', 'column.key', 'string', '-'],
           ['type', 'optional：<code>index</code> <code>checkbox</code>', 'string', '-'],
           ['fixed', 'the fixed position: <code>left</code> <code>right</code>', 'string', 'left'],
+          ['sortable', 'column.sortable', 'boolean', 'false'],
           ['render(h, record, column)', 'customize cell render', 'function', '-'],
           ['filters', 'column filters', 'Array[{lable: \'\', value: \'\'}]', '-']
         ]

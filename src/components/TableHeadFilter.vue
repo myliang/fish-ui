@@ -1,6 +1,6 @@
 <template>
-  <div class="filters" @click="clickHandler" ref="_root" v-clickoutside="awayHandler">
-    {{ activeTitle || title }}<i class="fa fa-angle-down" style="margin-left: 8px;"></i>
+  <div class="filters" @click.stop="clickHandler" ref="_root" v-clickoutside="awayHandler">
+    <i class="fa fa-angle-down" style="margin-left: 8px;"></i>
     <div class="content" ref="_content">
       <fish-menu v-show="visible" @click="menusClickHandler" defaultActive="_all">
         <fish-option :index="item.value" :content="item.label" :key="index" ref="options"
@@ -23,13 +23,13 @@
     directives: { clickoutside },
     props: {
       index: { type: [String, Number], required: true },
-      title: { type: String, required: true },
+      // title: { type: String, required: true },
       items: { type: Array, required: true }
     },
     data () {
       return {
-        visible: false,
-        activeTitle: null
+        visible: false
+        // activeTitle: null
       }
     },
     computed: {
@@ -53,8 +53,8 @@
         this.visible = false
       },
       menusClickHandler (evt) {
-        const targetVue = evt.target.__vue__
-        this.activeTitle = targetVue.index === '_all' ? this.title : targetVue.content
+        // const targetVue = evt.target.__vue__
+        // this.activeTitle = targetVue.index === '_all' ? this.title : targetVue.content
         this.visible = false
         this.$emit('change', evt)
       }

@@ -4,8 +4,10 @@
       <div :class="['fish dimmer loading', {'active': loading}]"></div>
       <div class="header" ref="header">
         <fish-table-head :columns="allLeafColumns" :rows="rows" :scrollY="scrollY"
-                        :expandedRowRender="fixedLeftColumns.length <= 0 && fixedRightColumns.length <= 0 && expandedRowRender || undefined"
-                        @select="headSelectHandler" @filter-change="filterChangeHandler" ref="vth"></fish-table-head>
+                         :expandedRowRender="fixedLeftColumns.length <= 0 && fixedRightColumns.length <= 0 && expandedRowRender || undefined"
+                         @select="headSelectHandler"
+                         @sort-change="sortChangeHandler"
+                         @filter-change="filterChangeHandler" ref="vth"></fish-table-head>
       </div>
       <div class="body" ref="body">
         <fish-table-body :columns="allLeafColumns" :rows="data" :scrollY="scrollY" :noMoreText="noMoreText"
@@ -78,7 +80,8 @@
         allLeafColumns: [],
         fixedLeftColumns: [],
         fixedRightColumns: [],
-        filters: {} // 表头的过滤返回值
+        filters: {}, // 表头的过滤返回值
+        sorter: null
       }
     },
     mounted () {
@@ -110,8 +113,12 @@
         this.filters = filters
         this.changeHandler()
       },
+      sortChangeHandler (orderKey, orderBy) {
+        this.sorter = {key: orderKey, by: orderBy}
+        this.changeHandler()
+      },
       changeHandler () {
-        this.$emit('change', this.currentPage, this.filters)
+        this.$emit('change', this.currentPage, this.filters, this.sorter)
       },
       headSelectHandler ($vue) {
         let checkbox = $vue.$refs.checkboxes[0]

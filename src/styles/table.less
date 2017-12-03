@@ -16,6 +16,8 @@
   .header {
     .filters {
       cursor: pointer;
+      display: inline-block;
+      padding-right: .6em;
       .content {
         position: absolute;
         background: #ffffff;
@@ -53,6 +55,12 @@
       tr {
         th {
           color: rgba(0, 0, 0, .75);
+          &.sortable:hover {
+            background: @table-th-hover-background-color;
+          }
+          &.sortable {
+            cursor: pointer;
+          }
         }
       }
     }
