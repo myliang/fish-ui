@@ -3,7 +3,7 @@
     <fish-layout sider="l" class="main-layout">
       <div slot="header" style="padding: 20px 10px;">
         <a href="https://github.com/myliang/fish-ui">
-          <div class="logo">
+          <div class="logo_22">
             F <i class="fa fa-flash"></i> sh - UI
           </div>
         </a>
@@ -92,7 +92,7 @@
   }
 </script>
 <style>
-  .logo {
+  .logo_22 {
     font-size: 2.2rem;
     font-weight: bold;
     display: inline-block;
