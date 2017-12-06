@@ -64,6 +64,39 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
       </fish-col>
     </fish-row>
     <fish-row gutter="1">
+      <fish-col span="12">
+        <code-card title="Color" desc="control border-color and header background-color">
+          <template slot="demo">
+            <fish-card color="blue">
+              <div slot="header"><strong>Title Color</strong></div>
+              Kristy is an art director living in New York.<br/>
+              Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
+              Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+              pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+            </fish-card>
+          </template>
+          <template slot="codeHtml">
+            <pre v-highlightjs><code class="xml">&lt;fish-card color=&quot;blue&quot;&gt;
+  &lt;div slot=&quot;header&quot;&gt;&lt;strong&gt;Title Color&lt;/strong&gt;&lt;/div&gt;
+  Kristy is an art director living in New York.&lt;br/&gt;
+  Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. &lt;br/&gt;
+  Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+  pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+&lt;/fish-card&gt;</code></pre>
+          </template>
+        </code-card>
+      </fish-col>
+      <fish-col span="12">
+        <code-card title="Content" desc="containing content">
+          <template slot="demo">
+          </template>
+          <template slot="codeHtml">
+            <pre v-highlightjs><code class="xml"></code></pre>
+          </template>
+        </code-card>
+      </fish-col>
+    </fish-row>
+    <fish-row gutter="1">
       <fish-col span="6">
         <code-card title="Header-Image" desc="containing a header and image">
           <template slot="demo">
@@ -137,6 +170,23 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
       </fish-col>
 
     </fish-row>
+
+    <h3>Card Attributes</h3>
+    <div class="fish table attributes">
+      <table style="table-layout: auto;">
+        <thead>
+        <tr>
+          <th v-for="column in columns">{{column}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in data1">
+          <td v-for="v in item" v-html="v"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
     <h3>Card Slots</h3>
     <div class="fish table attributes">
       <table style="table-layout: auto;">
@@ -168,6 +218,9 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
     data () {
       return {
         columns: ['Attribute', 'Description', 'Type', 'Default'],
+        data1: [
+          ['color', 'optional: <code>red</code>, <code>orange</code>, <code>yellow</code>, <code>olive</code>, <code>green</code>, <code>teal</code>, <code>blue</code>, <code>violet</code>, <code>purple</code>, <code>pink</code>, <code>brown</code>, <code>grey</code>, <code>black</code>', 'String', '-']
+        ],
         data: [
           ['header', 'Card title(header)', 'String', '-'],
           ['image', 'Card image', 'String', '-'],

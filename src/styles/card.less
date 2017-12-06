@@ -1,5 +1,18 @@
 // @import "./base.less";
 
+.card-loop-color(@counter) when (@counter > 0) {
+  .card-loop-color((@counter - 1));
+  @color-name: extract(@color-names, @counter);
+  @color-value: "@{color-name}-color";
+  &.@{color-name} {
+    border-color: @@color-value;
+    > .header {
+      color: #fff;
+      background: @@color-value;
+    }
+  }
+}
+
 .@{css-prefix}.card {
   position: relative;
   background: #fff;
@@ -7,6 +20,9 @@
   font-size: 1em;
   .box-shadow;
   .border;
+  border-radius: @border-radius @border-radius 0 0;
+
+  .card-loop-color(length(@color-names));
 
   > .image {
     font-size: 0;

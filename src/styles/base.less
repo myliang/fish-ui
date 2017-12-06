@@ -1,15 +1,49 @@
 @css-prefix: fish;
 @base-font-size: 1rem;
 @base-font-color: rgba(0, 0, 0, 0.87);
+//
+@color-names: red, orange, yellow, olive, green, teal, blue, violet, purple, pink, brown, grey, dark, black;
+//@color-values: #DB2828, #F2711C, #FBBD08, #B5CC18, #21BA45, #00B5AD, #2185D0, #6435C9, #A333C8, #E03997, #A5673F, #767676, #1B1C1D;
 
-@color-primary: #2185D0;
+@red-color: #DB2828;
+@red-hover-color: #d01919;
+@orange-color: #F2711C;
+@orange-hover-color: #f26202;
+@yellow-color: #FBBD08;
+@yellow-hover-color: #eaae00;
+@olive-color: #B5CC18;
+@olive-hover-color: #a7bd0d;
+@green-color: #21BA45;
+@green-hover-color: #16ab39;
+@teal-color: #00B5AD;
+@teal-hover-color: #009c95;
+@blue-color: #2185D0;
+@blue-hover-color: #1678c2;
+@violet-color: #6435C9;
+@violet-hover-color: #5829bb;
+@purple-color: #A333C8;
+@purple-hover-color: #9627ba;
+@pink-color: #E03997;
+@pink-hover-color: #e61a8d;
+@brown-color: #A5673F;
+@brown-hover-color: #975b33;
+@grey-color: #767676;
+@grey-hover-color: #838383;
+@dark-color: #343a40;
+@dark-hover-color: darken(@dark-color, 10%);
+@black-color: #1B1C1D;
+@black-hover-color: #27292a;
+
+@primary-color: @blue-color;
+@primary-hover-color: @blue-hover-color;
 @active-background-color: #ecf6fd;
-@active-border-color: @color-primary;
-@active-color: @color-primary;
+@active-border-color: @primary-color;
+@active-color: @primary-color;
+
 
 @border-color: #e9e9e9; // rgba(34,36,38,.15) #d9d9d9
 @border-style: 1px solid @border-color;
-@border-radius: 3px;
+@border-radius: 2px;
 @menu-item-border-color: #FAFAFA;
 
 @1pxtoem: 0.075;
@@ -23,11 +57,11 @@
 @layout-side-width: 200px;
 
 @hover-background-color: #f4f5f6; // rgba(0, 0, 0, 0.05);#F3F4F5
-@hover-color: @color-primary;
+@hover-color: @primary-color;
 @menu-min-width: 160px;
 
 @input-min-width: 14em;
-@input-border-color: #d9d9d9;
+@input-border-color: @border-color;
 @input-padding-horizontal: @padding-horizontal - 0.2;
 @input-padding-vertical: @padding-vertical - @1pxtoem * 1.45;
 @input-padding: @input-padding-vertical @input-padding-horizontal;
@@ -114,134 +148,46 @@
 }
 .type-positive() {
   color: #fff;
-  background-color: #21BA45;
+  background-color: @green-color;
   &:hover, &.active {
     color: #fff;
-    background: #16ab39;
+    background: @green-hover-color;
   }
 }
 .type-negative() {
   color: #fff;
-  background-color: #DB2828;
+  background-color: @red-color;
   &:hover, &.active {
     color: #fff;
-    background-color: #ca1010;
+    background-color: @red-hover-color;
   }
 }
 .type-primary() {
   color: #fff;
-  background-color: @color-primary;
+  background-color: @primary-color;
   &:hover, &.active {
     color: #fff;
-    background-color: #1678c2;
+    background-color: @primary-hover-color;
+  }
+}
+
+.loop-color(@counter) when (@counter > 0) {
+  .loop-color((@counter - 1));
+  @color-name: extract(@color-names, @counter);
+  @color-value: "@{color-name}-color";
+  @color-hover-value: "@{color-name}-hover-color";
+  &.@{color-name} {
+    color: #fff;
+    background-color: @@color-value;
+    &:hover, &.active {
+      color: #fff;
+      background-color: @@color-hover-value;
+    }
   }
 }
 
 .colors() {
-  &.red {
-    color: #fff;
-    background-color: #DB2828;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #d01919;
-    }
-  }
-  &.orange {
-    color: #fff;
-    background-color: #F2711C;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #f26202;
-    }
-  }
-  &.yellow {
-    color: #fff;
-    background-color: #FBBD08;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #eaae00;
-    }
-  }
-  &.olive {
-    color: #fff;
-    background-color: #B5CC18;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #a7bd0d;
-    }
-  }
-  &.green {
-    color: #fff;
-    background-color: #21BA45;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #21BA45;
-    }
-  }
-  &.teal {
-    color: #fff;
-    background-color: #00B5AD;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #009c95;
-    }
-  }
-  &.blue {
-    color: #fff;
-    background-color: #2185D0;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #2185D0;
-    }
-  }
-  &.violet {
-    color: #fff;
-    background-color: #6435C9;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #5829bb;
-    }
-  }
-  &.purple {
-    color: #fff;
-    background-color: #A333C8;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #9627ba;
-    }
-  }
-  &.pink {
-    color: #fff;
-    background-color: #E03997;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #e61a8d;
-    }
-  }
-  &.brown {
-    color: #fff;
-    background-color: #A5673F;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #975b33;
-    }
-  }
-  &.grey {
-    color: #fff;
-    background-color: #767676;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #838383;
-    }
-  }
-  &.black {
-    color: #fff;
-    background-color: #1B1C1D;
-    &:hover, &.active {
-      color: #fff;
-      background-color: #27292a;
-    }
-  }
+  .loop-color(length(@color-names));
 }
 
 .size-mini() {

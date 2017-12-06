@@ -1,5 +1,5 @@
 <template>
-  <div class="fish card">
+  <div :class="[`fish card`, color]">
     <div class="header" v-if="$slots.header">
       <slot name="header"></slot>
     </div>
@@ -16,6 +16,9 @@
 </template>
 <script>
   export default {
-    name: 'fish-card'
+    name: 'fish-card',
+    props: {
+      color: { type: String, default: '' } // red, orange, yellow, olive, green, teal, blue, violet, purple, pink, brown, grey, dark, black
+    }
   }
 </script>
