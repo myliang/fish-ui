@@ -1,5 +1,5 @@
 
-![image](https://raw.githubusercontent.com/myliang/fish-ui/master/static/login.png)
+![image](/myliang/fish-ui/blob/master/static/logo.png?raw=true)
 
 # Fish-ui
 
