@@ -91,6 +91,10 @@ And if you start with [vue-webpack-boilerplate](https://github.com/vuejs-templat
   - Upload
   - Tree
   - Tree Select
+  - Transfer
+  - Devider
+  - Image
+  - Timeline
 
 
 ## Browser Support
