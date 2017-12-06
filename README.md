@@ -1,5 +1,7 @@
 
-![image](/myliang/fish-ui/blob/master/static/logo.png?raw=true)
+<p style="text-align: center;">
+![image](/static/logo.png?raw=true)
+</p>
 
 # Fish-ui
 
