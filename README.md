@@ -1,7 +1,7 @@
 
 <p align="center">
-  <a href="http://ant.design">
-    <img width="100%" src="/myliang/fish-ui/blob/master/static/logo.png?raw=true">
+  <a href="https://github.com/myliang/fish-ui">
+    <img width="100%" src="/static/logo.png?raw=true">
   </a>
 </p>
 
