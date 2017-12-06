@@ -5,6 +5,8 @@
 
 # Fish-ui
 
+[![Join the chat at https://gitter.im/myliang/fish-ui](https://badges.gitter.im/myliang/fish-ui.svg)](https://gitter.im/myliang/fish-ui?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 > A Vue.js 2.0 UI Toolkit for Web.
 
 ## Install
