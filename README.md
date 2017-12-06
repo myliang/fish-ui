@@ -1,10 +1,14 @@
 
-<p style="text-align: center;">
-![image](/static/logo.png?raw=true)
+<p align="center">
+  <a href="https://github.com/myliang/fish-ui">
+    <img width="250" src="/static/logo.png?raw=true">
+  </a>
 </p>
 
 # Fish-ui
 
+[![npm package](https://img.shields.io/npm/v/fish-ui.svg)](https://www.npmjs.org/package/fish-ui)
+[![NPM downloads](http://img.shields.io/npm/dm/fish-ui.svg)](https://npmjs.org/package/fish-ui)
 [![Join the chat at https://gitter.im/myliang/fish-ui](https://badges.gitter.im/myliang/fish-ui.svg)](https://gitter.im/myliang/fish-ui?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 > A Vue.js 2.0 UI Toolkit for Web.
@@ -87,6 +91,10 @@ And if you start with [vue-webpack-boilerplate](https://github.com/vuejs-templat
   - Upload
   - Tree
   - Tree Select
+  - Transfer
+  - Devider
+  - Image
+  - Timeline
 
 
 ## Browser Support
