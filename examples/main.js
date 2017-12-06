@@ -40,6 +40,7 @@ import DemoDivider from './components/DemoDivider.vue'
 import DemoImage from './components/DemoImage.vue'
 import DemoChart from './components/DemoChart.vue'
 import DemoTransfer from './components/DemoTransfer.vue'
+import DemoTimeline from './components/DemoTimeline.vue'
 
 Vue.use(FishUI)
 Vue.use(VueHighlightJS)
@@ -80,6 +81,7 @@ const routes = [
   { path: '/components/image', component: DemoImage },
   { path: '/components/chart', component: DemoChart },
   { path: '/components/transfer', component: DemoTransfer },
+  { path: '/components/timeline', component: DemoTimeline },
   { path: '/', redirect: '/components/index' }
 ]
 const router = new VueRouter({

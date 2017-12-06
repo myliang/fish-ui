@@ -43,6 +43,8 @@ import TreeSelect from './components/TreeSelect.vue'
 import Divider from './components/Divider.vue'
 import Image from './components/Image.vue'
 import Transfer from './components/Transfer.vue'
+import Timeline from './components/Timeline.vue'
+import TimelineItem from './components/TimelineItem.vue'
 
 import $message from './components/message.js'
 import $popup from './components/popup.js'
@@ -90,7 +92,9 @@ const components = {
   TreeSelect,
   Divider,
   Image,
-  Transfer
+  Transfer,
+  Timeline,
+  TimelineItem
 }
 const install = function (Vue, opts = {}) {
   Object.values(components).forEach((component) => {

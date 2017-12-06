@@ -1,0 +1,34 @@
+
+.@{css-prefix}.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+
+  &::before {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 3px;
+    background-color: #eeeeee;
+    left: 20px;
+  }
+
+  .event {
+    margin: 10px 0 10px 40px;
+    .timeline-loop-color(@color-length);
+
+    > .badge {
+      border: 3px solid #fff;
+      position: absolute;
+      left: 13px;
+      width: 17px;
+      height: 17px;
+      background: @primary-color;
+      border-radius: 10em;
+    }
+    > .panel {
+    }
+  }
+}

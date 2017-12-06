@@ -70,6 +70,7 @@
         {index: 'tree-select', text: 'Tree Select'},
         {index: 'divider', text: 'Divider'},
         {index: 'transfer', text: 'Transfer'},
+        {index: 'timeline', text: 'Timeline'},
         {index: 'image', text: 'Image'}
 //        {index: 'chart', text: 'Chart 图表'}
       ]}

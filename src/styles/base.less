@@ -3,6 +3,7 @@
 @base-font-color: rgba(0, 0, 0, 0.87);
 //
 @color-names: red, orange, yellow, olive, green, teal, blue, violet, purple, pink, brown, grey, dark, black;
+@color-length: length(@color-names);
 //@color-values: #DB2828, #F2711C, #FBBD08, #B5CC18, #21BA45, #00B5AD, #2185D0, #6435C9, #A333C8, #E03997, #A5673F, #767676, #1B1C1D;
 
 @red-color: #DB2828;
@@ -186,8 +187,32 @@
   }
 }
 
+.card-loop-color(@counter) when (@counter > 0) {
+  .card-loop-color((@counter - 1));
+  @color-name: extract(@color-names, @counter);
+  @color-value: "@{color-name}-color";
+  &.@{color-name} {
+    border-color: @@color-value;
+    > .header {
+      color: #fff;
+      background: @@color-value;
+    }
+  }
+}
+
+.timeline-loop-color(@counter) when (@counter > 0) {
+  .timeline-loop-color((@counter - 1));
+  @color-name: extract(@color-names, @counter);
+  @color-value: "@{color-name}-color";
+  &.@{color-name} {
+    > .badge {
+      background: @@color-value;
+    }
+  }
+}
+
 .colors() {
-  .loop-color(length(@color-names));
+  .loop-color(@color-length);
 }
 
 .size-mini() {
