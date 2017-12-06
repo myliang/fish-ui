@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://github.com/myliang/fish-ui">
-    <img width="100%" src="/static/logo.png?raw=true">
+    <img width="250" src="/static/logo.png?raw=true">
   </a>
 </p>
 
