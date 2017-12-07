@@ -43,6 +43,34 @@ And if you start with [vue-webpack-boilerplate](https://github.com/vuejs-templat
 
 ## Demo
 [https://myliang.github.io/fish-ui/](ttps://myliang.github.io/fish-ui/)
+<table>
+<tbody>
+<tr>
+<td align="center">
+  <a href="https://myliang.github.io/fish-ui/">
+    <img width="420" src="/static/button.png?raw=true">
+  </a>
+</td>
+<td align="center">
+  <a href="https://myliang.github.io/fish-ui/">
+    <img width="420" src="/static/card.png?raw=true">
+  </a>
+</td>
+</tr>
+<tr>
+<td align="center">
+  <a href="https://myliang.github.io/fish-ui/">
+    <img width="420" src="/static/form.png?raw=true">
+  </a>
+</td>
+<td align="center">
+  <a href="https://myliang.github.io/fish-ui/">
+    <img width="420" src="/static/treeselect.png?raw=true">
+  </a>
+</td>
+</tr>
+</tbody>
+</table>
 
 ## Features
 - Equip with Vue.js, Moment, Vue-Router, ES6 & Babel 6
