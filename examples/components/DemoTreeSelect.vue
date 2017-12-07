@@ -1,5 +1,5 @@
 <template>
-  <main-layout menuActiveIndex="tree-select">
+  <main-layout menuActiveIndex="tree_select">
     <h3>Tree Select</h3>
     <fish-row gutter="1">
       <fish-col span="12">

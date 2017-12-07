@@ -1,5 +1,5 @@
 <template>
-  <main-layout menuActiveIndex="input-number">
+  <main-layout menuActiveIndex="input_number">
     <h3>Input Number</h3>
 
     <fish-row gutter="1">

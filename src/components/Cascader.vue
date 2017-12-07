@@ -12,9 +12,9 @@
     <div v-show="visible" class="content" :style="{width: `${(menuWidth + 2) * groups.length}px`}"
          @click.stop="" @mouseover.stop="" @mouseout.stop="">
       <ul class="fish menu vertical" v-for="(group, groupIndex) in groups">
-        <li :class="['item', {'active': selectedItems[groupIndex] && selectedItems[groupIndex][0] === item[0]}]" v-for="(item, index) in group" @click.stop="itemClickHandler(item, groupIndex)" :key="item[0]" :style="{width: `${menuWidth}px`}">
+        <li :class="['item', {'active': selectedItems[groupIndex] && selectedItems[groupIndex][0] === item[0], 'submenu': itemChildren(item).length > 0}]"
+            v-for="(item, index) in group" @click.stop="itemClickHandler(item, groupIndex)" :key="item[0]" :style="{width: `${menuWidth}px`}">
           {{ item[1] }}
-          <i class="fa fa-angle-right expand" v-if="itemChildren(item).length > 0"></i>
         </li>
       </ul>
     </div>
