@@ -15,7 +15,6 @@
         </div>
         <content-render :render="column.render || ((h, item, column) => h('div', item[column.key]))" :params="[item, column]" v-else></content-render>
       </td>
-      <td v-if="scrollY" style="width: 0;"></td>
     </tr>
     <tr v-if="expandedRowRender && expands[rowIndex]">
       <td :colspan="columns.length + 1">
