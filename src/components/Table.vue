@@ -24,6 +24,7 @@
         </div>
       </div>
       <div class="fixed right" v-if="fixedRightColumns.length > 0 && maxRows <= 1" ref="fixedRight">
+        <div class="patch" :style="{'height': `${trHeight * rows.length}px`}"></div>
         <div class="header" ref="frHeader">
           <fish-table-head :columns="fixedRightColumns" :rows="[fixedRightColumns]" @select="headSelectHandler" ref="rVth"></fish-table-head>
         </div>
@@ -81,7 +82,8 @@
         fixedLeftColumns: [],
         fixedRightColumns: [],
         filters: {}, // 表头的过滤返回值
-        sorter: null
+        sorter: null,
+        trHeight: 38
       }
     },
     mounted () {
