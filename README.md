@@ -47,25 +47,29 @@ And if you start with [vue-webpack-boilerplate](https://github.com/vuejs-templat
 <tbody>
 <tr>
 <td align="center">
-  <a href="https://myliang.github.io/fish-ui/">
-    <img width="420" src="/static/button.png?raw=true">
-  </a>
-</td>
-<td align="center">
-  <a href="https://myliang.github.io/fish-ui/">
-    <img width="420" src="/static/card.png?raw=true">
+  <a href="https://myliang.github.io/fish-ui/#/components/button">
+    <img src="/static/button.png?raw=true">
   </a>
 </td>
 </tr>
 <tr>
 <td align="center">
-  <a href="https://myliang.github.io/fish-ui/">
-    <img width="420" src="/static/form.png?raw=true">
+  <a href="https://myliang.github.io/fish-ui/#/components/card">
+    <img src="/static/card.png?raw=true">
   </a>
 </td>
+</tr>
+<tr>
 <td align="center">
-  <a href="https://myliang.github.io/fish-ui/">
-    <img width="420" src="/static/treeselect.png?raw=true">
+  <a href="https://myliang.github.io/fish-ui/#/components/form">
+    <img src="/static/form.png?raw=true">
+  </a>
+</td>
+</tr>
+<tr>
+<td align="center">
+  <a href="https://myliang.github.io/fish-ui/#/components/tree-select">
+    <img src="/static/treeselect.png?raw=true">
   </a>
 </td>
 </tr>
