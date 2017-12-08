@@ -50,7 +50,7 @@
   import fishTableBody from './TableBody.vue'
   import fishPagination from './Pagination.vue'
 
-  const SCROLL_WIDTH = 15
+  const SCROLL_WIDTH = 0
 
   export default {
     components: {
