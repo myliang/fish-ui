@@ -39,11 +39,11 @@
         }).map((option) => { return option.index })
       }
     },
-    mounted () {
+    updated () {
       const { _root, _content } = this.$refs
       const p = _root.offsetParent
-      _content.style.left = (p.offsetLeft - 1) + 'px'
-      _content.style.top = (p.offsetHeight - 1) + 'px'
+      _content.style.left = p.offsetLeft + 'px'
+      _content.style.top = p.offsetHeight + 'px'
     },
     methods: {
       clickHandler () {

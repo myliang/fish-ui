@@ -398,6 +398,13 @@
 &lt;/script&gt;</code></pre>
     </code-card>
 
+    <code-card title="Fixed Column without scroll" desc="Fixed Column Table without scroll">
+      <template slot="demo">
+        <demo-table-column-fixed-scroll-x></demo-table-column-fixed-scroll-x>
+      </template>
+      <pre v-highlightjs slot="codeHtml"><code class="xml"></code></pre>
+    </code-card>
+
     <code-card title="Fixed Column" desc="Fixed Column Table">
       <template slot="demo">
         <demo-table-column-fixed></demo-table-column-fixed>
@@ -448,12 +455,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in api_data">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in api_data" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -463,12 +470,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in api_data2">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in api_data2" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -487,6 +494,7 @@
   import DemoTableScrollY from './DemoTableScrollY.vue'
   import DemoTableScrollXy from './DemoTableScrollXY.vue'
   import DemoTableColumnFixed from './DemoTableColumnFixed.vue'
+  import DemoTableColumnFixedScrollX from './DemoTableColumnFixedScrollX.vue'
   import DemoTableNoMore from './DemoTableNoMore.vue'
   import DemoTablePagination from './DemoTablePagination.vue'
   import DemoTableColumnOrder from './DemoTableColumnOrder.vue'
@@ -497,6 +505,7 @@
       DemoTablePagination,
       DemoTableNoMore,
       DemoTableColumnFixed,
+      DemoTableColumnFixedScrollX,
       DemoTableScrollXy,
       DemoTableScrollY,
       DemoTableFixedHeader,
