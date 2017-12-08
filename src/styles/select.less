@@ -10,7 +10,6 @@
   cursor: pointer;
 
   padding: @select-padding;
-  padding-right: 2.6em;
   position: relative;
 
   text-align: left;
@@ -47,7 +46,18 @@
     }
     > input {
       margin: @select-multiple-child-margin;
-      width: 5em;
+      width: 2.2em;
+      position: static;
+      padding: 0;
+      height: 1em;
+    }
+
+    &.search {
+      > .text {
+        position: absolute;
+        display: inline-block;
+        margin-left: @select-multiple-child-margin-left * 2;
+      }
     }
   }
 
@@ -77,10 +87,11 @@
       cursor: pointer;
       display: inline-block;
       text-align: center;
-      //vertical-align: baseline;
       font-size: 0.9em;
       margin-top: -0.05em;
-      //vertical-align: middle;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
@@ -102,23 +113,30 @@
   }
 
   > input {
-    border: 0;
-    padding: 0;
-    outline: 0;
+    padding: @select-padding;
+    border: none;
     -webkit-tap-highlight-color: rgba(255,255,255,0);
-    background: #fff;
+    background: transparent;
     font-size: inherit;
     margin: 0;
     line-height: @line-height;
-    height: @line-height;
     vertical-align: baseline;
-    width: auto;
+    width: 100%;
     position: absolute;
     z-index: 1;
+    left: 0;
+    top: -1px;
+    outline: 0;
+
+    &:focus {
+      border: none;
+    }
   }
 
   > i {
     .icon-right;
+    z-index: 2;
+    position: absolute;
   }
 
   > .menu.vertical {

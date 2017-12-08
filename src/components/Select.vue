@@ -1,12 +1,12 @@
 <template>
-  <div :class="['fish select', {'active': visible, 'multiple': multiple, 'disabled': disabled}]"
+  <div :class="['fish select', {'active': visible, 'multiple': multiple, 'disabled': disabled, 'search': search}]"
        @click="clickHandler"
        @mouseover="mouseOverHandler"
        @mouseout="mouseOutHandler"
        v-clickoutside="awayHandler">
     <template v-if="multiple">
       <i :class="iconDownArrow"></i>
-      <a class="tag" @click.stop=""
+      <a class="tag" @click.stop="() => {}"
          v-for="(item, index) in selectedItems" :key="index">
         {{ item.content }}
         <i :class="iconClose" @click.stop="closeItemHandler(index, item, $event)"></i>
@@ -17,7 +17,7 @@
              @keyup.down.stop="keyDownHandler"
              @keyup.enter.stop="keyEnterHandler"
              />
-      <div class="text hint" v-html="hint" :style="{visibility: valueEmpty && !visible ? 'visible' : 'hidden'}"></div>
+      <div class="text hint" v-html="hint" :style="{visibility: valueEmpty && !visible ? 'visible' : 'hidden'}" v-if="selectedItems.length <= 0"></div>
     </template>
     <template v-else>
       <i :class="iconCloseCircle" v-if="showClear && !valueEmpty" style="opacity: .6;" @click.stop="clearHandler"></i>
@@ -33,7 +33,7 @@
     </template>
     <ul class="fish menu vertical" v-show="visible"
         @click.stop="menuClickHandler($event)"
-        @mouseover.stop="" @mouseout.stop="">
+        @mouseover.stop="() => {}" @mouseout.stop="() => {}">
       <slot></slot>
     </ul>
   </div>
