@@ -16,6 +16,7 @@
              @keyup.up.stop="keyUpHandler"
              @keyup.down.stop="keyDownHandler"
              @keyup.enter.stop="keyEnterHandler"
+             :style="{'width': `${multipleInputWidth}em`}"
              />
       <div class="text hint" v-html="hint" :style="{visibility: valueEmpty && !visible ? 'visible' : 'hidden'}" v-if="selectedItems.length <= 0"></div>
     </template>
@@ -63,6 +64,7 @@
         showText: true,
         reRenderChildren: false,
         showClear: false,
+        multipleInputWidth: 1,
         displayItems: [], // 查询使用
         keyChildrenIndex: -1 // 子元素的索引,键盘上下操作
       }
@@ -102,9 +104,11 @@
           })
           this.keyChildrenIndex = -1
           this.showText = false
+          this.multipleInputWidth = v.length > 0 ? v.length : 1
         } else {
           this.showText = true
           this.displayItems = this.$children
+          this.multipleInputWidth = 1
         }
       },
       keyUpHandler () {
@@ -141,6 +145,7 @@
           this.changeHandler(this.currentItem)
         }
         this.displayItems = this.$children
+        this.multipleInputWidth = 1
       },
       mouseOverHandler () {
         this.showClear = true
