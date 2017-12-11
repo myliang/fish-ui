@@ -1,6 +1,6 @@
 <template>
   <div class="main-layout">
-    <fish-layout sider="l" class="main-layout">
+    <fish-layout sider="l" class="main-layout" responsive>
       <div slot="header" style="padding: 1em;">
         <a href="https://github.com/myliang/fish-ui">
           <div class="logo_22">

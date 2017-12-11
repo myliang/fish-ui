@@ -261,7 +261,8 @@
       return {
         columns: ['Attribute', 'Description', 'Type', 'Default'],
         data: [
-          ['sider', 'optional: <code>l</code> <code>tl</code> <code>r</code> <code>tr</code>', 'String', '-']
+          ['sider', 'optional: <code>l</code> <code>tl</code> <code>r</code> <code>tr</code>', 'String', '-'],
+          ['responsive', 'layout is responsive', 'Boolean', 'false']
         ]
       }
     }

@@ -42,9 +42,6 @@
       flex: 0 0 200px;
       width: 200px;
     }
-    > .sider-toggle {
-      display: none;
-    }
   }
 }
 
@@ -53,10 +50,9 @@
   .@{css-prefix} {
     &.layout {
       &.has-sider {
-        .flex-direction(column);
         margin: 0;
       }
-      > .sider {
+      > .sider.responsive {
         position: fixed;
         left: 0;
         top: 0;
@@ -65,7 +61,7 @@
         overflow-y: auto;
         height: 100%;
       }
-      > .sider-toggle {
+      > .responsive-toggle {
         display: block;
         position: fixed;
         color: #666;
