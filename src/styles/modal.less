@@ -43,3 +43,10 @@
     padding: @padding-horizontal;
   }
 }
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .@{css-prefix}.modal {
+    width: 96%;
+    margin: 0 0 0 -48%;
+  }
+}

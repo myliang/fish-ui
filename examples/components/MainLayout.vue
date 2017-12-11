@@ -1,7 +1,7 @@
 <template>
   <div class="main-layout">
     <fish-layout sider="l" class="main-layout">
-      <div slot="header" style="padding: 20px 10px;">
+      <div slot="header" style="padding: 1em;">
         <a href="https://github.com/myliang/fish-ui">
           <div class="logo_22">
             F <i class="fa fa-flash"></i> sh - UI
@@ -105,19 +105,16 @@
   }
   .main-layout > .fish.layout > .header{
     /*background: #7dbcea;*/
-    padding: 0 50px;
+    padding: 0 1em;
     /*background: #666;*/
   }
   .main-layout > .fish.layout > .header {
-    margin-bottom: 20px;
+    margin-bottom: 2px;
   }
   .main-layout > .fish.layout > .sider {
     /*background: #fff;*/
-    padding-top: 20px;
+    /* padding-top: 20px; */
     padding-bottom: 20px;
-  }
-  .main-layout > .fish.layout > .has-sider {
-    margin: 0 50px;
   }
   .main-layout > .fish.layout > .content {
     /*background: rgba(16, 142, 233, 1);*/
@@ -141,6 +138,8 @@
     border-radius: 3px;
     font-size: .9em;
     border: 1px solid #eee;
+    display: inline-block;
+    margin-bottom: .2em;
   }
   ul.api li {
     margin: 10px;

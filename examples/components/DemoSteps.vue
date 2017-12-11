@@ -4,30 +4,30 @@
     <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
         <fish-steps>
-          <fish-step title="Finished"></fish-step>
-          <fish-step title="in Progress" active icon="fa fa-usd"></fish-step>
-          <fish-step title="Waiting" disabled description="this is description"></fish-step>
+          <fish-step title="AA"></fish-step>
+          <fish-step title="BB" active icon="fa fa-usd"></fish-step>
+          <fish-step title="CC" disabled description="cs"></fish-step>
         </fish-steps>
       </template>
       <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-steps&gt;
-  &lt;fish-step title=&quot;Finished&quot;&gt;&lt;/fish-step&gt;
-  &lt;fish-step title=&quot;in Progress&quot; active icon=&quot;usd&quot;&gt;&lt;/fish-step&gt;
-  &lt;fish-step title=&quot;Waiting&quot; disabled description=&quot;this is description&quot;&gt;&lt;/fish-step&gt;
+  &lt;fish-step title=&quot;AA&quot;&gt;&lt;/fish-step&gt;
+  &lt;fish-step title=&quot;BB&quot; active icon=&quot;usd&quot;&gt;&lt;/fish-step&gt;
+  &lt;fish-step title=&quot;CC&quot; disabled description=&quot;cs&quot;&gt;&lt;/fish-step&gt;
 &lt;/fish-steps&gt;</code></pre>
     </code-card>
 
     <code-card title="size" desc="optional: <code>mini</code><code>tiny</code><code>small</code><code>medium</code><code>large</code><code>big</code><code>huge</code><code>massive</code>">
       <template slot="demo">
         <fish-steps size="big">
-          <fish-step title="Finished" description="this is description"></fish-step>
-          <fish-step title="in Progress" active description="this is description" icon="fa fa-usd"></fish-step>
-          <fish-step title="Waiting" disabled description="this is description"></fish-step>
+          <fish-step title="AA" description="as.."></fish-step>
+          <fish-step title="BB" active description="bs.." icon="fa fa-usd"></fish-step>
+          <fish-step title="CC" disabled description="cs.."></fish-step>
         </fish-steps>
       </template>
       <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-steps size=&quot;big&quot;&gt;
-  &lt;fish-step title=&quot;Finished&quot; description=&quot;this is description&quot;&gt;&lt;/fish-step&gt;
-  &lt;fish-step title=&quot;in Progress&quot; active description=&quot;this is description&quot; icon=&quot;usd&quot;&gt;&lt;/fish-step&gt;
-  &lt;fish-step title=&quot;Waiting&quot; disabled description=&quot;this is description&quot;&gt;&lt;/fish-step&gt;
+  &lt;fish-step title=&quot;AA&quot; description=&quot;as..&quot;&gt;&lt;/fish-step&gt;
+  &lt;fish-step title=&quot;BB&quot; active description=&quot;bs..&quot; icon=&quot;usd&quot;&gt;&lt;/fish-step&gt;
+  &lt;fish-step title=&quot;CC&quot; disabled description=&quot;cs..&quot;&gt;&lt;/fish-step&gt;
 &lt;/fish-steps&gt;</code></pre>
     </code-card>
 

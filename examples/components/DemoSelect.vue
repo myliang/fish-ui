@@ -92,7 +92,7 @@
       <fish-col span="12">
         <code-card title="Multiple" desc="Multiple selection">
           <template slot="demo">
-            <fish-select multiple v-model="multipleValues" style="width: 300px;" @change="changeHandler">
+            <fish-select multiple v-model="multipleValues" @change="changeHandler">
               <fish-option index="0" content="abcd"></fish-option>
               <fish-option index="1" content="abc"></fish-option>
               <fish-option index="2" content="ab"></fish-option>
@@ -131,7 +131,7 @@
       <fish-col span="12">
         <code-card title="Search, Multiple" desc="Search, Multiple selection。">
           <template slot="demo">
-            <fish-select search multiple v-model="multipleValues1" style="width: 300px;" @change="changeHandler">
+            <fish-select search multiple v-model="multipleValues1" @change="changeHandler">
               <fish-option index="0" content="abcd"></fish-option>
               <fish-option index="1" content="abc"></fish-option>
               <fish-option index="2" content="ab"></fish-option>

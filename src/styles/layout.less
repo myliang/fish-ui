@@ -19,7 +19,7 @@
 
     > .header, > .footer {
       -webkit-box-flex: 0;
-      .flex(0 0 auto);
+      .flex(none);
     }
     > .header {
       background: #fff;
@@ -41,6 +41,41 @@
       min-width: 0;
       flex: 0 0 200px;
       width: 200px;
+    }
+    > .sider-toggle {
+      display: none;
+    }
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: @largestMobileScreen) {
+  .@{css-prefix} {
+    &.layout {
+      &.has-sider {
+        .flex-direction(column);
+        margin: 0;
+      }
+      > .sider {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1000;
+        display: none;
+        overflow-y: auto;
+        height: 100%;
+      }
+      > .sider-toggle {
+        display: block;
+        position: fixed;
+        color: #666;
+        z-index: 1000;
+        background: #fff;
+        left: 0;
+        top: -1000px;
+        .padding;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+      }
     }
   }
 }

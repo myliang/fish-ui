@@ -56,3 +56,12 @@
     .justify-content(space-between);
   }
 }
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .@{css-prefix}.row {
+    .col {
+      width: 100%!important;
+      padding-right: 0!important;
+    }
+  }
+}

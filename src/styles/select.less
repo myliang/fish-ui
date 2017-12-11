@@ -15,13 +15,18 @@
   text-align: left;
   color: @base-font-color;
   font-size: 1em;
-  min-width: @input-min-width;
+  // min-width: @input-min-width;
+  width: 100%;
   vertical-align: baseline;
   word-wrap: break-word;
   white-space: normal;
   outline: 0;
   .user-select(none);
   box-shadow: @input-box-shadow;
+
+  + .select {
+    margin-top: .5em;
+  }
 
   //z-index: 3;
 
