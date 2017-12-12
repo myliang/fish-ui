@@ -19,6 +19,7 @@ import DemoInput from './components/DemoInput.vue'
 import DemoInputNumber from './components/DemoInputNumber.vue'
 import DemoRadio from './components/DemoRadio.vue'
 import DemoCheckbox from './components/DemoCheckbox.vue'
+import DemoSwitch from './components/DemoSwitch.vue'
 import DemoSelect from './components/DemoSelect.vue'
 import DemoCascader from './components/DemoCascader.vue'
 import DemoCalendar from './components/DemoCalendar.vue'
@@ -60,6 +61,7 @@ const routes = [
   { path: '/components/input_number', component: DemoInputNumber },
   { path: '/components/radio', component: DemoRadio },
   { path: '/components/checkbox', component: DemoCheckbox },
+  { path: '/components/switch', component: DemoSwitch },
   { path: '/components/select', component: DemoSelect },
   { path: '/components/cascader', component: DemoCascader },
   { path: '/components/calendar', component: DemoCalendar },

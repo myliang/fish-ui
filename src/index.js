@@ -45,6 +45,7 @@ import Image from './components/Image.vue'
 import Transfer from './components/Transfer.vue'
 import Timeline from './components/Timeline.vue'
 import TimelineItem from './components/TimelineItem.vue'
+import Switch from './components/Switch.vue'
 
 import $message from './components/message.js'
 import $popup from './components/popup.js'
@@ -94,7 +95,8 @@ const components = {
   Image,
   Transfer,
   Timeline,
-  TimelineItem
+  TimelineItem,
+  Switch
 }
 const install = function (Vue, opts = {}) {
   Object.values(components).forEach((component) => {

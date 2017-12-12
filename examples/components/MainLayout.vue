@@ -52,6 +52,7 @@
         {index: 'input_number', text: 'Input Number'},
         {index: 'radio', text: 'Radio'},
         {index: 'checkbox', text: 'Checkbox'},
+        {index: 'switch', text: 'Switch'},
         {index: 'select', text: 'Select'},
         {index: 'cascader', text: 'Cascader'},
         {index: 'calendar', text: 'Calendar'},

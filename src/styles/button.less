@@ -47,30 +47,7 @@
     }
 
     // size
-    &.mini {
-      .size-mini;
-    }
-    &.tiny {
-      .size-tiny;
-    }
-    &.small {
-      .size-small;
-    }
-    &.medium {
-      .size-medium;
-    }
-    &.large {
-      .size-large;
-    }
-    &.big {
-      .size-large;
-    }
-    &.huge {
-      .size-huge;
-    }
-    &.massive {
-      .size-massive;
-    }
+    .font-sizes;
 
     // shape
     &.circle {
@@ -79,38 +56,14 @@
       padding-right: @padding-vertical;
     }
 
-    &.disabled {
-      .disabled;
-    }
+    .disabled;
 
     &.loading {
       position: relative;
-      cursor: default;
-      text-shadow: none!important;
+      .loading(1.2em);
       color: transparent!important;
-      opacity: 1;
-      pointer-events: auto;
-      -webkit-transition: all 0s linear,opacity .1s ease;
-      transition: all 0s linear,opacity .1s ease;
-
-      &:before, &:after {
-        position: absolute;
-        content: '';
-        top: 50%;
-        left: 50%;
-        margin: -0.6em 0 0 -0.6em;
-        width: 1.2em;
-        height: 1.2em;
-        border-radius: 500rem;
-        border: 0.2em solid rgba(0, 0, 0, 0.15);
-      }
       &:after {
-        -webkit-animation: button-spin .8s linear;
-        animation: button-spin .8s linear;
-        -webkit-animation-iteration-count: infinite;
-        animation-iteration-count: infinite;
         border-color: #FFFFFF transparent transparent;
-        box-shadow: 0 0 0 1px transparent;
       }
     }
 
@@ -128,6 +81,7 @@
 
     .button {
       border-radius: 0;
+      font-size: inherit;
     }
     .button:first-child {
       border-top-left-radius: 2px;
@@ -164,46 +118,7 @@
     }
 
     // size
-    &.mini {
-      .button {
-        .size-mini;
-      }
-    }
-    &.tiny {
-      .button {
-        .size-tiny;
-      }
-    }
-    &.small {
-      .button {
-        .size-small;
-      }
-    }
-    &.medium {
-      .button {
-        .size-medium;
-      }
-    }
-    &.large {
-      .button {
-        .size-large;
-      }
-    }
-    &.big {
-      .button {
-        .size-large;
-      }
-    }
-    &.huge {
-      .button {
-        .size-huge;
-      }
-    }
-    &.massive {
-      .button {
-        .size-massive;
-      }
-    }
+    .font-sizes;
 
   }
 }

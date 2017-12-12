@@ -50,6 +50,9 @@
         <fish-button><i class="fa fa-upload" aria-hidden="true" style="margin-right: 5px;"></i> Upload</fish-button>
       </fish-upload>
     </fish-field>
+    <fish-field label="Switch" inline>
+      <fish-switch v-model="agree">I agree to the terms and conditions</fish-switch>
+    </fish-field>
     <fish-field>
       <fish-checkbox index="0">I agree to the terms and conditions</fish-checkbox>
     </fish-field>
@@ -72,6 +75,7 @@
         level: '',
         files: [],
         email: '',
+        agree: true,
         options: [
           ['zhejiang', 'Zhejiang', [
             ['hangzhou', 'Hangzhou', [

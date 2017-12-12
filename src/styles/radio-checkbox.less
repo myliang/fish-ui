@@ -14,6 +14,8 @@
 
   span {
     padding: 0 8px;
+    cursor: pointer;
+    .user-select(none);
   }
 
   &.active, &.open {
@@ -36,7 +38,7 @@
   }
 
   &.disabled {
-    .disabled;
+    ._disabled;
     > label:before {
       background: @border-color + 20;
     }

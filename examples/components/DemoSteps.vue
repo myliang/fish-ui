@@ -1,6 +1,6 @@
 <template>
   <main-layout menuActiveIndex="step">
-    <h3>Step 步骤</h3>
+    <h3>Step</h3>
     <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
         <fish-steps>

@@ -256,12 +256,43 @@
   font-size: @base-font-size + 0.45;
 }
 
-.disabled() {
+.font-sizes() {
+  &.mini {
+    .size-mini;
+  }
+  &.tiny {
+    .size-tiny;
+  }
+  &.small {
+    .size-small;
+  }
+  &.medium {
+    .size-medium;
+  }
+  &.large {
+    .size-large;
+  }
+  &.big {
+    .size-large;
+  }
+  &.huge {
+    .size-huge;
+  }
+  &.massive {
+    .size-massive;
+  }
+}
+._disabled() {
   cursor: default;
   opacity: .55!important;
   background-image: none!important;
   box-shadow: none!important;
   pointer-events: none!important;
+}
+.disabled() {
+  &.disabled {
+    ._disabled;
+  }
 }
 
 .flex(@v) {
@@ -342,8 +373,8 @@
     margin: -@width/2 0em 0em -@width/2;
     width: @width;
     height: @width;
-    -webkit-animation: button-spin 0.6s linear;
-    animation: button-spin 0.6s linear;
+    -webkit-animation: button-spin 0.8s linear;
+    animation: button-spin 0.8s linear;
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
     border-radius: 500rem;

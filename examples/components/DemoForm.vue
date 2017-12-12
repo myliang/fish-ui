@@ -110,6 +110,9 @@
         &lt;fish-button&gt;&lt;i class=&quot;fa fa-upload&quot; aria-hidden=&quot;true&quot; style=&quot;margin-right: 5px;&quot;&gt;&lt;/i&gt; Upload&lt;/fish-button&gt;
       &lt;/fish-upload&gt;
     &lt;/fish-field&gt;
+    &lt;fish-field label=&quot;Switch&quot; inline&gt;
+      &lt;fish-switch v-model=&quot;agree&quot;&gt;I agree to the terms and conditions&lt;/fish-switch&gt;
+    &lt;/fish-field&gt;
     &lt;fish-field&gt;
       &lt;fish-checkbox index=&quot;0&quot;&gt;I agree to the terms and conditions&lt;/fish-checkbox&gt;
     &lt;/fish-field&gt;
@@ -132,6 +135,7 @@
         level: &#x27;&#x27;,
         files: [],
         email: &#x27;&#x27;,
+        agree: true,
         options: [
           [&#x27;zhejiang&#x27;, &#x27;Zhejiang&#x27;, [
             [&#x27;hangzhou&#x27;, &#x27;Hangzhou&#x27;, [
