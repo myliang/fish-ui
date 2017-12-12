@@ -1,5 +1,7 @@
 <template>
-  <li :class="classObject" @click="clickHandler" v-html="content"></li>
+  <li :class="classObject" @click="clickHandler">
+    <slot>{{ content }}</slot>
+  </li>
 </template>
 <script>
   export default {

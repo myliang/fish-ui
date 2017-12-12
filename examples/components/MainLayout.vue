@@ -110,7 +110,7 @@
     /*background: #666;*/
   }
   .main-layout > .fish.layout > .header {
-    margin-bottom: 2px;
+    margin-bottom: 3px;
   }
   .main-layout > .fish.layout > .sider {
     /*background: #fff;*/

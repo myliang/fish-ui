@@ -80,7 +80,7 @@
     </fish-row>
 
     <fish-row gutter="1">
-      <fish-col span="12">
+      <fish-col span="8">
         <code-card title="Submenu" desc="containing submenu">
           <template slot="demo">
             <fish-menu style="width: 200px;" defaultActive="sys-l1-l21">
@@ -122,7 +122,7 @@
           </template>
         </code-card>
       </fish-col>
-      <fish-col span="12">
+      <fish-col span="8">
         <code-card title="inline" desc="Vertical menu with inline submenus.">
           <template slot="demo">
             <fish-menu mode="inline" style="width: 200px;" @change="changeHandler">
@@ -174,6 +174,22 @@
           </template>
         </code-card>
       </fish-col>
+      <fish-col span="8">
+        <code-card title="optGroup" desc="include optgroup">
+          <template slot="demo">
+            <fish-menu>
+              <fish-optgroup label="Manager">
+                <fish-option index="jack" content="Jack"></fish-option>
+                <fish-option index="lucy" content="Lucy"></fish-option>
+              </fish-optgroup>
+              <fish-optgroup label="Engineer">
+                <fish-option index="y1" content="Yiminghe"></fish-option>
+                <fish-option index="y2" content="Yiminghe2"></fish-option>
+              </fish-optgroup>
+            </fish-menu>
+          </template>
+        </code-card>
+      </fish-col>
     </fish-row>
 
     <h3>Menu Attributes</h3>
@@ -181,12 +197,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in columns">{{column}}</th>
+          <th v-for="column in columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in data">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in data" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -196,12 +212,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in columns">{{column}}</th>
+          <th v-for="column in columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in subData">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in subData" :key="index">
+          <td v-for="v in item" v-html="v"  :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -211,12 +227,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in columns">{{column}}</th>
+          <th v-for="column in columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in optionData">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in optionData" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>

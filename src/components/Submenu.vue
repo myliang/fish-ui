@@ -37,12 +37,12 @@
       this.$children.forEach((ele) => {
         if (ele.$el.className.indexOf('submenu') === -1) {
           let indexes = ele.index.split(this.indexDelimiter)
-          ele.$el.style.paddingLeft = `${1 * (indexes.length)}em`
+          ele.$el.style.paddingLeft = `${1.2 * (indexes.length)}em`
         }
       })
       // set subtitle padding left
       let indexes = this.indexes
-      this.$refs.subtitle.style.paddingLeft = `${1 * (indexes.length)}em`
+      this.$refs.subtitle.style.paddingLeft = `${1.2 * (indexes.length)}em`
     },
     computed: {
       indexes () {

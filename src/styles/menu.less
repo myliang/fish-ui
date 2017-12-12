@@ -10,6 +10,51 @@
     .user-select(none);
     z-index: 5;
 
+    .item {
+      //display: flex;
+      //flex: 0 0 auto;
+      line-height: 1em;
+      .padding;
+      margin: 0;
+      vertical-align: middle;
+      text-align: left;
+      font-weight: 400;
+      color: @base-font-color;
+      white-space: nowrap;
+      cursor: pointer;
+      -webkit-transition: all .3s;
+      transition: all .3s;
+  
+      &:not(.header):not(.submenu):hover {
+        background: @hover-background-color;
+      }
+      &.active, &.active:not(.header):not(.submenu):hover {
+        background: @hover-background-color;
+        //background: @active-background-color;
+        //color: @active-color;
+        // font-weight: bold;
+      }
+  
+      .disabled;
+  
+      > i.expand {
+        float: right;
+      }
+    }
+
+    .optgroup {
+      .header {
+        .item;
+        padding-left: @padding-horizontal/2;
+        color: lighten(@base-font-color, 40%)!important;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
     &.vertical {
       max-height: 244px;
       .box-shadow;

@@ -23,6 +23,7 @@ import Menu from './components/Menu.vue'
 import Message from './components/Message.vue'
 import Modal from './components/Modal.vue'
 import Option from './components/Option.vue'
+import OptGroup from './components/OptGroup.vue'
 import Pagination from './components/Pagination.vue'
 import Radio from './components/Radio.vue'
 import Radios from './components/Radios.vue'
@@ -74,6 +75,7 @@ const components = {
   Message,
   Modal,
   Option,
+  OptGroup,
   Pagination,
   Radio,
   Radios,

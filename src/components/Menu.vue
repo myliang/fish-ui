@@ -23,8 +23,15 @@
     mounted () {
       this.items = {}
       this.$children.forEach((ele) => {
-        if (ele._isVue) this.items[ele.index] = ele
+        if (ele.$options.name === 'fish-optgroup') {
+          ele.$children.forEach((e) => {
+            if (e.$options.name === 'fish-option') this.items[e.index] = e
+          })
+        } else if (['fish-option', 'fish-submenu'].includes(ele.$options.name)) {
+          this.items[ele.index] = ele
+        }
       })
+      // console.log('items:', this.items)
       if (this.defaultActive) {
         this.setActive(this.defaultActive)
       }
