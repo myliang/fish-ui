@@ -5,7 +5,8 @@
        @mouseout="mouseOutHandler"
        v-clickoutside="awayHandler">
     <template v-if="multiple">
-      <i :class="iconDownArrow"></i>
+      <i :class="iconDownArrow" v-if="!searchIsFunction"></i>
+      <i :class="iconSearch" v-if="searchIsFunction"></i>
       <a class="tag" @click.stop="() => {}"
          v-for="(item, index) in selectedItems" :key="index">
         {{ item.content }}
@@ -16,13 +17,15 @@
              @keyup.up.stop="keyUpHandler"
              @keyup.down.stop="keyDownHandler"
              @keyup.enter.stop="keyEnterHandler"
+             @focus="visible = true"
              :style="{'width': `${multipleInputWidth}em`}"
              />
       <div class="text hint" v-html="hint" :style="{visibility: valueEmpty && !visible ? 'visible' : 'hidden'}" v-if="selectedItems.length <= 0"></div>
     </template>
     <template v-else>
       <i :class="iconCloseCircle" v-if="showClear && !valueEmpty" style="opacity: .6;" @click.stop="clearHandler"></i>
-      <i :class="iconDownArrow" v-else></i>
+      <i :class="iconDownArrow" v-else-if="!searchIsFunction"></i>
+      <i :class="iconSearch" v-else-if="searchIsFunction"></i>
       <input autocomplete="off" ref="inputSearch" v-if="search"
              @input.stop="searchInputHandler($event.target.value)"
              @keyup.up.stop="keyUpHandler"
@@ -32,7 +35,7 @@
         {{ selectedItems.length > 0 && selectedItems[0].content || hint }}
       </div>
     </template>
-    <ul class="fish menu vertical" v-show="visible"
+    <ul class="fish menu vertical" v-show="visible && $slots.default"
         @click.stop="menuClickHandler($event)"
         @mouseover.stop="() => {}" @mouseout.stop="() => {}">
       <slot></slot>
@@ -49,15 +52,15 @@
       value: [Number, String, Array],
       hint: { type: String, default: 'Please select' },
       multiple: { type: Boolean, default: false },
-      search: { type: Boolean, default: false },
+      search: { type: [Boolean, Function], default: false },
       disabled: { type: Boolean, default: false },
       iconDownArrow: { type: String, default: 'fa fa-angle-down' },
       iconClose: { type: String, default: 'fa fa-close' },
-      iconCloseCircle: { type: String, default: 'fa fa-times-circle' }
+      iconCloseCircle: { type: String, default: 'fa fa-times-circle' },
+      iconSearch: { type: String, default: 'fa fa-search' }
     },
     data () {
       return {
-        values: Array.isArray(this.value) ? this.value : (this.value && this.value.toString() !== '' ? [this.value] : []),
         visible: false,
         selectedHtml: null,
         selectedItems: [],
@@ -70,14 +73,16 @@
       }
     },
     mounted () {
-      this.updateChildrenState()
+      this.$children.forEach((ele) => {
+        ele.$el.style.display = 'block'
+        if (this.values.includes(ele.index)) {
+          ele.active = true
+          this.selectedItems.push(ele)
+        } else {
+          ele.active = false
+        }
+      })
       this.displayItems = this.$children
-    },
-    updated () {
-      if (this.reRenderChildren) {
-        this.updateChildrenState()
-        this.reRenderChildren = false
-      }
     },
     computed: {
       valueEmpty () {
@@ -88,10 +93,23 @@
           return this.displayItems[0]
         }
         return this.displayItems[this.keyChildrenIndex]
+      },
+      searchIsFunction () {
+        return this.search && this.search instanceof Function
+      },
+      values () {
+        return Array.isArray(this.value) ? this.value : (this.value && this.value.toString() !== '' ? [this.value] : [])
       }
     },
     methods: {
       searchInputHandler (v) {
+        if (this.searchIsFunction) {
+          this.search(v)
+          this.$nextTick(() => {
+            this.displayItems = this.$children
+          })
+          // return
+        }
         if (!/^\s+$/.test(v)) {
           this.displayItems = []
           this.$children.forEach((ele) => {
@@ -146,6 +164,7 @@
         }
         this.displayItems = this.$children
         this.multipleInputWidth = 1
+        // if (this.search) this.$refs.inputSearch.blur()
       },
       mouseOverHandler () {
         this.showClear = true
@@ -153,8 +172,14 @@
       mouseOutHandler () {
         this.showClear = false
       },
-      closeItemHandler (index, item, evt) { // 针对多线
+      closeItemHandler (index, item, evt) { // 针对多选
         let nValue = Array.from(this.values)
+        this.selectedItems.splice(index, 1)
+        this.$children.forEach((e) => {
+          if (e.index === item.index) {
+            e.active = false
+          }
+        })
         this.emitChange(nValue.filter((ele) => ele !== item.index))
         this.resetValues()
       },
@@ -167,25 +192,33 @@
         if (this.search) this.$refs.inputSearch.focus()
       },
       menuClickHandler (evt) {
+        // this.selectedItems.push(evt.target.__vue__)
         this.changeHandler(evt.target.__vue__)
       },
       changeHandler (vt) {
         // console.log(this.multiple, '::', vt.index)
         if (this.multiple) {
-          // console.log('value:', this.value)
+          // console.log('value:', this.value, vt.active, this.selectedItems)
           let nValue = Array.from(this.values)
-          if (vt.active) nValue = nValue.filter((ele) => ele !== vt.index)
-          else nValue.push(vt.index)
-          // console.log('nValue:', nValue)
+          if (vt.active) {
+            vt.active = false
+            nValue = nValue.filter((ele) => ele !== vt.index)
+            this.selectedItems = this.selectedItems.filter((ele) => ele.index !== vt.index)
+          } else {
+            vt.active = true
+            this.selectedItems.push(vt)
+            nValue.push(vt.index)
+          }
+          // console.log('value:', this.value, vt.active, this.selectedItems)
           this.emitChange(nValue)
           this.resetValues()
         } else {
+          this.selectedItems.splice(0, 1, vt)
           this.emitChange([vt.index])
           this.awayHandler()
         }
       },
       emitChange (values) {
-        this.values = values
         let v = this.multiple ? values : values[0]
         this.$emit('input', v)
         this.$emit('change', v)
@@ -203,18 +236,6 @@
         if (this.search) {
           this.$refs.inputSearch.value = ''
         }
-      },
-      updateChildrenState () {
-        this.selectedItems = []
-        this.$children.forEach((ele) => {
-          ele.$el.style.display = 'block'
-          if (this.values.includes(ele.index)) {
-            ele.active = true
-            this.selectedItems.push(ele)
-          } else {
-            ele.active = false
-          }
-        })
       }
     }
   }

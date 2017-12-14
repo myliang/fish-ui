@@ -169,17 +169,92 @@
       </fish-col>
     </fish-row>
 
+    <fish-row gutter="1">
+      <fish-col span="12">
+        <code-card title="AutoComplete" desc="AutoComplete selection">
+          <template slot="demo">
+            <fish-select v-model="autoCompleteValue" :search="searchChangeHandler">
+              <fish-option :index="item.index" :content="item.content" v-for="item in autoCompleteData" :key="item.index"></fish-option>
+            </fish-select>
+          </template>
+          <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+&lt;fish-select v-model=&quot;autoCompleteValue&quot; :search=&quot;searchChangeHandler&quot;&gt;
+  &lt;fish-option :index=&quot;item.index&quot; :content=&quot;item.content&quot; v-for=&quot;item in autoCompleteData&quot; :key=&quot;item.index&quot;&gt;&lt;/fish-option&gt;
+&lt;/fish-select&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  data () {
+    return {
+      autoCompleteValue: &#x27;&#x27;,
+      autoCompleteData: []
+    }
+  },
+  methods: {
+    searchChangeHandler (v) {
+      console.log(&#x27;v:&#x27;, v)
+      this.autoCompleteData = [
+        {index: &#x60;${v}11&#x60;, content: &#x60;${v}11&#x60;}, 
+        {index: &#x60;${v}12&#x60;, content: &#x60;${v}12&#x60;},
+        {index: &#x60;${v}13&#x60;, content: &#x60;${v}13&#x60;},
+        {index: &#x60;${v}14&#x60;, content: &#x60;${v}14&#x60;},
+        {index: &#x60;${v}15&#x60;, content: &#x60;${v}15&#x60;}
+      ]
+    }
+  }
+}
+&lt;/script&gt;</code></pre>
+        </code-card>
+      </fish-col>
+      <fish-col span="12">
+        <code-card title="AutoComplete multiple" desc="AutoComplete multiple selection">
+          <template slot="demo">
+            <fish-select v-model="autoCompleteMultipleValue" :search="mulitpleSearchChangeHandler" multiple>
+              <fish-option :index="item.index" :content="item.content" v-for="item in autoCompleteMultipleData" :key="item.index"></fish-option>
+            </fish-select>
+          </template>
+          <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+&lt;fish-select v-model=&quot;autoCompleteMultipleValue&quot; :search=&quot;mulitpleSearchChangeHandler&quot; multiple&gt;
+  &lt;fish-option :index=&quot;item.index&quot; :content=&quot;item.content&quot; v-for=&quot;item in autoCompleteMultipleData&quot; :key=&quot;item.index&quot;&gt;&lt;/fish-option&gt;
+&lt;/fish-select&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  data () {
+    return {
+      autoCompleteMultipleValue: [],
+      autoCompleteMultipleData: []
+    }
+  },
+  methods: {
+    mulitpleSearchChangeHandler (v) {
+      console.log(&#x27;v:&#x27;, v)
+      this.autoCompleteMultipleData = [
+        {index: &#x60;${v}11&#x60;, content: &#x60;${v}11&#x60;}, 
+        {index: &#x60;${v}12&#x60;, content: &#x60;${v}12&#x60;},
+        {index: &#x60;${v}13&#x60;, content: &#x60;${v}13&#x60;},
+        {index: &#x60;${v}14&#x60;, content: &#x60;${v}14&#x60;},
+        {index: &#x60;${v}15&#x60;, content: &#x60;${v}15&#x60;}
+      ]
+    }
+  }
+}
+&lt;/script&gt;</code></pre>
+        </code-card>
+      </fish-col>
+    </fish-row>
+
     <h3>Select Attributes</h3>
     <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in api_data">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in api_data" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -190,12 +265,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in event_columns">{{column}}</th>
+          <th v-for="column in event_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in event_data">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item,index) in event_data" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -206,12 +281,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in optionData">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in optionData" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -234,6 +309,10 @@
         singleSelectedValue: '',
         singleSelectedValueWthSearch: [],
         singleSelectedValueWthSearch1: '',
+        autoCompleteValue: '',
+        autoCompleteMultipleValue: [],
+        autoCompleteData: [],
+        autoCompleteMultipleData: [],
         event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
           ['change(values)', 'callback when changing', '<code>values</code>']
@@ -243,7 +322,7 @@
           ['value', 'v-model', 'String, Array', ''],
           ['hint', 'hint', 'String', 'Please select'],
           ['multiple', 'whether it is multiple or not', 'Boolean', 'false'],
-          ['search', 'whether it is search or not', 'Boolean', 'false'],
+          ['search', 'autoComplete when it is Function, search current item when it is true', '[Boolean, Function]', 'false'],
           ['iconDownArrow', 'icon down arrow', 'String', 'fa fa-angle-down'],
           ['iconClose', 'icon close', 'String', 'fa fa-close'],
           ['iconCloseCircle', 'icon close circle', 'String', 'fa fa-times-circle']
@@ -258,6 +337,25 @@
     methods: {
       changeHandler (values) {
         console.log('values:', values)
+      },
+      searchChangeHandler (v) {
+        console.log('v:', v)
+        this.autoCompleteData = [
+          {index: `${v}11`, content: `${v}11`}, 
+          {index: `${v}12`, content: `${v}12`},
+          {index: `${v}13`, content: `${v}13`},
+          {index: `${v}14`, content: `${v}14`},
+          {index: `${v}15`, content: `${v}15`}
+        ]
+      },
+      mulitpleSearchChangeHandler (v) {
+        this.autoCompleteMultipleData = [
+          {index: `${v}11`, content: `${v}11`}, 
+          {index: `${v}12`, content: `${v}12`},
+          {index: `${v}13`, content: `${v}13`},
+          {index: `${v}14`, content: `${v}14`},
+          {index: `${v}15`, content: `${v}15`}
+        ]
       }
     }
   }
