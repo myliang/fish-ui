@@ -32,9 +32,10 @@ Vue.use(FishUI)
 
 ### Manually import
 ``` javascript
-import Button from 'fish-ui/src/components/Button.vue'
-import 'fish-ui/styles/base.less'
 import 'fish-ui/styles/button.less'
+import Button from 'fish-ui/src/components/Button.vue'
+
+Vue.component(Button.name, Button)
 
 ```
 
