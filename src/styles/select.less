@@ -15,7 +15,7 @@
   text-align: left;
   color: @base-font-color;
   font-size: 1em;
-  // min-width: @input-min-width;
+  min-width: @input-min-width;
   width: 100%;
   vertical-align: baseline;
   word-wrap: break-word;
@@ -52,7 +52,7 @@
       width: 1em;
       position: static;
       padding: 0;
-      height: 1em;
+      line-height: normal;
     }
 
     &.search {
@@ -70,11 +70,13 @@
     background: #E8E8E8;
     cursor: pointer;
     display: inline-block;
-    padding: 0.35em 0.6em;
-    margin: 0.1rem 0.35rem 0.1rem 0em;
+    padding: .35em 0.6em;
+    line-height: 1em;
+    margin: @select-multiple-child-margin-vertical - 0.2562em 0.35em;
+    margin-left: 0;
     box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
     transition: background 0.1s ease;
-    border: 0 solid transparent;
+    border: none;
     border-radius: @border-radius;
     color: rgba(0, 0, 0, 0.6);
     font-weight: bold;
@@ -104,7 +106,7 @@
     position: relative;
     left: 0;
     z-index: 2;
-    line-height: inherit;
+    line-height: normal;
     display: inline-block;
     //overflow: hidden;
     text-overflow:ellipsis;
@@ -122,13 +124,13 @@
     background: transparent;
     font-size: inherit;
     margin: 0;
-    line-height: @line-height;
+    line-height: normal;
     vertical-align: baseline;
     width: 100%;
     position: absolute;
     z-index: 1;
     left: 0;
-    top: -1px;
+    top: 0;
     outline: 0;
 
     &:focus {
@@ -151,7 +153,7 @@
     overflow: auto;
     margin: 0px -1px;
     min-width: calc(~"100% + 2px");
-    width: calc(~"100% +  2px");
+    width: auto;
     z-index: 10;
 
     > .item:first-child {

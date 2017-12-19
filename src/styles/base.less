@@ -47,7 +47,7 @@
 @border-radius: 2px;
 @menu-item-border-color: #FAFAFA;
 
-@1pxtoem: 0.075;
+@1pxtoem: 1/16;
 @2pxtoem: @1pxtoem * 2;
 
 @padding-vertical: .7em;
@@ -61,7 +61,7 @@
 @hover-color: @primary-color;
 @menu-min-width: 160px;
 
-@input-min-width: 14em;
+@input-min-width: 10em;
 @input-border-color: @border-color;
 @input-padding-horizontal: @padding-horizontal - 0.2;
 @input-padding-vertical: @padding-vertical - @1pxtoem * 1.45;
@@ -69,14 +69,14 @@
 @input-active-color: rgba(16,142,233, .8);
 @input-box-shadow: inset 0 1px 2px hsla(0,0%,4%,.06);
 
-@select-padding: @padding-vertical - @1pxtoem/2 2.6em @padding-vertical - @1pxtoem/2 @input-padding-horizontal;
+@select-padding: @input-padding-vertical 2.6em @input-padding-vertical @input-padding-horizontal;
 
-@select-multiple-padding-vertical: @padding-vertical * (1/3);
-@select-multiple-padding-left: @padding-vertical * (2/3);
+@select-multiple-padding-vertical: @input-padding-vertical * (1/3);
+@select-multiple-padding-left: @input-padding-vertical * (2/3);
 @select-multiple-padding-right: @input-padding-horizontal + 1em;
 @select-multiple-padding: @select-multiple-padding-vertical 2.6em @select-multiple-padding-vertical @select-multiple-padding-left;
 
-@select-multiple-child-margin-vertical: @padding-vertical * (2/3);
+@select-multiple-child-margin-vertical: @input-padding-vertical * (2/3);
 @select-multiple-child-margin-left: @input-padding-horizontal - @select-multiple-padding-left;
 @select-multiple-child-margin: @select-multiple-child-margin-vertical 0 @select-multiple-child-margin-vertical @select-multiple-child-margin-left;
 

@@ -184,6 +184,7 @@
         this.resetValues()
       },
       clearHandler () { // 针对单选
+        this.selectedItems = []
         this.awayHandler()
         this.emitChange([])
       },
