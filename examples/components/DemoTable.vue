@@ -524,6 +524,7 @@
         api_data: [
           ['columns', 'table column', 'Array', '-'],
           ['data', 'table data [{key: v, key2: v2, ...}]', 'Array', '-'],
+          ['pagination', '[{total: 100, current: 1, rows: 10, noMoreText: }]', 'Object', '-'],
           ['bordered', 'whether it is bordered or not', 'boolean', 'false'],
           ['striped', 'whether it is striped or not', 'boolean', 'false'],
           ['loading', 'whether it is loading or not', 'boolean', 'false'],
