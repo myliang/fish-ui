@@ -86,7 +86,7 @@
             <fish-menu style="width: 200px;" defaultActive="sys-l1-l21">
               <fish-submenu index="sys">
                 <template slot="title">submenu</template>
-                <fish-option index="sys-l2" content="Jack"></fish-option>
+                <fish-option index="sys-l2" content="Jack"><a href="http://www.baidu.com">Jack Go</a></fish-option>
                 <fish-option index="sys-l3" content="Lucy"></fish-option>
                 <fish-option index="sys-l4" content="Active"></fish-option>
                 <fish-submenu index="sys-l1">
@@ -105,7 +105,7 @@
             <pre v-highlightjs><code class="xml">&lt;fish-menu style=&quot;width: 200px;&quot;&gt;
   &lt;fish-submenu index=&quot;0&quot;&gt;
     &lt;template slot=&quot;title&quot;&gt;submenu&lt;/template&gt;
-    &lt;fish-option index=&quot;0-0&quot; content=&quot;Jack&quot;&gt;&lt;/fish-option&gt;
+    &lt;fish-option index=&quot;0-0&quot; content=&quot;Jack&quot;&gt;&lt;a href=&quot;http://www.baidu.com&quot;&gt;Jack Go&lt;/a&gt;&lt;/fish-option&gt;
     &lt;fish-option index=&quot;0-1&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
     &lt;fish-option index=&quot;0-2&quot; content=&quot;Active&quot;&gt;&lt;/fish-option&gt;
     &lt;fish-submenu index=&quot;0-3&quot;&gt;
@@ -188,6 +188,18 @@
               </fish-optgroup>
             </fish-menu>
           </template>
+          <template slot="codeHtml">
+          <pre v-highlightjs><code class="xml">&lt;fish-menu&gt;
+  &lt;fish-optgroup label=&quot;Manager&quot;&gt;
+    &lt;fish-option index=&quot;jack&quot; content=&quot;Jack&quot;&gt;&lt;/fish-option&gt;
+    &lt;fish-option index=&quot;lucy&quot; content=&quot;Lucy&quot;&gt;&lt;/fish-option&gt;
+  &lt;/fish-optgroup&gt;
+  &lt;fish-optgroup label=&quot;Engineer&quot;&gt;
+    &lt;fish-option index=&quot;y1&quot; content=&quot;Yiminghe&quot;&gt;&lt;/fish-option&gt;
+    &lt;fish-option index=&quot;y2&quot; content=&quot;Yiminghe2&quot;&gt;&lt;/fish-option&gt;
+  &lt;/fish-optgroup&gt;
+&lt;/fish-menu&gt;</code></pre>
+          </template>
         </code-card>
       </fish-col>
     </fish-row>
@@ -222,7 +234,7 @@
         </tbody>
       </table>
     </div>
-    <h3>Menu Option Attributes</h3>
+    <h3>Menu Option Attributes (support for slot)</h3>
     <div class="fish table attributes">
       <table style="table-layout: auto;">
         <thead>
@@ -243,12 +255,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in event_columns">{{column}}</th>
+          <th v-for="column in event_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in event_data">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in event_data" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
