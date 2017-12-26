@@ -5,7 +5,7 @@
        @mouseout="mouseOutHandler"
        v-clickoutside="awayHandler">
     <template v-if="multiple">
-      <a class="tag" @click.stop=""
+      <a class="tag" @click.stop="()=>{}"
          v-for="(item, index) in checkedItems" :key="index">
         {{ item.title }}
         <i :class="iconClose" @click.stop="closeItemHandler(item)"></i>
@@ -17,7 +17,7 @@
     </div>
     <i class="fa fa-times-circle" style="opacity: .6;" @click.stop="clearHandler" v-if="showClear && !valueEmpty"></i>
     <i class="fa fa-angle-down" v-else></i>
-    <div class="content" v-show="visible" @click.stop="">
+    <div class="content" v-show="visible" @click.stop="()=>{}">
       <fish-tree
           :data="data"
           :default-selected-key="selectedKey"
@@ -42,7 +42,7 @@
     name: 'fish-tree-select',
     directives: { clickoutside },
     props: {
-      value: { type: [String, Number, Array], default: () => [] },
+      value: { type: [String, Number, Array] },
       data: { type: Array, required: true },
       hint: { type: String, default: 'Please' },
       expand: { type: Boolean, default: false },
@@ -93,6 +93,7 @@
         this.visible = !this.visible
       },
       itemClickHandler (item) {
+        if (this.multiple) return
         this.emitChange(item.key)
         this.awayHandler()
       },
@@ -111,7 +112,9 @@
           this.checkedKeys = v
           this.checkedItems = []
         } else {
+          if (v.length <= 0) v = ''
           this.selectedKey = v || ''
+          this.selectedItem = null
         }
         this.resetValuesWithData(this.data)
         this.$emit('input', v)
