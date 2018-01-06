@@ -5,7 +5,7 @@
     <code-card title="Horizontal Login Form" desc="Horizontal login form is often used in navigation bar.">
       <template slot="demo">
         <fish-form inline>
-          <fish-field>
+          <fish-field v-show="true">
             <fish-input :iconLeft="true" icon="fa fa-user"></fish-input>
           </fish-field>
           <fish-field>
