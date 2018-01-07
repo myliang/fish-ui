@@ -4,7 +4,7 @@
   display: inline-block;
   background: #FFFFFF;
   border: 1px solid @input-border-color;
-  line-height: 1em;
+  line-height: @line-height;
   transition: box-shadow 0.1s ease, width 0.1s ease;
   border-radius: @border-radius;
   cursor: pointer;
@@ -52,7 +52,7 @@
       width: 1em;
       position: static;
       padding: 0;
-      line-height: normal;
+      line-height: @line-height;
     }
 
     &.search {
@@ -106,7 +106,7 @@
     position: relative;
     left: 0;
     z-index: 2;
-    line-height: normal;
+    line-height: @line-height;
     display: inline-block;
     //overflow: hidden;
     text-overflow:ellipsis;
@@ -124,7 +124,7 @@
     background: transparent;
     font-size: inherit;
     margin: 0;
-    line-height: normal;
+    line-height: @line-height;
     vertical-align: baseline;
     width: 100%;
     position: absolute;

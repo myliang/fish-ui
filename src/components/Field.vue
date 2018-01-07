@@ -1,7 +1,7 @@
 <template>
   <div :class="['field', {'inline': inline, 'disabled': disabled, 'required': required}, checked.state]" :style="styleObject">
-    <label v-if="label" class="label" :style="inline ? {'width': `${labelWidth}`, 'text-align': labelAlign} : {}">{{ label }}</label>
-    <slot></slot>
+    <label v-if="label" class="label" :style="inline ? {'width': `${labelWidth}${labelWidth !== 'auto' ? '%' : ''}`, 'text-align': labelAlign} : {}">{{ label }}</label>
+    <div :style="inline ? {width: `${labelWidth !== 'auto' ? 100 - this.labelWidth : '100'}%`} : {}"><slot></slot></div>
     <div class="tip" v-if="checked.state === 'error'">{{ checked.message }}</div>
   </div>
 </template>
@@ -14,7 +14,7 @@
     name: 'fish-field',
     props: {
       label: { type: String },
-      labelWidth: { type: String, default: 'auto' },
+      labelWidth: { type: [Number, String], default: 'auto' },
       labelAlign: { type: String, default: 'right' },
       span: { type: [String, Number], default: 0 },
       disabled: { type: Boolean, default: false },

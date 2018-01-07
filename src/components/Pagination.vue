@@ -2,13 +2,18 @@
   <ul class="fish pagination" v-if="total > 0">
     <li class="item total" v-html="totalRender(total, [(current - 1) * rows + 1, current * rows])"></li>
     <li :class="['item', {'disabled': current <= 1}]" @click.stop.prevent="prevHandler" v-html="prevRender()"></li>
-    <li :class="['item', { 'active': current === 1 }]" @click.stop.prevent="firstHandler">1</li>
-    <li class="item disabled" v-if="pages > 5 && current > 3">...</li>
-    <template v-for="i in pages">
-      <li :class="['item', { 'active': current == i }]" @click.stop.prevent="clickHandler(i)" v-if="inFive(i)">{{ i }}</li>
+    <template v-if="simple">
+      <li class="item active">{{current}}</li>
     </template>
-    <li class="item disabled" v-if="pages > 5 && (pages - current) > 3">...</li>
-    <li :class="['item', { 'active': current === pages }]" @click.stop.prevent="lastHandler" v-if="pages > 1">{{ pages }}</li>
+    <template v-else>
+      <li :class="['item', { 'active': current === 1 }]" @click.stop.prevent="firstHandler">1</li>
+      <li class="item disabled" v-if="pages > 5 && current > 3">...</li>
+      <template v-for="i in pages">
+        <li :class="['item', { 'active': current == i }]" @click.stop.prevent="clickHandler(i)" v-if="inFive(i)" :key="i">{{ i }}</li>
+      </template>
+      <li class="item disabled" v-if="pages > 5 && (pages - current) > 3">...</li>
+      <li :class="['item', { 'active': current === pages }]" @click.stop.prevent="lastHandler" v-if="pages > 1">{{ pages }}</li>
+    </template>
     <li :class="['item', {'disabled': current >= pages}]" @click.stop.prevent="nextHandler" v-html="nextRender()"></li>
   </ul>
 </template>
@@ -19,6 +24,7 @@
       total: { type: Number, required: true },
       current: { type: Number, default: 1 },
       rows: { type: Number, default: 10 },
+      simple: { type: Boolean, default: false },
       noMoreText: { type: String, default: 'No more data...' },
       prevRender: { type: Function, default: () => '<i class="fa fa-angle-left" style="margin-right:0; width: auto;"></i>' },
       nextRender: { type: Function, default: () => '<i class="fa fa-angle-right" style="margin-right:0; width: auto;"></i>' },

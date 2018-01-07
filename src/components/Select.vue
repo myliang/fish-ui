@@ -84,6 +84,15 @@
       })
       this.displayItems = this.$children
     },
+    watch: {
+      value (nowVal, oldVal) {
+        if (nowVal === '' || nowVal === null) {
+          if (!this.searchIsFunction) {
+            this.selectedItems = []
+          }
+        }
+      }
+    },
     computed: {
       valueEmpty () {
         return this.values.length === 0
