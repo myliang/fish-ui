@@ -9,16 +9,16 @@
         <slot></slot>
       </div>
       <ul>
-        <li v-for="(file, index) in allFiles" :class="[file.state || 'done', `percent-${file.percent}`]">
+        <li v-for="(file, index) in allFiles" :class="[file.state || 'done', `percent-${file.percent}`]" :key="index">
           <template v-if="type === 'picture'">
             <img :src="file._url || file.url" v-if="type === 'picture' && file.state !== 'progress'"/>
             <div class="info" @click="previewHandler(file)">
-              <i @click.stop="removeFile(index)">&times</i>
+              <i @click.stop="removeFile(index)">&times;</i>
             </div>
           </template>
           <template v-else>
             {{ file.name }}
-            <i class="close" @click.stop="removeFile(index)">&times</i>
+            <i class="close" @click.stop="removeFile(index)">&times;</i>
           </template>
         </li>
       </ul>

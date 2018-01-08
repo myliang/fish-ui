@@ -5,7 +5,7 @@
       <div class="header" v-if="title">
         {{ title }}
       </div>
-      <div class="content">
+      <div class="content" :style="{padding: padding}">
         <slot></slot>
       </div>
     </div>
@@ -16,6 +16,7 @@
     name: 'fish-modal',
     props: {
       title: { type: String },
+      padding: { type: String, default: '1em' },
       visible: { type: Boolean, default: false },
       marginTop: { type: String, default: '100px' }
     },
