@@ -47,6 +47,13 @@
     > .text {
       margin: @select-multiple-child-margin;
     }
+
+    > .tag {
+      ~ input {
+        margin: 0;
+      }
+    }
+    
     > input {
       margin: @select-multiple-child-margin;
       width: 1em;
@@ -72,14 +79,13 @@
     display: inline-block;
     padding: .35em 0.6em;
     line-height: 1em;
-    margin: @select-multiple-child-margin-vertical - 0.2562em 0.35em;
+    margin: @select-multiple-child-margin-vertical - .099 .35em;
     margin-left: 0;
     box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
     transition: background 0.1s ease;
     border: none;
     border-radius: @border-radius;
     color: rgba(0, 0, 0, 0.6);
-    font-weight: bold;
     font-size: 1em;
 
     ~ input {
