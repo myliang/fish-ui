@@ -45,6 +45,9 @@
         </fish-radios>
       </fish-field>
     </fish-fields>
+    <fish-field label="LableWidthM" :labelWidth="20" name="LableWidthM" :rules="[{ required: true }]" inline :showError="false">
+      <fish-input-number v-model="LableWidthM" label="Day"></fish-input-number>
+    </fish-field>
     <fish-field label="Upload" name="files" :rules="[{ required: true }]" inline>
       <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files" :withCredentials="true">
         <fish-button><i class="fa fa-upload" aria-hidden="true" style="margin-right: 5px;"></i> Upload</fish-button>
@@ -75,6 +78,7 @@
         level: '',
         files: [],
         email: '',
+        LableWidthM: 30,
         agree: true,
         options: [
           ['zhejiang', 'Zhejiang', [

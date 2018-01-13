@@ -40,7 +40,7 @@
     .disabled;    
 
     &.required {
-      .label:after {
+      > .label:after {
         margin: 0 0 0 .3em;
         content: '*';
         color: @error-color;
@@ -60,6 +60,18 @@
       > label {
         display: inline-block;
         margin: 0 1em 0 0;
+      }
+
+      &.required {
+        > .label:before {
+          margin: 0 0.3em 0 0;
+          content: '*';
+          color: @error-color;
+        }
+        > .label:after {
+          margin: 0;
+          content: '';
+        }
       }
 
       &.error .tip {

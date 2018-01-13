@@ -46,10 +46,10 @@
       <fish-col span="8">
         <code-card title="Step" desc="The number to which the current value is increased or decreased. It can be an integer or decimal.">
           <template slot="demo">
-            <fish-input-number step="5.5" v-model="vStep"></fish-input-number>
+            <fish-input-number step="5.5" v-model="vStep" label="day"></fish-input-number>
           </template>
           <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
-  &lt;fish-input-number step=&quot;5.5&quot; v-model=&quot;vStep&quot;&gt;&lt;/fish-input-number&gt;
+  &lt;fish-input-number step=&quot;5.5&quot; v-model=&quot;vStep&quot; label=&quot;day&quot;&gt;&lt;/fish-input-number&gt;
 &lt;/template&gt;
 &lt;script&gt;
   export default {
@@ -70,12 +70,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in api_data">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in api_data" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>

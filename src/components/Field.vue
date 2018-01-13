@@ -1,8 +1,8 @@
 <template>
   <div :class="['field', {'inline': inline, 'disabled': disabled, 'required': required}, checked.state]" :style="styleObject">
-    <label v-if="label" class="label" :style="inline ? {'width': `${labelWidth}${labelWidth !== 'auto' ? '%' : ''}`, 'text-align': labelAlign} : {}">{{ label }}</label>
-    <div :style="inline ? {width: `${labelWidth !== 'auto' ? 100 - this.labelWidth : '100'}%`} : {}"><slot></slot></div>
-    <div class="tip" v-if="checked.state === 'error'">{{ checked.message }}</div>
+    <label v-if="label" class="label" :style="lableStyle">{{ label }}</label>
+    <div :style="contentWrapperStyle"><slot></slot></div>
+    <div class="tip" v-if="showError && checked.state === 'error'">{{ checked.message }}</div>
   </div>
 </template>
 <script>
@@ -19,10 +19,39 @@
       span: { type: [String, Number], default: 0 },
       disabled: { type: Boolean, default: false },
       inline: { type: Boolean, default: false },
+      showError: { type: Boolean, default: true },
       name: { type: String }, // 需校验的字段名
       rules: { type: Array } // 验证规则
     },
     computed: {
+      lableStyle () {
+        const { inline, labelWidth, labelAlign } = this
+        const ret = {}
+        if (inline) {
+          ret['text-align'] = labelAlign
+          if (labelWidth !== 'auto') {
+            console.log(labelWidth, labelWidth instanceof Number)
+            if (Number.isFinite(labelWidth)) {
+              ret['width'] = `${labelWidth}%`
+            } else {
+              ret['width'] = labelWidth
+            }
+          }
+        }
+        return ret
+      },
+      contentWrapperStyle () {
+        const { inline, labelWidth } = this
+        const ret = {}
+        if (inline) {
+          if (labelWidth !== 'auto') {
+            if (Number.isFinite(labelWidth)) {
+              ret['width'] = `${100 - labelWidth}%`
+            }
+          }
+        }
+        return ret
+      },
       styleObject () {
         const { span } = this
         if (span === 0) return {}

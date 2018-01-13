@@ -105,6 +105,9 @@
         &lt;/fish-radios&gt;
       &lt;/fish-field&gt;
     &lt;/fish-fields&gt;
+    &lt;fish-field label=&quot;LableWidthM&quot; name=&quot;LableWidthM&quot; :rules=&quot;[{ required: true }]&quot; inline :showError=&quot;false&quot;&gt;
+      &lt;fish-input v-model=&quot;LableWidthM&quot;&gt;&lt;/fish-input&gt;
+    &lt;/fish-field&gt;
     &lt;fish-field label=&quot;Upload&quot; name=&quot;files&quot; :rules=&quot;[{ required: true }]&quot; inline&gt;
       &lt;fish-upload action=&quot;//jsonplaceholder.typicode.com/posts/&quot; v-model=&quot;files&quot; :withCredentials=&quot;true&quot;&gt;
         &lt;fish-button&gt;&lt;i class=&quot;fa fa-upload&quot; aria-hidden=&quot;true&quot; style=&quot;margin-right: 5px;&quot;&gt;&lt;/i&gt; Upload&lt;/fish-button&gt;
@@ -135,6 +138,7 @@
         level: &#x27;&#x27;,
         files: [],
         email: &#x27;&#x27;,
+        LableWidthM: &#x27;&#x27;,
         agree: true,
         options: [
           [&#x27;zhejiang&#x27;, &#x27;Zhejiang&#x27;, [
@@ -166,12 +170,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in api_data">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in api_data" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -182,12 +186,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in api_data2">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in api_data2" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -211,7 +215,7 @@
         ],
         api_data2: [
           ['label', 'Label content', 'String', '-'],
-          ['labelWidth', 'Label width is able when inline === true', 'String', 'auto'],
+          ['labelWidth', 'Label width is able when inline === true', 'Number, String', 'auto'],
           ['labelAlign', 'Label align is able when inline === true', 'String', 'right'],
           ['disabled', 'Whether is disabled or not', 'Boolean', 'false'],
           ['name', 'Validate the specified field Name', 'String', ''],

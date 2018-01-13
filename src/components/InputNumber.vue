@@ -1,8 +1,11 @@
 <template>
-  <div class="fish input number">
-    <div class="step">
-      <i class="fa fa-angle-up" @click.stop="upHandler"></i>
-      <i class="fa fa-angle-down" @click.stop="downHandler"></i>
+  <div :class="['fish input number']">
+    <div class="label-right">
+      <div class="step" ref="step">
+        <i class="fa fa-angle-up" @click.stop="upHandler"></i>
+        <i class="fa fa-angle-down" @click.stop="downHandler"></i>
+      </div>
+      <label v-if="label" ref="label">{{ label }}</label>
     </div>
     <input :placeholder="hint"
            autocomplete="off"
@@ -30,6 +33,7 @@
       step: { type: [Number, String], default: 1 },
       hint: { type: String, default: '' },
       size: { type: String },
+      label: { type: String },
       disabled: { type: Boolean, default: false },
       testExpress: { type: RegExp, default: () => /(^\d+$)|(^\d+(\.\d{0,4})?$)/ }
     },
