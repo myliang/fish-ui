@@ -12,7 +12,8 @@
 export default {
   name: 'fish-collapse-item',
   props: {
-    title: { type: String }
+    title: { type: String },
+    index: { type: [String, Number], requred: true }
   },
   data () {
     return {
@@ -22,7 +23,7 @@ export default {
   methods: {
     clickTitleHandler () {
       this.show = !this.show
-      this.$emit('click')
+      this.$emit('click', this.index, this.show)
     }
   }
 }

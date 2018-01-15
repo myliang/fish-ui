@@ -4,28 +4,28 @@
     <code-card title="Basic" desc="Basic Collapse">
       <template slot="demo">
         <fish-collapse>
-          <fish-collapse-item>
+          <fish-collapse-item index="A">
             <template slot="title">What is a dog?</template>
             <p class="transition visible" style="display: block !important;">A dog .</p>
           </fish-collapse-item>
-          <fish-collapse-item title="What kinds of dogs are there?">
+          <fish-collapse-item index="B" title="What kinds of dogs are there?">
             <p class="transition hidden">There are many breeds of dogs.</p>
           </fish-collapse-item>
-          <fish-collapse-item title="How do you acquire a dog?">
+          <fish-collapse-item index="C" title="How do you acquire a dog?">
             <p class="transition hidden">Three common ways for a prospective owner</p>
           </fish-collapse-item>
         </fish-collapse>
       </template>
       <template slot="codeHtml">
     <pre v-highlightjs><code class="xml">&lt;fish-collapse&gt;
-  &lt;fish-collapse-item&gt;
+  &lt;fish-collapse-item index=&quot;A&quot;&gt;
     &lt;template slot=&quot;title&quot;&gt;What is a dog?&lt;/template&gt;
     &lt;p class=&quot;transition visible&quot; style=&quot;display: block !important;&quot;&gt;A dog .&lt;/p&gt;
   &lt;/fish-collapse-item&gt;
-  &lt;fish-collapse-item title=&quot;What kinds of dogs are there?&quot;&gt;
+  &lt;fish-collapse-item index=&quot;B&quot; title=&quot;What kinds of dogs are there?&quot;&gt;
     &lt;p class=&quot;transition hidden&quot;&gt;There are many breeds of dogs.&lt;/p&gt;
   &lt;/fish-collapse-item&gt;
-  &lt;fish-collapse-item title=&quot;How do you acquire a dog?&quot;&gt;
+  &lt;fish-collapse-item index=&quot;C&quot; title=&quot;How do you acquire a dog?&quot;&gt;
     &lt;p class=&quot;transition hidden&quot;&gt;Three common ways for a prospective owner&lt;/p&gt;
   &lt;/fish-collapse-item&gt;
 &lt;/fish-collapse&gt;</code></pre>
@@ -35,36 +35,29 @@
     <code-card title="Border" desc="Border Collapse">
       <template slot="demo">
         <fish-collapse bordered>
-          <fish-collapse-item title="What is a dog?">
-            <p class="transition visible" style="display: block !important;">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+          <fish-collapse-item index="A">
+            <template slot="title">What is a dog?</template>
+            <p class="transition visible" style="display: block !important;">A dog .</p>
           </fish-collapse-item>
-          <fish-collapse-item title="What kinds of dogs are there?">
-            <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
+          <fish-collapse-item index="B" title="What kinds of dogs are there?">
+            <p class="transition hidden">There are many breeds of dogs.</p>
           </fish-collapse-item>
-          <fish-collapse-item title="How do you acquire a dog?">
-            <p class="transition hidden">Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
-        <p class="transition hidden">A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
+          <fish-collapse-item index="C" title="How do you acquire a dog?">
+            <p class="transition hidden">Three common ways for a prospective owner</p>
           </fish-collapse-item>
         </fish-collapse>
       </template>
       <template slot="codeHtml">
     <pre v-highlightjs><code class="xml">&lt;fish-collapse bordered&gt;
-  &lt;fish-collapse-item title=&quot;What is a dog?&quot;&gt;
-    &lt;p class=&quot;transition visible&quot; style=&quot;display: block !important;&quot;&gt;
-    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, 
-    it can be found as a welcome guest in many households across the world.&lt;/p&gt;
+  &lt;fish-collapse-item index=&quot;A&quot;&gt;
+    &lt;template slot=&quot;title&quot;&gt;What is a dog?&lt;/template&gt;
+    &lt;p class=&quot;transition visible&quot; style=&quot;display: block !important;&quot;&gt;A dog .&lt;/p&gt;
   &lt;/fish-collapse-item&gt;
-  &lt;fish-collapse-item title=&quot;What kinds of dogs are there?&quot;&gt;
-    &lt;p class=&quot;transition hidden&quot;&gt;There are many breeds of dogs. 
-    Each breed varies in size and temperament. Owners often select a breed of dog that they find to 
-    be compatible with their own lifestyle and desires from a companion.&lt;/p&gt;
+  &lt;fish-collapse-item index=&quot;B&quot; title=&quot;What kinds of dogs are there?&quot;&gt;
+    &lt;p class=&quot;transition hidden&quot;&gt;There are many breeds of dogs.&lt;/p&gt;
   &lt;/fish-collapse-item&gt;
-  &lt;fish-collapse-item title=&quot;How do you acquire a dog?&quot;&gt;
-    &lt;p class=&quot;transition hidden&quot;&gt;Three common ways for a prospective owner to acquire a dog is from pet shops, 
-    private owners, or shelters.&lt;/p&gt;
-&lt;p class=&quot;transition hidden&quot;&gt;A pet shop may be the most convenient way to buy a dog. Buying a dog 
-from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. 
-Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.&lt;/p&gt;
+  &lt;fish-collapse-item index=&quot;C&quot; title=&quot;How do you acquire a dog?&quot;&gt;
+    &lt;p class=&quot;transition hidden&quot;&gt;Three common ways for a prospective owner&lt;/p&gt;
   &lt;/fish-collapse-item&gt;
 &lt;/fish-collapse&gt;</code></pre>
       </template>
@@ -120,7 +113,8 @@ export default {
         ['bordered', 'Whether checkbox is bordered or not', 'Boolean', 'false']
       ],
       api_data2: [
-        ['title', 'collapse title or slot="title"', 'String', '-']
+        ['title', 'collapse title or slot="title"', 'String', '-'],
+        ['index', 'keyword required', 'String, Number', '-']
       ]
     }
   }
