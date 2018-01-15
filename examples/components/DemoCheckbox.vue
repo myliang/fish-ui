@@ -65,12 +65,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in api_data">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in api_data" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -81,12 +81,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in api_data2">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in api_data2" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>

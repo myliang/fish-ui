@@ -55,6 +55,7 @@
         {index: 'switch', text: 'Switch'},
         {index: 'select', text: 'Select'},
         {index: 'cascader', text: 'Cascader'},
+        {index: 'collapse', text: 'Collapse'},
         {index: 'calendar', text: 'Calendar'},
         {index: 'datepicker', text: 'DatePicker'},
         {index: 'timepicker', text: 'timePicker'},

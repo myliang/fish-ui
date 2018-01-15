@@ -1,0 +1,54 @@
+@import "./base.less";
+
+.@{css-prefix}.collapse {
+  font-size: 1em;
+  // .user-select(none);
+
+  &.bordered {
+    .border;
+  }
+
+  > .item {
+    border-bottom: @border-style;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    position: relative;
+
+    &:hover, &.active {
+      background: @hover-background-color;
+    }
+
+    &.active > .content {
+      display: block;
+    }
+
+    &:after {
+      position: absolute;
+      right: @padding-horizontal;
+      top: @padding-vertical + .25;
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      content: "\f107";
+    }
+
+    &:last-child {
+      border-bottom-width: 0;
+    }
+
+    > .title {
+      .padding;
+      cursor: pointer;
+      // &:hover {
+      //   background-color: @hover-background-color;
+      // }
+    }
+    > .content {
+      .padding;
+      padding-top: 0;
+      display: none;
+    }
+  }
+}

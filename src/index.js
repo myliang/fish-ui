@@ -47,6 +47,8 @@ import Transfer from './components/Transfer.vue'
 import Timeline from './components/Timeline.vue'
 import TimelineItem from './components/TimelineItem.vue'
 import Switch from './components/Switch.vue'
+import Collapse from './components/Collapse.vue'
+import CollapseItem from './components/CollapseItem.vue'
 
 import $message from './components/message.js'
 import $popup from './components/popup.js'
@@ -98,7 +100,9 @@ const components = {
   Transfer,
   Timeline,
   TimelineItem,
-  Switch
+  Switch,
+  Collapse,
+  CollapseItem
 }
 const install = function (Vue, opts = {}) {
   Object.values(components).forEach((component) => {
