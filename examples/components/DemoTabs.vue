@@ -40,7 +40,7 @@
       <fish-col span="12">
         <code-card title="Card" desc="Card tabs">
           <template slot="demo">
-            <fish-tabs type="card" value="user" @tab-change="tabChangeHandler">
+            <fish-tabs type="card" value="user" padding=".75em" @tab-change="tabChangeHandler">
               <fish-tab-pane label="User" index="user">User</fish-tab-pane>
               <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
               <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
@@ -68,7 +68,7 @@
       <fish-col span="12">
           <code-card title="Card, Nav in bottom" desc="Card, Nav in bottom">
             <template slot="demo">
-              <fish-tabs type="card" value="user" navPosition="bottom">
+              <fish-tabs type="card" value="user" padding="0.75em" navPosition="bottom">
                 <fish-tab-pane label="User" index="user">User</fish-tab-pane>
                 <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
                 <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
@@ -102,12 +102,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in api_data">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in api_data" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -118,12 +118,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in event_columns">{{column}}</th>
+          <th v-for="column in event_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in event_data">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in event_data" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -134,12 +134,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in api_data2">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, index) in api_data2" :key="index">
+          <td v-for="v in item" v-html="v" :key="v"></td>
         </tr>
         </tbody>
       </table>
@@ -164,7 +164,8 @@
         api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
           ['value', 'value', 'String, Number', '-'],
-          ['type', 'optional：<code>card</code> or empty', 'String', '-']
+          ['type', 'optional：<code>card</code> or empty', 'String', '-'],
+          ['padding', 'set content padding style', 'String', '-']
         ],
         api_data2: [
           ['label', 'tab label', 'String', '-'],

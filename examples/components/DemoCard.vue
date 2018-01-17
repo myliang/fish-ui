@@ -5,7 +5,7 @@
       <fish-col span="12">
         <code-card title="Basic" desc="A basic card containing a header, content and footer">
           <template slot="demo">
-            <fish-card>
+            <fish-card fluid>
               <div slot="header">Title</div>
               Kristy is an art director living in New York.<br/>
               Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
@@ -19,7 +19,7 @@
             </fish-card>
           </template>
           <template slot="codeHtml">
-            <pre v-highlightjs><code class="xml">&lt;fish-card&gt;
+            <pre v-highlightjs><code class="xml">&lt;fish-card fluid&gt;
   &lt;div slot=&quot;header&quot;&gt;Title&lt;/div&gt;
   Kristy is an art director living in New York.&lt;br/&gt;
   Veronika OssiIs a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
@@ -87,11 +87,70 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
         </code-card>
       </fish-col>
       <fish-col span="12">
-        <code-card title="Content" desc="containing content">
+        <code-card title="Cards" desc="Cards">
           <template slot="demo">
+            <fish-cards cols="two">
+              <fish-card>
+                <div slot="header"><strong>Title Color</strong></div>
+                Kristy is an art director living in New York.<br/>
+                Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
+                Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+                pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+              </fish-card>
+              <fish-card color="blue">
+                <div slot="header"><strong>Title Color</strong></div>
+                Kristy is an art director living in New York.<br/>
+                Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
+                Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+                pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+              </fish-card>
+              <fish-card color="green">
+                <div slot="header"><strong>Title Color</strong></div>
+                Kristy is an art director living in New York.<br/>
+                Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
+                Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+                pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+              </fish-card>
+              <fish-card color="red">
+                <div slot="header"><strong>Title Color</strong></div>
+                Kristy is an art director living in New York.<br/>
+                Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
+                Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+                pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+              </fish-card>
+            </fish-cards>
           </template>
           <template slot="codeHtml">
-            <pre v-highlightjs><code class="xml"></code></pre>
+            <pre v-highlightjs><code class="xml">&lt;fish-cards cols=&quot;two&quot;&gt;
+  &lt;fish-card&gt;
+    &lt;div slot=&quot;header&quot;&gt;&lt;strong&gt;Title Color&lt;/strong&gt;&lt;/div&gt;
+    Kristy is an art director living in New York.&lt;br/&gt;
+    Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. &lt;br/&gt;
+    Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+    pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+  &lt;/fish-card&gt;
+  &lt;fish-card color=&quot;blue&quot;&gt;
+    &lt;div slot=&quot;header&quot;&gt;&lt;strong&gt;Title Color&lt;/strong&gt;&lt;/div&gt;
+    Kristy is an art director living in New York.&lt;br/&gt;
+    Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. &lt;br/&gt;
+    Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+    pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+  &lt;/fish-card&gt;
+  &lt;fish-card color=&quot;green&quot;&gt;
+    &lt;div slot=&quot;header&quot;&gt;&lt;strong&gt;Title Color&lt;/strong&gt;&lt;/div&gt;
+    Kristy is an art director living in New York.&lt;br/&gt;
+    Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. &lt;br/&gt;
+    Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+    pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+  &lt;/fish-card&gt;
+  &lt;fish-card color=&quot;red&quot;&gt;
+    &lt;div slot=&quot;header&quot;&gt;&lt;strong&gt;Title Color&lt;/strong&gt;&lt;/div&gt;
+    Kristy is an art director living in New York.&lt;br/&gt;
+    Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. &lt;br/&gt;
+    Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
+    pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+  &lt;/fish-card&gt;
+&lt;/fish-cards&gt;</code></pre>
           </template>
         </code-card>
       </fish-col>

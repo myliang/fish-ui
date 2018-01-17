@@ -8,6 +8,14 @@
   .box-shadow;
   .border;
   border-radius: @border-radius @border-radius 0 0;
+  max-width: 100%;
+  display: flex;
+  .flex-direction(column);
+  width: 290px;
+
+  &.fluid {
+    width: 100%;
+  }
 
   .card-loop-color(@color-length);
 
@@ -23,6 +31,7 @@
   > .content {
     .padding;
     border-bottom: @border-style;
+    flex-grow: 1;
 
     .table {
       margin: -@padding-vertical -@padding-horizontal;
@@ -31,5 +40,38 @@
   }
   > .footer {
     .padding;
+  }
+}
+
+.@{css-prefix}.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -@padding-horizontal/2;
+
+  > .card {
+    margin: @padding-horizontal/2;
+  }
+
+  &.two > .card {
+    width: calc(~"50% - 0.75em")
+  }
+  &.three > .card {
+    width: calc(~"33.333% - 0.75em")
+  }
+  &.four > .card {
+    width: calc(~"25% - 0.75em")
+  }
+  &.five > .card {
+    width: calc(~"20% - 0.75em")
+  }
+  &.six > .card {
+    width: calc(~"16.666% - 0.75em")
+  }
+  
+}
+
+.@{css-prefix}.tabs {
+  .cards {
+    margin: @padding-horizontal/2;
   }
 }

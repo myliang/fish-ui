@@ -5,6 +5,7 @@ import Button from './components/Button.vue'
 import Buttons from './components/Buttons.vue'
 import Calendar from './components/Calendar.vue'
 import Card from './components/Card.vue'
+import Cards from './components/Cards.vue'
 import Carousel from './components/Carousel.vue'
 import CarouselItem from './components/CarouselItem.vue'
 import Cascader from './components/Cascader.vue'
@@ -59,6 +60,7 @@ const components = {
   Buttons,
   Calendar,
   Card,
+  Cards,
   Carousel,
   CarouselItem,
   Cascader,
