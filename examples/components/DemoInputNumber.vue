@@ -47,6 +47,7 @@
         <code-card title="Step" desc="The number to which the current value is increased or decreased. It can be an integer or decimal.">
           <template slot="demo">
             <fish-input-number step="5.5" v-model="vStep" label="day"></fish-input-number>
+            <fish-input-number v-model="vStep" labelLeft="over" label="day"></fish-input-number>
           </template>
           <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
   &lt;fish-input-number step=&quot;5.5&quot; v-model=&quot;vStep&quot; label=&quot;day&quot;&gt;&lt;/fish-input-number&gt;

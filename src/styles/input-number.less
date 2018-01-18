@@ -2,6 +2,7 @@
 
 .@{css-prefix}.input.number {
   z-index: 1;
+  vertical-align: middle;
 
   &:hover {
     .step {
@@ -24,6 +25,21 @@
       background: #f1f1f1;
       border-left: 1px solid @input-border-color;
       border-radius: 0 @border-radius @border-radius 0;
+    }
+  }
+
+  .label-left {
+    .user-select(none);
+    border-radius: @border-radius 0 0 @border-radius;
+    display: inline-flex;
+    padding: @input-padding;
+    background: #f1f1f1;
+    border: 1px solid @input-border-color;
+    border-right: none;
+    
+    ~ input {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 
