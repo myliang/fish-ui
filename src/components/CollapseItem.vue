@@ -2,6 +2,7 @@
   <div :class="['item', {'active': show}]">
     <div class="title" @click="clickTitleHandler">
       <slot name="title">{{ title }}</slot>
+      <label v-if="label">{{label}}</label>
     </div>
     <div class="content">
       <slot></slot>
@@ -13,6 +14,7 @@ export default {
   name: 'fish-collapse-item',
   props: {
     title: { type: String },
+    label: { type: String },
     index: { type: [String, Number], requred: true }
   },
   data () {

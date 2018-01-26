@@ -8,7 +8,7 @@
             <template slot="title">What is a dog?</template>
             <p class="transition visible" style="display: block !important;">A dog .</p>
           </fish-collapse-item>
-          <fish-collapse-item index="B" title="What kinds of dogs are there?">
+          <fish-collapse-item index="B" title="What kinds of dogs are there?" label="100">
             <p class="transition hidden">There are many breeds of dogs.</p>
           </fish-collapse-item>
           <fish-collapse-item index="C" title="How do you acquire a dog?">
@@ -114,6 +114,7 @@ export default {
       ],
       api_data2: [
         ['title', 'collapse title or slot="title"', 'String', '-'],
+        ['label', 'collapse label', 'String', '-'],
         ['index', 'keyword required', 'String, Number', '-']
       ]
     }
