@@ -3,7 +3,7 @@
     <div class="header">
       <a :class="['prev', {'disabled': state === 'year'}]" @click.stop.prevent="pageHandler(-1)"><i class="fa fa-chevron-left"></i></a>
       <template v-for="(mode, index) in modes" v-if="modeIndex >= index">
-        <a :class="mode" @click.stop="showItemsHandler(mode)">
+        <a :class="mode" @click.stop="showItemsHandler(mode)" :key="index">
           {{ mode === 'month' ? current[mode] + 1 : current[mode] }}
         </a>
         {{index < modeIndex ? (index <= 1 ? '-' : index === 2 ? ' ' : index <= 4 ? ':' : '') : ''}}
@@ -15,12 +15,12 @@
     <table :class="['body', state]">
       <thead v-if="state === 'day'">
       <tr>
-        <th v-for="week in weeks" class="cell">{{week}}</th>
+        <th v-for="week in weeks" class="cell" :key="week">{{week}}</th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="array in arrays">
-        <td v-for="item in array">
+      <tr v-for="(array, index) in arrays" :key="index">
+        <td v-for="(item, j) in array" :key="j">
           <div :class="['cell', {'active': cellActive(item)}, {'disabled': cellDisabled(item)}]"
                @click.stop="selectItemHandler(item)">
             <content-render v-if="cellRender" :render="cellRender" :params="[stateTitleRenderMap[state](item)]"></content-render>

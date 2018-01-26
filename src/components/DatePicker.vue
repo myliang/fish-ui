@@ -7,7 +7,7 @@
     <input type="text" :placeholder="hint" :value="value" readonly/>
     <i class="fa fa-times-circle" style="opacity: .6;" @click.stop="clearHandler" v-if="showClear && !valueEmpty"></i>
     <i class="fa fa-calendar" v-else></i>
-    <div class="content" v-if="visible">
+    <div class="content" v-if="visible" @click.stop="()=>{}">
       <fish-calendar @select="selectHandler"
                   :cellRender="cellRender"
                   :min="min" :max="max" :mode="mode"
