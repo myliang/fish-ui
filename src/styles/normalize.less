@@ -724,3 +724,79 @@ input::selection {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both
 }
+
+@keyframes slide-up-in {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+    -webkit-transform: scaleY(0.8);
+            transform: scaleY(0.8);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@keyframes slide-up-out {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+    -webkit-transform: scaleY(0.8);
+            transform: scaleY(0.8);
+  }
+}
+
+.slide-up-enter,
+.slide-up-appear {
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+.slide-up-leave {
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+.slide-up-enter.slide-up-enter-active,
+.slide-up-appear.slide-up-appear-active {
+  -webkit-animation-name: slide-up-in;
+          animation-name: slide-up-in;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+.slide-up-leave.slide-up-leave-active {
+  -webkit-animation-name: slide-up-out;
+          animation-name: slide-up-out;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+  pointer-events: none;
+}
+.slide-up-enter,
+.slide-up-appear {
+  opacity: 0;
+  -webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+          animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+.slide-up-leave {
+  -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+          animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
