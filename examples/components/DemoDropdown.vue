@@ -1,7 +1,7 @@
 <template>
   <main-layout menuActiveIndex="dropdown">
     <h3>Dropdown</h3>
-    <fish-card>
+    <fish-card fluid>
       <fish-dropdown>
         <a slot="title">Link<i class="fa fa-arrow-circle-down" style="margin-left: 10px;"></i></a>
         <fish-option index="0" content="Jack"></fish-option>
