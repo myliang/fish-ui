@@ -5,7 +5,7 @@
     <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
         <fish-button @click="showModalFunc">show Modal</fish-button>
-        <fish-modal title="Welcome.." :visible.sync="showModal">
+        <fish-modal title="Welcome.." :visible.sync="showModal" :width="600">
           <fish-form>
             <fish-fields>
               <fish-field label="First Name" span="eight">
@@ -102,6 +102,9 @@
         api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
           ['title', 'title', 'String', '-'],
+          ['padding', 'content padding', 'String', '1em'],
+          ['marginTop', 'modal margin top size', 'String', '100px'],
+          ['width', 'modal width', 'Number', '850'],
           ['visible', 'whether it is visible or not', 'Boolean', 'false']
         ]
       }

@@ -21,9 +21,11 @@ npm install fish-ui -S
 
 ## Quick Start
 
-### google font and font-awesome
-https://fonts.proxy.ustclug.org/css?family=Lato:400,700,400italic,700italic&subset=latin
-https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css
+### google font & font-awesome
+``` html
+<link type="stylesheet" ref="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"/>
+<link type="stylesheet" ref="https://fonts.proxy.ustclug.org/css?family=Lato:400,700,400italic,700italic&subset=latin"/>
+```
 
 ### Import all components
 ``` javascript

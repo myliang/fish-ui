@@ -8,6 +8,12 @@
       <p>Install Fish-UI with the node package manager. It can work with webpack and ES2015 very well.</p>
       <p>If you are in a bad network environment，you can try other registries and tools like cnpm。</p>
       <pre v-highlightjs><code class="bash">$ npm install less less-loader fish-ui --save</code></pre>
+      <h4>font-awesome & google font</h4>
+      <pre v-highlightjs><code class="html">
+&lt;link type=&quot;stylesheet&quot; ref=&quot;https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css&quot;/&gt;
+&lt;link type=&quot;stylesheet&quot; ref=&quot;https://fonts.proxy.ustclug.org/css?family=Lato:400,700,400italic,700italic&amp;subset=latin&quot;/&gt;
+      </code></pre>
+      
       <h3>Quick Start</h3>
       <p>vue-cli</p>
       <pre v-highlightjs><code class="bash">$ npm install -g vue-cli
