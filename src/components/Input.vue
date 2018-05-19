@@ -1,5 +1,9 @@
 <template>
   <div :class="classObject">
+    <div class="label-left" v-if="labelLeft" v-html="labelLeft"></div>
+    <div class="label-right">
+      <label v-if="label" ref="label" v-html="label"></label>
+    </div>
     <slot name="left"></slot>
     <textarea
       :placeholder="hint"
@@ -29,6 +33,8 @@
       loading: { type: Boolean, default: false },
       size: { type: String },
       transparent: { type: Boolean, default: false },
+      label: { type: String },
+      labelLeft: { type: String },
       disabled: { type: Boolean, default: false },
       clear: { type: Boolean, default: false }
     },

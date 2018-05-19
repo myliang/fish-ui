@@ -28,7 +28,7 @@
       </fish-col>
     </fish-row>
     <fish-row gutter="1">
-      <fish-col span="8">
+      <fish-col span="6">
         <code-card title="Icon" desc="Input icon">
           <template slot="demo">
             <fish-input icon="fa fa-search"></fish-input><br/><br/>
@@ -38,7 +38,19 @@
 &lt;fish-input icon=&quot;fa fa-search&quot; :iconLeft=&quot;true&quot;&gt;&lt;/fish-input&gt;</code></pre>
         </code-card>
       </fish-col>
-      <fish-col span="8">
+      <fish-col span="6">
+        <code-card title="Label" desc="label left or right">
+          <template slot="demo">
+            <fish-input label="right"></fish-input>
+            <fish-input label-left="left" icon="fa fa-search"></fish-input>
+            <fish-input label="right" label-left="left"></fish-input>
+          </template>
+          <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-input label=&quot;right&quot;&gt;&lt;/fish-input&gt;
+&lt;fish-input label-left=&quot;left&quot; icon=&quot;fa fa-search&quot;&gt;&lt;/fish-input&gt;
+&lt;fish-input label=&quot;right&quot; label-left=&quot;left&quot;&gt;&lt;/fish-input&gt;</code></pre>
+        </code-card>
+      </fish-col>
+      <fish-col span="6">
         <code-card title="TextArea" desc="use textarea for multirow input">
           <template slot="demo">
             <fish-input type="textarea" style="height: 50px;"></fish-input>
@@ -46,7 +58,7 @@
           <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-input type=&quot;textarea&quot; style=&quot;height: 50px;&quot;&gt;&lt;/fish-input&gt;</code></pre>
         </code-card>
       </fish-col>
-      <fish-col span="8">
+      <fish-col span="6">
         <code-card title="Size" desc="Input size">
           <template slot="demo">
             <fish-input size="big"></fish-input><br/><br/>
