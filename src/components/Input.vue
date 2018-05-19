@@ -41,7 +41,7 @@
       classObject () {
         return [
           'fish input',
-          this.icon && this.iconLeft ? 'left' : 'right',
+          this.icon && (this.iconLeft ? 'left' : 'right') || '',
           {'loading': this.loading},
           this.size,
           {'transparent': this.transparent},
