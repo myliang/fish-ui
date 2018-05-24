@@ -89,7 +89,7 @@
         this.$refs.input.click()
       },
       previewHandler (file) {
-        if (this.type === 'picture') {
+        if (this.type === 'picture' && this.preview) {
           this.previewUrl = file.url
           this.previewShow = true
         }

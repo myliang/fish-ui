@@ -99,9 +99,7 @@
           ['formatUrlFromResponse', 'parse url from response', 'Function(res)', '(res) => res']
         ],
         files1: [{name: 'xxx.png', url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'}],
-        files: [{name: 'xxx.png', url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'},
-          {name: 'yyy.png', url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'},
-          {name: 'zzz.png', url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'}]
+        files: []
       }
     }
   }
