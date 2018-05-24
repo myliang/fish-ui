@@ -9,7 +9,7 @@
     <div :class="['text', {'hint': valueEmpty}]">
       {{ selectedText || hint }}
     </div>
-    <div v-show="visible" class="content" :style="{width: `${(menuWidth + 2) * groups.length}px`}"
+    <div v-show="visible" class="content" :style="{width: `${(menuWidth + 2) * groups.length + 15 * groups.length}px`}"
          @click.stop="" @mouseover.stop="" @mouseout.stop="">
       <ul class="fish menu vertical" v-for="(group, groupIndex) in groups">
         <li :class="['item', {'active': selectedItems[groupIndex] && selectedItems[groupIndex][0] === item[0], 'submenu': itemChildren(item).length > 0}]"
