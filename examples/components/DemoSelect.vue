@@ -89,7 +89,7 @@
     </fish-row>
 
     <fish-row gutter="1">
-      <fish-col span="12">
+      <fish-col span="8">
         <code-card title="Multiple" desc="Multiple selection">
           <template slot="demo">
             <fish-select multiple v-model="multipleValues" @change="changeHandler">
@@ -128,7 +128,7 @@
 </code></pre>
         </code-card>
       </fish-col>
-      <fish-col span="12">
+      <fish-col span="8">
         <code-card title="Search, Multiple" desc="Search, Multiple selection。">
           <template slot="demo">
             <fish-select search multiple v-model="multipleValues1" @change="changeHandler">
@@ -165,6 +165,83 @@
   }
 &lt;/script&gt;
 </code></pre>
+        </code-card>
+      </fish-col>
+      <fish-col span="8">
+        <code-card title="Cascaded" desc="Cascaded selection width search。">
+           <template slot="demo">
+           <fish-row>
+            <fish-col span="10" style="margin-right: 5px;">
+            <fish-select search v-model="cascadedValue" @change="changeCascadedHandler">
+              <fish-option index="0" content="C0"></fish-option>
+              <fish-option index="1" content="C1"></fish-option>
+              <fish-option index="2" content="C2"></fish-option>
+              <fish-option index="3" content="C3"></fish-option>
+              <fish-option index="4" content="C4"></fish-option>
+              <fish-option index="5" content="C5"></fish-option>
+              <fish-option index="6" content="C6"></fish-option>
+              <fish-option index="7" content="C7"></fish-option>
+              <fish-option index="8" content="C8"></fish-option>
+              <fish-option index="9" content="C9"></fish-option>
+              <fish-option index="10" content="C10"></fish-option>
+              <fish-option index="11" content="C11"></fish-option>
+              <fish-option index="12" content="C12"></fish-option>
+              <fish-option index="13" content="C13"></fish-option>
+            </fish-select>
+            </fish-col>
+            <fish-col span="12">
+            <fish-select v-model="cascaded2Value">
+              <fish-option :index="v" :content="v" :key="v" v-for="v in cascaded2Values"></fish-option>
+            </fish-select>
+            </fish-col>
+           </fish-row>
+           </template>
+           <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-row&gt;
+    &lt;fish-col span=&quot;10&quot; style=&quot;margin-right: 5px;&quot;&gt;
+    &lt;fish-select search v-model=&quot;cascadedValue&quot; @change=&quot;changeCascadedHandler&quot;&gt;
+      &lt;fish-option index=&quot;0&quot; content=&quot;C0&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;1&quot; content=&quot;C1&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;2&quot; content=&quot;C2&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;3&quot; content=&quot;C3&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;4&quot; content=&quot;C4&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;5&quot; content=&quot;C5&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;6&quot; content=&quot;C6&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;7&quot; content=&quot;C7&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;8&quot; content=&quot;C8&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;9&quot; content=&quot;C9&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;10&quot; content=&quot;C10&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;11&quot; content=&quot;C11&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;12&quot; content=&quot;C12&quot;&gt;&lt;/fish-option&gt;
+      &lt;fish-option index=&quot;13&quot; content=&quot;C13&quot;&gt;&lt;/fish-option&gt;
+    &lt;/fish-select&gt;
+    &lt;/fish-col&gt;
+    &lt;fish-col span=&quot;12&quot;&gt;
+    &lt;fish-select v-model=&quot;cascaded2Value&quot;&gt;
+      &lt;fish-option :index=&quot;v&quot; :content=&quot;v&quot; :key=&quot;v&quot; v-for=&quot;v in cascaded2Values&quot;&gt;&lt;/fish-option&gt;
+    &lt;/fish-select&gt;
+    &lt;/fish-col&gt;
+   &lt;/fish-row&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    data () {
+      cascadedValue: &#x27;&#x27;,
+      cascaded2Value: &#x27;&#x27;,
+      cascaded2Values: [],
+    },
+    methods: {
+      changeCascadedHandler (v) {
+        if (v === &#x27;1&#x27;) {
+          this.cascaded2Values = [&#x27;test&#x27;, &#x27;test1&#x27;]
+        } else {
+          this.cascaded2Values = []
+          this.cascaded2Value = &#x27;&#x27;
+        }
+      }
+    }
+  }
+&lt;/script&gt;</code></pre>
         </code-card>
       </fish-col>
     </fish-row>
@@ -304,6 +381,9 @@ export default {
     },
     data () {
       return {
+        cascadedValue: '',
+        cascaded2Value: '',
+        cascaded2Values: [],
         multipleValues: [],
         multipleValues1: [],
         singleSelectedValue: '',
@@ -335,6 +415,14 @@ export default {
       }
     },
     methods: {
+      changeCascadedHandler (v) {
+        if (v === '1') {
+          this.cascaded2Values = ['test', 'test1']
+        } else {
+          this.cascaded2Values = []
+          this.cascaded2Value = ''
+        }
+      },
       changeHandler (values) {
         console.log('values:', values)
       },
