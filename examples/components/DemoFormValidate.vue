@@ -21,9 +21,6 @@
       </fish-field>
     </fish-fields>
     <fish-fields>
-      <fish-field label="Age" name="age" :rules="[{required: true}]">
-        <fish-input-number min="0" max="100" v-model="age"></fish-input-number>
-      </fish-field>
       <fish-field label="Sex" name="sex" :rules="[{required: true}]">
         <fish-select v-model="sex">
           <fish-option index="0" content="Male"></fish-option>
@@ -43,6 +40,19 @@
         <fish-radios v-model="level">
           <fish-radio :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index"><span v-html="c"></span></fish-radio>
         </fish-radios>
+      </fish-field>
+    </fish-fields>
+    <fish-fields>
+      <fish-field label="Age" name="age" :rules="[{required: true}]">
+        <fish-input-number min="0" max="100" v-model="age"></fish-input-number>
+      </fish-field>
+      <fish-field label="Multiple" name="CB" :rules="[{required: true}]">
+        <fish-checkboxes v-model="cb">
+          <fish-checkbox :index="index" v-for="(c, index) in ['A', 'B', 'C']" :key="index"><span v-html="c"></span></fish-checkbox>
+        </fish-checkboxes>
+      </fish-field>
+      <fish-field label="Switch">
+        <fish-switch v-model="agree">yes or no</fish-switch>
       </fish-field>
     </fish-fields>
     <fish-field label="LableWidthM" :labelWidth="20" name="LableWidthM" :rules="[{ required: true }]" inline :showError="false">
@@ -80,6 +90,7 @@
         email: '',
         LableWidthM: 30,
         agree: true,
+        cb: [],
         options: [
           ['zhejiang', 'Zhejiang', [
             ['hangzhou', 'Hangzhou', [
