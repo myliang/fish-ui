@@ -112,27 +112,15 @@
           this.emitSelect()
         }
       },
-      cellRenderFunc () {
-        return this[this.state + 'Render']
+      cellRenderFunc (h, params) {
+        return this[this.state + 'Render'](h, params)
       },
-//      cellTitleRender (item) {
-//        let title = stateTitleRenderMap[this.state](item)
-//        let content = this[this.state + 'Render'](item)
-//        return this.cellRenderTemplate(title, content)
-//      },
       cellActive (item) {
         const { current, state } = this
         if (this.state === 'day') {
           return current.day === item.date() && current.month === item.month() && current.year === item.year()
         }
         return current[state] === item
-//        for (let mode of modes) {
-//          if (mode === state) {
-//            return current[mode] === item
-//          } else {
-//            if (valueDate[mode]() !== current[mode]) return false
-//          }
-//        }
       },
       cellDisabled (item) {
         if (this.state === 'day') {

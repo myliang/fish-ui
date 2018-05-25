@@ -17,7 +17,8 @@
 
     <code-card title="Date" desc="show year, month, day">
       <template slot="demo">
-        <fish-calendar value="2017-01-08" min="2017-01-07" @select="selectHandler" @change="changeHandler"></fish-calendar>
+        <fish-calendar value="2017-01-08" min="2017-01-07" :dayRender="(h, day) => h('span', {}, 'xxx')" 
+          @select="selectHandler" @change="changeHandler"></fish-calendar>
       </template>
       <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
   &lt;fish-calendar value=&quot;2017-01-08&quot; min=&quot;2017-01-07&quot; @select=&quot;selectHandler&quot; @change=&quot;changeHandler&quot;&gt;&lt;/fish-calendar&gt;
