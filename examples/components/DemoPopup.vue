@@ -81,6 +81,7 @@
         })
       },
       popup2Handler (event) {
+        console.log(window.event, event)
         this.$popup.confirm(event, 'do you delete it？', () => {
           console.log('OK....')
         }, 'Confirm', 'Cancel')
