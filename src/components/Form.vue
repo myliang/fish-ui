@@ -19,21 +19,16 @@
       inline: { type: Boolean, default: false }
     },
     data () {
-      return {
-        fields: [] // 需要验证的fields
-      }
-    },
-    mounted () {
-      const { fields } = this
-      // 获取所有field组件，同时name不为空
-      getAllFields(fields, this.$children)
-      // console.log('form:', fields)
+      return {}
     },
     methods: {
       validate (cb) {
         let valid = true
         let count = 0
-        const { fields } = this
+        const fields = []
+        // 获取所有field组件，同时name不为空
+        getAllFields(fields, this.$children)
+
         fields.forEach((field) => {
           field.validate(errors => {
             if (errors) valid = false
