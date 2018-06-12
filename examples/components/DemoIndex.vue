@@ -10,8 +10,8 @@
       <pre v-highlightjs><code class="bash">$ npm install less less-loader fish-ui --save</code></pre>
       <h4>font-awesome & google font</h4>
       <pre v-highlightjs><code class="html">
-&lt;link type=&quot;stylesheet&quot; ref=&quot;https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css&quot;/&gt;
-&lt;link type=&quot;stylesheet&quot; ref=&quot;https://fonts.proxy.ustclug.org/css?family=Lato:400,700,400italic,700italic&amp;subset=latin&quot;/&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css&quot;/&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.proxy.ustclug.org/css?family=Lato:400,700,400italic,700italic&amp;subset=latin&quot;/&gt;
       </code></pre>
       
       <h3>Quick Start</h3>
