@@ -47,7 +47,12 @@
     },
     data () {
       return {
-        expands: this.rows.map((row) => false)
+        expands: []
+      }
+    },
+    watch: {
+      rows (nVal, oVal) {
+        this.expands = nVal.map((row) => false)
       }
     },
     methods: {
