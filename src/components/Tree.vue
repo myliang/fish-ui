@@ -6,7 +6,6 @@
       :data-key-map="dataKeyMap"
       :expand="expand"
       :edited="edited"
-      :delimiter="delimiter"
       :iconCaretRight="iconCaretRight"
       :iconCaretDown="iconCaretDown"
       :on-item-checked="onItemChecked"
@@ -27,7 +26,6 @@
       expand: { type: Boolean, default: false },
       data: { type: Array, required: true }, // [{title: '', key: '', children: '', checked: false}]
       edited: { type: Boolean, default: false },
-      delimiter: { type: String, default: '-' },
       iconCaretRight: { type: String, default: 'fa fa-caret-right' },
       iconCaretDown: { type: String, default: 'fa fa-caret-down' }
     },
@@ -48,7 +46,7 @@
     methods: {
       getResetDataKeyMap (checkedKeys) {
         const dataKeyMap = {}
-        initDataKeysMap(dataKeyMap, new Set(this.defaultCheckedKeys), this.data)
+        initDataKeysMap(dataKeyMap, new Set(this.defaultCheckedKeys), this.data, '-')
         return dataKeyMap
       },
       onItemChecked (item) {
@@ -90,18 +88,20 @@
       },
       setAllParentState (key) {
         // 设置所有父亲节点的状态
-        let parentKey = key.substring(0, key.lastIndexOf(this.delimiter))
-        if (parentKey === '') return
-        if (this.dataKeyMap[parentKey] && this.dataKeyMap[parentKey][1]) {
-          let parentAllChildrenChecked = this.dataKeyMap[parentKey][1].every((child) => {
-            return this.dataKeyMap[child][0] === 'checked'
-          })
-          let parentAllChildrenOpen = this.dataKeyMap[parentKey][1].some((child) => {
-            return this.dataKeyMap[child][0] === 'open' || this.dataKeyMap[child][0] === 'checked'
-          })
-          this.dataKeyMap[parentKey].splice(0, 1, parentAllChildrenChecked ? 'checked' : (parentAllChildrenOpen ? 'open' : ''))
+        if (this.dataKeyMap[key]) {
+          let parentKey = this.dataKeyMap[key][2]
+          if (parentKey === '') return
+          if (this.dataKeyMap[parentKey] && this.dataKeyMap[parentKey][1]) {
+            let parentAllChildrenChecked = this.dataKeyMap[parentKey][1].every((child) => {
+              return this.dataKeyMap[child][0] === 'checked'
+            })
+            let parentAllChildrenOpen = this.dataKeyMap[parentKey][1].some((child) => {
+              return this.dataKeyMap[child][0] === 'open' || this.dataKeyMap[child][0] === 'checked'
+            })
+            this.dataKeyMap[parentKey].splice(0, 1, parentAllChildrenChecked ? 'checked' : (parentAllChildrenOpen ? 'open' : ''))
+          }
+          this.setAllParentState(parentKey)
         }
-        this.setAllParentState(parentKey)
       }
     }
   }
@@ -114,12 +114,13 @@
     }
     return ''
   }
-  const initDataKeysMap = (dataKeysMap, setKeys, items) => {
+  const initDataKeysMap = (dataKeysMap, setKeys, items, parentKey) => {
     items && items.forEach((item) => {
       dataKeysMap[item.key] = [
         getKeyState(setKeys, item.key),
-        item.children && item.children.map((child) => child.key)]
-      initDataKeysMap(dataKeysMap, setKeys, item.children)
+        item.children && item.children.map((child) => child.key),
+        parentKey]
+      initDataKeysMap(dataKeysMap, setKeys, item.children, item.key)
     })
   }
 </script>

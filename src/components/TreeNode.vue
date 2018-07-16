@@ -43,7 +43,6 @@
       data: { type: Array, required: true }, // [{title: '', key: '', children: '', checked: false}]
       dataKeyMap: { type: Object }, // {key: [state, [[key, state]]}
       edited: { type: Boolean, default: false },
-      delimiter: { type: String, default: '-' },
       iconCaretRight: { type: String, default: 'fa fa-caret-right' },
       iconCaretDown: { type: String, default: 'fa fa-caret-down' },
       onItemChecked: { type: Function, default: (item) => {} },

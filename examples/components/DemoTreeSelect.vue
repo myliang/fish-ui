@@ -182,7 +182,7 @@
         api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
           ['value', 'v-model', 'Array', '[]'],
-          ['data', 'tree data, <strong style="color: red;">the rules of <code>key</code>code> are hierarchical, such as the level of 00, then they are 00-11... Through <code>key</code> can know the superior key</strong>', 'Array', ''],
+          ['data', 'tree data', 'Array', ''],
           ['hint', 'hint', 'String', 'Please'],
           ['multiple', 'whether it is multiple or not', 'Boolean', 'false'],
           ['expand', 'whether it is expand or not', 'Boolean', 'false'],

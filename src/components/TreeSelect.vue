@@ -24,7 +24,6 @@
           :default-checked-keys="checkedKeys"
           :multiple="multiple"
           :expand="expand"
-          :delimiter="delimiter"
           :iconCaretRight="iconCaretRight"
           :iconCaretDown="iconCaretDown"
           @item-click="itemClickHandler"
@@ -47,7 +46,6 @@
       hint: { type: String, default: 'Please' },
       expand: { type: Boolean, default: false },
       multiple: { type: Boolean, default: false },
-      delimiter: { type: String, default: '-' },
       iconClose: { type: String, default: 'fa fa-close' },
       iconCaretRight: { type: String, default: 'fa fa-caret-right' },
       iconCaretDown: { type: String, default: 'fa fa-caret-down' }
