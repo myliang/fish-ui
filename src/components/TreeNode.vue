@@ -54,7 +54,7 @@
     },
     data () {
       return {
-        visible: this.data.map((ele) => this.expand)
+        visible: this.data.map((ele) => ele.expand === undefined ? this.expand : ele.expand)
       }
     },
     methods: {

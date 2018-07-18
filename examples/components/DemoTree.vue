@@ -229,7 +229,7 @@
           ['defaultCheckedKeys', 'the default checked key when multiple is tree', 'Array', '[]'],
           ['multiple', 'whether it is multiple or not', 'Boolean', 'false'],
           ['expand', 'whether it is expand or not', 'Boolean', 'false'],
-          ['data', 'tree data: [{key: "", title: "", children: []}]', 'Array', ''],
+          ['data', 'tree data: [{key: "", title: "", expand: true | false, children: []}]', 'Array', ''],
           ['render', 'render show text', 'Function(item)', '() => item.title'],
           ['edited', 'whether it is edited or not', 'Boolean', 'false'],
           ['delimiter', 'the key delimiter in data', 'String', '-']
