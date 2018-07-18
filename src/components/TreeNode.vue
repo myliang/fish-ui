@@ -11,8 +11,7 @@
                      ref="checkboxes" v-if="multiple"></fish-checkbox>
       <span class="title"
             @click="onItemClick(item)"
-            @dblclick="onItemDblclick(item)">
-        {{ onItemRender(item) }}
+            @dblclick="onItemDblclick(item)" v-html="onItemRender(item)">
       </span>
       <strong v-if="edited && (!item.children || item.children.length <= 0)"
               @click="itemRemoveHandler(item, index)">&times;</strong>
