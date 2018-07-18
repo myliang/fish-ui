@@ -67,7 +67,8 @@
       addItem (evt) {
         this.modalShow = !this.modalShow
       },
-      itemRemove (item) {
+      itemRemove (data, item, index) {
+        data.splice(index, 1)
         console.log('remove item:', item)
       },
       saveItem () {

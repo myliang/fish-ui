@@ -9,9 +9,11 @@
             <pre v-highlightjs><code class="xml">&lt;template&gt;
   &lt;div&gt;
     &lt;fish-button @click=&quot;addItem&quot;&gt;Add Item&lt;/fish-button&gt;
-    &lt;fish-tree :data=&quot;data&quot; v-model=&quot;v&quot; expand
-               :on-item-click=&quot;selectHandler&quot;
-               :on-item-dblclick=&quot;itemDoubleClick&quot; edited&gt;&lt;/fish-tree&gt;
+    &lt;fish-tree :data=&quot;data&quot; :default-selected-key=&quot;&#x27;0-0-0&#x27;&quot; expand
+               @item-click=&quot;selectHandler&quot;
+               :onItemRender=&quot;treeRenderContent&quot;
+               @item-remove=&quot;itemRemove&quot;
+               @item-dblclick=&quot;itemDoubleClick&quot; edited&gt;&lt;/fish-tree&gt;
 
     &lt;fish-modal title=&quot;add tree item&quot; :visible.sync=&quot;modalShow&quot;&gt;
       &lt;fish-input v-model=&quot;name&quot;&gt;&lt;/fish-input&gt;
@@ -24,46 +26,72 @@
     name: &#x27;demo-tree-edit&#x27;,
     data () {
       return {
-        v: &#x27;xihu&#x27;,
         currentItem: null,
         editItem: null,
         treeState: &#x27;&#x27;,
         modalShow: false,
         name: &#x27;&#x27;,
-        data: [
-          [&#x27;0-0&#x27;, &#x27;0-0&#x27;, [
-            [&#x27;0-0-0&#x27;, &#x27;0-0-0&#x27;, [
-              [&#x27;0-0-0-0&#x27;, &#x27;0-0-0-0&#x27;],
-              [&#x27;0-0-0-1&#x27;, &#x27;0-0-0-1&#x27;],
-              [&#x27;0-0-0-2&#x27;, &#x27;0-0-0-2&#x27;]
-            ]],
-            [&#x27;0-0-1&#x27;, &#x27;0-0-1&#x27;, [
-              [&#x27;0-0-1-0&#x27;, &#x27;0-0-1-0&#x27;],
-              [&#x27;0-0-1-1&#x27;, &#x27;0-0-1-1&#x27;],
-              [&#x27;0-0-1-2&#x27;, &#x27;0-0-1-2&#x27;]
-            ]],
-            [&#x27;0-0-2&#x27;, &#x27;0-0-2&#x27;]
-          ]],
-          [&#x27;0-1&#x27;, &#x27;0-1&#x27;, [
-            [&#x27;0-1-0-0&#x27;, &#x27;0-1-0-0&#x27;],
-            [&#x27;0-1-0-1&#x27;, &#x27;0-1-0-1&#x27;],
-            [&#x27;0-1-0-2&#x27;, &#x27;0-1-0-2&#x27;]
-          ]],
-          [&#x27;0-2&#x27;, &#x27;0-2&#x27;]
-        ]
+        data: [{
+          title: &#x27;0-0&#x27;,
+          key: &#x27;0-0&#x27;,
+          children: [{
+            title: &#x27;0-0-0&#x27;,
+            key: &#x27;0-0-0&#x27;,
+            children: [
+              { title: &#x27;0-0-0-0&#x27;, key: &#x27;0-0-0-0&#x27; },
+              { title: &#x27;0-0-0-1&#x27;, key: &#x27;0-0-0-1&#x27; },
+              { title: &#x27;0-0-0-2&#x27;, key: &#x27;0-0-0-2&#x27; }
+            ]
+          }, {
+            title: &#x27;0-0-1&#x27;,
+            key: &#x27;0-0-1&#x27;,
+            children: [
+              { title: &#x27;0-0-1-0&#x27;, key: &#x27;0-0-1-0&#x27; },
+              { title: &#x27;0-0-1-1&#x27;, key: &#x27;0-0-1-1&#x27; },
+              { title: &#x27;0-0-1-2&#x27;, key: &#x27;0-0-1-2&#x27; }
+            ]
+          }, {
+            title: &#x27;0-0-2&#x27;,
+            key: &#x27;0-0-2&#x27;
+          }]
+        }, {
+          title: &#x27;0-1&#x27;,
+          key: &#x27;0-1&#x27;,
+          children: [
+            { title: &#x27;0-1-0-0&#x27;, key: &#x27;0-1-0-0&#x27; },
+            { title: &#x27;0-1-0-1&#x27;, key: &#x27;0-1-0-1&#x27; },
+            { title: &#x27;0-1-0-2&#x27;, key: &#x27;0-1-0-2&#x27; }
+          ]
+        }, {
+          title: &#x27;0-2&#x27;,
+          key: &#x27;0-2&#x27;
+        }]
       }
     },
     methods: {
+      treeRenderContent (item) {
+        return &#x60;-${item.title}-&#x60;
+      },
       addItem (evt) {
         this.modalShow = !this.modalShow
+      },
+      itemRemove (data, item, index) {
+        data.splice(index, 1)
+        console.log(&#x27;remove item:&#x27;, item)
       },
       saveItem () {
         const { name, currentItem } = this
         if (!/^\s*$/.test(name)) {
           if (this.treeState !== &#x27;edit&#x27;) {
-            currentItem === null ? this.data.push([name, name, []]) : (currentItem[2] = currentItem[2] || []).push([name, name])
+            if (currentItem === null) this.data.push({title: name, key: name, children: []})
+            else {
+              let nary = (currentItem.children || [])
+              nary.push({title: name, key: name})
+              this.$set(currentItem, &#x27;children&#x27;, nary)
+            }
           } else {
-            currentItem.splice(1, 1, name)
+            currentItem.title = name
+            // currentItem.splice(1, 1, name)
             this.treeState = &#x27;&#x27;
           }
         }
@@ -75,7 +103,7 @@
       itemDoubleClick (item) {
         this.treeState = &#x27;edit&#x27;
         this.currentItem = item
-        this.name = item[1]
+        this.name = item.title
         this.modalShow = true
       }
     }
@@ -210,7 +238,8 @@
         event_data: [
           ['item-checked(checkedKeys)', 'callback when item checked in multiple mode', 'key'],
           ['item-dblclick(item)', 'callback when item dblclick', 'item'],
-          ['item-click(item)', 'callback when item click', 'item']
+          ['item-click(item)', 'callback when item click', 'item'],
+          ['item-remove(data, item, itemIndex)', 'callback when item is removed', 'item']
         ]
       }
     }

@@ -49,7 +49,7 @@
       onItemChecked: { type: Function, default: (item) => {} },
       onItemDblclick: { type: Function, default: (item) => {} },
       onItemClick: { type: Function, default: (item) => {} },
-      onItemRemove: { type: Function, default: (item) => {} },
+      onItemRemove: { type: Function, default: (data, item, index) => {} },
       onItemRender: { type: Function, default: (item) => item.title }
     },
     data () {
@@ -62,8 +62,8 @@
         this.visible.splice(index, 1, !this.visible[index])
       },
       itemRemoveHandler (item, index) {
-        this.data.splice(index, 1)
-        this.onItemRemove(item)
+        // this.data.splice(index, 1)
+        this.onItemRemove(this.data, item, index)
       }
     }
   }

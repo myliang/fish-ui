@@ -68,8 +68,8 @@
         this.selectedKey = item.key
         this.$emit('item-click', item)
       },
-      onItemRemove (item) {
-        this.$emit('item-remove', item)
+      onItemRemove (data, item, itemIndex) {
+        this.$emit('item-remove', data, item, itemIndex)
       },
       getCheckedKeys () {
         // 获取选择的keys
