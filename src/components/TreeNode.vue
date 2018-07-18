@@ -12,7 +12,7 @@
       <span class="title"
             @click="onItemClick(item)"
             @dblclick="onItemDblclick(item)">
-        {{ item.title }}
+        {{ onItemRender(item) }}
       </span>
       <strong v-if="edited && (!item.children || item.children.length <= 0)"
               @click="itemRemoveHandler(item, index)">&times;</strong>
@@ -26,6 +26,7 @@
           :on-item-checked="onItemChecked"
           :on-item-dblclick="onItemDblclick"
           :on-item-click="onItemClick"
+          :on-item-render="onItemRender"
           v-if="item.children && visible[index]"></fish-tree-node>
     </li>
   </ul>
@@ -47,7 +48,8 @@
       iconCaretDown: { type: String, default: 'fa fa-caret-down' },
       onItemChecked: { type: Function, default: (item) => {} },
       onItemDblclick: { type: Function, default: (item) => {} },
-      onItemClick: { type: Function, default: (item) => {} }
+      onItemClick: { type: Function, default: (item) => {} },
+      onItemRender: { type: Function, default: (item) => item.title }
     },
     data () {
       return {

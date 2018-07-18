@@ -3,6 +3,7 @@
     <fish-button @click="addItem">Add Item</fish-button>
     <fish-tree :data="data" :default-selected-key="'0-0-0'" expand
                @item-click="selectHandler"
+               :onItemRender="treeRenderContent"
                @item-dblclick="itemDoubleClick" edited></fish-tree>
 
     <fish-modal title="add tree item" :visible.sync="modalShow">
@@ -59,6 +60,9 @@
       }
     },
     methods: {
+      treeRenderContent (item) {
+        return `-${item.title}-`
+      },
       addItem (evt) {
         this.modalShow = !this.modalShow
       },

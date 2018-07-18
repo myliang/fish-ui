@@ -6,6 +6,7 @@
       :data-key-map="dataKeyMap"
       :expand="expand"
       :edited="edited"
+      :on-item-render="onItemRender"
       :iconCaretRight="iconCaretRight"
       :iconCaretDown="iconCaretDown"
       :on-item-checked="onItemChecked"
@@ -26,6 +27,7 @@
       expand: { type: Boolean, default: false },
       data: { type: Array, required: true }, // [{title: '', key: '', children: '', checked: false}]
       edited: { type: Boolean, default: false },
+      onItemRender: { type: Function, default: (item) => item.title },
       iconCaretRight: { type: String, default: 'fa fa-caret-right' },
       iconCaretDown: { type: String, default: 'fa fa-caret-down' }
     },
