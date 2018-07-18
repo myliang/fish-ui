@@ -25,6 +25,7 @@
           :on-item-checked="onItemChecked"
           :on-item-dblclick="onItemDblclick"
           :on-item-click="onItemClick"
+          :on-item-remove="onItemRemove"
           :on-item-render="onItemRender"
           v-if="item.children && visible[index]"></fish-tree-node>
     </li>
@@ -48,6 +49,7 @@
       onItemChecked: { type: Function, default: (item) => {} },
       onItemDblclick: { type: Function, default: (item) => {} },
       onItemClick: { type: Function, default: (item) => {} },
+      onItemRemove: { type: Function, default: (item) => {} },
       onItemRender: { type: Function, default: (item) => item.title }
     },
     data () {
@@ -61,6 +63,7 @@
       },
       itemRemoveHandler (item, index) {
         this.data.splice(index, 1)
+        this.onItemRemove(item)
       }
     }
   }

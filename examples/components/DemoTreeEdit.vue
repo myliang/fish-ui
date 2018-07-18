@@ -4,6 +4,7 @@
     <fish-tree :data="data" :default-selected-key="'0-0-0'" expand
                @item-click="selectHandler"
                :onItemRender="treeRenderContent"
+               @item-remove="itemRemove"
                @item-dblclick="itemDoubleClick" edited></fish-tree>
 
     <fish-modal title="add tree item" :visible.sync="modalShow">
@@ -65,6 +66,9 @@
       },
       addItem (evt) {
         this.modalShow = !this.modalShow
+      },
+      itemRemove (item) {
+        console.log('remove item:', item)
       },
       saveItem () {
         const { name, currentItem } = this

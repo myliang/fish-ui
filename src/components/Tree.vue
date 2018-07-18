@@ -11,6 +11,7 @@
       :iconCaretDown="iconCaretDown"
       :on-item-checked="onItemChecked"
       :on-item-dblclick="onItemDblclick"
+      :on-item-remove="onItemRemove"
       :on-item-click="onItemClick">
   </fish-tree-node>
 </template>
@@ -66,6 +67,9 @@
       onItemClick (item) {
         this.selectedKey = item.key
         this.$emit('item-click', item)
+      },
+      onItemRemove (item) {
+        this.$emit('item-remove', item)
       },
       getCheckedKeys () {
         // 获取选择的keys
