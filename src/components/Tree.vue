@@ -41,9 +41,6 @@
     watch: {
       defaultSelectedKey (nowVal, oldVal) {
         this.selectedKey = nowVal
-      },
-      defaultCheckedKeys (nowVal, oldVal) {
-        this.dataKeyMap = this.getResetDataKeyMap()
       }
     },
     methods: {
