@@ -1,6 +1,8 @@
 <template>
-  <div :class="['fish dimmer active']" v-if="visible" style="position: fixed;">
-    <div :class="['fish modal']" ref="modal" :style="{'margin-top': marginTop, 'width': `${width}px`, 'margin-left': `-${width/2}px`}">
+  <div :class="['fish dimmer active']" v-if="visible" 
+    :style="{position: 'fixed'}">
+    <div :class="['fish modal']" ref="modal" 
+      :style="{'margin-top': marginTopV, 'width': `${width}px`, 'margin-left': `-${marginLeft}px`, left, top}">
       <i class="fa fa-times" @click="closeHandler"></i>
       <div class="header" v-if="title">
         {{ title }}
@@ -19,24 +21,54 @@
       padding: { type: String, default: '1em' },
       visible: { type: Boolean, default: false },
       marginTop: { type: String, default: '100px' },
-      width: { type: Number, default: 850 }
+      width: { type: Number, default: 850 },
+      triggerEvent: { type: Event, default: null } // 触发的事件对象
+    },
+    data () {
+      return {
+        left: '50%',
+        top: '0px',
+        marginLeft: this.width / 2,
+        marginTopV: this.marginTop
+      }
     },
     watch: {
-//      visible (nowVal, oldVal) {
-//        if (nowVal) {
-//          this.setMarginTop()
-//        }
-//      }
+      triggerEvent (nowVal, oldVal) {
+        if (nowVal != null) {
+          this.calLeftTop(nowVal)
+          this.marginLeft = 0
+          this.marginTopV = '0px'
+        } else {
+          this.left = '50%'
+          this.top = '0px'
+          this.marginLeft = this.width / 2
+          this.marginTopV = this.marginTop
+        }
+      }
     },
     methods: {
       closeHandler () {
         this.$emit('update:visible', false)
       },
-      setMarginTop () {
-        this.$nextTick(() => {
-          this.$refs.modal.style.marginTop = `-${this.$refs.modal.clientHeight / 2}px`
-        })
+      calLeftTop (event) {
+        const { target } = event
+        const {width, height, left, top} = getTargetOffset(target)
+        console.log('width: ', width, ', height: ', height, ', left: ', left, ', top:', top)
+        this.left = `${left + width + 10}px`
+        this.top = `${top}px`
       }
     }
+  }
+
+  const getTargetOffset = (target) => {
+    let { offsetWidth, offsetHeight, offsetLeft, offsetTop } = target
+    if (target.offsetParent != null) {
+      const {left, top} = getTargetOffset(target.offsetParent)
+      // offsetHeight += height
+      offsetLeft += left
+      offsetTop += top
+      // offsetWidth += width
+    }
+    return {height: offsetHeight, width: offsetWidth, left: offsetLeft, top: offsetTop}
   }
 </script>

@@ -78,7 +78,7 @@
         })
         return checkedKeys.filter((key, index) => {
           for (let k of checkedKeys) {
-            if (k !== key && key.startsWith(k)) {
+            if (k !== key && this.dataKeyMap[key][2] === k) {
               return false
             }
           }

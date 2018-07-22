@@ -5,7 +5,8 @@
     <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
         <fish-button @click="showModalFunc">show Modal</fish-button>
-        <fish-modal title="Welcome.." :visible.sync="showModal" :width="600">
+        <fish-button @click="showModalFunc2">trigger Event Modal</fish-button>
+        <fish-modal title="Welcome.." :visible.sync="showModal" :width="600" :trigger-event="triggerEvent">
           <fish-form>
             <fish-fields>
               <fish-field label="First Name" span="eight">
@@ -99,6 +100,7 @@
     data () {
       return {
         showModal: false,
+        triggerEvent: null,
         api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
           ['title', 'title', 'String', '-'],
@@ -110,7 +112,12 @@
       }
     },
     methods: {
-      showModalFunc () {
+      showModalFunc (evt) {
+        this.triggerEvent = null
+        this.showModal = true
+      },
+      showModalFunc2 (evt) {
+        this.triggerEvent = evt
         this.showModal = true
       }
     }

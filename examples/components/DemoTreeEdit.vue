@@ -1,7 +1,7 @@
 <template>
   <div>
     <fish-button @click="addItem">Add Item</fish-button>
-    <fish-tree :data="data" :default-selected-key="'0-0-0'" expand
+    <fish-tree :data="data" :default-selected-key="'0-0-0'"
                @item-click="selectHandler"
                :onItemRender="treeRenderContent"
                @item-remove="itemRemove"
@@ -26,6 +26,7 @@
         data: [{
           title: '0-0',
           key: '0-0',
+          expand: true,
           children: [{
             title: '0-0-0',
             key: '0-0-0',
