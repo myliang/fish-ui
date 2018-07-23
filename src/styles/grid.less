@@ -10,8 +10,8 @@
   -webkit-box-orient: horizontal;
   .flex-direction(row);
 
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
   -webkit-box-pack: inherit;
   -ms-flex-pack: inherit;
   justify-content: inherit;
@@ -66,6 +66,9 @@
 
 @media only screen and (max-width: @largestMobileScreen) {
   .@{css-prefix}.row {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
     .col {
       width: 100%!important;
       padding-right: 0!important;
