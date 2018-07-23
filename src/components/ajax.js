@@ -56,7 +56,7 @@ export default function upload (option) {
   formData.append(option.filename, option.file)
 
   xhr.onerror = function error (e) {
-    option.onError(e)
+    option.onError(e, xhr.res)
   }
 
   xhr.onload = function onload () {
