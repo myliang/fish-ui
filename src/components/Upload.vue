@@ -1,14 +1,14 @@
 <template>
   <div>
     <div :class="['fish upload', type]">
-      <div class="upload-select" @click="clickHandler" v-if="type === ''">
+      <div class="upload-select" @click="clickHandler" v-if="type === 'list' || type == ''">
         <input type="file" ref="input"
                @change="changeHandler"
                :multiple="multiple"
                :accept="accept"/>
         <slot></slot>
       </div>
-      <ul>
+      <ul v-if="type === 'list'">
         <li v-for="(file, index) in allFiles" :class="[file.state || 'done', `percent-${file.percent}`]" :key="index">
           <template v-if="type === 'picture'">
             <img :src="file._url || file.url" v-if="type === 'picture' && file.state !== 'progress'"/>
@@ -46,7 +46,7 @@
     name: 'fish-upload',
     props: {
       value: { type: Array }, // [{name: '', url: '', state: '']]
-      type: { type: String, default: '' }, // picture
+      type: { type: String, default: 'list' }, // picture
       action: { type: String, required: true },
       multiple: { type: Boolean, default: false },
       accept: { type: String, default: '*/*' },
