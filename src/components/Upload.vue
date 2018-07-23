@@ -153,10 +153,10 @@
               this.emitChange(nValue)
             }
           },
-          onError: err => {
+          onError: (err, res) => {
             file.state = 'error'
             this.uploadingFiles.splice(id, 1, file)
-            this.onError(err, file)
+            this.onError(err, res, file)
             delete this.reqs[id]
           }
         }
