@@ -56,6 +56,7 @@
       headers: { type: Object }, // http headers
       data: { type: Object }, // http data
       name: { type: String, default: 'file' },
+      onStart: { type: Function, default: (file) => {} },
       onProgress: { type: Function, default: () => {} },
       onSuccess: { type: Function, default: () => {} },
       onError: { type: Function, default: () => {} },
@@ -160,6 +161,7 @@
           }
         }
 
+        this.onStart(file)
         const req = ajax(options)
         this.reqs[id] = req
         if (req && req.then) {
