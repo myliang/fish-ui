@@ -120,6 +120,18 @@
       </template>
     </code-card>
 
+    <code-card title="Fixed, Auto" desc="layout left, right">
+      <template slot="demo">
+        <demo-grid-fixed></demo-grid-fixed>
+      </template>
+      <template slot="codeHtml">
+        <pre v-highlightjs><code class="xml">&lt;fish-row gutter=&quot;1&quot;&gt;
+  &lt;fish-col type=&quot;fixed&quot; :width=&quot;250&quot; class=&quot;demo-col&quot;&gt;Fixed-Width&lt;/fish-col&gt;
+  &lt;fish-col type=&quot;auto&quot; class=&quot;demo-col demo-col2&quot;&gt;content: auto width &lt;/fish-col&gt;
+&lt;/fish-row&gt;</code></pre>
+      </template>
+    </code-card>
+
     <h3>Row Attributes</h3>
     <div class="fish table attributes">
       <table style="table-layout: auto;">
@@ -155,6 +167,7 @@
 <script>
   import MainLayout from './MainLayout.vue'
   import DemoGridBase from './DemoGridBase.vue'
+  import DemoGridFixed from './DemoGridFixed.vue'
   import CodeCard from './CodeCard.vue'
   import DemoGridGutterOffset from './DemoGridGutterOffset.vue'
 
@@ -163,6 +176,7 @@
       DemoGridGutterOffset,
       CodeCard,
       DemoGridBase,
+      DemoGridFixed,
       MainLayout
     },
     data() {
@@ -175,6 +189,7 @@
           ['justify', 'horizontal arrangement of the flex layout: <code>start</code> <code>end</code> <code>center</code> <code>space-around</code> <code>space-between</code>', 'String', 'start']
         ],
         colData: [
+          ['type', 'options: percent, fixed, auto', 'String', 'percent'],
           ['span', 'raster number of cells to occupy (1-24)', 'String, Number', '-'],
           ['offset', 'the number of cells to offset Col from the left', 'String, Number', '0'],
           ['push', 'the number of cells that raster is moved to the right', 'String, Number', '0'],

@@ -29,6 +29,13 @@
     clear: both;
   }
 
+  .col.width-fixed {
+    .flex(0 0 auto);
+  }
+  .col.width-auto {
+    .flex(1 1 auto);
+  }
+
   // align垂直对齐方式
   &.top {
     .align-items(flex-start);
@@ -62,6 +69,10 @@
     .col {
       width: 100%!important;
       padding-right: 0!important;
+    }
+
+    .col.width-fixed {
+      width: 100%!important;
     }
   }
 }
