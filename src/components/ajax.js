@@ -56,12 +56,12 @@ export default function upload (option) {
   formData.append(option.filename, option.file)
 
   xhr.onerror = function error (e) {
-    option.onError(e, xhr.response)
+    option.onError(e, xhr)
   }
 
   xhr.onload = function onload () {
     if (xhr.status < 200 || xhr.status >= 300) {
-      return option.onError(getError(action, option, xhr))
+      return option.onError(getError(action, option, xhr), xhr)
     }
 
     option.onSuccess(getBody(xhr))
