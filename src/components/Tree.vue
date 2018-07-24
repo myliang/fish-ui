@@ -13,6 +13,9 @@
       :on-item-dblclick="onItemDblclick"
       :on-item-remove="onItemRemove"
       :on-item-click="onItemClick">
+      <template slot-scope="item">
+        <slot v-bind="item"></slot>
+      </template>
   </fish-tree-node>
 </template>
 <script>
