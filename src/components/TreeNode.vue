@@ -10,8 +10,7 @@
                      @click.stop="onItemChecked(item)"
                      ref="checkboxes" v-if="multiple"></fish-checkbox>
 
-      <span v-if="onItemRender"
-            class="title"
+      <span class="title"
             @click="onItemClick(item)"
             @dblclick="onItemDblclick(item)" v-html="onItemRender(item)">
       </span>
