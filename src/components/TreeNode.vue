@@ -9,10 +9,17 @@
                      :state="dataKeyMap[item.key][0]"
                      @click.stop="onItemChecked(item)"
                      ref="checkboxes" v-if="multiple"></fish-checkbox>
+
       <span class="title"
             @click="onItemClick(item)"
             @dblclick="onItemDblclick(item)" v-html="onItemRender(item)">
       </span>
+
+
+      <slot v-bind="item"
+            @click="onItemClick(item)"
+            @dblclick="onItemDblclick(item)"></slot>
+
       <strong v-if="edited && (!item.children || item.children.length <= 0)"
               @click="itemRemoveHandler(item, index)">&times;</strong>
       <fish-tree-node
@@ -27,7 +34,9 @@
           :on-item-click="onItemClick"
           :on-item-remove="onItemRemove"
           :on-item-render="onItemRender"
-          v-if="item.children && visible[index]"></fish-tree-node>
+          v-if="item.children && visible[index]">
+          <template slot-scope="item"><slot v-bind="item"></slot></template>
+          </fish-tree-node>
     </li>
   </ul>
 </template>
