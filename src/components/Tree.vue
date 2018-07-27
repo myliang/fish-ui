@@ -29,7 +29,7 @@
       defaultCheckedKeys: { type: Array, default: () => [] },
       multiple: { type: Boolean, default: false },
       expand: { type: Boolean, default: false },
-      data: { type: Array, required: true }, // [{title: '', key: '', children: '', checked: false}]
+      data: { type: Array, required: true }, // [{title: '', key: '', children: '', disabled: false}]
       edited: { type: Boolean, default: false },
       onItemRender: { type: Function, default: (item) => item.title },
       iconCaretRight: { type: String, default: 'fa fa-caret-right' },

@@ -1,6 +1,7 @@
 <template>
   <ul class="fish tree">
-    <li v-for="(item, index) in data" :key="item.key" :class="{'active': selectedKey === item.key}">
+    <li v-for="(item, index) in data" :key="item.key"
+      :class="{'active': selectedKey === item.key}">
       <i :class="item.children && visible[index] ? iconCaretDown : iconCaretRight"
          v-if="item.children && item.children.length > 0"
          @click.stop="showChildrenHandler(item, index)"></i>
