@@ -22,7 +22,7 @@
             @dblclick="onItemDblclick(item)"></slot>
 
       <strong v-if="edited && (!item.children || item.children.length <= 0)"
-              @click="itemRemoveHandler(item, index)">&times;</strong>
+              @click="itemRemoveHandler(item, index, $event)">&times;</strong>
       <fish-tree-node
           :data="item.children || []"
           :multiple="multiple"
@@ -59,7 +59,7 @@
       onItemChecked: { type: Function, default: (item) => {} },
       onItemDblclick: { type: Function, default: (item) => {} },
       onItemClick: { type: Function, default: (item) => {} },
-      onItemRemove: { type: Function, default: (data, item, index) => {} },
+      onItemRemove: { type: Function, default: (data, item, index, evt) => {} },
       onItemRender: { type: Function, default: (item) => item.title }
     },
     data () {
@@ -71,9 +71,9 @@
       showChildrenHandler (item, index) {
         this.visible.splice(index, 1, !this.visible[index])
       },
-      itemRemoveHandler (item, index) {
+      itemRemoveHandler (item, index, evt) {
         // this.data.splice(index, 1)
-        this.onItemRemove(this.data, item, index)
+        this.onItemRemove(this.data, item, index, evt)
       }
     }
   }
