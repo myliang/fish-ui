@@ -76,8 +76,8 @@
           } else {
             this.orderBy = 'desc'
           }
+          this.$emit('sort-change', this.orderKey, this.orderBy)
         }
-        this.$emit('sort-change', this.orderKey, this.orderBy)
       }
     }
   }
