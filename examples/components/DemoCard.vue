@@ -107,6 +107,7 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
               <fish-card color="green">
                 <div slot="header"><strong>Title Color</strong></div>
                 Kristy is an art director living in New York.<br/>
+                <fish-message>Message</fish-message>
                 Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
                 Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
                 pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.

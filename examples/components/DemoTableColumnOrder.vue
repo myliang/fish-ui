@@ -24,6 +24,7 @@
     },
     methods: {
       changeHandler (pagination, filters, sorter) {
+        console.log('::::::::::>>>')
         let nData = this.oldData
         for (let key of Object.keys(filters)) {
           nData = nData.filter((item) => filters[key].includes(item[key]))

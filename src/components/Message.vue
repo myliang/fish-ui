@@ -7,7 +7,7 @@
   export default {
     name: 'fish-message',
     props: {
-      type: { type: String, default: 'warning' }
+      type: { type: String, default: '' }
     }
   }
 </script>

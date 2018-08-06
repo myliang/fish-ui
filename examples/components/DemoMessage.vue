@@ -6,6 +6,9 @@
         <fish-message>
           Warning Description Warning Description Warning Description Warning Description
         </fish-message>
+        <fish-message type="warning">
+          Warning Description Warning Description Warning Description Warning Description
+        </fish-message>
         <fish-message type="error">
           Error Description Error Description Error Description Error Description
         </fish-message>
