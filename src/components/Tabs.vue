@@ -38,6 +38,7 @@
     },
     methods: {
       init (indexValue) {
+        this.tabs = []
         this.$children.forEach((ele, index) => {
           this.tabs.push(ele.label)
           // if (ele.index !== undefined) index = ele.index
