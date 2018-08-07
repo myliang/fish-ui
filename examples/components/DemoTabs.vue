@@ -5,7 +5,7 @@
       <fish-col span="12">
         <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
-            <fish-tabs value="role">
+            <fish-tabs v-model="indexValue">
               <fish-tab-pane label="User" index="user">User</fish-tab-pane>
               <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
               <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
@@ -157,6 +157,7 @@
     },
     data () {
       return {
+        indexValue: 'role',
         event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
           ['tab-change(index)', 'callback when tab changing', 'TabPanel.index <code>index</code>']

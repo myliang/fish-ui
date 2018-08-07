@@ -28,19 +28,27 @@
         activeIndex: 0
       }
     },
+    watch: {
+      value (nVal, oVal) {
+        this.init(nVal)
+      }
+    },
     mounted () {
-      this.$children.forEach((ele, index) => {
-        this.tabs.push(ele.label)
-        // if (ele.index !== undefined) index = ele.index
-        if (ele.index === this.value) {
-          ele.visible = true
-          this.activeIndex = index
-        } else {
-          ele.visible = false
-        }
-      })
+      this.init(this.value)
     },
     methods: {
+      init (indexValue) {
+        this.$children.forEach((ele, index) => {
+          this.tabs.push(ele.label)
+          // if (ele.index !== undefined) index = ele.index
+          if (ele.index === indexValue) {
+            ele.visible = true
+            this.activeIndex = index
+          } else {
+            ele.visible = false
+          }
+        })
+      },
       tabClickHandler (index) {
         this.$children[this.activeIndex].visible = false
         let ele = this.$children[index]
