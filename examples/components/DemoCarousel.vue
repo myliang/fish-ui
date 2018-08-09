@@ -36,7 +36,7 @@
       <fish-col span="12">
         <code-card title="Auto play" desc="Timing of scrolling to the next card/picture.">
           <template slot="demo">
-            <fish-carousel autoPlay>
+            <fish-carousel autoPlay dot-style="background-color: red;">
               <fish-carousel-item v-for="index in 4" :key="index">
                 <h3 class="carousel-xx" v-html="index"></h3>
               </fish-carousel-item>
@@ -95,6 +95,7 @@
       return {
         api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
+          ['dotStyle', 'dot style', 'stirng', ''],
           ['autoPlay', 'Whether to scroll automatically', 'Boolean', 'false']
         ]
       }
