@@ -73,16 +73,6 @@
       }
     },
     mounted () {
-      this.$children.forEach((ele) => {
-        ele.$el.style.display = 'block'
-        if (this.values.includes(ele.index)) {
-          ele.active = true
-          this.selectedItems.push(ele)
-        } else {
-          ele.active = false
-        }
-      })
-      this.displayItems = this.$children
     },
     watch: {
       value (nowVal, oldVal) {
@@ -90,6 +80,8 @@
           if (!this.searchIsFunction) {
             this.selectedItems = []
           }
+        } else {
+          this.initData()
         }
       }
     },
@@ -111,6 +103,18 @@
       }
     },
     methods: {
+      initData () {
+        this.$children.forEach((ele) => {
+          ele.$el.style.display = 'block'
+          if (this.values.includes(ele.index)) {
+            ele.active = true
+            this.selectedItems.push(ele)
+          } else {
+            ele.active = false
+          }
+        })
+        this.displayItems = this.$children
+      },
       searchInputHandler (v) {
         if (this.searchIsFunction) {
           this.search(v)

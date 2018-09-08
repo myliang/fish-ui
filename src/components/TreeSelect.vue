@@ -53,15 +53,23 @@
     data () {
       return {
         selectedItem: null,
-        selectedKey: Array.isArray(this.value) ? (this.value[0] || '') : this.value || '',
+        selectedKey: '',
         checkedItems: [],
-        checkedKeys: this.multiple ? this.value || [] : [],
+        checkedKeys: [],
         showClear: false,
         visible: false
       }
     },
     mounted () {
-      this.resetValuesWithData(this.data)
+      // this.resetValuesWithData(this.data)
+    },
+    watch: {
+      value (nowVal, oldValue) {
+        // console.log('nowVal: ', nowVal, this.data)
+        this.selectedKey = Array.isArray(this.value) ? (this.value[0] || '') : this.value || ''
+        this.checkedKeys = this.multiple ? this.value || [] : []
+        this.resetValuesWithData(this.data)
+      }
     },
     computed: {
       valueEmpty () {
