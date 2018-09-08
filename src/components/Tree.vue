@@ -12,7 +12,7 @@
       :on-item-checked="onItemChecked"
       :on-item-dblclick="onItemDblclick"
       :on-item-remove="onItemRemove"
-      :on-item-click="onItemClick">
+      :on-item-click="onItemClick" v-if="data && data.length > 0">
       <template slot-scope="item">
         <slot v-bind="item"></slot>
       </template>
