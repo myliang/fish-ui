@@ -62,13 +62,12 @@
     },
     mounted () {
       // this.resetValuesWithData(this.data)
+      this.initData(this.value)
     },
     watch: {
       value (nowVal, oldValue) {
         // console.log('nowVal: ', nowVal, this.data)
-        this.selectedKey = Array.isArray(this.value) ? (this.value[0] || '') : this.value || ''
-        this.checkedKeys = this.multiple ? this.value || [] : []
-        this.resetValuesWithData(this.data)
+        this.initData(nowVal)
       }
     },
     computed: {
@@ -77,6 +76,11 @@
       }
     },
     methods: {
+      initData (v) {
+        this.selectedKey = Array.isArray(v) ? (v[0] || '') : v || ''
+        this.checkedKeys = this.multiple ? v || [] : []
+        this.resetValuesWithData(this.data)
+      },
       resetValuesWithData (items) {
         items && items.forEach((item) => {
           if (this.multiple) {

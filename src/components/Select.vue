@@ -73,6 +73,7 @@
       }
     },
     mounted () {
+      this.initData()
     },
     watch: {
       value (nowVal, oldVal) {
