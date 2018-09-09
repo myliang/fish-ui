@@ -66,6 +66,7 @@
       },
       changeHandler (v) {
         this.$emit('input', v)
+        this.$emit('change', v)
         notify.field.change(this)
       }
     }
