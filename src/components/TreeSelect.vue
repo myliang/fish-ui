@@ -105,20 +105,20 @@
       },
       itemClickHandler (item) {
         if (this.multiple) return
-        this.emitChange(item.key)
+        this.emitChange(item.key, item)
         this.awayHandler()
       },
       itemCheckedHandler (checkedKeys) {
-        this.emitChange(checkedKeys)
+        this.emitChange(checkedKeys, [])
       },
       closeItemHandler (item) {
-        this.emitChange(this.checkedKeys.filter((key) => key !== item.key))
+        this.emitChange(this.checkedKeys.filter((key) => key !== item.key), [])
       },
       clearHandler () {
         this.visible = false
-        this.emitChange([])
+        this.emitChange([], [])
       },
-      emitChange (v) {
+      emitChange (v, vv) {
         if (this.multiple) {
           this.checkedKeys = v
           this.checkedItems = []
@@ -129,7 +129,7 @@
         }
         this.resetValuesWithData(this.data)
         this.$emit('input', v)
-        this.$emit('change', v)
+        this.$emit('change', v, vv)
         notify.field.change(this)
       },
       awayHandler () {
