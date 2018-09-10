@@ -1,5 +1,5 @@
 <template>
-  <div :class="['fish input number']">
+  <div :class="['fish input number', {'disabled': disabled}]">
     <div class="label-left" v-if="labelLeft" v-html="labelLeft"></div>
     <div class="label-right">
       <div class="step" ref="step">
