@@ -44,10 +44,13 @@
     watch: {
       defaultSelectedKey (nowVal, oldVal) {
         this.selectedKey = nowVal
+      },
+      defaultCheckedKeys (nowVal, oldVal) {
+        this.dataKeyMap = this.getResetDataKeyMap()
       }
     },
     methods: {
-      getResetDataKeyMap (checkedKeys) {
+      getResetDataKeyMap () {
         const dataKeyMap = {}
         initDataKeysMap(dataKeyMap, new Set(this.defaultCheckedKeys), this.data, '-')
         return dataKeyMap
