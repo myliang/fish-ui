@@ -105,6 +105,7 @@
     },
     methods: {
       initData () {
+        this.selectedItems = []
         this.$children.forEach((ele) => {
           ele.$el.style.display = 'block'
           if (this.values.includes(ele.index)) {

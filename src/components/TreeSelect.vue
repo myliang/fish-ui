@@ -79,6 +79,7 @@
       initData (v) {
         this.selectedKey = Array.isArray(v) ? (v[0] || '') : v || ''
         this.checkedKeys = this.multiple ? v || [] : []
+        this.checkedItems = []
         this.resetValuesWithData(this.data)
       },
       resetValuesWithData (items) {
