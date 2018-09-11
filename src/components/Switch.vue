@@ -7,7 +7,7 @@
 export default {
   name: 'fish-switch',
   props: {
-    value: { type: Boolean, default: false },
+    value: { type: [Boolean, Number, String], default: false },
     disabled: { type: Boolean, default: false },
     yesOrNo: { type: Array, default: [true, false] }
   },
