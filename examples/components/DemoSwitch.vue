@@ -5,17 +5,17 @@
       <fish-col span="12">
         <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
-            <fish-switch v-model="v"></fish-switch>
+            <fish-switch v-model="v" :yesOrNo="[1, 0]"></fish-switch>
             <fish-switch v-model="v1">checked...</fish-switch>
           </template>
           <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
-  &lt;fish-switch v-model=&quot;v&quot;&gt;&lt;/fish-switch&gt;
+  &lt;fish-switch v-model=&quot;v&quot; :yesOrNo=&quot;[1, 0]&quot;&gt;&lt;/fish-switch&gt;
   &lt;fish-switch v-model=&quot;v1&quot;&gt;checked...&lt;/fish-switch&gt;
 &lt;/template&gt;
 &lt;script&gt;
   export default {
     data () {
-      v: false,
+      v: 0,
       v1: true
     }
   }
@@ -69,12 +69,13 @@ export default {
   },
   data () {
     return {
-      v: false,
+      v: 0,
       v1: true,
       api_columns: ['Attribute', 'Description', 'Type', 'Default'],
-        api_data: [
-          ['disabled', 'whether it is disabled', 'Boolean', 'false']
-        ],
+      api_data: [
+        ['disabled', 'whether it is disabled', 'Boolean', 'false'],
+        ['yesOrNo', 'yes or no', 'Array', '[true, false]']
+      ]
     }
   }
 }

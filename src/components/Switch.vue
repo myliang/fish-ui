@@ -1,5 +1,5 @@
 <template>
-  <div :class="['fish switch', {'disabled': disabled}, {'checked': this.value}]" @click="clickHandler">
+  <div :class="['fish switch', {'disabled': disabled}, {'checked': yesOrNo[0] === this.value}]" @click="clickHandler">
     <slot></slot>
   </div>
 </template>
@@ -8,11 +8,12 @@ export default {
   name: 'fish-switch',
   props: {
     value: { type: Boolean, default: false },
-    disabled: { type: Boolean, default: false }
+    disabled: { type: Boolean, default: false },
+    yesOrNo: { type: Array, default: [true, false] }
   },
   methods: {
     clickHandler () {
-      this.$emit('input', !this.value)
+      this.$emit('input', this.yesOrNo[0] === this.value ? this.yesOrNo[1] : this.yesOrNo[0])
     }
   }
 }
