@@ -59,8 +59,8 @@
         let items = this.items
         this.lastActiveIndex && this.lastActiveIndex.toString().split(this.indexDelimiter).forEach((i) => {
           // console.log('last.i:', i, '>>>', items[i])
-          items[i].active = false
           try {
+            items[i].active = false
             if (items[i].mode === 'inline') items[i].visible = false
             items = items[i].items
           } catch (e) {}
@@ -71,8 +71,8 @@
         index.toString().split(this.indexDelimiter).forEach((i) => {
           // console.log('::::::::::', i, '>>>', items[i])
           if (items[i] !== undefined) {
-            items[i].active = true
             try {
+              items[i].active = true
               if (items[i].mode === 'inline') items[i].visible = true
               // console.log('sub', items[i])
               items = items[i].items
