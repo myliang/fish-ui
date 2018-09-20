@@ -141,7 +141,7 @@
             file.url = this.formatUrlFromResponse(res)
             this.uploadingFiles.splice(id, 1, file)
             this.onSuccess(res, file)
-            if (Object.keys(this.reqs).length <= 0) {
+            if (Object.keys(this.reqs).length <= 0 && this.value) {
               let nValue = Array.from(this.value)
               this.uploadingFiles.forEach((f) => {
                 if (f.state === 'done') {
