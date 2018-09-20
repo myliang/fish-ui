@@ -9,7 +9,7 @@ export default {
   props: {
     value: { type: [Boolean, Number, String], default: false },
     disabled: { type: Boolean, default: false },
-    yesOrNo: { type: Array, default: [true, false] }
+    yesOrNo: { type: Array, default: () => [true, false] }
   },
   methods: {
     clickHandler () {
