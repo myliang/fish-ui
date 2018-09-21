@@ -15,22 +15,11 @@
     },
     data () {
       return {
-        items: {},
         activeItem: null,
         lastActiveIndex: null
       }
     },
     mounted () {
-      this.items = {}
-      this.$children.forEach((ele) => {
-        if (ele.$options.name === 'fish-optgroup') {
-          ele.$children.forEach((e) => {
-            if (e.$options.name === 'fish-option') this.items[e.index] = e
-          })
-        } else if (['fish-option', 'fish-submenu'].includes(ele.$options.name)) {
-          this.items[ele.index] = ele
-        }
-      })
       // console.log('items:', this.items)
       if (this.defaultActive) {
         this.setActive(this.defaultActive)
@@ -56,7 +45,7 @@
       setActive (index) {
         if (index === undefined) return
         // console.log('index:', index, 'lastIndex:', this.lastActiveIndex)
-        let items = this.items
+        let items = this.getItems()
         this.lastActiveIndex && this.lastActiveIndex.toString().split(this.indexDelimiter).forEach((i) => {
           // console.log('last.i:', i, '>>>', items[i])
           try {
@@ -67,7 +56,7 @@
         })
 
         this.lastActiveIndex = index
-        items = this.items
+        items = this.getItems()
         index.toString().split(this.indexDelimiter).forEach((i) => {
           // console.log('::::::::::', i, '>>>', items[i])
           if (items[i] !== undefined) {
@@ -79,6 +68,19 @@
             } catch (e) {}
           }
         })
+      },
+      getItems () {
+        const items = {}
+        this.$children.forEach((ele) => {
+          if (ele.$options.name === 'fish-optgroup') {
+            ele.$children.forEach((e) => {
+              if (e.$options.name === 'fish-option') this.items[ele.index] = e
+            })
+          } else if (['fish-option', 'fish-submenu'].includes(ele.$options.name)) {
+            items[ele.index] = ele
+          }
+        })
+        return items
       }
     }
 
