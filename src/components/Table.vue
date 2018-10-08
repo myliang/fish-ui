@@ -86,20 +86,14 @@
         trHeight: 38
       }
     },
+    watch: {
+      columns (nval, oval) {
+        // console.log('::::::columns.nval:', nval)
+        this.init()
+      }
+    },
     mounted () {
-      this.rows = getRows(this.allColumns, this.maxRows)
-      this.allLeafColumns = this.allColumns.filter((c) => { return !c.children })
-
-      // fixed columns
-      this.columns.forEach((column) => {
-        if (column.fixed !== undefined) {
-          if (column.fixed === 'left') {
-            this.fixedLeftColumns.push(column)
-          } else if (column.fixed === 'right') {
-            this.fixedRightColumns.push(column)
-          }
-        }
-      })
+      this.init()
       this.calScroll()
       window.addEventListener('resize', this.calScroll)
     },
@@ -107,6 +101,23 @@
       window.removeEventListener('resize', this.calScroll)
     },
     methods: {
+      init () {
+        this.maxRows = getMaxDeepColumns(this.columns)
+        this.allColumns = getColumns(this.columns)
+        this.rows = getRows(this.allColumns, this.maxRows)
+        this.allLeafColumns = this.allColumns.filter((c) => { return !c.children })
+
+        // fixed columns
+        this.columns.forEach((column) => {
+          if (column.fixed !== undefined) {
+            if (column.fixed === 'left') {
+              this.fixedLeftColumns.push(column)
+            } else if (column.fixed === 'right') {
+              this.fixedRightColumns.push(column)
+            }
+          }
+        })
+      },
       pageChangeHandler (currentPage) {
         this.currentPage = currentPage
         this.changeHandler()
