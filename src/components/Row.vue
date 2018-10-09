@@ -12,12 +12,14 @@
       justify: { type: [String, Number], default: 'start' }
     },
     mounted () {
-      this.$children.forEach((col, index) => {
-        if (this.gutter > 0) {
-          if (index < this.$children.length - 1) col.$el.style.paddingRight = this.gutter + 'em'
-          col.$el.style.paddingBottom = this.gutter + 'em'
-        }
-      })
+      setTimeout(() => {
+        this.$children.forEach((col, index) => {
+          if (this.gutter > 0) {
+            if (index < this.$children.length - 1) col.$el.style.paddingRight = this.gutter + 'em'
+            col.$el.style.paddingBottom = this.gutter + 'em'
+          }
+        })
+      }, 1)
     }
   }
 </script>
