@@ -115,18 +115,20 @@
     }
   }
 
-  const getKeyState = (setKeys, key) => {
+  const getKeyState = (dataKeysMap, setKeys, key, parentKey) => {
     if (setKeys.has(key)) return 'checked'
+    // console.log(':::::setKeys:', setKeys, ', key:', key, ', dataKeysMap:', dataKeysMap[parentKey])
     for (let setKey of setKeys.keys()) {
-      if (setKey.startsWith(key)) return 'open'
+      if (setKey.startsWith(key + '-')) return 'open'
       if (key.startsWith(setKey)) return 'checked'
     }
     return ''
   }
   const initDataKeysMap = (dataKeysMap, setKeys, items, parentKey) => {
     items && items.forEach((item) => {
+      console.log('::::::', item)
       dataKeysMap[item.key] = [
-        getKeyState(setKeys, item.key),
+        getKeyState(dataKeysMap, setKeys, item.key, parentKey),
         item.children && item.children.map((child) => child.key),
         parentKey]
       initDataKeysMap(dataKeysMap, setKeys, item.children, item.key)
