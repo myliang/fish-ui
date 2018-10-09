@@ -12,14 +12,13 @@
       justify: { type: [String, Number], default: 'start' }
     },
     mounted () {
-      setTimeout(() => {
-        this.$children.forEach((col, index) => {
-          if (this.gutter > 0) {
-            if (index < this.$children.length - 1) col.$el.style.paddingRight = this.gutter + 'em'
-            col.$el.style.paddingBottom = this.gutter + 'em'
-          }
-        })
-      }, 1)
+      // $children顺序有点问题。。
+      this.$children.forEach((col, index) => {
+        if (this.gutter > 0) {
+          if (index < this.$children.length - 1) col.$el.style.paddingRight = this.gutter + 'em'
+          col.$el.style.paddingBottom = this.gutter + 'em'
+        }
+      })
     }
   }
 </script>
