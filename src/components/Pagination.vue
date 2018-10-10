@@ -3,7 +3,9 @@
     <li class="item total" v-html="totalRender(total, [(current - 1) * rows + 1, current * rows])"></li>
     <li :class="['item', {'disabled': current <= 1}]" @click.stop.prevent="prevHandler" v-html="prevRender()"></li>
     <template v-if="simple">
-      <li class="item active">{{current}}</li>
+      <li class="item">
+        <input type="text" :value="current" @keydown.enter="toPageHandler($event.target.value)" @input="inputHandler($event)"/>
+      </li>
     </template>
     <template v-else>
       <li :class="['item', { 'active': current === 1 }]" @click.stop.prevent="firstHandler">1</li>
@@ -40,6 +42,24 @@
       }
     },
     methods: {
+      toPageHandler (v) {
+        if (/^\s*$/.test(v)) {
+          this.clickHandler(this.current)
+        } else {
+          this.clickHandler(parseInt(v))
+        }
+      },
+      inputHandler (evt) {
+        const v = evt.target.value
+        if (/^\s*$/.test(v)) {
+          return
+        }
+        if (/(^\d+$)/.test(v) && parseInt(v) >= 1 && parseInt(v) <= this.pages) {
+          return
+        } else {
+          evt.target.value = this.current
+        }
+      },
       clickHandler (index) {
         if (index !== this.current) {
           // this.current = index
