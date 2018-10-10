@@ -126,7 +126,7 @@
   }
   const initDataKeysMap = (dataKeysMap, setKeys, items, parentKey) => {
     items && items.forEach((item) => {
-      console.log('::::::', item)
+      // console.log('::::::', item)
       dataKeysMap[item.key] = [
         getKeyState(dataKeysMap, setKeys, item.key, parentKey),
         item.children && item.children.map((child) => child.key),
