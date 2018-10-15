@@ -90,6 +90,9 @@
       columns (nval, oval) {
         // console.log('::::::columns.nval:', nval)
         this.init()
+      },
+      pagination (nval, oval) {
+        this.currentPage = nval ? nval.current : 1
       }
     },
     mounted () {
