@@ -1,22 +1,22 @@
 <template>
   <ul class="fish pagination" v-if="total > 0">
-    <li class="item total" v-html="totalRender(total, [(current - 1) * rows + 1, current * rows])"></li>
-    <li :class="['item', {'disabled': current <= 1}]" @click.stop.prevent="prevHandler" v-html="prevRender()"></li>
+    <li class="item total" v-html="totalRender(total, [(currentInt - 1) * rows + 1, currentInt * rows])"></li>
+    <li :class="['item', {'disabled': currentInt <= 1}]" @click.stop.prevent="prevHandler" v-html="prevRender()"></li>
     <template v-if="simple">
       <li class="item">
         <input type="text" :value="current" @keydown.enter="toPageHandler($event.target.value)" @input="inputHandler($event)"/>
       </li>
     </template>
     <template v-else>
-      <li :class="['item', { 'active': current === 1 }]" @click.stop.prevent="firstHandler">1</li>
-      <li class="item disabled" v-if="pages > 5 && current > 3">...</li>
+      <li :class="['item', { 'active': currentInt === 1 }]" @click.stop.prevent="firstHandler">1</li>
+      <li class="item disabled" v-if="pages > 5 && currentInt > 3">...</li>
       <template v-for="i in pages">
-        <li :class="['item', { 'active': current == i }]" @click.stop.prevent="clickHandler(i)" v-if="inFive(i)" :key="i">{{ i }}</li>
+        <li :class="['item', { 'active': currentInt == i }]" @click.stop.prevent="clickHandler(i)" v-if="inFive(i)" :key="i">{{ i }}</li>
       </template>
-      <li class="item disabled" v-if="pages > 5 && (pages - current) > 3">...</li>
-      <li :class="['item', { 'active': current === pages }]" @click.stop.prevent="lastHandler" v-if="pages > 1">{{ pages }}</li>
+      <li class="item disabled" v-if="pages > 5 && (pages - currentInt) > 3">...</li>
+      <li :class="['item', { 'active': currentInt === pages }]" @click.stop.prevent="lastHandler" v-if="pages > 1">{{ pages }}</li>
     </template>
-    <li :class="['item', {'disabled': current >= pages}]" @click.stop.prevent="nextHandler" v-html="nextRender()"></li>
+    <li :class="['item', {'disabled': currentInt >= pages}]" @click.stop.prevent="nextHandler" v-html="nextRender()"></li>
   </ul>
 </template>
 <script>
