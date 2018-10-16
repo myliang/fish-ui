@@ -24,7 +24,7 @@
     name: 'fish-pagination',
     props: {
       total: { type: Number, required: true },
-      current: { type: Number, default: 1 },
+      current: { type: [Number, String], default: 1 },
       rows: { type: Number, default: 10 },
       simple: { type: Boolean, default: false },
       noMoreText: { type: String, default: 'No more data...' },
@@ -35,6 +35,9 @@
     computed: {
       pages () {
         return Math.ceil(this.total / this.rows)
+      },
+      currentInt () {
+        return parseInt(this.current + '')
       }
     },
     data () {
@@ -44,7 +47,7 @@
     methods: {
       toPageHandler (v) {
         if (/^\s*$/.test(v)) {
-          this.clickHandler(this.current)
+          this.clickHandler(this.currentInt)
         } else {
           this.clickHandler(parseInt(v))
         }
@@ -57,44 +60,44 @@
         if (/(^\d+$)/.test(v) && parseInt(v) >= 1 && parseInt(v) <= this.pages) {
           return
         } else {
-          evt.target.value = this.current
+          evt.target.value = this.currentInt
         }
       },
       clickHandler (index) {
-        if (index !== this.current) {
+        if (index !== this.currentInt) {
           // this.current = index
           this.$emit('change', index)
         }
       },
       firstHandler () {
-        if (this.current > 1) {
+        if (this.currentInt > 1) {
           // this.current = 1
           this.$emit('change', 1)
         }
       },
       lastHandler () {
-        if (this.current < this.pages) {
+        if (this.currentInt < this.pages) {
           // this.current = this.pages
           this.$emit('change', this.pages)
         }
       },
       prevHandler () {
-        if (this.current > 1) {
+        if (this.currentInt > 1) {
           // this.current--
-          this.$emit('change', this.current - 1)
+          this.$emit('change', this.currentInt - 1)
         }
       },
       nextHandler () {
-        if (this.current < this.pages) {
+        if (this.currentInt < this.pages) {
           // this.current++
-          this.$emit('change', this.current + 1)
+          this.$emit('change', this.currentInt + 1)
         }
       },
       inFive (index) {
         if (index > 1 && index < this.pages) {
           // console.log(this.current)
-          let before = this.current - 2
-          let after = this.current + 2
+          let before = this.currentInt - 2
+          let after = this.currentInt + 2
           if (before <= 0) after -= (before - 1)
           if (after >= this.pages) {
             before -= after - this.pages
