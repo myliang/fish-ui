@@ -97,7 +97,6 @@
     },
     mounted () {
       this.init()
-      this.calScroll()
       window.addEventListener('resize', this.calScroll)
     },
     destroyed () {
@@ -120,6 +119,7 @@
             }
           }
         })
+        this.calScroll()
       },
       pageChangeHandler (currentPage) {
         this.currentPage = currentPage
