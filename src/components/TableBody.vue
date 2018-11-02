@@ -6,21 +6,21 @@
     </colgroup>
     <tbody>
     <template  v-for="(item, rowIndex) in rows">
-    <tr>
-      <td v-if="expandedRowRender" style="text-align: center;"><i :class="expandIcon" @click.stop="expandHandler(rowIndex)"></i></td>
-      <td v-for="column in columns" :style="{'text-align': column.align || 'left'}">
-        <div v-if="'index' === column.type">{{ rowIndex + 1 }}</div>
-        <div v-else-if="'checkbox' === column.type">
-          <fish-checkbox :index="rowIndex" @click="checkboxSelectHandler" ref="checkboxes"></fish-checkbox>
-        </div>
-        <content-render :render="column.render || ((h, item, column) => h('div', item[column.key]))" :params="[item, column]" v-else></content-render>
-      </td>
-    </tr>
-    <tr v-if="expandedRowRender && expands[rowIndex]">
-      <td :colspan="columns.length + 1">
-        <content-render :render="expandedRowRender" :params="[item]"></content-render>
-      </td>
-    </tr>
+      <tr>
+        <td v-if="expandedRowRender" style="text-align: center;"><i :class="expandIcon" @click.stop="expandHandler(rowIndex)"></i></td>
+        <td v-for="column in columns" :style="{'text-align': column.align || 'left'}">
+          <div v-if="'index' === column.type">{{ rowIndex + 1 }}</div>
+          <div v-else-if="'checkbox' === column.type">
+            <fish-checkbox :index="rowIndex" @click="checkboxSelectHandler" ref="checkboxes"></fish-checkbox>
+          </div>
+          <content-render :render="column.render || ((h, item, column) => h('div', item[column.key]))" :params="[item, column, rowIndex]" v-else></content-render>
+        </td>
+      </tr>
+      <tr v-if="expandedRowRender && expands[rowIndex]">
+        <td :colspan="columns.length + 1">
+          <content-render :render="expandedRowRender" :params="[item]"></content-render>
+        </td>
+      </tr>
     </template>
     <tr v-if="rows.length <= 0 && noMoreText">
       <td class="no-more" :colspan="columns.length">{{ noMoreText }}</td>
