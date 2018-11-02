@@ -8,13 +8,7 @@ let createElement = (tag, className = null, html = null, onclick = null) => {
 
 // 计算绝对的偏移量（相对于html）
 let absoluteOffset = (el) => {
-  let { offsetLeft, offsetTop, offsetParent } = el
-  if (offsetParent) {
-    let pOffset = absoluteOffset(offsetParent)
-    offsetLeft += pOffset.left
-    offsetTop += pOffset.top
-  }
-  return {left: offsetLeft, top: offsetTop}
+  return el.getBoundingClientRect()
 }
 
 let setPositionStyle = (el) => {
