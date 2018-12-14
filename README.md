@@ -131,7 +131,7 @@ And if you start with [vue-webpack-boilerplate](https://github.com/vuejs-templat
   - Tree
   - Tree Select
   - Transfer
-  - Devider
+  - Divider
   - Image
   - Timeline
 
