@@ -31,7 +31,7 @@
       <fish-col span="12">
         <code-card title="Horizontal" desc="Horizontal top navigation menu.">
           <template slot="demo">
-            <fish-menu mode="horizontal" defaultActive="3-3-1">
+            <fish-menu mode="horizontal">
               <fish-option index="0" content="Content"></fish-option>
               <fish-option index="1" content="User"></fish-option>
               <fish-option index="2" content="Tongji"></fish-option>
