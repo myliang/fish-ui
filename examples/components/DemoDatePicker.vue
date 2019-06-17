@@ -129,6 +129,7 @@
         datePickerHValue: '',
         datePickerMValue: '',
         datePickerSValue: '',
+        weeks: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
         event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
           ['change(v)', 'Callback when finishing select', 'v(selected item)']
@@ -139,6 +140,9 @@
           ['mode', 'can be set to <code>minute</code><code>hour</code><code>day</code><code>month</code><code>year</code>', 'String', 'day'],
           ['min', 'The min value', 'String', '-1'],
           ['max', 'The max value', 'String', '-1'],
+          ['weeks', 'Weeks text', 'Array', '\'Sun\', \'Mon\', \'Tue\', \'Wed\', \'Thu\', \'Fri\', \'Sat\']'],
+          ['months', 'Months text', 'Array', '[\'January\', \'February\', \'March\', \'April\', \'May\', \'June\', \'July\', \'August\', \'September\', \'October\', \'November\', \'December\']'],
+          ['secondRender', 'Customize the display of the second cell', 'Function(h, second)', '-'],
           ['hint', 'Hint message', 'String', 'Please date'],
           ['format', 'Format value', 'String', '-']
         ]
