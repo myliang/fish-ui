@@ -104,7 +104,6 @@
         this.emitChange()
       },
       selectItemHandler (item) {
-        console.log('item:', item, this.current)
         this.current[this.state] = this.state === 'day' ? item.date() : item
         if (this.state === 'month') {
           const days = moment([this.current.year, this.current.month]).daysInMonth()
@@ -191,7 +190,6 @@
   }
 
   const monthDays = (momentDate) => {
-    console.log('::', momentDate.format('YYYY-MM-DD'))
     const datess = [[], [], [], [], [], []]
     for (let i = 0; i < 6; i++) {
       for (let j = 0; j < 7; j++) {

@@ -11,6 +11,7 @@
       <fish-calendar @select="selectHandler"
                   :cellRender="cellRender"
                   :min="min" :max="max" :mode="mode"
+                  :tody="today" :weeks="weeks" :months="months"
                   :value="value === '' ? undefined : value"></fish-calendar>
     </div>
   </div>
@@ -19,7 +20,7 @@
   import moment from 'moment'
   import clickoutside from '../directives/clickoutside'
   import fishCalendar from './Calendar.vue'
-  import { notify } from '../config'
+  import { notify, calendar } from '../config'
 
   const formats = {
     year: 'YYYY',
@@ -39,6 +40,9 @@
       mode: { type: String, default: 'day' }, // second, minute, hour, day, month, year
       min: { type: String, default: '-1' },
       max: { type: String, default: '-1' },
+      today: { type: String, default: calendar.today },
+      weeks: { type: Array, default: () => calendar.weeks },
+      months: { type: Array, default: () => calendar.months },
       format: { type: String },
       hint: { type: String, default: 'Please date' }
     },
