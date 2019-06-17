@@ -194,7 +194,7 @@
     for (let i = 0; i < 6; i++) {
       for (let j = 0; j < 7; j++) {
         let startDate = moment(momentDate).date(1) // 当月第一天
-        let index = i * 7 + j
+        let index = i * 7 + j + 1
         datess[i][j] = startDate.weekday(index)
       }
     }
