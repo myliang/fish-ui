@@ -1,5 +1,5 @@
 function getError (action, option, xhr) {
-  let msg
+  let msg = ''
   if (xhr.response) {
     msg = `${xhr.status} ${xhr.response.error || xhr.response}`
   } else if (xhr.responseText) {

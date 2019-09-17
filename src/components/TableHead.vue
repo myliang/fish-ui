@@ -2,19 +2,20 @@
   <table>
     <colgroup>
       <col v-if="expandedRowRender" width="40"/>
-      <col v-for="column in columns" :width="column.width"/>
+      <col v-for="(column, cindex) in columns" :width="column.width" :key="cindex"/>
       <col v-if="scrollY" width="15"/>
     </colgroup>
     <thead>
-    <tr v-for="row in rows">
+    <tr v-for="(row, rindex) in rows" :key="rindex">
       <th v-if="expandedRowRender">&nbsp;</th>
-      <th v-for="column in row" :rowspan="column.rowSpan" :colspan="column.colSpan"
+      <th v-for="(column, cindex) in row" :rowspan="column.rowSpan" :colspan="column.colSpan"
           :style="{'text-align': column.align || 'left'}"
           :class="{'sortable': column.sortable}"
+          :key="`${rindex}-${cindex}`"
           @click="thClickHandler(column)">
         <template v-if="'index' === column.type">{{ column.title }}</template>
         <template v-else-if="'checkbox' === column.type">
-          <fish-checkbox index="-1" @click="checkboxSelectHandler" ref="checkboxes"></fish-checkbox>
+          <fish-checkbox index="-1" @click="checkboxSelectHandler" ref="checkboxes" :disabled="disabledCheckbox"></fish-checkbox>
         </template>
         <template v-else>
           {{ column.title }}
@@ -44,6 +45,7 @@
     props: {
       columns: { type: Array, required: true }, // [{title: '', key: '', width: 100, type: [index, checkbox], render: () => {}, align: 'left', sortable: true}]
       rows: { type: Array, required: true },
+      disabledCheckbox: { type: Boolean, default: false },
       expandedRowRender: { type: Function, default: null }, // 没有fixed列，方可展开详情
       scrollY: { type: Boolean, default: false }
     },

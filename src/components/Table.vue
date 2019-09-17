@@ -5,6 +5,7 @@
       <div class="header" ref="header">
         <fish-table-head :columns="allLeafColumns" :rows="rows" :scrollY="scrollY"
                          :expandedRowRender="fixedLeftColumns.length <= 0 && fixedRightColumns.length <= 0 && expandedRowRender || undefined"
+                         :disabledCheckbox="!data || data.length <= 0"
                          @select="headSelectHandler"
                          @sort-change="sortChangeHandler"
                          @filter-change="filterChangeHandler" ref="vth"></fish-table-head>
@@ -140,7 +141,7 @@
         let checkbox = $vue.$refs.checkboxes[0]
         const { vtb, lVtb, rVtb } = this.$refs
         Array.of(vtb, lVtb, rVtb).forEach((tb) => {
-          if (tb) {
+          if (tb && tb.$refs.checkboxes) {
             tb.$refs.checkboxes.forEach((cb) => { cb.active = checkbox.active })
           }
         })
