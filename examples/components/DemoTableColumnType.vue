@@ -8,7 +8,7 @@
       return {
         columns: [
           {title: '#', type: 'index', width: '50', align: 'center'},
-          {title: '', key: 'name', type: 'checkbox', width: '50', align: 'center'},
+          {title: '', type: 'checkbox', width: '50', align: 'center'},
           {title: 'Name', key: 'name'},
           {title: 'age', key: 'age'},
           {title: 'Address', key: 'address'}

@@ -532,7 +532,7 @@
           ['expandedRowRender(h, record)', 'callback when table row have expanded', 'function(h, record)', '-']
         ],
         api_data2: [
-          ['title', 'title', 'string', '-'],
+          ['title', 'column.title', 'string', '-'],
           ['key', 'column.key', 'string', '-'],
           ['type', 'optional：<code>index</code> <code>checkbox</code>', 'string', '-'],
           ['fixed', 'the fixed position: <code>left</code> <code>right</code>', 'string', 'left'],
