@@ -30,7 +30,7 @@
         if (inline) {
           ret['text-align'] = labelAlign
           if (labelWidth !== 'auto') {
-            console.log(labelWidth, labelWidth instanceof Number)
+            // console.log(labelWidth, labelWidth instanceof Number)
             if (Number.isFinite(labelWidth)) {
               ret['width'] = `${labelWidth}%`
             } else {
