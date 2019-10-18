@@ -2,6 +2,7 @@
   <div>
     <fish-tree-select :data="data" v-model="v" @change="changeHandler"></fish-tree-select>
     <fish-tree-select :data="data" v-model="v1" @change="changeHandler"></fish-tree-select>
+    <fish-button @click="v = ''">清空数据</fish-button>
   </div>
 </template>
 <script>
