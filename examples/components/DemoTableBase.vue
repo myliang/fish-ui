@@ -1,5 +1,5 @@
 <template>
-  <fish-table :columns="columns" :data="data"></fish-table>
+  <fish-table :columns="columns" :data="data" counting @tr-click="trClick"></fish-table>
 </template>
 <script>
   export default {
@@ -18,6 +18,11 @@
           {name: 'yanzu.wu', age: 35, address: 'haidi part 5, xihu, Hangzhou'},
           {name: 'yanzu.wu', age: 35, address: 'haidi part 5, xihu, Hangzhou'}
         ]
+      }
+    },
+    methods: {
+      trClick (item, rIndex) {
+        console.log('>>>tr-click:', item, rIndex)
       }
     }
   }

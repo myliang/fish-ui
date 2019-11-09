@@ -11,9 +11,9 @@
                          @filter-change="filterChangeHandler" ref="vth"></fish-table-head>
       </div>
       <div class="body" ref="body">
-        <fish-table-body :columns="allLeafColumns" :rows="data" :scrollY="scrollY" :noMoreText="noMoreText"
+        <fish-table-body :columns="allLeafColumns" :rows="data" :scrollY="scrollY" :noMoreText="noMoreText" :counting="counting"
                         :expandedRowRender="fixedLeftColumns.length <= 0 && fixedRightColumns.length <= 0 && expandedRowRender || undefined"
-                        @select="bodySelectHandler" ref="vtb"></fish-table-body>
+                        @tr-click="bodyTrClickHandler" @select="bodySelectHandler" ref="vtb"></fish-table-body>
       </div>
       <!-- fixed column -->
       <div class="fixed left" v-if="fixedLeftColumns.length > 0 && maxRows <= 1">
@@ -21,7 +21,8 @@
           <fish-table-head :columns="fixedLeftColumns" :rows="[fixedLeftColumns]" @select="headSelectHandler" ref="lVth"></fish-table-head>
         </div>
         <div class="body" ref="flBody">
-          <fish-table-body :columns="fixedLeftColumns" :rows="data" @select="bodySelectHandler" ref="lVtb"></fish-table-body>
+          <fish-table-body :columns="fixedLeftColumns" :rows="data" :counting="counting"
+            @tr-click="bodyTrClickHandler" @select="bodySelectHandler" ref="lVtb"></fish-table-body>
         </div>
       </div>
       <div class="fixed right" v-if="fixedRightColumns.length > 0 && maxRows <= 1" ref="fixedRight">
@@ -30,7 +31,8 @@
           <fish-table-head :columns="fixedRightColumns" :rows="[fixedRightColumns]" @select="headSelectHandler" ref="rVth"></fish-table-head>
         </div>
         <div class="body" ref="frBody">
-          <fish-table-body :columns="fixedRightColumns" :rows="data" @select="bodySelectHandler" ref="rVtb"></fish-table-body>
+          <fish-table-body :columns="fixedRightColumns" :rows="data" :counting="counting"
+            @tr-click="bodyTrClickHandler" @select="bodySelectHandler" ref="rVtb"></fish-table-body>
         </div>
       </div>
     </div>
@@ -69,6 +71,7 @@
       expandedRowRender: { type: Function, default: null }, // 没有fixed列，方可展开详情
       height: [Number, String], // 指定高度，固定表头
       noMoreText: { type: String, default: 'No more data...' },
+      counting: { type: Boolean, default: false }, // 是否有统计行
       pagination: { type: Object, default: undefined } // 关联pagination组件
     },
     data () {
@@ -155,6 +158,9 @@
         Array.of(vth, lVth, rVth).forEach((th) => { if (th) th.$refs.checkboxes[0].active = headActiveCheckbox })
 
         this.$emit('select', vtb.$refs.checkboxes.filter((cb) => cb.active).map((cb) => { return this.data[cb.index] }))
+      },
+      bodyTrClickHandler (item, rowIndex) {
+        this.$emit('tr-click', item, rowIndex)
       },
       calScroll () {
         this.$nextTick(() => this.calScrollY())
