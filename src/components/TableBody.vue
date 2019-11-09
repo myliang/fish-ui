@@ -6,17 +6,12 @@
     </colgroup>
     <tbody>
     <template v-for="(item, rowIndex) in rows">
-      <tr :key="rowIndex" v-if="counting === true && rowIndex === 0" class="count">
-        <td v-for="column in columns" :style="{'text-align': column.align || 'left'}" :key="column.key">
-          <content-render :render="column.render || ((h, item, column, rowIndex) => h('div', item[column.key]))" :params="[item, column, rowIndex]"></content-render>
-        </td>
-      </tr>
-      <tr :key="rowIndex" @click="trClick(item, rowIndex)" v-else>
+      <tr :key="rowIndex" @click="trClick(item, rowIndex)" :class="hasCounting(rowIndex) ? 'count' : ''">
         <td v-if="expandedRowRender" style="text-align: center;"><i :class="expandIcon" @click.stop="expandHandler(rowIndex)"></i></td>
         <td v-for="column in columns" :style="{'text-align': column.align || 'left'}" :key="column.key">
-          <div v-if="'index' === column.type">{{ rowIndex + 1 }}</div>
+          <div v-if="'index' === column.type">{{ hasCounting(rowIndex) ? '' : (rowIndex + 1) }}</div>
           <div v-else-if="'checkbox' === column.type">
-            <fish-checkbox :index="rowIndex" @click="checkboxSelectHandler" ref="checkboxes"></fish-checkbox>
+            <fish-checkbox :index="rowIndex" @click="checkboxSelectHandler" ref="checkboxes" v-if="!hasCounting(rowIndex)"></fish-checkbox>
           </div>
           <content-render :render="column.render || ((h, item, column, rowIndex) => h('div', item[column.key]))" :params="[item, column, rowIndex]" v-else></content-render>
         </td>
@@ -63,6 +58,7 @@
     },
     methods: {
       trClick (item, rIndex) {
+        if (this.hasCounting(rIndex)) return
         this.$emit('tr-click', item, rIndex)
       },
       checkboxSelectHandler (evt) {
@@ -70,6 +66,9 @@
       },
       expandHandler (rowIndex) {
         this.expands.splice(rowIndex, 1, !this.expands[rowIndex])
+      },
+      hasCounting (rIndex) {
+        return this.counting === true && rIndex === 0
       }
     }
   }

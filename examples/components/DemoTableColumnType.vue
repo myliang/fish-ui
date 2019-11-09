@@ -1,5 +1,5 @@
 <template>
-  <fish-table :columns="columns" :data="data" @select="selectHandler"></fish-table>
+  <fish-table :columns="columns" :data="data" @select="selectHandler" counting></fish-table>
 </template>
 <script>
   export default {
