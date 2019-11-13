@@ -106,9 +106,8 @@
     color: #666;
   }
   .main-layout > .fish.layout > .header{
-    /*background: #7dbcea;*/
+    background: #fff;
     padding: 0 1em;
-    /*background: #666;*/
   }
   .main-layout > .fish.layout > .header {
     margin-bottom: 3px;
@@ -119,7 +118,7 @@
     padding-bottom: 20px;
   }
   .main-layout > .fish.layout > .content {
-    /*background: rgba(16, 142, 233, 1);*/
+    background: #fff;
     padding: 20px;
   }
 
