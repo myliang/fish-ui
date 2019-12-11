@@ -25,6 +25,11 @@
         this.setActive(this.defaultActive)
       }
     },
+    watch: {
+      defaultActive (nval, oval) {
+        this.setActive(nval)
+      }
+    },
     computed: {
       classObject () {
         return [
