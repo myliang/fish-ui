@@ -73,7 +73,8 @@
         {index: 'divider', text: 'Divider'},
         {index: 'transfer', text: 'Transfer'},
         {index: 'timeline', text: 'Timeline'},
-        {index: 'image', text: 'Image'}
+        {index: 'image', text: 'Image'},
+        {index: 'loader', text: 'Loader'}
 //        {index: 'chart', text: 'Chart 图表'}
       ]}
     },

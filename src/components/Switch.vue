@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     clickHandler () {
-      this.$emit('input', this.yesOrNo[0] === this.value ? this.yesOrNo[1] : this.yesOrNo[0])
+      this.$emit('change', this.yesOrNo[0] === this.value ? this.yesOrNo[1] : this.yesOrNo[0])
     }
   }
 }

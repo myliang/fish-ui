@@ -355,7 +355,7 @@
   }
 }
 
-.loading(@width) {
+.loading(@width, @borderWidth) {
   &:before {
     position: absolute;
     content: '';
@@ -365,7 +365,7 @@
     width: @width;
     height: @width;
     border-radius: 500rem;
-    border: 0.2em solid rgba(0, 0, 0, 0.1);
+    border: @borderWidth solid rgba(0, 0, 0, 0.1);
   }
   &:after {
     position: absolute;
@@ -382,7 +382,7 @@
     border-radius: 500rem;
     border-color: #767676 transparent transparent;
     border-style: solid;
-    border-width: 0.2em;
+    border-width: @borderWidth;
     box-shadow: 0px 0px 0px 1px transparent;
   }
 }
