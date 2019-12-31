@@ -40,7 +40,6 @@
     },
     data () {
       return {
-//        currentValue
       }
     },
     computed: {

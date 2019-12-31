@@ -13,7 +13,9 @@ export default {
   },
   methods: {
     clickHandler () {
-      this.$emit('change', this.yesOrNo[0] === this.value ? this.yesOrNo[1] : this.yesOrNo[0])
+      const v = this.yesOrNo[0] === this.value ? this.yesOrNo[1] : this.yesOrNo[0]
+      this.$emit('input', v)
+      this.$emit('change', v)
     }
   }
 }

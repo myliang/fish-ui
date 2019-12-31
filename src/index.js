@@ -127,4 +127,4 @@ if (typeof window !== 'undefined' && window.Vue) {
 window.$message = $message
 window.$popup = $popup
 
-export default Object.assign({}, components, {install})  // eslint-disable-line no-undef
+export default Object.assign({}, components, {install})
