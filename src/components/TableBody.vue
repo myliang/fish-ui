@@ -13,7 +13,7 @@
           <div v-else-if="'checkbox' === column.type">
             <fish-checkbox :index="rowIndex" @click="checkboxSelectHandler" ref="checkboxes" v-if="!hasCounting(rowIndex)"></fish-checkbox>
           </div>
-          <content-render :render="column.render || ((h, item, column, rowIndex) => h('div', item[column.key]))" :params="[item, column, rowIndex]" v-else></content-render>
+          <content-render :render="column.render || ((h, item, column, rowIndex) => h('div', itemValue(item, column)))" :params="[item, column, rowIndex]" v-else></content-render>
         </td>
       </tr>
       <tr :key="rowIndex" v-if="expandedRowRender && expands[rowIndex]">
@@ -57,6 +57,14 @@
       }
     },
     methods: {
+      itemValue (item, { key }) {
+        let v = item
+        for (const k of key.split('#')) {
+          if (v[k]) v = v[k]
+          else return ''
+        }
+        return v
+      },
       trClick (item, rIndex) {
         if (this.hasCounting(rIndex)) return
         this.$emit('tr-click', item, rIndex)
