@@ -95,6 +95,65 @@
       </fish-col>
     </fish-row>
 
+    <fish-row gutter="1">
+      <fish-col span="12">
+        <code-card title="Text" desc="text tabs">
+          <template slot="demo">
+            <fish-tabs type="text" value="user" padding="0" @tab-change="tabChangeHandler">
+              <fish-tab-pane label="User" index="user">User</fish-tab-pane>
+              <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
+              <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
+            </fish-tabs>
+          </template>
+          <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-tabs type=&quot;text&quot; value=&quot;user&quot; @tab-change=&quot;tabChangeHandler&quot;&gt;
+    &lt;fish-tab-pane label=&quot;User&quot; index=&quot;user&quot;&gt;User&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label=&quot;Role&quot; index=&quot;role&quot;&gt;Role&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label=&quot;Config&quot; index=&quot;config&quot;&gt;Config&lt;/fish-tab-pane&gt;
+  &lt;/fish-tabs&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    methods: {
+      tabChangeHandler (index) {
+        console.log(&#x27;tab.index: &#x27;, index)
+      }
+    }
+  }
+&lt;/script&gt;
+</code></pre>
+        </code-card>
+      </fish-col>
+      <fish-col span="12">
+          <code-card title="Text, Nav in bottom" desc="text, Nav in bottom">
+            <template slot="demo">
+              <fish-tabs type="text" value="user" padding="0" navPosition="bottom">
+                <fish-tab-pane label="User" index="user">User</fish-tab-pane>
+                <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
+                <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
+              </fish-tabs>
+            </template>
+            <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
+  &lt;fish-tabs type=&quot;text&quot; value=&quot;user&quot; navPosition=&quot;bottom&quot;&gt;
+    &lt;fish-tab-pane label=&quot;User&quot; index=&quot;user&quot;&gt;User&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label=&quot;Role&quot; index=&quot;role&quot;&gt;Role&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label=&quot;Config&quot; index=&quot;config&quot;&gt;Config&lt;/fish-tab-pane&gt;
+  &lt;/fish-tabs&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    methods: {
+      tabChangeHandler (index) {
+        console.log(&#x27;tab.index: &#x27;, index)
+      }
+    }
+  }
+&lt;/script&gt;
+</code></pre>
+          </code-card>
+      </fish-col>
+    </fish-row>
+
 
 
     <h3>Tabs Attributes</h3>
@@ -165,7 +224,7 @@
         api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
           ['value', 'value', 'String, Number', '-'],
-          ['type', 'optional：<code>card</code> or empty', 'String', '-'],
+          ['type', 'optional：<code>card</code> <code>text</code> or empty', 'String', '-'],
           ['padding', 'set content padding style', 'String', '-']
         ],
         api_data2: [
