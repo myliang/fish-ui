@@ -192,7 +192,7 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
       <fish-col span="12">
         <code-card title="Header-Content" desc="containing a header and content">
           <template slot="demo">
-            <fish-card>
+            <fish-card nopadding>
               <strong slot="header">Card table</strong>
               <demo-table-base></demo-table-base>
             </fish-card>
@@ -280,6 +280,7 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
         columns: ['Attribute', 'Description', 'Type', 'Default'],
         data1: [
           ['color', 'optional: <code>red</code>, <code>orange</code>, <code>yellow</code>, <code>olive</code>, <code>green</code>, <code>teal</code>, <code>blue</code>, <code>violet</code>, <code>purple</code>, <code>pink</code>, <code>brown</code>, <code>grey</code>, <code>black</code>', 'String', '-']
+          ['nopadding', 'optional: true or fase', 'Boolean', 'false']
         ],
         data: [
           ['header', 'Card title(header)', 'String', '-'],

@@ -17,6 +17,17 @@
     width: 100%;
   }
 
+  &.nopadding {
+    > .content {
+      padding: 0;
+
+      .memssage {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
   .card-loop-color(@color-length);
 
   > .image {
@@ -34,7 +45,6 @@
     flex-grow: 1;
 
     .table {
-      margin: -@padding-vertical -@padding-horizontal;
       border: none;
     }
     .message {
