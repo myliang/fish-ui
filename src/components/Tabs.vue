@@ -21,6 +21,7 @@
       type: { type: String, default: '' },
       navPosition: { type: String, default: 'top' },
       padding: { type: String },
+      height: { type: String },
       minHeight: { type: String, default: '' },
       maxHeight: { type: String, default: '' }
     },
@@ -37,9 +38,10 @@
     },
     computed: {
       contentStyle () {
-        const { padding, minHeight, maxHeight } = this
+        const { padding, height, minHeight, maxHeight } = this
         return {
           padding,
+          height,
           minHeight,
           maxHeight
         }
