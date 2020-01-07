@@ -5,8 +5,17 @@
       <fish-col span="12">
         <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
-            <fish-tabs v-model="indexValue">
-              <fish-tab-pane label="User" index="user">User</fish-tab-pane>
+            <fish-tabs v-model="indexValue" :maxHeight="`100px`">
+              <fish-tab-pane label="User" index="user">User
+                xxxxxxx<br/>
+                xxxxxxx<br/>
+                xxxxxxx<br/>
+                xxxxxxx<br/>
+                xxxxxxx<br/>
+                xxxxxxx<br/>
+                xxxxxxx<br/>
+                xxxxxxx<br/>
+              </fish-tab-pane>
               <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
               <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
             </fish-tabs>

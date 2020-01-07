@@ -1,6 +1,6 @@
 <template>
   <div :class="['fish tabs', `-${this.type}`]">
-    <div class="content" :style="{padding: padding}" v-if="navPosition === 'bottom' || navPosition === 'right'">
+    <div class="content" :style="contentStyle" v-if="navPosition === 'bottom' || navPosition === 'right'">
       <slot></slot>
     </div>
     <ul :class="['nav', navPosition]">
@@ -8,7 +8,7 @@
           :class="{'active': index === activeIndex }"
           @click.stop="tabClickHandler(index)"></li>
     </ul>
-    <div class="content" :style="{padding: padding}" v-if="navPosition === 'top' || navPosition === 'left'">
+    <div class="content" :style="contentStyle" v-if="navPosition === 'top' || navPosition === 'left'">
       <slot></slot>
     </div>
   </div>
@@ -20,7 +20,9 @@
       value: { type: [Number, String], required: true },
       type: { type: String, default: '' },
       navPosition: { type: String, default: 'top' },
-      padding: { type: String }
+      padding: { type: String },
+      minHeight: { type: String, default: '' },
+      maxHeight: { type: String, default: '' }
     },
     data () {
       return {
@@ -31,6 +33,16 @@
     watch: {
       value (nVal, oVal) {
         this.init(nVal)
+      }
+    },
+    computed: {
+      contentStyle () {
+        const { padding, minHeight, maxHeight } = this
+        return {
+          padding,
+          minHeight,
+          maxHeight
+        }
       }
     },
     mounted () {
