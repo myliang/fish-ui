@@ -75,12 +75,12 @@
       <table style="table-layout: auto;">
         <thead>
         <tr>
-          <th v-for="column in api_columns">{{column}}</th>
+          <th v-for="column in api_columns" :key="column">{{column}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in api_data">
-          <td v-for="v in item" v-html="v"></td>
+        <tr v-for="(item, key) in api_data" :key="key">
+          <td v-for="(v, vindex) in item" v-html="v" :key="`${key}-${vindex}`"></td>
         </tr>
         </tbody>
       </table>
@@ -110,7 +110,8 @@
           ['size', 'optional: <code>mini</code>, <code>tiny</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>big</code>, <code>huge</code>, <code>massive</code>', 'String', '-'],
           ['transparent', 'Whether the input is transparent.', 'Boolean', 'false'],
           ['disabled', 'Whether the input is disabled.', 'Boolean', 'false'],
-          ['clear', 'Whether the input is cleared', 'Boolean', 'false']
+          ['clear', 'Whether the input is cleared', 'Boolean', 'false'],
+          ['autofocus', 'Whether the input autofocus', 'Boolean', 'false']
         ]
       }
     }

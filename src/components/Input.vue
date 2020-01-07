@@ -12,6 +12,7 @@
     <input :type="type"
            :placeholder="hint"
            :value="value" @input="updateValue($event.target.value)"
+           :autofocus="autofocus"
            autocomplete="off" v-else/>
     <i :class="iconClose" style="opacity: .6;" @click.stop="clearHandler" v-if="clear && !valueEmpty"></i>
     <i :class="icon" v-if="icon"></i>
@@ -36,7 +37,8 @@
       label: { type: String },
       labelLeft: { type: String },
       disabled: { type: Boolean, default: false },
-      clear: { type: Boolean, default: false }
+      clear: { type: Boolean, default: false },
+      autofocus: { type: Boolean, default: false }
     },
     data () {
       return {
