@@ -23,7 +23,8 @@
       padding: { type: String },
       height: { type: String },
       minHeight: { type: String, default: '' },
-      maxHeight: { type: String, default: '' }
+      maxHeight: { type: String, default: '' },
+      overflow: { type: String, default: '' }
     },
     data () {
       return {
@@ -43,7 +44,8 @@
           padding,
           height,
           minHeight,
-          maxHeight
+          maxHeight,
+          overflow
         }
       }
     },
