@@ -39,7 +39,7 @@
     },
     computed: {
       contentStyle () {
-        const { padding, height, minHeight, maxHeight } = this
+        const { padding, height, overflow, minHeight, maxHeight } = this
         return {
           padding,
           height,
