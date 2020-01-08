@@ -45,15 +45,15 @@
     flex-grow: 1;
 
     .tabs {
-      border: none;
+      margin: -1px;
       box-shadow: none;
     }
     .table {
       border: none;
     }
-    .message {
-      margin-left: -@padding-horizontal;
-      margin-right: -@padding-horizontal;
+    .message.attached {
+      border-left: none;
+      border-right: none;
     }
   }
   > .footer {
