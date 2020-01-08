@@ -41,9 +41,10 @@
             <fish-message attached="top">
               Warning Description Warning Description Warning Description Warning Description
             </fish-message>
-            <fish-message attached>
+            <fish-segment attached>
+              Segment-attached<br/>
               Warning Description Warning Description Warning Description Warning Description
-            </fish-message>
+            </fish-segment>
             <fish-message attached>
               Warning Description Warning Description Warning Description Warning Description
             </fish-message>

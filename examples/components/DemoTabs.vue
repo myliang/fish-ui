@@ -50,7 +50,9 @@
         <code-card title="Card" desc="Card tabs">
           <template slot="demo">
             <fish-tabs type="card" value="user" padding=".75em" @tab-change="tabChangeHandler">
-              <fish-tab-pane label="User" index="user">User</fish-tab-pane>
+              <fish-tab-pane label="User" index="user">
+                <fish-message type="warning" attached="top">loading......error.....</fish-message>
+              </fish-tab-pane>
               <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
               <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
             </fish-tabs>
@@ -78,7 +80,9 @@
           <code-card title="Card, Nav in bottom" desc="Card, Nav in bottom">
             <template slot="demo">
               <fish-tabs type="card" value="user" padding="0.75em" navPosition="bottom">
-                <fish-tab-pane label="User" index="user">User</fish-tab-pane>
+                <fish-tab-pane label="User" index="user">
+                  <fish-message type="warning" attached="top">loading......error.....</fish-message>
+                </fish-tab-pane>
                 <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
                 <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
               </fish-tabs>
