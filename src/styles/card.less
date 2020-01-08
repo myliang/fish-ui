@@ -20,11 +20,6 @@
   &.nopadding {
     > .content {
       padding: 0;
-
-      .memssage {
-        margin-left: 0;
-        margin-right: 0;
-      }
     }
   }
 
@@ -44,16 +39,29 @@
     border-bottom: @border-style;
     flex-grow: 1;
 
-    .tabs {
-      margin: -1px;
+    > .tabs {
+      border: none;
       box-shadow: none;
+      .nav.top li {
+        margin-top: 0;
+        border-top: 0;
+      }
     }
-    .table {
+    > * > .table, > .table {
       border: none;
     }
-    .message.attached {
+    > .message.attached {
+      border-radius: 0;
       border-left: none;
       border-right: none;
+      &.top {
+        border-bottom-width: 1px;
+        border-top: none;
+      }
+      &.bottom {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
     }
   }
   > .footer {

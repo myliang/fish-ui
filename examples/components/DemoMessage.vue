@@ -44,6 +44,9 @@
             <fish-message attached>
               Warning Description Warning Description Warning Description Warning Description
             </fish-message>
+            <fish-message attached>
+              Warning Description Warning Description Warning Description Warning Description
+            </fish-message>
             <fish-message type="warning" attached="bottom">
               Warning Description Warning Description Warning Description Warning Description
             </fish-message>

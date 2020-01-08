@@ -104,13 +104,16 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
                 Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
                 pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
               </fish-card>
-              <fish-card color="green">
+              <fish-card color="green" nopadding>
                 <div slot="header"><strong>Title Color</strong></div>
+                <fish-message attached="top">Message top</fish-message>
                 Kristy is an art director living in New York.<br/>
-                <fish-message>Message</fish-message>
                 Veronika Ossi Is a living in New York WuMeiShi, her favorite cat, music and the party. <br/>
+                <fish-message attached>Message top</fish-message>
+                <fish-message attached>Message top</fish-message>
                 Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay because make love,
                 pity others because of short of stature. There are even some people who can be stupid because of their huge body shapes.
+                <fish-message attached="bottom">Message bottom</fish-message>
               </fish-card>
               <fish-card color="red">
                 <div slot="header"><strong>Title Color</strong></div>
@@ -192,9 +195,15 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
       <fish-col span="6">
         <code-card title="Card tabs" desc="containing a tabs">
           <template slot="demo">
-            <fish-card nopadding>
+            <fish-card nopadding color="blue">
               <strong slot="header">Card Tabs</strong>
               <fish-tabs type="card" value="role" nav-center>
+                <fish-tab-pane label="User" index="user">User<br/>xxxxxxx</fish-tab-pane>
+                <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
+                <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
+              </fish-tabs>
+              <fish-message attached>body......</fish-message>
+              <fish-tabs type="card" value="role" nav-position="bottom" nav-center>
                 <fish-tab-pane label="User" index="user">User<br/>xxxxxxx</fish-tab-pane>
                 <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
                 <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
