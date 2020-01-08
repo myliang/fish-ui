@@ -30,10 +30,25 @@
 
   &.-text {
     .nav {
-      border: none!important;
+      border-color: transparent!important;
       li {
         padding: .35714286em .5em;
+        border-color: transparent!important;
+      }
+    }
+  }
+
+  &.-button {
+    .nav {
+      border: none!important;
+      li {
         border: none!important;
+        border-radius: @border-radius;
+        margin: 0 .357em!important;
+
+        &.active, &:hover {
+          background-color: rgba(0,0,0,.05);
+        }
       }
     }
   }
@@ -47,10 +62,15 @@
     flex-wrap: wrap;
     list-style: none;
 
+    &.center {
+      justify-content: center;
+    }
+
     li {
       .padding;
       cursor: pointer;
       border: 1px solid transparent;
+      line-height: 1;
 
       &.active {
         .border;

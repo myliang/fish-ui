@@ -3,7 +3,7 @@
     <div class="content" :style="contentStyle" v-if="navPosition === 'bottom' || navPosition === 'right'">
       <slot></slot>
     </div>
-    <ul :class="['nav', navPosition]">
+    <ul :class="['nav', navPosition, {'center': navCenter}]">
       <li v-for="(tab, index) in tabs" v-html="tab" :key="tab"
           :class="{'active': index === activeIndex }"
           @click.stop="tabClickHandler(index)"></li>
@@ -20,6 +20,7 @@
       value: { type: [Number, String], required: true },
       type: { type: String, default: '' },
       navPosition: { type: String, default: 'top' },
+      navCenter: { type: Boolean, default: false },
       padding: { type: String },
       height: { type: String },
       minHeight: { type: String, default: '' },

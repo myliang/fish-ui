@@ -5,7 +5,7 @@
       <fish-col span="12">
         <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
-            <fish-tabs v-model="indexValue" :maxHeight="`100px`">
+            <fish-tabs v-model="indexValue" :maxHeight="`100px`" nav-center>
               <fish-tab-pane label="User" index="user">User
                 xxxxxxx<br/>
                 xxxxxxx<br/>
@@ -134,9 +134,9 @@
         </code-card>
       </fish-col>
       <fish-col span="12">
-          <code-card title="Text, Nav in bottom" desc="text, Nav in bottom">
+          <code-card title="button" desc="button tabs">
             <template slot="demo">
-              <fish-tabs type="text" value="user" padding="0" navPosition="bottom">
+              <fish-tabs type="button" value="user" padding="0" navPosition="bottom">
                 <fish-tab-pane label="User" index="user">User</fish-tab-pane>
                 <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
                 <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
