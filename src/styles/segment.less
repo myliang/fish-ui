@@ -1,0 +1,103 @@
+@import './base.less';
+
+.@{css-prefix}.segment {
+  font-size: 1em;
+  position: relative;
+  background: #fff;
+  .box-shadow;
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: @border-radius;
+  .border;
+
+  .button {
+    display: block;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .segment-loop-color(@color-length);
+
+  &.attached {
+    border-radius: 0;
+    margin: 0 -1px;
+    width: calc(100% - (-1px * 2));
+    max-width: calc(100% - (-1px * 2));
+    box-shadow: none;
+    
+    &:not(.top) {
+      border-top: none;
+    }
+
+    &.top {
+      margin-top: 0;
+      border-radius: @border-radius @border-radius 0 0;
+    }
+    &.bottom {
+      margin-bottom: 1em;
+      border-radius: 0 0 @border-radius @border-radius;
+    }
+  }
+
+  &.floated {
+    &.left {
+      float: left;
+      margin-left: 0;
+    }
+    &.right {
+      float: right;
+      margin-right: 0;
+    }
+  }
+
+  &.aligned {
+    &.left {
+      text-align: left;
+    }
+    &.right {
+      text-align: right;
+    }
+    &.center {
+      text-align: center;
+    }
+  }
+
+  &.basic {
+    background: none transparent;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+  }
+
+  &.loading {
+    .loading(3em, 0.325em);
+  }
+
+  .disabled;
+
+  &.placeholder {
+    display: flex;
+    .flex-direction(column);
+    .justify-content(center);
+    .align-items(center);
+    background: #f9fafb;
+    min-height: 15em;
+    max-width: initial;
+    border-color: @border-color;
+    padding: 1em;
+    box-shadow: 0 2px 25px 0 @border-color inset;
+  }
+
+  &.vertical {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    background: none transparent;
+    border-radius: 0;
+    border: none;
+    border-bottom: @border-style;
+    box-shadow: none;
+  }
+}

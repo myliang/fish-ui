@@ -44,6 +44,7 @@ import DemoTransfer from './components/DemoTransfer.vue'
 import DemoTimeline from './components/DemoTimeline.vue'
 import DemoCollapse from './components/DemoCollapse.vue'
 import DemoLoader from './components/DemoLoader.vue'
+import DemoSegment from './components/DemoSegment.vue'
 
 Vue.use(FishUI)
 Vue.use(VueHighlightJS)
@@ -88,6 +89,7 @@ const routes = [
   { path: '/components/timeline', component: DemoTimeline },
   { path: '/components/collapse', component: DemoCollapse },
   { path: '/components/loader', component: DemoLoader },
+  { path: '/components/segment', component: DemoSegment },
   { path: '/', redirect: '/components/index' }
 ]
 const router = new VueRouter({

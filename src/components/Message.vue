@@ -1,5 +1,5 @@
 <template>
-  <div :class="['fish message', type]">
+  <div :class="['fish message', type, { 'attached': attached }, attached]">
     <slot></slot>
   </div>
 </template>
@@ -7,7 +7,8 @@
   export default {
     name: 'fish-message',
     props: {
-      type: { type: String, default: '' }
+      type: { type: String, default: '' },
+      attached: { type: [Boolean, String] }
     }
   }
 </script>

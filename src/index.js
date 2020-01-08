@@ -51,6 +51,7 @@ import Switch from './components/Switch.vue'
 import Collapse from './components/Collapse.vue'
 import CollapseItem from './components/CollapseItem.vue'
 import Loader from './components/Loader.vue'
+import Segment from './components/Segment.vue'
 
 import $message from './components/message.js'
 import $popup from './components/popup.js'
@@ -106,7 +107,8 @@ const components = {
   Switch,
   Collapse,
   CollapseItem,
-  Loader
+  Loader,
+  Segment
 }
 const install = function (Vue, opts = {}) {
   Object.values(components).forEach((component) => {

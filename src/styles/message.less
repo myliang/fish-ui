@@ -1,24 +1,50 @@
 @import "./base.less";
 
 .@{css-prefix}.message {
-  .padding;
+  padding: 1em 1.5em;
   font-size: 1em;
-  color: #666;
+  color: #333;
   background-color: #f8f8f9;
+  .border;
+  border-radius: @border-radius;
+  margin: 1em 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.attached {
+    margin: 0;
+    border-radius: 0;
+    margin-bottom: -1px;
+    
+    &.top {
+      border-radius: @border-radius @border-radius 0 0;
+    }
+    &.bottom {
+      margin-top: -1px;
+      margin-bottom: 1em;
+      border-radius: 0 0 @border-radius @border-radius;
+    }
+  }
 
   &.warning {
     background: @warning-background-color;
+    color: @warning-color;
   }
 
   &.error {
     background: @error-background-color;
+    color: @error-color;
   }
 
   &.success {
     background: @success-background-color;
+    color: @success-color;
   }
 
   &.info {
     background: @info-background-color;
+    color: @info-color;
   }
 }
