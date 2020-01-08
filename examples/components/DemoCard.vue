@@ -189,7 +189,31 @@ Meng dogs have a variety of shapes and sizes. Some puppies look adorable stay be
           </template>
         </code-card>
       </fish-col>
-      <fish-col span="12">
+      <fish-col span="6">
+        <code-card title="Card tabs" desc="containing a tabs">
+          <template slot="demo">
+            <fish-card nopadding>
+              <strong slot="header">Card Tabs</strong>
+              <fish-tabs type="card" value="role" nav-center>
+                <fish-tab-pane label="User" index="user">User<br/>xxxxxxx</fish-tab-pane>
+                <fish-tab-pane label="Role" index="role">Role</fish-tab-pane>
+                <fish-tab-pane label="Config" index="config">Config</fish-tab-pane>
+              </fish-tabs>
+            </fish-card>
+          </template>
+          <template slot="codeHtml">
+            <pre v-highlightjs><code class="xml">&lt;fish-card nopadding&gt;
+  &lt;strong slot="header"&gt;Card Tabs&lt;/strong&gt;
+  &lt;fish-tabs type="card" value="role" nav-center&gt;
+    &lt;fish-tab-pane label="User" index="user"&gt;User&lt;br/&gt;xxxxxxx&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label="Role" index="role"&gt;Role&lt;/fish-tab-pane&gt;
+    &lt;fish-tab-pane label="Config" index="config"&gt;Config&lt;/fish-tab-pane&gt;
+  &lt;/fish-tabs&gt;
+&lt;/fish-card&gt;</code></pre>
+          </template>
+        </code-card>
+      </fish-col>
+      <fish-col span="6">
         <code-card title="Header-Content" desc="containing a header and content">
           <template slot="demo">
             <fish-card nopadding>
