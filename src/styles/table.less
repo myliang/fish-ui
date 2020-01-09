@@ -6,7 +6,7 @@
   background: #FFF;
   color: @base-font-color;
   font-size: @base-font-color;
-  border: @border-style;
+  .border;
   z-index: 1;
 
   .header, .body {
@@ -36,7 +36,7 @@
     td, th {
       transition: background .1s ease,color .1s ease;
       padding: @table-cell-padding;
-      border-bottom: @border-style;
+      border-bottom: @table-cell-border-style;
       /**
       white-space: nowrap;
       text-overflow:ellipsis;
@@ -99,7 +99,7 @@
 
   &.bordered {
     td, th {
-      border-right: @border-style;
+      border-right: @table-cell-border-style;
       &:last-child {
         border-right: none;
       }
@@ -107,7 +107,7 @@
   }
   &.bordered-header {
     th {
-      border-right: @border-style;
+      border-right: @table-cell-border-style;
       &:last-child {
         border-right: none;
       }

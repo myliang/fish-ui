@@ -47,7 +47,7 @@
       > .label:after {
         margin: 0 0 0 .3em;
         content: '*';
-        color: @error-color;
+        color: @form-error-color;
         //display: inline-block;
       }
     }
@@ -70,7 +70,7 @@
         > .label:before {
           margin: 0 0.3em 0 0;
           content: '*';
-          color: @error-color;
+          color: @form-error-color;
         }
         > .label:after {
           margin: 0;
@@ -105,11 +105,11 @@
 
     &.error {
       .tip {
-        color: @error-color;
+        color: @form-error-color;
         font-size: .9em;
       }
       input, .select {
-        border-color: @error-color;
+        border-color: @form-error-color;
       }
     }
 
