@@ -24,6 +24,7 @@
           :default-checked-keys="checkedKeys"
           :multiple="multiple"
           :expand="expand"
+          :checkabled="checkabled"
           :iconCaretRight="iconCaretRight"
           :iconCaretDown="iconCaretDown"
           @item-click="itemClickHandler"
@@ -46,6 +47,7 @@
       hint: { type: String, default: 'Please' },
       expand: { type: Boolean, default: false },
       multiple: { type: Boolean, default: false },
+      checkabled: { type: Function, default: (multiple) => multiple },
       iconClose: { type: String, default: 'fa fa-close' },
       iconCaretRight: { type: String, default: 'fa fa-caret-right' },
       iconCaretDown: { type: String, default: 'fa fa-caret-down' }

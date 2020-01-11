@@ -6,6 +6,7 @@
       :data-key-map="dataKeyMap"
       :expand="expand"
       :edited="edited"
+      :checkabled="checkabled"
       :on-item-render="onItemRender"
       :iconCaretRight="iconCaretRight"
       :iconCaretDown="iconCaretDown"
@@ -29,6 +30,7 @@
       defaultCheckedKeys: { type: Array, default: () => [] },
       multiple: { type: Boolean, default: false },
       expand: { type: Boolean, default: false },
+      checkabled: { type: Function, default: (multiple) => multiple },
       data: { type: Array, required: true }, // [{title: '', key: '', children: '', disabled: false}]
       edited: { type: Boolean, default: false },
       onItemRender: { type: Function, default: (item) => item.title },

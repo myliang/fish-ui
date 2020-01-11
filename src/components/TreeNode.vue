@@ -9,7 +9,7 @@
       <fish-checkbox :index="item.key"
                      :state="dataKeyMap[item.key][0]"
                      @click.stop="onItemChecked(item)"
-                     ref="checkboxes" v-if="multiple"></fish-checkbox>
+                     ref="checkboxes" v-if="checkabled(multiple, item)"></fish-checkbox>
 
       <span class="title"
             @click="onItemClick(item)"
@@ -28,6 +28,7 @@
           :multiple="multiple"
           :edited="edited"
           :expand="expand"
+          :checkabled="checkabled"
           :selected-key="selectedKey"
           :data-key-map="dataKeyMap"
           :on-item-checked="onItemChecked"
@@ -51,6 +52,7 @@
       selectedKey: { type: String, default: '' },
       multiple: { type: Boolean, default: false },
       expand: { type: Boolean, default: false },
+      checkabled: { type: Function },
       data: { type: Array, required: true }, // [{title: '', key: '', children: '', checked: false}]
       dataKeyMap: { type: Object }, // {key: [state, [[key, state]]}
       edited: { type: Boolean, default: false },
