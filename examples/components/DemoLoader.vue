@@ -1,15 +1,21 @@
 <template>
   <main-layout menuActiveIndex="loader" style="height: 1200px;">
-    <h3>Loader</h3>
-    <fish-card>
-      <div style="height: 300px; width: 100%">
-        liangyuliang
-      <fish-loader active></fish-loader>
-      </div>
-      <div slot="footer">
-        <pre v-highlightjs><code class="html"></code></pre>
-      </div>
-    </fish-card>
+    <code-card title="Basic" desc="Basic use case">
+      <template slot="demo">
+        <fish-segment style="height: 300px; width: 300px; position: relative;">
+          liangyuliang
+          <fish-loader :active="active"></fish-loader>
+        </fish-segment>
+        <fish-button @click="active = !active">swap state</fish-button>
+      </template>
+      <template slot="codeHtml">
+        <pre v-highlightjs><code class="xml">&lt;fish-segment style="height: 300px; width: 300px; position: relative;"&gt;
+  liangyuliang
+  &lt;fish-loader :active="active"&gt;&lt;/fish-loader&gt;
+&lt;/fish-segment&gt;
+&lt;fish-button @click="active = !active"&gt;swap state&lt;/fish-button&gt;</code></pre>
+      </template>
+    </code-card>
 
     <h3>Loader Attributes</h3>
     <div class="fish table attributes">
@@ -30,16 +36,19 @@
 </template>
 <script>
   import MainLayout from './MainLayout.vue'
+  import CodeCard from './CodeCard.vue'
 
   export default {
     components: {
-      MainLayout
+      MainLayout,
+      CodeCard
     },
     data () {
       return {
+        active: false,
         event_columns: ['Attribute', 'Description', 'Type', 'Default'],
         event_data: [
-          [['active', 'whether it is visible or not', 'Boolean', 'false']]
+          ['active', 'whether it is visible or not', 'Boolean', 'false']
         ]
       }
     }
