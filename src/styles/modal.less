@@ -5,15 +5,38 @@
   position: fixed;
   z-index: 1001;
   text-align: left;
-  top: 0;
-  left: 50%;
   background: #ffffff;
   border: none;
-  border-radius: @modal-border-radius;
   width: @modal-width;
-  margin: 0 0 0 -@modal-width/2;
   color: rgba(0, 0, 0, .65);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px;
+
+  &.attached {
+    &.center {
+      top: 0;
+      left: 50%;
+    }
+    &.top {
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    &.bottom {
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+    &.left {
+      left: 0;
+      top: 0;
+      height: 100%;
+    }
+    &.right {
+      right: 0;
+      top: 0;
+      height: 100%;
+    }
+  }
 
   .image {
     font-size: 0;
@@ -29,7 +52,7 @@
   }
 
   > .header {
-    padding: @padding-horizontal;
+    padding: @padding-vertical @padding-horizontal;
     font-size: 1.1em;
     border-bottom: @border-style;
     border-radius: @modal-border-radius @modal-border-radius 0 0;

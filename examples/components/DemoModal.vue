@@ -6,7 +6,11 @@
       <template slot="demo">
         <fish-button @click="showModalFunc">show Modal</fish-button>
         <fish-button @click="showModalFunc2">trigger Event Modal</fish-button>
-        <fish-modal title="Welcome.." :visible.sync="showModal" :width="600" :trigger-event="triggerEvent">
+        <fish-button @click="swapAttached('top')">attached-top</fish-button>
+        <fish-button @click="swapAttached('bottom')">attached-bottom</fish-button>
+        <fish-button @click="swapAttached('left')">attached-left</fish-button>
+        <fish-button @click="swapAttached('right')">attached-right</fish-button>
+        <fish-modal title="Welcome.." :attached="attached" :visible.sync="showModal" :width="600" :height="500" :trigger-event="triggerEvent">
           <fish-form>
             <fish-fields>
               <fish-field label="First Name" span="eight">
@@ -100,11 +104,13 @@
     data () {
       return {
         showModal: false,
+        attached: 'center',
         triggerEvent: null,
         api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
           ['title', 'title', 'String', '-'],
           ['padding', 'content padding', 'String', '1em'],
+          ['attached', 'options: center, left, top, right, bottom', 'String', 'center'],
           ['marginTop', 'modal margin top size', 'String', '100px'],
           ['width', 'modal width', 'Number', '850'],
           ['visible', 'whether it is visible or not', 'Boolean', 'false']
@@ -112,6 +118,10 @@
       }
     },
     methods: {
+      swapAttached (v) {
+        this.attached = v;
+        this.showModal = true
+      },
       showModalFunc (evt) {
         this.triggerEvent = null
         this.showModal = true

@@ -1,8 +1,8 @@
 <template>
   <div :class="['fish dimmer active']" v-if="visible" 
     :style="{position: 'fixed'}">
-    <div :class="['fish modal']" ref="modal" 
-      :style="{'margin-top': marginTopV, 'width': `${width}px`, 'margin-left': `-${marginLeft}px`, left, top}">
+    <div :class="['fish modal', 'attached', attached]" ref="modal" 
+      :style="mstyle">
       <i class="fa fa-times" @click="closeHandler"></i>
       <div class="header" v-if="title">
         {{ title }}
@@ -18,10 +18,12 @@
     name: 'fish-modal',
     props: {
       title: { type: String },
+      attached: { type: String, default: 'center' },
       padding: { type: String, default: '1em' },
       visible: { type: Boolean, default: false },
       marginTop: { type: String, default: '100px' },
       width: { type: Number, default: 850 },
+      height: { type: Number, default: 500 },
       triggerEvent: { type: Event, default: null } // 触发的事件对象
     },
     data () {
@@ -32,17 +34,38 @@
         marginTopV: this.marginTop
       }
     },
+    computed: {
+      mstyle () {
+        const { attached, width, height } = this
+        if (attached === 'center') {
+          const { left, top } = this
+          return {
+            'margin-top': this.marginTopV,
+            'width': `${this.width}px`,
+            'margin-left': `-${this.marginLeft}px`,
+            left,
+            top
+          }
+        } else if (attached === 'left' || attached === 'right') {
+          return { width }
+        } else {
+          return { height }
+        }
+      }
+    },
     watch: {
       triggerEvent (nowVal, oldVal) {
-        if (nowVal != null) {
-          this.calLeftTop(nowVal)
-          this.marginLeft = 0
-          this.marginTopV = '0px'
-        } else {
-          this.left = '50%'
-          this.top = '0px'
-          this.marginLeft = this.width / 2
-          this.marginTopV = this.marginTop
+        if (this.attached === 'center') {
+          if (nowVal != null) {
+            this.calLeftTop(nowVal)
+            this.marginLeft = 0
+            this.marginTopV = '0px'
+          } else {
+            this.left = '50%'
+            this.top = '0px'
+            this.marginLeft = this.width / 2
+            this.marginTopV = this.marginTop
+          }
         }
       }
     },
@@ -52,8 +75,7 @@
       },
       calLeftTop (event) {
         const { target } = event
-        const {width, height, left, top} = getTargetOffset(target)
-        console.log('width: ', width, ', height: ', height, ', left: ', left, ', top:', top)
+        const {width, left, top} = getTargetOffset(target)
         this.left = `${left + width + 10}px`
         this.top = `${top}px`
       }
