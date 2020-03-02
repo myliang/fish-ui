@@ -22,8 +22,8 @@
       padding: { type: String, default: '1em' },
       visible: { type: Boolean, default: false },
       marginTop: { type: String, default: '100px' },
-      width: { type: Number, default: 850 },
-      height: { type: Number, default: 500 },
+      width: { type: [Number, String], default: 850 },
+      height: { type: [Number, String], default: 500 },
       triggerEvent: { type: Event, default: null } // 触发的事件对象
     },
     data () {
