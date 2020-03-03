@@ -16,25 +16,33 @@
       top: 0;
       left: 50%;
     }
-    &.top {
+    &.top, &.bottom {
       width: 100%;
-      top: 0;
       left: 0;
+      > .content {
+        max-height: ~'calc(100% - 3em)';
+        overflow: auto;
+      }
+    }
+    &.top {
+      top: 0;
     }
     &.bottom {
-      width: 100%;
       bottom: 0;
-      left: 0;
+    }
+    &.left, &.right {
+      height: 100%;
+      top: 0;
+      > .content {
+        max-height: ~'calc(100% - 3em)';
+        overflow: auto;
+      }
     }
     &.left {
       left: 0;
-      top: 0;
-      height: 100%;
     }
     &.right {
       right: 0;
-      top: 0;
-      height: 100%;
     }
   }
 
