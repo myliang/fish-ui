@@ -170,7 +170,7 @@
   font-weight: 400;
   background-color: #fff;
   box-shadow: 0 0 0 1px rgba(34,36,38,.1) inset;
-  &:hover, &.active {
+  &:focus, &:hover, &.active {
     background-color: #fff;
     //border-color: rgba(0,0,0,0.3);
     box-shadow: 0 0 0 1px rgba(34,36,38,.3) inset;
@@ -179,7 +179,7 @@
 .type-positive() {
   color: #fff;
   background-color: @green-color;
-  &:hover, &.active {
+  &:focus, &:hover, &.active {
     color: #fff;
     background: @green-hover-color;
   }
@@ -187,7 +187,7 @@
 .type-negative() {
   color: #fff;
   background-color: @red-color;
-  &:hover, &.active {
+  &:focus, &:hover, &.active {
     color: #fff;
     background-color: @red-hover-color;
   }
@@ -195,7 +195,7 @@
 .type-primary() {
   color: #fff;
   background-color: @primary-color;
-  &:hover, &.active {
+  &:focus, &:hover, &.active {
     color: #fff;
     background-color: @primary-hover-color;
   }
@@ -209,7 +209,7 @@
   &.@{color-name} {
     color: #fff;
     background-color: @@color-value;
-    &:hover, &.active {
+    &:focus, &:hover, &.active {
       color: #fff;
       background-color: @@color-hover-value;
     }

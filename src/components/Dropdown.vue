@@ -1,5 +1,10 @@
 <template>
-  <div :class="classObject" @click="clickHandler" v-clickoutside="awayHandler">
+  <div :class="classObject"
+    tabindex="1"
+    @focus="clickHandler"
+    @blur="awayHandler"
+    @click="clickHandler"
+    v-clickoutside="awayHandler">
     <slot name="title"></slot>
     <fish-menu v-show="visible" class="content" @click="menusClickHandler">
       <slot></slot>

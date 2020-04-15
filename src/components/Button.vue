@@ -1,5 +1,7 @@
 <template>
-  <div :class="classObject" @click="clickHandler">
+  <div tabindex="0" 
+    :class="classObject"
+    @click="clickHandler">
     <slot/>
   </div>
 </template>
