@@ -103,11 +103,11 @@
     font-style: italic;
   }
   .main-layout > .fish.layout {
-    background: #f0f2f5;
+    /* background: #f0f2f5; */
     color: #666;
   }
   .main-layout > .fish.layout > .header{
-    background: #fff;
+    /* background: #fff; */
     padding: 0 1em;
   }
   .main-layout > .fish.layout > .header {
@@ -119,7 +119,7 @@
     padding-bottom: 20px;
   }
   .main-layout > .fish.layout > .content {
-    background: #fff;
+    /* background: #fff; */
     padding: 20px;
   }
 
