@@ -8,7 +8,7 @@
                :accept="accept"/>
         <slot></slot>
       </div>
-      <ul v-if="type === 'list'">
+      <ul>
         <li v-for="(file, index) in allFiles" :class="[file.state || 'done', `percent-${file.percent}`]" :key="index">
           <template v-if="type === 'picture'">
             <img :src="file._url || file.url" v-if="type === 'picture' && file.state !== 'progress'"/>
