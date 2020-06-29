@@ -23,9 +23,9 @@
         <td v-for="(item, j) in array" :key="j">
           <div :class="['cell', {'active': cellActive(item)}, {'disabled': cellDisabled(item)}]"
                @click.stop="selectItemHandler(item)">
-            <content-render v-if="cellRender" :render="cellRender" :params="[stateTitleRenderMap[state](item)]"></content-render>
+            <content-render v-if="cellRender" :render="cellRender" :params="[callStateTitleRender(state, item)]"></content-render>
             <template v-else>
-              <div class="title">{{stateTitleRenderMap[state](item)}}</div>
+              <div class="title">{{callStateTitleRender(state, item)}}</div>
               <div class="content">
                 <content-render :render="cellRenderFunc" :params="[item]"></content-render>
               </div>
@@ -68,7 +68,6 @@
       return {
         state: this.mode, // second, minute, hour, day, month, year
         modes: modes,
-        stateTitleRenderMap: stateTitleRenderMap,
         modeIndex: modes.indexOf(this.mode),
         valueDate: moment(this.value),
         current: {year: null, month: null, day: null, hour: null, minute: null, second: null},
@@ -76,6 +75,10 @@
       }
     },
     methods: {
+      callStateTitleRender (state, item) {
+        // console.log('this:', this)
+        return stateTitleRenderMap[state].call(this, item)
+      },
       reset () {
         this.setCurrent(this.valueDate)
         // 如果mode是时分秒默认首先显示日期
@@ -182,7 +185,9 @@
   }
   const stateTitleRenderMap = {
     year: (year) => year,
-    month: (month) => calendar.months[month],
+    month (month) {
+      return this.months[month]
+    },
     day: (day) => day.date(),
     hour: (hour) => hour + 'h',
     minute: (minute) => minute + 'm',
