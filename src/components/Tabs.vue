@@ -67,6 +67,12 @@
           }
         })
       },
+      updateTabLabel (oldLabel, label) {
+        const index = this.tabs.findIndex(it => it === oldLabel)
+        if (index >= 0) {
+          this.tabs.splice(index, 1, label)
+        }
+      },
       tabClickHandler (index) {
         this.$children[this.activeIndex].visible = false
         let ele = this.$children[index]

@@ -6,7 +6,7 @@
         <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
             <fish-tabs v-model="indexValue" :maxHeight="`100px`" nav-center>
-              <fish-tab-pane label="User" index="user">User
+              <fish-tab-pane :label="`User${cnt}`" index="user">User
                 xxxxxxx<br/>
                 xxxxxxx<br/>
                 xxxxxxx<br/>
@@ -230,6 +230,7 @@
     data () {
       return {
         indexValue: 'role',
+        cnt: 1,
         event_columns: ['Event', 'Description', 'Parameters'],
         event_data: [
           ['tab-change(index)', 'callback when tab changing', 'TabPanel.index <code>index</code>']
@@ -245,6 +246,9 @@
           ['index', 'unique key of tab', 'String', '-']
         ]
       }
+    },
+    mounted () {
+      setTimeout(() => this.cnt = 100, 5000)
     },
     methods: {
       tabChangeHandler (index) {
