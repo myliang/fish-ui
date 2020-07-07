@@ -92,6 +92,9 @@
       }
     },
     watch: {
+      data (nval, oval) {
+        this.calScroll()
+      },
       columns (nval, oval) {
         // console.log('::::::columns.nval:', nval)
         this.init()
