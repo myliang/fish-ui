@@ -27,7 +27,7 @@
     props: {
       value: { type: String, default: '' },
       type: { type: String, default: 'text' },
-      hint: { type: String, default: 'Please ...' },
+      hint: { type: String, default: '' },
       icon: { type: String },
       iconLeft: { type: Boolean, default: false },
       iconClose: { type: String, default: 'fa fa-times-circle' },

@@ -400,7 +400,7 @@ export default {
         api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
           ['value', 'v-model', 'String, Array', ''],
-          ['hint', 'hint', 'String', 'Please select'],
+          ['hint', 'placeholder', 'String', 'Please select'],
           ['multiple', 'whether it is multiple or not', 'Boolean', 'false'],
           ['search', 'autoComplete when it is Function, search current item when it is true', '[Boolean, Function]', 'false'],
           ['iconDownArrow', 'icon down arrow', 'String', 'fa fa-angle-down'],
@@ -409,7 +409,7 @@ export default {
         ],
         optionData: [
           ['index', 'unique key of the select', 'String', '-'],
-          ['content', 'content', 'String', '-'],
+          ['content', '-content-', 'String', '-'],
           ['disabled', 'whether it is disabled or not', 'Boolean', 'false']
         ]
       }

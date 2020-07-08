@@ -86,7 +86,8 @@
     },
     methods: {
       validate (cb = noop) {
-        const { name, rules, fieldValue, checked } = this
+        const { rules, fieldValue, checked } = this
+        const name = this.label || this.name
         let nRules = rules
         if (!nRules || nRules.length === 0) {
           cb()

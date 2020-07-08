@@ -1,8 +1,6 @@
 <template>
   <div :class="classObject"
     tabindex="1"
-    @focus="clickHandler"
-    @blur="awayHandler"
     @click="clickHandler"
     v-clickoutside="awayHandler">
     <slot name="title"></slot>
@@ -36,6 +34,7 @@
     },
     methods: {
       clickHandler () {
+        console.log('click:')
         this.visible = !this.visible
       },
       awayHandler () {

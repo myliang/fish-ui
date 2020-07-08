@@ -50,7 +50,7 @@
     directives: { clickoutside },
     props: {
       value: [Number, String, Array],
-      hint: { type: String, default: 'Please select' },
+      hint: { type: String, default: '' },
       multiple: { type: Boolean, default: false },
       search: { type: [Boolean, Function], default: false },
       disabled: { type: Boolean, default: false },

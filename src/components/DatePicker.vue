@@ -44,7 +44,7 @@
       weeks: { type: Array, default: () => calendar.weeks },
       months: { type: Array, default: () => calendar.months },
       format: { type: String },
-      hint: { type: String, default: 'Please date' }
+      hint: { type: String, default: '' }
     },
     data () {
       return {

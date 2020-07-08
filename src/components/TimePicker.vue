@@ -24,7 +24,7 @@
     directives: { clickoutside },
     props: {
       value: { type: String, default: '00:00:00' },
-      hint: { type: String, default: 'Please time' }
+      hint: { type: String, default: '' }
     },
     data () {
       return {

@@ -44,7 +44,7 @@
     props: {
       value: { type: [String, Number, Array] },
       data: { type: Array, required: true },
-      hint: { type: String, default: 'Please' },
+      hint: { type: String, default: '' },
       expand: { type: Boolean, default: false },
       multiple: { type: Boolean, default: false },
       checkabled: { type: Function, default: (multiple) => multiple },
