@@ -140,7 +140,7 @@ And if you start with [vue-webpack-boilerplate](https://github.com/vuejs-templat
 Modern browsers and Internet Explorer 9+(no test).
 
 ## Thanks to
-- [semantic-ui](http://semantic-ui.cn/)
+- [semantic-ui](http://semantic-ui.com/)
 
 ## LICENSE
 MIT
