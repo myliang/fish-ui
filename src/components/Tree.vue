@@ -11,6 +11,7 @@
       :iconCaretRight="iconCaretRight"
       :iconCaretDown="iconCaretDown"
       :on-item-checked="onItemChecked"
+      :on-item-contextmenu="onItemContextmenu"
       :on-item-dblclick="onItemDblclick"
       :on-item-remove="onItemRemove"
       :on-item-click="onItemClick" v-if="data && data.length > 0">
@@ -65,6 +66,10 @@
         }
         this.setAllParentState(item.key)
         this.$emit('item-checked', this.getCheckedKeys())
+      },
+      onItemContextmenu (item) {
+        this.selectedKey = item.key
+        this.$emit('item-contextmenu', item)
       },
       onItemDblclick (item) {
         this.$emit('item-dblclick', item)

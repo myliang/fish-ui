@@ -12,12 +12,14 @@
                      ref="checkboxes" v-if="checkabled(multiple, item)"></fish-checkbox>
 
       <span class="title"
+            @contextmenu.prevent="onItemContextmenu(item)"
             @click="onItemClick(item)"
             @dblclick="onItemDblclick(item)" v-html="onItemRender(item)">
       </span>
 
 
       <slot v-bind="item"
+            @contextmenu.prevent="onItemContextmenu(item)"
             @click="onItemClick(item)"
             @dblclick="onItemDblclick(item)"></slot>
 
@@ -32,6 +34,7 @@
           :selected-key="selectedKey"
           :data-key-map="dataKeyMap"
           :on-item-checked="onItemChecked"
+          :on-item-contextmenu="onItemContextmenu"
           :on-item-dblclick="onItemDblclick"
           :on-item-click="onItemClick"
           :on-item-remove="onItemRemove"
@@ -58,6 +61,7 @@
       edited: { type: Boolean, default: false },
       iconCaretRight: { type: String, default: 'fa fa-caret-right' },
       iconCaretDown: { type: String, default: 'fa fa-caret-down' },
+      onItemContextmenu: { type: Function, default: (item) => {} },
       onItemChecked: { type: Function, default: (item) => {} },
       onItemDblclick: { type: Function, default: (item) => {} },
       onItemClick: { type: Function, default: (item) => {} },

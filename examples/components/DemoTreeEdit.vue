@@ -3,6 +3,7 @@
     <fish-button @click="addItem">Add Item</fish-button>
     <fish-tree :data="data" :default-selected-key="'0-0-0'"
                @item-click="selectHandler"
+               @item-contextmenu="contextmenuHandler"
                :onItemRender="treeRenderContent"
                @item-remove="itemRemove"
                @item-dblclick="itemDoubleClick" edited></fish-tree>
@@ -93,6 +94,9 @@
       },
       selectHandler (item) {
         this.currentItem = item
+      },
+      contextmenuHandler (item) {
+        console.log('item:', item)
       },
       itemDoubleClick (item) {
         this.treeState = 'edit'
