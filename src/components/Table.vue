@@ -208,6 +208,7 @@
       },
       calScrollX () {
         let rootWidth = this.$refs.root.getBoundingClientRect().width
+        if (rootWidth <= 0) return
         const currentWindowWidth = getWindowWidth()
         rootWidth += currentWindowWidth - this.windowWidth
         const totalWidth = this.allLeafColumns.map((e) => e.width || 0).reduce((arg1, arg2) => { return parseInt(arg1) + parseInt(arg2) }, 0)
