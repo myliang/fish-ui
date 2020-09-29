@@ -167,8 +167,10 @@
         this.$emit('tr-click', item, rowIndex)
       },
       calScroll () {
-        this.$nextTick(() => this.calScrollY())
-        this.calScrollX()
+        this.$nextTick(() => {
+          this.calScrollY()
+          this.calScrollX()
+        })
       },
       calScrollY () {
         // 是否需要滚动条
