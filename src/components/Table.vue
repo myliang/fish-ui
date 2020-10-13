@@ -207,12 +207,17 @@
         this.scrollY = true
       },
       calScrollX () {
-        let rootWidth = this.$refs.root.getBoundingClientRect().width
+        const { header, body } = this.$refs
+        let { root } = this.$refs
+        let rootWidth = 0
+        while (rootWidth <= 0) {
+          rootWidth = root.getBoundingClientRect().width
+          root = root.parentNode
+        }
         if (rootWidth <= 0) return
         const currentWindowWidth = getWindowWidth()
         rootWidth += currentWindowWidth - this.windowWidth
         const totalWidth = this.allLeafColumns.map((e) => e.width || 0).reduce((arg1, arg2) => { return parseInt(arg1) + parseInt(arg2) }, 0)
-        const { header, body, root } = this.$refs
         if (totalWidth <= rootWidth) {
           root.style.width = 'auto'
           body.style.overflowX = 'hidden'
