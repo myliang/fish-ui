@@ -72,6 +72,7 @@
     methods: {
       closeHandler () {
         this.$emit('update:visible', false)
+        this.$emit('close')
       },
       calLeftTop (event) {
         const { target } = event
