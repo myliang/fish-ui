@@ -94,6 +94,14 @@
     watch: {
       data (nval, oval) {
         this.calScroll()
+        let $vue = this.$refs.vth
+        if ($vue) {
+          const checkboxes = $vue.$refs.checkboxes
+          if (checkboxes) {
+            checkboxes[0].active = false
+            this.$emit('select', [])
+          }
+        }
       },
       columns (nval, oval) {
         // console.log('::::::columns.nval:', nval)
