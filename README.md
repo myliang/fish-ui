@@ -49,7 +49,7 @@ Vue.component(Button.name, Button)
 And if you start with [vue-webpack-boilerplate](https://github.com/vuejs-templates/webpack) by vue-cli
 
 ## Demo
-[https://myliang.github.io/fish-ui/](ttps://myliang.github.io/fish-ui/)
+[https://myliang.github.io/fish-ui/](https://myliang.github.io/fish-ui/)
 <table>
 <tbody>
 <tr>
