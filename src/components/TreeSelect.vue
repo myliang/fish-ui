@@ -10,7 +10,7 @@
         {{ item.title }}
         <i :class="iconClose" @click.stop="closeItemHandler(item)"></i>
       </a>
-      <div class="text hint" v-html="valueEmpty ? hint : ''"></div>
+      <div class="text hint" v-html="valueEmpty ? hint : ''" v-if="checkedItems.length <= 0"></div>
     </template>
     <div :class="['text', {'hint': valueEmpty}]" v-else>
       {{ selectedItem && selectedItem.title || hint }}
