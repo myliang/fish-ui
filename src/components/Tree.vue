@@ -126,8 +126,8 @@
     if (setKeys.has(key)) return 'checked'
     // console.log(':::::setKeys:', setKeys, ', key:', key, ', dataKeysMap:', dataKeysMap[parentKey])
     for (let setKey of setKeys.keys()) {
-      if (setKey.startsWith(key + '-')) return 'open'
-      if (key.startsWith(setKey)) return 'checked'
+      if (setKey.startsWith(parentKey + '-' + key)) return 'open'
+      if (key.startsWith(setKey + '-')) return 'checked'
     }
     return ''
   }
