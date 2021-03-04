@@ -20,7 +20,7 @@
   "dependencies": {
     "async-validator": "^1.8.1",
     "moment": "^2.18.1",
-    "vue": "^2.5.2"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -67,7 +67,7 @@
     "vue-router": "^3.0.1",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.5.2",
+    "vue-template-compiler": "^2.6.12",
     "webpack": "^2.6.1",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",

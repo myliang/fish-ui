@@ -6,7 +6,7 @@
                @item-contextmenu="contextmenuHandler"
                :onItemRender="treeRenderContent"
                @item-remove="itemRemove"
-               @item-dblclick="itemDoubleClick" edited></fish-tree>
+               @item-dblclick="itemDoubleClick" edited v-slot="slotProp">{{slotProp.item.title}}</fish-tree>
 
     <fish-modal title="add tree item" :visible.sync="modalShow">
       <fish-input v-model="name"></fish-input>

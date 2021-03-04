@@ -14,14 +14,9 @@
       <span class="title"
             @contextmenu.prevent="onItemContextmenu(item)"
             @click="onItemClick(item)"
-            @dblclick="onItemDblclick(item)" v-html="onItemRender(item)">
+            @dblclick="onItemDblclick(item)">
+        <slot :item="item">{{onItemRender(item)}}</slot>
       </span>
-
-
-      <slot v-bind="item"
-            @contextmenu.prevent="onItemContextmenu(item)"
-            @click="onItemClick(item)"
-            @dblclick="onItemDblclick(item)"></slot>
 
       <strong v-if="edited && (!item.children || item.children.length <= 0)"
               @click="itemRemoveHandler(item, index, $event)">&times;</strong>
@@ -39,8 +34,9 @@
           :on-item-click="onItemClick"
           :on-item-remove="onItemRemove"
           :on-item-render="onItemRender"
+          v-slot="slotProp"
           v-if="item.children && visible[index]">
-          <template slot-scope="item"><slot v-bind="item"></slot></template>
+          <slot :item="slotProp.item"></slot>
           </fish-tree-node>
     </li>
   </ul>
