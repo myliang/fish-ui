@@ -7,11 +7,17 @@
     <slot name="left"></slot>
     <textarea
       :placeholder="hint"
-      :value="value" @input="updateValue($event.target.value)"
+      :value="value"
+      @focus="(evt) => $emit('focus', evt)"
+      @blur="(evt) => $emit('blur', evt)"
+      @input="(evt) => updateValue(evt, evt.target.value)"
       v-if="type === 'textarea'"></textarea>
     <input :type="type"
            :placeholder="hint"
-           :value="value" @input="updateValue($event.target.value)"
+           :value="value"
+          @focus="(evt) => $emit('focus', evt)"
+          @blur="(evt) => $emit('blur', evt)"
+          @input="(evt) => updateValue(evt, evt.target.value)"
            :autofocus="autofocus"
            autocomplete="off" v-else/>
     <i :class="iconClose" style="opacity: .6;" @click.stop="clearHandler" v-if="clear && !valueEmpty"></i>
@@ -60,14 +66,14 @@
       }
     },
     methods: {
-      updateValue (v) {
-        this.changeHandler(v)
+      updateValue (evt, v) {
+        this.changeHandler(evt, v)
       },
-      clearHandler () {
-        this.changeHandler('')
+      clearHandler (evt) {
+        this.changeHandler(evt, '')
       },
-      changeHandler (v) {
-        this.$emit('input', v)
+      changeHandler (evt, v) {
+        this.$emit('input', v, evt)
         notify.field.change(this)
       }
     }
