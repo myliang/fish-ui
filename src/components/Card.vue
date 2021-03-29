@@ -6,7 +6,7 @@
     <div class="image" v-if="$slots.image">
       <slot name="image"></slot>
     </div>
-    <div class="content" v-if="$slots.default">
+    <div class="content" :style="contentStyle" v-if="$slots.default">
       <slot></slot>
     </div>
     <div class="footer" v-if="$slots.footer">
@@ -20,7 +20,16 @@
     props: {
       fluid: { type: Boolean, default: false },
       nopadding: { type: Boolean, default: false },
+      maxHeight: { type: String },
       color: { type: String, default: '' } // red, orange, yellow, olive, green, teal, blue, violet, purple, pink, brown, grey, dark, black
+    },
+    computed: {
+      contentStyle () {
+        if (this.maxHeight) {
+          return `max-height: ${this.maxHeight}; overflow: auto;`
+        }
+        return ''
+      }
     }
   }
 </script>
