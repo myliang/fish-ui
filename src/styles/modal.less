@@ -13,6 +13,7 @@
 
   &.attached {
     &.center {
+      border-radius: 6px;
       top: 0;
       left: 50%;
     }
@@ -20,7 +21,7 @@
       width: 100%;
       left: 0;
       > .content {
-        max-height: ~'calc(100% - 3em)';
+        width: 100%;
         overflow: auto;
       }
     }
@@ -34,7 +35,7 @@
       height: 100%;
       top: 0;
       > .content {
-        max-height: ~'calc(100% - 3em)';
+        height: ~'calc(100% - 3em)';
         overflow: auto;
       }
     }
@@ -62,7 +63,6 @@
   > .header {
     padding: @padding-vertical @padding-horizontal;
     font-size: 1.1em;
-    border-bottom: @border-style;
     border-radius: @modal-border-radius @modal-border-radius 0 0;
     background: #F8F8F9;
     font-weight: bold;

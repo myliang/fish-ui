@@ -10,7 +10,7 @@
         <fish-button @click="swapAttached('bottom')">attached-bottom</fish-button>
         <fish-button @click="swapAttached('left')">attached-left</fish-button>
         <fish-button @click="swapAttached('right')">attached-right</fish-button>
-        <fish-modal title="Welcome.." :attached="attached" :visible.sync="showModal" width="80%" :height="500" :trigger-event="triggerEvent">
+        <fish-modal title="Welcome.." :attached="attached" :visible.sync="showModal" :width="400" :height="500" :trigger-event="triggerEvent">
           <fish-form>
             <fish-fields>
               <fish-field label="First Name" span="eight">

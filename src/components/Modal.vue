@@ -1,7 +1,7 @@
 <template>
   <div :class="['fish dimmer active']" v-if="visible" 
     :style="{position: 'fixed'}">
-    <div :class="['fish modal', 'attached', attached]" ref="modal" 
+    <div :class="['fish modal', 'attached', attached]" ref="modal"
       :style="mstyle">
       <i class="fa fa-times" @click="closeHandler"></i>
       <div class="header" v-if="title">
@@ -33,6 +33,9 @@
         marginLeft: this.width / 2,
         marginTopV: this.marginTop
       }
+    },
+    mounted () {
+      window.addEventListener('keydown', this.keyDownHandler)
     },
     computed: {
       mstyle () {
@@ -70,6 +73,11 @@
       }
     },
     methods: {
+      keyDownHandler (evt) {
+        if (evt.keyCode === 27) {
+          this.closeHandler()
+        }
+      },
       closeHandler () {
         this.$emit('update:visible', false)
         this.$emit('close')

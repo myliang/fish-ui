@@ -27,8 +27,11 @@
           :checkabled="checkabled"
           :iconCaretRight="iconCaretRight"
           :iconCaretDown="iconCaretDown"
+          v-slot="slotProp"
           @item-click="itemClickHandler"
-          @item-checked="itemCheckedHandler"></fish-tree>
+          @item-checked="itemCheckedHandler">
+      <slot :item="slotProp.item"></slot>
+      </fish-tree>
     </div>
   </div>
 </template>
