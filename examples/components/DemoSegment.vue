@@ -1,6 +1,6 @@
 <template>
-  <main-layout>
-    <h3>Button</h3>
+  <main-layout menuActiveIndex="segment">
+    <h3>Segment</h3>
     <fish-row gutter="1">
       <fish-col span="12">
         <code-card title="Default" desc="A segment of content">
