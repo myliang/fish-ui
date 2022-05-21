@@ -9,10 +9,10 @@
         <slot></slot>
       </div>
       <ul>
-        <li v-for="(file, index) in allFiles" :class="[file.state || 'done', `percent-${file.percent}`]" :key="index">
+        <li v-for="(file, index) in allFiles" :class="[file.state || 'done', `percent-${file.percent}`]" :key="index"  :style="pictureStyle">
           <template v-if="type === 'picture'">
             <img :src="file._url || file.url" v-if="type === 'picture' && file.state !== 'progress'"/>
-            <div class="info" @click="previewHandler(file)">
+            <div class="info" @click="previewHandler(file)" :style="pictureStyle">
               <i @click.stop="removeFile(index)">&times;</i>
             </div>
           </template>
@@ -22,7 +22,7 @@
           </template>
         </li>
       </ul>
-      <div class="upload-select" @click="clickHandler" v-if="type === 'picture'">
+      <div class="upload-select" @click="clickHandler" v-if="type === 'picture' && allFiles.length < max" :style="pictureStyle">
         <input type="file" ref="input"
                @change="changeHandler"
                :multiple="multiple"
@@ -30,7 +30,7 @@
         <i>+</i>
         <slot></slot>
       </div>
-      <fish-modal :visible.sync="previewShow" title="Image Preview">
+      <fish-modal :visible.sync="previewShow" title="Image Preview" attached="right">
         <div class="image"><img :src="previewUrl" style="width: 100%;"/></div>
       </fish-modal>
     </div>
@@ -52,6 +52,9 @@
       accept: { type: String, default: '*/*' },
       maxSize: { type: Number, default: 5 * 1024 * 1024 },
       withCredentials: { type: Boolean, default: false }, // http ..
+      pictureWidth: { type: String, default: '100px' },
+      pictureHeight: { type: String, default: '100px' },
+      max: { type: Number, default: 1 },
       preview: { type: Boolean, default: false },
       headers: { type: Object }, // http headers
       data: { type: Object }, // http data
@@ -71,6 +74,14 @@
       }
     },
     computed: {
+      pictureStyle () {
+        if (this.type !== 'picture') return {}
+        return {
+          width: this.pictureWidth,
+          height: this.pictureHeight,
+          lineHeight: this.pictureHeight
+        }
+      },
       allFiles () {
         if (this.type === 'picture') {
           return Array.from(this.value).concat(this.uploadingFiles)
@@ -87,7 +98,11 @@
         this.emitChange(this.value.filter((f, i) => i !== index))
       },
       clickHandler () {
-        this.$refs.input.click()
+        if (this.allFiles.length >= this.max) {
+          this.$message.warning('已超出最大上传的数量')
+        } else {
+          this.$refs.input.click()
+        }
       },
       previewHandler (file) {
         if (this.type === 'picture' && this.preview) {

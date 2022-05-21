@@ -29,7 +29,7 @@
 
     <code-card title="Picture" desc="Upload Picture">
       <template slot="demo">
-        <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files"
+        <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files" :preview="true"
                      :withCredentials="true" type="picture">
         </fish-upload>
       </template>
