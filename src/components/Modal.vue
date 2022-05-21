@@ -37,6 +37,9 @@
     mounted () {
       window.addEventListener('keydown', this.keyDownHandler)
     },
+    destroyed () {
+      document.body.removeChild(this.$el)
+    },
     computed: {
       mstyle () {
         const { attached, width, height } = this
@@ -57,6 +60,11 @@
       }
     },
     watch: {
+      visible (nowVal) {
+        if (nowVal) {
+          document.body.appendChild(this.$el)
+        }
+      },
       triggerEvent (nowVal, oldVal) {
         if (this.attached === 'center') {
           if (nowVal != null) {
