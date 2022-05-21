@@ -67,7 +67,7 @@
           height: this.height,
           lineHeight: this.height
         }
-      },
+      }
     },
     methods: {
       removeFile (index) {
