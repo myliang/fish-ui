@@ -1,28 +1,7 @@
 <template>
   <div>
-    <div :class="['fish upload', type]">
-      <div class="upload-select" @click="clickHandler" v-if="type === 'list' || type == ''">
-        <input type="file" ref="input"
-               @change="changeHandler"
-               :multiple="multiple"
-               :accept="accept"/>
-        <slot></slot>
-      </div>
-      <ul>
-        <li v-for="(file, index) in allFiles" :class="[file.state || 'done', `percent-${file.percent}`]" :key="index"  :style="pictureStyle">
-          <template v-if="type === 'picture'">
-            <img :src="file._url || file.url" v-if="type === 'picture' && file.state !== 'progress'"/>
-            <div class="info" @click="previewHandler(file)" :style="pictureStyle">
-              <i @click.stop="removeFile(index)">&times;</i>
-            </div>
-          </template>
-          <template v-else>
-            {{ file.name }}
-            <i class="close" @click.stop="removeFile(index)">&times;</i>
-          </template>
-        </li>
-      </ul>
-      <div class="upload-select" @click="clickHandler" v-if="type === 'picture' && allFiles.length < max" :style="pictureStyle">
+    <div :class="['fish upload picture']">
+      <div class="upload-select" @click="clickHandler" v-if="value.length < max && !readOnly" :style="pictureStyle">
         <input type="file" ref="input"
                @change="changeHandler"
                :multiple="multiple"
@@ -30,8 +9,16 @@
         <i>+</i>
         <slot></slot>
       </div>
+      <ul>
+        <li v-for="(v, index) in value" :key="index"  :style="pictureStyle">
+            <img :src="url(v)"/>
+            <div class="info" @click="previewHandler(index)" :style="pictureStyle">
+              <i @click.stop="removeFile(index)" v-if="!readOnly">&times;</i>
+            </div>
+        </li>
+      </ul>
       <fish-modal :visible.sync="previewShow" title="Image Preview" attached="right">
-        <div class="image"><img :src="previewUrl" style="width: 100%;"/></div>
+        <div class="image"><img :src="previewUrl(value[previewIndex])" style="width: 100%;"/></div>
       </fish-modal>
     </div>
   </div>
@@ -43,19 +30,20 @@
 
   export default {
     components: {fishModal},
-    name: 'fish-upload',
+    name: 'fish-upload-image',
     props: {
-      value: { type: Array }, // [{name: '', url: '', state: '']]
-      type: { type: String, default: 'list' }, // picture
+      value: { type: Array }, // ['', ]
       action: { type: String, required: true },
       multiple: { type: Boolean, default: false },
       accept: { type: String, default: '*/*' },
-      maxSize: { type: Number, default: 5 * 1024 * 1024 },
       withCredentials: { type: Boolean, default: false }, // http ..
-      pictureWidth: { type: String, default: '100px' },
-      pictureHeight: { type: String, default: '100px' },
+      width: { type: String, default: '100px' },
+      height: { type: String, default: '100px' },
+      readOnly: { type: Boolean, default: false },
+      url: { type: Function, default: (url) => url },
+      previewUrl: { type: Function, default: (url) => url },
       max: { type: Number, default: 1 },
-      preview: { type: Boolean, default: false },
+      preview: { type: Boolean, default: true },
       headers: { type: Object }, // http headers
       data: { type: Object }, // http data
       name: { type: String, default: 'file' },
@@ -68,59 +56,44 @@
     data () {
       return {
         previewShow: false,
-        previewUrl: '',
-        reqs: {},
-        uploadingFiles: [] // 选择上传的文件列表
+        previewIndex: 0,
+        reqs: {}
       }
     },
     computed: {
       pictureStyle () {
-        if (this.type !== 'picture') return {}
         return {
-          width: this.pictureWidth,
-          height: this.pictureHeight,
-          lineHeight: this.pictureHeight
+          width: this.width,
+          height: this.height,
+          lineHeight: this.height
         }
       },
-      allFiles () {
-        if (this.type === 'picture') {
-          return Array.from(this.value).concat(this.uploadingFiles)
-        }
-        return Array.from(this.uploadingFiles).concat(this.value)
-      }
     },
     methods: {
       removeFile (index) {
-        if (this.uploadingFiles.length > 0) {
-          this.abort(this.uploadingFiles[index], index)
-          this.uploadingFiles.splice(index, 1)
-        }
         this.emitChange(this.value.filter((f, i) => i !== index))
       },
       clickHandler () {
-        if (this.allFiles.length >= this.max) {
+        if (this.value.length >= this.max) {
           this.$message.warning('已超出最大上传的数量')
         } else {
           this.$refs.input.click()
         }
       },
-      previewHandler (file) {
-        if (this.type === 'picture' && this.preview) {
-          this.previewUrl = file.url
+      previewHandler (index) {
+        if (this.preview) {
           this.previewShow = true
+          this.previewIndex = index
         }
       },
       changeHandler (evt) {
         if (this.reqs.length > 0) return
         let files = evt.target.files
-        // console.log('files:', evt.target.files)
         if (!files) return
         files = Array.from(files)
         if (!this.multiple) files = [files[0]]
         if (files.length <= 0) return
 
-        this.uploadingFiles = files
-        files.forEach((file) => { file.state = 'progress' })
         files.forEach((file, index) => {
           this.upload(file, index)
         })
@@ -145,32 +118,19 @@
           filename: this.name,
           action: this.action,
           onProgress: e => {
-            file.percent = parseInt(e.percent)
-            this.uploadingFiles.splice(id, 1, file)
             this.onProgress(e, file)
           },
           onSuccess: res => {
             // console.log(res)
             delete this.reqs[id]
-            file.state = 'done'
-            file.url = this.formatUrlFromResponse(res)
-            this.uploadingFiles.splice(id, 1, file)
+            const url = this.formatUrlFromResponse(res)
             this.onSuccess(res, file)
-            if (Object.keys(this.reqs).length <= 0 && this.value) {
-              let nValue = Array.from(this.value)
-              this.uploadingFiles.forEach((f) => {
-                if (f.state === 'done') {
-                  nValue.push({name: f.name, url: f.url, _url: f._url})
-                }
-              })
-              // console.log(nValue)
-              this.uploadingFiles = []
-              this.emitChange(nValue)
-            }
+            let nValue = Array.from(this.value)
+            nValue.push(url)
+            this.emitChange(nValue)
           },
           onError: (err, res) => {
             file.state = 'error'
-            this.uploadingFiles.splice(id, 1, file)
             this.onError(err, res, file)
             delete this.reqs[id]
           }
@@ -184,7 +144,7 @@
         }
       },
       emitChange (v) {
-        this.$emit('input', v)
+        this.$emit('change', v)
         notify.field.change(this)
       }
     }

@@ -52,6 +52,7 @@ import Collapse from './components/Collapse.vue'
 import CollapseItem from './components/CollapseItem.vue'
 import Loader from './components/Loader.vue'
 import Segment from './components/Segment.vue'
+import UploadImage from './components/UploadImage.vue'
 
 import $message from './components/message.js'
 import $popup from './components/popup.js'
@@ -97,6 +98,7 @@ const components = {
   Tags,
   TimePicker,
   Upload,
+  UploadImage,
   Tree,
   TreeSelect,
   Divider,

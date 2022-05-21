@@ -38,7 +38,9 @@
       window.addEventListener('keydown', this.keyDownHandler)
     },
     destroyed () {
-      document.body.removeChild(this.$el)
+      if (this.$el && this.$el.parentNode) {
+        this.$el.parentNode.removeChild(this.$el);
+      }
     },
     computed: {
       mstyle () {
