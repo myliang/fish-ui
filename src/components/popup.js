@@ -1,5 +1,5 @@
-let createElement = (tag, className = null, html = null, onclick = null) => {
-  let ele = document.createElement(tag)
+function createElement (tag, className, html, onclick) {
+  const ele = document.createElement(tag)
   if (className !== null) ele.setAttribute('class', className)
   if (html !== null) ele.innerHTML = html
   if (onclick !== null) ele.onclick = onclick
@@ -7,18 +7,15 @@ let createElement = (tag, className = null, html = null, onclick = null) => {
 }
 
 // 计算绝对的偏移量（相对于html）
-let absoluteOffset = (el) => {
+function absoluteOffset (el) {
   return el.getBoundingClientRect()
 }
 
-let setPositionStyle = (el) => {
-  let client = {w: document.body.scrollWidth, h: document.body.scrollHeight}
-  let offset = absoluteOffset(el)
-  // console.log('offset: ', offset, el)
+function setPositionStyle (el) {
+  const client = {w: document.body.scrollWidth, h: document.body.scrollHeight}
+  const offset = absoluteOffset(el)
   let arrowPosition = ''
   let style = 'display: block;'
-
-  console.log(client.h, ':::', offset.top)
 
   if (client.h / 2 > offset.top) {
     arrowPosition += 'bottom'
@@ -41,7 +38,7 @@ let setPositionStyle = (el) => {
 
 const targetQueue = []
 
-let createPopup = (event, html, width = null, appendChildrenCallback) => {
+function createPopup (event, html, width = null, appendChildrenCallback) {
   // console.log('event: ', event)
   let el = event.target
   targetQueue.push(el)
@@ -73,20 +70,20 @@ let createPopup = (event, html, width = null, appendChildrenCallback) => {
   return root
 }
 
-let awayFunc = (event) => {
+function awayFunc (event) {
   let el = targetQueue.shift()
   if (event.target !== el['_popup']) {
     removePopup(el)
   }
 }
 
-let removePopup = (el) => {
+function removePopup (el) {
   document.body.removeChild(el['_popup'])
   delete el['_popup']
   document.removeEventListener('click', awayFunc, false)
 }
 
-let addAwayListener = (el) => {
+function addAwayListener (el) {
   setTimeout(() => {
     document.addEventListener('click', awayFunc, false)
   }, 0)
