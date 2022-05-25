@@ -21,14 +21,19 @@
       fluid: { type: Boolean, default: false },
       nopadding: { type: Boolean, default: false },
       maxHeight: { type: String },
+      minHeight: { type: String },
       color: { type: String, default: '' } // red, orange, yellow, olive, green, teal, blue, violet, purple, pink, brown, grey, dark, black
     },
     computed: {
       contentStyle () {
+        const style = { overflow: 'auto' }
         if (this.maxHeight) {
-          return `max-height: ${this.maxHeight}; overflow: auto;`
+          style['max-height'] = this.maxHeight
         }
-        return ''
+        if (this.minHeight) {
+          style['min-height'] = this.minHeight
+        }
+        return style
       }
     }
   }
