@@ -35,7 +35,7 @@
         {{ selectedItems.length > 0 && selectedItems[0].content || hint }}
       </div>
     </template>
-    <ul class="fish menu vertical" v-show="visible && $slots.default"
+    <ul class="fish menu vertical" ref="content" :style="`max-height: ${maxHeight};`" v-show="visible && $slots.default"
         @click.stop="menuClickHandler($event)"
         @mouseover.stop="() => {}" @mouseout.stop="() => {}">
       <slot></slot>
@@ -54,6 +54,7 @@
       multiple: { type: Boolean, default: false },
       search: { type: [Boolean, Function], default: false },
       disabled: { type: Boolean, default: false },
+      maxHeight: { type: String, default: '300px' },
       iconDownArrow: { type: String, default: 'fa fa-angle-down' },
       iconClose: { type: String, default: 'fa fa-close' },
       iconCloseCircle: { type: String, default: 'fa fa-times-circle' },
@@ -104,6 +105,24 @@
       }
     },
     methods: {
+      resizeContent () {
+        this.$nextTick(() => {
+          const { content } = this.$refs
+          const { height } = content.getBoundingClientRect()
+          let parent = content.parentNode
+          const { width } = parent.getBoundingClientRect()
+          let top = 0
+          while (parent.parentNode.tagName.toLowerCase() !== 'body' && parent.style.position === '') {
+            parent = parent.parentNode
+            top += parent.offsetTop
+          }
+          const prect = parent.getBoundingClientRect()
+          if (top > prect.height / 2) {
+            content.style.top = `-${height + 2}px`
+          }
+          content.style.width = `${width}px`
+        })
+      },
       initData () {
         this.selectedItems = []
         this.$children.forEach((ele) => {
@@ -143,6 +162,7 @@
           this.displayItems = this.$children
           this.multipleInputWidth = 1
         }
+        this.resizeContent()
       },
       keyUpHandler () {
         let dLength = this.displayItems.length
@@ -205,6 +225,9 @@
       },
       clickHandler () {
         this.visible = !this.visible
+        if (this.visible) {
+          this.resizeContent()
+        }
         if (this.search) this.$refs.inputSearch.focus()
       },
       menuClickHandler (evt) {

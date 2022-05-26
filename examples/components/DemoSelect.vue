@@ -386,7 +386,7 @@ export default {
         cascaded2Values: [],
         multipleValues: [],
         multipleValues1: [],
-        singleSelectedValue: '',
+        singleSelectedValue: '1',
         singleSelectedValueWthSearch: [],
         singleSelectedValueWthSearch1: '',
         autoCompleteValue: '',
