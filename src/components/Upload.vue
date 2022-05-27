@@ -1,39 +1,37 @@
 <template>
-  <div>
-    <div :class="['fish upload', type]">
-      <div class="upload-select" @click="clickHandler" v-if="type === 'list' || type == ''">
-        <input type="file" ref="input"
-               @change="changeHandler"
-               :multiple="multiple"
-               :accept="accept"/>
-        <slot></slot>
-      </div>
-      <ul>
-        <li v-for="(file, index) in allFiles" :class="[file.state || 'done', `percent-${file.percent}`]" :key="index"  :style="pictureStyle">
-          <template v-if="type === 'picture'">
-            <img :src="file._url || file.url" v-if="type === 'picture' && file.state !== 'progress'"/>
-            <div class="info" @click="previewHandler(file)" :style="pictureStyle">
-              <i @click.stop="removeFile(index)">&times;</i>
-            </div>
-          </template>
-          <template v-else>
-            {{ file.name }}
-            <i class="close" @click.stop="removeFile(index)">&times;</i>
-          </template>
-        </li>
-      </ul>
-      <div class="upload-select" @click="clickHandler" v-if="type === 'picture' && allFiles.length < max" :style="pictureStyle">
-        <input type="file" ref="input"
-               @change="changeHandler"
-               :multiple="multiple"
-               :accept="accept"/>
-        <i>+</i>
-        <slot></slot>
-      </div>
-      <fish-modal :visible.sync="previewShow" title="Image Preview" attached="right">
-        <div class="image"><img :src="previewUrl" style="width: 100%;"/></div>
-      </fish-modal>
+  <div :class="['fish upload', type]">
+    <div class="upload-select" @click="clickHandler" v-if="type === 'list' || type == ''">
+      <input type="file" ref="input"
+              @change="changeHandler"
+              :multiple="multiple"
+              :accept="accept"/>
+      <slot></slot>
     </div>
+    <ul>
+      <li v-for="(file, index) in allFiles" :class="[file.state || 'done', `percent-${file.percent}`]" :key="index"  :style="pictureStyle">
+        <template v-if="type === 'picture'">
+          <img :src="file._url || file.url" v-if="type === 'picture' && file.state !== 'progress'"/>
+          <div class="info" @click="previewHandler(file)" :style="pictureStyle">
+            <i @click.stop="removeFile(index)">&times;</i>
+          </div>
+        </template>
+        <template v-else>
+          {{ file.name }}
+          <i class="close" @click.stop="removeFile(index)">&times;</i>
+        </template>
+      </li>
+    </ul>
+    <div class="upload-select" @click="clickHandler" v-if="type === 'picture' && allFiles.length < max" :style="pictureStyle">
+      <input type="file" ref="input"
+              @change="changeHandler"
+              :multiple="multiple"
+              :accept="accept"/>
+      <i>+</i>
+      <slot></slot>
+    </div>
+    <fish-modal :visible.sync="previewShow" title="Image Preview" attached="right">
+      <div class="image"><img :src="previewUrl" style="width: 100%;"/></div>
+    </fish-modal>
   </div>
 </template>
 <script>
