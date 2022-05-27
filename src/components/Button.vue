@@ -31,7 +31,9 @@
     },
     methods: {
       clickHandler (evt) {
-        this.$emit('click', evt)
+        if (!this.loading && !this.disabled) {
+          this.$emit('click', evt)
+        }
       }
     }
   }

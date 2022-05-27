@@ -5,8 +5,9 @@
     <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
         <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files1"
+              :on-start="() => loading = true" :on-success="() => loading = false"
                      :withCredentials="true">
-          <fish-button><i class="fa fa-upload" aria-hidden="true" style="margin-right: 5px;"></i> Upload</fish-button>
+          <fish-button :loading="loading"><i class="fa fa-upload" aria-hidden="true" style="margin-right: 5px;"></i> Upload</fish-button>
         </fish-upload>
       </template>
       <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
@@ -80,6 +81,7 @@
     },
     data () {
       return {
+        loading: false,
         api_columns: ['Attribute', 'Description', 'Type', 'Default'],
         api_data: [
           ['value', 'value', 'Array[{name: "", url: ""}...]', '-'],
