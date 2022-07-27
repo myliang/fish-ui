@@ -113,12 +113,16 @@
           let parent = content.parentNode
           const { width } = parent.getBoundingClientRect()
           if (this.direction === 'auto') {
-            let top = 0
-            while (parent.parentNode.tagName.toLowerCase() !== 'body' && parent.style.position === '') {
-              parent = parent.parentNode
-              top += parent.offsetTop
+            let top = content.offsetTop
+            let current = content.offsetParent
+            let prev = content
+            while (current !== null) {
+              top += current. offsetTop
+              prev = current
+              current = current.offsetParent
             }
-            const prect = parent.getBoundingClientRect()
+            const prect = prev.getBoundingClientRect()
+            console.log('prect:', prect, top)
             if (top > prect.height / 2) {
               content.style.top = `-${height + 2}px`
             }
