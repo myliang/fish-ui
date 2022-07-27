@@ -55,6 +55,7 @@
       search: { type: [Boolean, Function], default: false },
       disabled: { type: Boolean, default: false },
       maxHeight: { type: String, default: '300px' },
+      direction: { type: String, default: 'auto' },
       iconDownArrow: { type: String, default: 'fa fa-angle-down' },
       iconClose: { type: String, default: 'fa fa-close' },
       iconCloseCircle: { type: String, default: 'fa fa-times-circle' },
@@ -111,14 +112,16 @@
           const { height } = content.getBoundingClientRect()
           let parent = content.parentNode
           const { width } = parent.getBoundingClientRect()
-          let top = 0
-          while (parent.parentNode.tagName.toLowerCase() !== 'body' && parent.style.position === '') {
-            parent = parent.parentNode
-            top += parent.offsetTop
-          }
-          const prect = parent.getBoundingClientRect()
-          if (top > prect.height / 2) {
-            content.style.top = `-${height + 2}px`
+          if (this.direction === 'auto') {
+            let top = 0
+            while (parent.parentNode.tagName.toLowerCase() !== 'body' && parent.style.position === '') {
+              parent = parent.parentNode
+              top += parent.offsetTop
+            }
+            const prect = parent.getBoundingClientRect()
+            if (top > prect.height / 2) {
+              content.style.top = `-${height + 2}px`
+            }
           }
           content.style.width = `${width}px`
         })
