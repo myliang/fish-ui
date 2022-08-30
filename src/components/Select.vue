@@ -117,7 +117,7 @@
             let current = content.offsetParent
             let prev = content
             while (current !== null) {
-              top += current. offsetTop
+              top += current.offsetTop
               prev = current
               current = current.offsetParent
             }

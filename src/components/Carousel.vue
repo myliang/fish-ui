@@ -2,6 +2,8 @@
   <div class="fish carousel">
     <div class="content" :style="{'width': `${width}px`}">
       <ul class="list" 
+        @mouseover="pause = true"
+        @mouseout="pause = false"
         @click="clickHandler($event)"
         :style="{
           width: `${width * childrenLength}px`,
@@ -11,9 +13,10 @@
         <slot></slot>
       </ul>
     </div>
-    <ul class="dots">
-      <li :style="dotStyle" v-for="(i, index) in childrenLength" :class="{'active': activeIndex === index}" @click.stop="dotClickHandler(index)"></li>
+    <ul class="dots" v-if="childrenLength <= 10">
+      <li :style="dotStyle" v-for="(i, index) in childrenLength" :class="{'active': activeIndex === index}" @click.stop="dotClickHandler(index)" :key="index"></li>
     </ul>
+    <div class="count" v-else>{{activeIndex + 1}} / {{childrenLength}}</div>
   </div>
 </template>
 <script>
@@ -25,6 +28,7 @@
     },
     data () {
       return {
+        pause: false,
         width: 0,
         childrenLength: 0,
         activeIndex: 0
@@ -35,24 +39,30 @@
       this.childrenLength = this.$children.length
       this.$children.forEach((ele, index) => {
         ele.$el.style.width = this.width + 'px'
+        if (index > 2) {
+          ele.$el.style.display = 'none'
+        }
       })
       // auto play
       if (this.autoPlay) {
         setInterval(() => {
-          if (this.childrenLength - 1 === this.activeIndex) {
-            this.activeIndex = 0
-          } else {
-            ++this.activeIndex
-          }
+          if (!this.pause) this.playNext()
         }, 5000)
       }
     },
     methods: {
       clickHandler (evt) {
+        this.playNext()
+      },
+      playNext () {
         if (this.activeIndex >= this.childrenLength - 1) {
           this.activeIndex = 0
         } else {
           ++this.activeIndex
+        }
+        this.$emit('change', this.activeIndex)
+        if (this.activeIndex > 1 && this.activeIndex < this.childrenLength - 1) {
+          this.$children[this.activeIndex + 1].$el.style.display = 'block'
         }
       },
       dotClickHandler (index) {
