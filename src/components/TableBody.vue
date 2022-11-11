@@ -60,7 +60,7 @@
       itemValue (item, { key }) {
         let v = item
         for (const k of key.split('#')) {
-          if (v[k]) v = v[k]
+          if (v[k] !== undefined && v[k] !== null) v = v[k]
           else return ''
         }
         return v
