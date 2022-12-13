@@ -1,5 +1,5 @@
 <template>
-  <fish-table :columns="columns" :data="data" :pagination="page" @change="changeHandler">
+  <fish-table bottomMargin="20px" :columns="columns" :data="data" :pagination="page" @change="changeHandler">
   </fish-table>
 </template>
 <script>
