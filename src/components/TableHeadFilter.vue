@@ -2,7 +2,7 @@
   <div class="filters" @click.stop="clickHandler" ref="_root" v-clickoutside="awayHandler">
     <i class="fa fa-angle-down" style="margin-left: 8px;"></i>
     <div class="content" ref="_content">
-      <fish-menu v-show="visible" @click="menusClickHandler" defaultActive="_all">
+      <fish-menu v-show="visible" @click="menusClickHandler" defaultActive="_all" :minWidth="minWidth">
         <fish-option :index="item.value" :content="item.label" :key="index" ref="options"
                     v-for="(item, index) in [{label: 'All',value: '_all'}].concat(items)"></fish-option>
       </fish-menu>
@@ -28,6 +28,7 @@
     },
     data () {
       return {
+        minWidth: null,
         visible: false
         // activeTitle: null
       }
@@ -42,8 +43,9 @@
     updated () {
       const { _root, _content } = this.$refs
       const p = _root.offsetParent
-      _content.style.left = p.offsetLeft + 'px'
+      _content.style.left = (p.offsetLeft - p.offsetParent.parentNode.scrollLeft) + 'px'
       _content.style.top = p.offsetHeight + 'px'
+      this.minWidth = _root.parentNode.getBoundingClientRect().width + 'px'
     },
     methods: {
       clickHandler () {
