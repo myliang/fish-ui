@@ -8,7 +8,8 @@ export default {
   name: 'fish-menu',
   props: {
     size: { type: String },
-    minWidth: { type: String },
+    minWidth: { type: Number },
+    maxHeight: { type: Number },
     mode: { type: String, default: 'vertical' }, // vertical, horizontal, inline
     compact: { type: Boolean, default: false }, // 紧凑
     indexDelimiter: { type: String, default: '-' }, // option index内容的分隔符
@@ -38,7 +39,10 @@ export default {
     styleObject () {
       const s = []
       if (this.minWidth) {
-        s.push({ 'min-width': this.minWidth })
+        s.push({ 'min-width': `${this.minWidth}px` })
+      }
+      if (this.maxHeight) {
+        s.push({ 'max-height': `${this.maxHeight}px`, 'overflow': 'auto' })
       }
       return s
     }
