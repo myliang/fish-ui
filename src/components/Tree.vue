@@ -66,16 +66,16 @@
         this.setAllParentState(item.key)
         this.$emit('item-checked', this.getCheckedKeys())
       },
-      onItemContextmenu (item) {
+      onItemContextmenu (item, evt) {
         this.selectedKey = item.key
-        this.$emit('item-contextmenu', item)
+        this.$emit('item-contextmenu', item, evt)
       },
-      onItemDblclick (item) {
-        this.$emit('item-dblclick', item)
+      onItemDblclick (item, evt) {
+        this.$emit('item-dblclick', item, evt)
       },
-      onItemClick (item) {
+      onItemClick (item, evt) {
         this.selectedKey = item.key
-        this.$emit('item-click', item)
+        this.$emit('item-click', item, evt)
       },
       onItemRemove (data, item, itemIndex, evt) {
         this.$emit('item-remove', data, item, itemIndex, evt)

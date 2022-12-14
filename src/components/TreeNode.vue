@@ -8,13 +8,13 @@
       <i v-else>&nbsp;</i>
       <fish-checkbox :index="item.key"
                      :state="dataKeyMap[item.key][0]"
-                     @click.stop="onItemChecked(item)"
+                     @click.stop="(evt) => onItemChecked(item, evt)"
                      ref="checkboxes" v-if="checkabled(multiple, item)"></fish-checkbox>
 
       <span class="title"
-            @contextmenu.prevent="onItemContextmenu(item)"
-            @click="onItemClick(item)"
-            @dblclick="onItemDblclick(item)">
+            @contextmenu.prevent="(evt) => onItemContextmenu(item, evt)"
+            @click="(evt) => onItemClick(item, evt)"
+            @dblclick="(evt) => onItemDblclick(item, evt)">
         <slot :item="item">{{onItemRender(item)}}</slot>
       </span>
 
@@ -57,10 +57,10 @@
       edited: { type: Boolean, default: false },
       iconCaretRight: { type: String, default: 'fa fa-caret-right' },
       iconCaretDown: { type: String, default: 'fa fa-caret-down' },
-      onItemContextmenu: { type: Function, default: (item) => {} },
-      onItemChecked: { type: Function, default: (item) => {} },
-      onItemDblclick: { type: Function, default: (item) => {} },
-      onItemClick: { type: Function, default: (item) => {} },
+      onItemContextmenu: { type: Function, default: (item, evt) => {} },
+      onItemChecked: { type: Function, default: (item, evt) => {} },
+      onItemDblclick: { type: Function, default: (item, evt) => {} },
+      onItemClick: { type: Function, default: (item, evt) => {} },
       onItemRemove: { type: Function, default: (data, item, index, evt) => {} },
       onItemRender: { type: Function, default: (item) => item.title }
     },
