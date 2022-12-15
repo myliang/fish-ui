@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div :style="`margin: ${bottomMargin}; overflow: hidden;`" v-if="$slots.bottomLeft || pagination">
+    <div :style="`padding: ${bottomPadding}; overflow: hidden;`" v-if="$slots.bottomLeft || pagination">
       <div style="float: left"><slot name="bottomLeft"></slot></div>
       <div style="float: right" v-if="pagination">
         <fish-pagination :total="pagination.total"
@@ -63,7 +63,7 @@
     },
     name: 'fish-table',
     props: {
-      bottomMargin: { type: String, default: '10px 0' },
+      bottomPadding: { type: String, default: '10px 0' },
       columns: { type: Array, required: true }, // [{title: '', key: '', width: 100, render: () => {}}]
       data: { type: Array, required: true },
       bordered: { type: Boolean, default: false },
