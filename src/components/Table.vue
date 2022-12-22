@@ -89,6 +89,7 @@
         fixedRightColumns: [],
         filters: {}, // 表头的过滤返回值
         sorter: null,
+        rootWidth: 0,
         trHeight: 38
       }
     },
@@ -114,6 +115,12 @@
     },
     mounted () {
       this.init()
+      let { root } = this.$refs
+      this.rootWidth = 0
+      while (this.rootWidth <= 0) {
+        this.rootWidth = root.getBoundingClientRect().width
+        root = root.parentNode
+      }
       window.addEventListener('resize', this.calScroll)
     },
     destroyed () {
@@ -216,16 +223,11 @@
         this.scrollY = true
       },
       calScrollX () {
-        const { header, body } = this.$refs
-        let { root } = this.$refs
-        let rootWidth = 0
-        while (rootWidth <= 0) {
-          rootWidth = root.getBoundingClientRect().width
-          root = root.parentNode
-        }
+        const { header, body, root } = this.$refs
+        const { rootWidth } = this
         if (rootWidth <= 0) return
-        const currentWindowWidth = getWindowWidth()
-        rootWidth += currentWindowWidth - this.windowWidth
+        // const currentWindowWidth = getWindowWidth()
+        // rootWidth += currentWindowWidth - this.windowWidth
         const totalWidth = this.allLeafColumns.map((e) => e.width || 0).reduce((arg1, arg2) => { return parseInt(arg1) + parseInt(arg2) }, 0)
         if (totalWidth <= rootWidth) {
           root.style.width = 'auto'
@@ -237,7 +239,7 @@
         body.addEventListener('scroll', (event) => {
           header.scrollLeft = event.target.scrollLeft
         }, false)
-        this.windowWidth = currentWindowWidth
+        // this.windowWidth = currentWindowWidth
       },
       cellRender (item, column) {
         return column.render === undefined ? item[column.key] : column.render(item[column.key], column)
