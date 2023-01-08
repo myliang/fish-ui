@@ -55,7 +55,7 @@
       search: { type: [Boolean, Function], default: false },
       disabled: { type: Boolean, default: false },
       maxHeight: { type: String, default: '300px' },
-      direction: { type: String, default: 'auto' },
+      direction: { type: String, default: 'down' },
       iconDownArrow: { type: String, default: 'fa fa-angle-down' },
       iconClose: { type: String, default: 'fa fa-close' },
       iconCloseCircle: { type: String, default: 'fa fa-times-circle' },
@@ -115,15 +115,10 @@
           if (this.direction === 'auto') {
             let top = content.offsetTop
             let current = content.offsetParent
-            let prev = content
-            while (current !== null) {
-              top += current.offsetTop
-              prev = current
-              current = current.offsetParent
-            }
-            const prect = prev.getBoundingClientRect()
-            console.log('prect:', prect, top)
-            if (top > prect.height / 2) {
+            top += current.offsetTop
+            current = current.offsetParent
+            const prect = current.getBoundingClientRect()
+            if (prect.height - top < height) {
               content.style.top = `-${height + 2}px`
             }
           }
