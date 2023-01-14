@@ -6,8 +6,8 @@
         <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
             <fish-select v-model="singleSelectedValue">
-              <fish-option index="0" content="Option-1"></fish-option>
-              <fish-option index="1" content="Option-2"></fish-option>
+              <fish-option :index="false" content="Option-false"></fish-option>
+              <fish-option :index="true" content="Option-true"></fish-option>
               <fish-option index="2" content="Option-3"></fish-option>
               <fish-option index="3" content="Option-4"></fish-option>
               <fish-option index="4" content="Option-5"></fish-option>
@@ -15,8 +15,8 @@
           </template>
           <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
   &lt;fish-select v-model=&quot;singleSelectedValue&quot;&gt;
-    &lt;fish-option index=&quot;0&quot; content=&quot;Option-1&quot;&gt;&lt;/fish-option&gt;
-    &lt;fish-option index=&quot;1&quot; content=&quot;Option-2&quot;&gt;&lt;/fish-option&gt;
+    &lt;fish-option index=&quot;false&quot; content=&quot;Option-false&quot;&gt;&lt;/fish-option&gt;
+    &lt;fish-option index=&quot;true&quot; content=&quot;Option-true&quot;&gt;&lt;/fish-option&gt;
     &lt;fish-option index=&quot;2&quot; content=&quot;Option-3&quot;&gt;&lt;/fish-option&gt;
     &lt;fish-option index=&quot;3&quot; content=&quot;Option-4&quot;&gt;&lt;/fish-option&gt;
     &lt;fish-option index=&quot;4&quot; content=&quot;Option-5&quot;&gt;&lt;/fish-option&gt;
@@ -24,7 +24,7 @@
 &lt;/template&gt;
 &lt;script&gt;
   export default {
-    data () { return {singleSelectedValue: ''} }
+    data () { return {singleSelectedValue: false} }
   }
 &lt;/script&gt;
 </code></pre>

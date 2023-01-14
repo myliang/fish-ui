@@ -23,8 +23,8 @@
     <fish-fields>
       <fish-field label="Sex" name="sex" :rules="[{required: true}]">
         <fish-select v-model="sex">
-          <fish-option index="0" content="Male"></fish-option>
-          <fish-option index="1" content="Female"></fish-option>
+          <fish-option :index="false" content="Male"></fish-option>
+          <fish-option :index="true" content="Female"></fish-option>
         </fish-select>
       </fish-field>
       <fish-field label="Date" name="date" :rules="[{required: true}]">

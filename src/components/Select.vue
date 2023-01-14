@@ -49,7 +49,7 @@
     name: 'fish-select',
     directives: { clickoutside },
     props: {
-      value: [Number, String, Array],
+      value: [Boolean, Number, String, Array],
       hint: { type: String, default: '' },
       multiple: { type: Boolean, default: false },
       search: { type: [Boolean, Function], default: false },
@@ -102,7 +102,7 @@
         return this.search && this.search instanceof Function
       },
       values () {
-        return Array.isArray(this.value) ? this.value : (this.value && this.value.toString() !== '' ? [this.value] : [])
+        return Array.isArray(this.value) ? this.value : (this.value !== null && this.value !== undefined && this.value.toString() !== '' ? [this.value] : [])
       }
     },
     methods: {

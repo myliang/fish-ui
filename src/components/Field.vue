@@ -63,7 +63,7 @@
         return this.$children[0]
       },
       fieldValue () {
-        return this.field && this.field.value
+        return this.field ? this.field.value : undefined
       },
       required () {
         const { rules } = this

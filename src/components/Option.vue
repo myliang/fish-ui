@@ -8,7 +8,7 @@
     name: 'fish-option',
     props: {
       disabled: { type: Boolean, default: false },
-      index: { type: [String, Number], required: true },
+      index: { type: [Boolean, String, Number], required: true },
       content: { type: String }
     },
     data () {
