@@ -36,7 +36,6 @@
     },
     methods: {
       clickHandler (evt) {
-        console.log(':::', this.active)
         this.active = !this.active
         evt.index = this.index
         this.$emit('click', evt)
