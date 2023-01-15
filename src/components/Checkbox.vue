@@ -1,7 +1,7 @@
 <template>
-  <div :class="classObject" @click="clickHandler">
+  <div :class="classObject">
     <label>
-      <input type="checkbox"/>
+      <input type="checkbox" @click="clickHandler"/>
     </label>
     <span class="label" v-if="$slots.default"><slot/></span>
   </div>
@@ -36,6 +36,7 @@
     },
     methods: {
       clickHandler (evt) {
+        console.log(':::', this.active)
         this.active = !this.active
         evt.index = this.index
         this.$emit('click', evt)

@@ -1,7 +1,7 @@
 <template>
-  <div :class="classObject" @click="clickHandler">
+  <div :class="classObject">
     <label>
-      <input type="radio"/>
+      <input type="radio" @click="clickHandler"/>
     </label>
     <span><slot/></span>
   </div>
