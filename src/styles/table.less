@@ -98,19 +98,14 @@
   }
 
   &.bordered {
+    border-right: none;
     td, th {
       border-right: @table-cell-border-style;
-      &:last-child {
-        border-right: none;
-      }
     }
   }
   &.bordered-header {
     th {
       border-right: @table-cell-border-style;
-      &:last-child {
-        border-right: none;
-      }
     }
   }
   &.striped {

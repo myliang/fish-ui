@@ -5,7 +5,7 @@
       <fish-col span="12">
         <code-card title="Basic" desc="Basic use case">
           <template slot="demo">
-            <fish-radio index="x">Choice</fish-radio>
+            <fish-radio index="x">“路线编码”第一位为“X/J、Y、C、Z、V”时，重复路段之间对应信息必须一致（路面宽度）“路线编码”第一位为“X/J、Y、C、Z、V”时，重复路段之间对应信息必须一致（路面宽度）</fish-radio>
           </template>
           <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;fish-radio index=&quot;x&quot;&gt;Choice&lt;/fish-radio&gt;</code></pre>
         </code-card>

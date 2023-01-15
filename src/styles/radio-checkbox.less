@@ -1,21 +1,21 @@
 @import './base.less';
 
 .@{css-prefix}.radio, .@{css-prefix}.checkbox {
-  position: relative;
-  display: inline-block;
+  display: flex;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   outline: 0;
-  vertical-align: baseline;
   font-style: normal;
   font-size: 1rem;
-  line-height: 1em;
+  line-height: 1.2;
+  align-items: center;
   //margin-right: .5em;
 
   span {
     padding: 0 8px;
     cursor: pointer;
     .user-select(none);
+    line-height: 1.2;
   }
 
   &.active, &.open {
@@ -45,17 +45,16 @@
   }
 
   > input {
-    position: absolute;
-    top: 0;
-    left: 0;
     opacity: 0!important;
     outline: 0;
     z-index: -1;
   }
 
   > label {
-    padding-left: 1em;
     cursor: pointer;
+    line-height: 1.2;
+    position: relative;
+    height: 14px;
 
     &:hover {
       &:before {
@@ -115,8 +114,12 @@
 .@{css-prefix}.checkboxes, .@{css-prefix}.radios {
   &.vertical {
     .checkbox, .radio {
-      display: block;
-      margin-bottom: .6em;
+      flex-direction: row;
+      margin-bottom: .5em;
     }
+  }
+  &.horizontal {
+    display: flex;
+    flex-direction: row;
   }
 }

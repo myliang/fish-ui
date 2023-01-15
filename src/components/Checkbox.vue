@@ -1,7 +1,8 @@
 <template>
   <div :class="classObject" @click="clickHandler">
-    <input type="checkbox"/>
-    <label></label>
+    <label>
+      <input type="checkbox"/>
+    </label>
     <span class="label" v-if="$slots.default"><slot/></span>
   </div>
 </template>
