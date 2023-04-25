@@ -163,6 +163,19 @@
         </tbody>
       </table>
     </div>
+    <h3>tree in bottom</h3>
+    <fish-row gutter="1">
+      <fish-col span="12">
+        <code-card title="Single" desc="Single Tree Select">
+          <demo-tree-select-single slot="demo"></demo-tree-select-single>
+          <demo-tree-select-single slot="demo"></demo-tree-select-single>
+          <demo-tree-select-single slot="demo"></demo-tree-select-single>
+          <demo-tree-select-single slot="demo"></demo-tree-select-single>
+          <demo-tree-select-single slot="demo"></demo-tree-select-single>
+          <demo-tree-select-single slot="demo"></demo-tree-select-single>
+        </code-card>
+      </fish-col>
+    </fish-row>
   </main-layout>
 </template>
 <script>
