@@ -1,5 +1,13 @@
 <template>
   <div :class="['fish upload picture']">
+     <ul>
+      <li v-for="(v, index) in value" :key="index"  :style="pictureStyle">
+          <img :src="url(v)"/>
+          <div class="info" @click="previewHandler(index)" :style="pictureStyle">
+            <i @click.stop="removeFile(index)" v-if="!readOnly">&times;</i>
+          </div>
+      </li>
+    </ul>
     <div class="upload-trigger" @click="clickHandler" v-if="value.length < max && !readOnly" :style="pictureStyle">
       <input type="file" ref="input"
               @change="changeHandler"
@@ -8,14 +16,6 @@
       <i>+</i>
       <slot></slot>
     </div>
-    <ul>
-      <li v-for="(v, index) in value" :key="index"  :style="pictureStyle">
-          <img :src="url(v)"/>
-          <div class="info" @click="previewHandler(index)" :style="pictureStyle">
-            <i @click.stop="removeFile(index)" v-if="!readOnly">&times;</i>
-          </div>
-      </li>
-    </ul>
     <fish-modal :visible.sync="previewShow" title="Image Preview" attached="right">
       <div class="image"><img :src="previewUrl(value[previewIndex])" style="width: 100%;"/></div>
     </fish-modal>

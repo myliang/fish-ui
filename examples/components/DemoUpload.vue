@@ -30,9 +30,9 @@
 
     <code-card title="Picture" desc="Upload Picture">
       <template slot="demo">
-        <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files" :preview="true"
-                     :withCredentials="true" type="picture">
-        </fish-upload>
+        <fish-upload-image action="//jsonplaceholder.typicode.com/posts/" :value="[]" :preview="true"
+                     :withCredentials="true" :max="10">
+        </fish-upload-image>
       </template>
       <pre v-highlightjs slot="codeHtml"><code class="xml">&lt;template&gt;
   &lt;fish-upload action=&quot;//jsonplaceholder.typicode.com/posts/&quot; v-model=&quot;files&quot;
