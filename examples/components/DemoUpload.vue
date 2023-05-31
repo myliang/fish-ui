@@ -4,7 +4,7 @@
 
     <code-card title="Basic" desc="Basic use case">
       <template slot="demo">
-        <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files1"
+        <fish-upload action="//jsonplaceholder.typicode.com/posts/" v-model="files"
               :on-start="() => loading = true" :on-success="() => loading = false"
                      :withCredentials="true">
           <fish-button :loading="loading"><i class="fa fa-upload" aria-hidden="true" style="margin-right: 5px;"></i> Upload</fish-button>
@@ -30,7 +30,7 @@
 
     <code-card title="Picture" desc="Upload Picture">
       <template slot="demo">
-        <fish-upload-image action="//jsonplaceholder.typicode.com/posts/" :value="[]" :preview="true"
+        <fish-upload-image action="//jsonplaceholder.typicode.com/posts/" v-model="files1" :preview="true"
                      :withCredentials="true" :max="10">
         </fish-upload-image>
       </template>
@@ -100,7 +100,7 @@
           ['onError', 'callback when upload error', 'Function(err, file)', '() => {}'],
           ['formatUrlFromResponse', 'parse url from response', 'Function(res)', '(res) => res']
         ],
-        files1: [{name: 'xxx.png', url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'}],
+        files1: ['https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'],
         files: []
       }
     }

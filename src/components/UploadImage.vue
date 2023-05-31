@@ -16,7 +16,7 @@
         <slot></slot>
       </li>
     </ul>
-    <fish-modal :visible.sync="previewShow" title="Image Preview" attached="right">
+    <fish-modal :visible.sync="previewShow" touchable title="Image Preview" attached="right">
       <div class="image"><img :src="previewUrl(value[previewIndex])" style="width: 100%;"/></div>
     </fish-modal>
   </div>

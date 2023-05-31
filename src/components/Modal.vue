@@ -1,23 +1,26 @@
 <template>
-  <div :class="['fish dimmer active']" v-if="visible" 
+<div>
+  <div :class="['fish dimmer active']" v-if="!touchable && visible" 
     :style="{position: 'fixed'}">
-    <div :class="['fish modal', 'attached', attached]" ref="modal"
-      :style="mstyle">
-      <i class="fa fa-times" @click="closeHandler"></i>
-      <div class="header" v-if="title">
-        {{ title }}
-      </div>
-      <div class="content" :style="{padding: padding}">
-        <slot></slot>
-      </div>
+  </div>
+  <div :class="['fish modal', 'attached', attached]" ref="modal"
+      :style="mstyle" v-if="visible">
+    <i class="fa fa-times" @click="closeHandler"></i>
+    <div class="header" v-if="title">
+      {{ title }}
+    </div>
+    <div class="content" :style="{padding: padding}">
+      <slot></slot>
     </div>
   </div>
+</div>
 </template>
 <script>
   export default {
     name: 'fish-modal',
     props: {
       title: { type: String },
+      touchable: { type: Boolean, default: false },
       attached: { type: String, default: 'center' },
       padding: { type: String, default: '1em' },
       visible: { type: Boolean, default: false },
