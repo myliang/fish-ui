@@ -17,7 +17,7 @@
       </li>
     </ul>
     <fish-modal :visible.sync="previewShow" touchable title="Image Preview" attached="right">
-      <div class="image"><img :src="previewUrl(value[previewIndex])" style="width: 100%;"/></div>
+      <div class="image" @click="clickNextImage"><img :src="previewUrl(value[previewIndex])" style="width: 100%;"/></div>
     </fish-modal>
   </div>
 </template>
@@ -82,6 +82,13 @@
         if (this.preview) {
           this.previewShow = true
           this.previewIndex = index
+        }
+      },
+      clickNextImage () {
+        if (this.previewIndex >= this.value.length - 1) {
+          this.previewIndex = 0
+        } else {
+          ++this.previewIndex
         }
       },
       changeHandler (evt) {

@@ -100,7 +100,7 @@
           ['onError', 'callback when upload error', 'Function(err, file)', '() => {}'],
           ['formatUrlFromResponse', 'parse url from response', 'Function(res)', '(res) => res']
         ],
-        files1: ['https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'],
+        files1: ['https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png', 'https://img.zcool.cn/community/01fb795567e9ed0000016756077c60.jpg@1280w_1l_2o_100sh.jpg'],
         files: []
       }
     }
