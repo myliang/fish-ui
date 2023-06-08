@@ -18,6 +18,7 @@
     </ul>
     <fish-modal :visible.sync="previewShow" touchable title="Image Preview" attached="right">
       <div class="image" @click="clickNextImage"><img :src="previewUrl(value[previewIndex])" style="width: 100%;"/></div>
+      <slot name="preview" :item="value[previewIndex]" :index="previewIndex"/>
     </fish-modal>
   </div>
 </template>
