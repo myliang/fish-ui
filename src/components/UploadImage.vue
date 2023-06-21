@@ -23,7 +23,7 @@
           <li @click.stop="imageZoomHandler(0.25)"><i class="fa fa-plus" aria-hidden="true"/></li>
           <li @click.stop="imageZoomHandler(-0.25)"><i class="fa fa-minus" aria-hidden="true"/></li>
         </ul>
-        <div class="image" @mousedown.stop.prevent="imageMousedownHandler" :style="`display: flex; justify-content: center; overflow: hidden; width: 800px; height: ${previewImageHeight}px;`" ref="imageBox">
+        <div class="image" @mousedown.stop.prevent="imageMousedownHandler" :style="`display: flex; justify-content: center; position: relative; overflow: hidden; width: 800px; height: ${previewImageHeight}px;`" ref="imageBox">
           <img :src="previewUrl(value[previewIndex])" ref="realImage" :style="`position: absolute; left: ${image.left}px; top: ${image.top}px; width: ${image.width}px; height: ${image.height}px; transform: scale(${1 + image.scale}) rotateZ(${image.rotate}deg);`"/>
         </div>
       </div>
