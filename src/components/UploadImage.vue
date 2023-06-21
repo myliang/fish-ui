@@ -16,8 +16,15 @@
         <slot></slot>
       </li>
     </ul>
-    <fish-modal :visible.sync="previewShow" touchable title="Image Preview" attached="right">
-      <div class="image" @click="clickNextImage"><img :src="previewUrl(value[previewIndex])" style="width: 100%;"/></div>
+    <fish-modal :visible.sync="previewShow" touchable title="Image Preview" attached="right" padding="0" width="800px" @close="closePreviewHandler">
+      <div class="image" @mousedown.stop.prevent="imageMousedownHandler" :style="`display: flex; justify-content: center; overflow: hidden; position: relative; width: 800px; height: ${previewImageHeight}px;`" ref="imageBox">
+        <ul class="image-toolbar">
+          <li @mousedown.stop="() => {}" @click.stop="imageRepeatHandler"><i class="fa fa-repeat" aria-hidden="true"/></li>
+          <li @mousedown.stop="() => {}" @click.stop="imageZoomHandler(0.25)"><i class="fa fa-plus" aria-hidden="true"/></li>
+          <li @mousedown.stop="() => {}" @click.stop="imageZoomHandler(-0.25)"><i class="fa fa-minus" aria-hidden="true"/></li>
+        </ul>
+        <img :src="previewUrl(value[previewIndex])" ref="realImage" :style="`position: absolute; left: ${image.left}px; top: ${image.top}px; width: ${image.width}px; height: ${image.height}px; transform: scale(${1 + image.scale}) rotateZ(${image.rotate}deg);`"/>
+      </div>
       <slot name="preview" :item="value[previewIndex]" :index="previewIndex"/>
     </fish-modal>
   </div>
@@ -41,6 +48,7 @@
       readOnly: { type: Boolean, default: false },
       url: { type: Function, default: (url) => url },
       previewUrl: { type: Function, default: (url) => url },
+      previewImageHeight: { type: Number, default: 600 },
       max: { type: Number, default: 1 },
       preview: { type: Boolean, default: true },
       headers: { type: Object }, // http headers
@@ -56,6 +64,8 @@
       return {
         previewShow: false,
         previewIndex: 0,
+        image: {rotate: 0, scale: 1, height: 0, width: 0, left: 0, top: 0},
+        imageMoving: false,
         reqs: {}
       }
     },
@@ -69,6 +79,75 @@
       }
     },
     methods: {
+      imageMousedownHandler (evt) {
+        const { image } = this
+        let moving = false
+        this.$refs.imageBox.onmousemove = (e) => {
+          moving = true
+          e.preventDefault()
+          image.left += e.movementX
+          image.top += e.movementY
+          this.$refs.realImage.style.left = `${image.left}px`
+          this.$refs.realImage.style.top = `${image.top}px`
+        }
+        document.onmouseup = () => {
+          this.$refs.imageBox.onmousemove = null
+          this.$refs.imageBox.onmouseup = null
+          if (!moving) {
+            this.clickNextImage()
+          }
+          moving = false
+        }
+      },
+      wheelHandler (evt) {
+        const dir = evt.detail ? evt.detail * -120 : evt.wheelDelta
+        this.imageZoomHandler(dir / 2000)
+      },
+      resetImage () {
+        this.image = { rotate: 0, scale: 1, height: 0, width: 0 }
+        this.initImage()
+      },
+      initImage () {
+        const imgObj = new Image()
+        imgObj.src = this.previewUrl(this.value[this.previewIndex])
+        imgObj.onload = () => {
+          const { width, height } = imgObj
+          const whRatio = width / height
+          const hwRatio = height / width
+          const { clientHeight, clientWidth } = this.$refs.imageBox
+          const { image } = this
+          // console.log('clientHeight:', clienItHeight, clientWidth, width, height)
+          if (width > height) {
+            image.height = hwRatio * clientWidth
+            if (image.height > clientHeight) {
+              image.height = clientHeight
+              image.width = whRatio * clientHeight
+            } else {
+              image.width = clientWidth
+            }
+            image.top = (clientHeight - image.height) / 2
+            image.left = (clientWidth - image.width) / 2
+          } else {
+            image.height = clientHeight
+            image.width = (clientHeight / height) * width
+            image.left = (clientWidth - image.width) / 2
+          }
+        }
+      },
+      imageRepeatHandler () {
+        const { image } = this
+        image.rotate += 90
+        if (this.image.rotate >= 360) {
+          this.image.rotate = 0
+        }
+      },
+      imageZoomHandler (zoom) {
+        const { image } = this
+        image.scale += zoom
+        if (image.scale < -0.5) {
+          image.scale = -0.5
+        }
+      },
       removeFile (index) {
         this.emitChange(this.value.filter((f, i) => i !== index))
       },
@@ -83,14 +162,24 @@
         if (this.preview) {
           this.previewShow = true
           this.previewIndex = index
+          setTimeout(() => {
+            this.mousewheelEvt = /Firefox/i.test(navigator.userAgent) ? 'DOMMouseScroll' : 'mousewheel'
+            this.$refs.imageBox.addEventListener(this.mousewheelEvt, this.wheelHandler, {passive: true})
+          })
+          this.resetImage()
         }
       },
+      closePreviewHandler () {
+        this.$refs.imageBox.removeEventListener(this.mousewheelEvt, this.wheelHandler, {passive: true})
+      },
       clickNextImage () {
+        if (this.imageMoving) return
         if (this.previewIndex >= this.value.length - 1) {
           this.previewIndex = 0
         } else {
           ++this.previewIndex
         }
+        this.resetImage()
       },
       changeHandler (evt) {
         if (this.reqs.length > 0) return
