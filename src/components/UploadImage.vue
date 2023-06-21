@@ -17,13 +17,15 @@
       </li>
     </ul>
     <fish-modal :visible.sync="previewShow" touchable title="Image Preview" attached="right" padding="0" width="800px" @close="closePreviewHandler">
-      <div class="image" @mousedown.stop.prevent="imageMousedownHandler" :style="`display: flex; justify-content: center; overflow: hidden; position: relative; width: 800px; height: ${previewImageHeight}px;`" ref="imageBox">
+      <div style="position: relative;">
         <ul class="image-toolbar">
-          <li @mousedown.stop="() => {}" @click.stop="imageRepeatHandler"><i class="fa fa-repeat" aria-hidden="true"/></li>
-          <li @mousedown.stop="() => {}" @click.stop="imageZoomHandler(0.25)"><i class="fa fa-plus" aria-hidden="true"/></li>
-          <li @mousedown.stop="() => {}" @click.stop="imageZoomHandler(-0.25)"><i class="fa fa-minus" aria-hidden="true"/></li>
+          <li @click.stop="imageRepeatHandler"><i class="fa fa-repeat" aria-hidden="true"/></li>
+          <li @click.stop="imageZoomHandler(0.25)"><i class="fa fa-plus" aria-hidden="true"/></li>
+          <li @click.stop="imageZoomHandler(-0.25)"><i class="fa fa-minus" aria-hidden="true"/></li>
         </ul>
-        <img :src="previewUrl(value[previewIndex])" ref="realImage" :style="`position: absolute; left: ${image.left}px; top: ${image.top}px; width: ${image.width}px; height: ${image.height}px; transform: scale(${1 + image.scale}) rotateZ(${image.rotate}deg);`"/>
+        <div class="image" @mousedown.stop.prevent="imageMousedownHandler" :style="`display: flex; justify-content: center; overflow: hidden; width: 800px; height: ${previewImageHeight}px;`" ref="imageBox">
+          <img :src="previewUrl(value[previewIndex])" ref="realImage" :style="`position: absolute; left: ${image.left}px; top: ${image.top}px; width: ${image.width}px; height: ${image.height}px; transform: scale(${1 + image.scale}) rotateZ(${image.rotate}deg);`"/>
+        </div>
       </div>
       <slot name="preview" :item="value[previewIndex]" :index="previewIndex"/>
     </fish-modal>
@@ -90,7 +92,7 @@
           this.$refs.realImage.style.left = `${image.left}px`
           this.$refs.realImage.style.top = `${image.top}px`
         }
-        document.onmouseup = () => {
+        this.$refs.imageBox.onmouseup = () => {
           this.$refs.imageBox.onmousemove = null
           this.$refs.imageBox.onmouseup = null
           if (!moving) {
@@ -104,7 +106,7 @@
         this.imageZoomHandler(dir / 2000)
       },
       resetImage () {
-        this.image = { rotate: 0, scale: 1, height: 0, width: 0 }
+        this.image = { rotate: 0, scale: 1, height: 0, width: 0, left: 0, top: 0 }
         this.initImage()
       },
       initImage () {
@@ -134,7 +136,7 @@
           }
         }
       },
-      imageRepeatHandler () {
+      imageRepeatHandler (evt) {
         const { image } = this
         image.rotate += 90
         if (this.image.rotate >= 360) {
@@ -173,7 +175,6 @@
         this.$refs.imageBox.removeEventListener(this.mousewheelEvt, this.wheelHandler, {passive: true})
       },
       clickNextImage () {
-        if (this.imageMoving) return
         if (this.previewIndex >= this.value.length - 1) {
           this.previewIndex = 0
         } else {
