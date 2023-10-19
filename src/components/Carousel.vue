@@ -8,22 +8,27 @@
         :style="{
           width: `${width * childrenLength}px`,
           transform: `translate3d(-${activeIndex * width}px, 0px, 0px)`,
-          transition: '-webkit-transform 500ms ease'
+          transition
         }">
         <slot></slot>
       </ul>
     </div>
-    <ul class="dots" v-if="childrenLength <= 10">
-      <li :style="dotStyle" v-for="(i, index) in childrenLength" :class="{'active': activeIndex === index}" @click.stop="dotClickHandler(index)" :key="index"></li>
-    </ul>
-    <div class="count" v-else>{{activeIndex + 1}} / {{childrenLength}}</div>
+    <template v-if="showCount">
+      <ul class="dots" v-if="childrenLength <= 10">
+        <li :style="dotStyle" v-for="(i, index) in childrenLength" :class="{'active': activeIndex === index}" @click.stop="dotClickHandler(index)" :key="index"></li>
+      </ul>
+      <div class="count" v-else>{{activeIndex + 1}} / {{childrenLength}}</div>
+    </template>
+    <slot name="page"/>
   </div>
 </template>
 <script>
   export default {
     name: 'fish-carousel',
     props: {
+      transition: { type: String, default: '-webkit-transform 500ms ease' },
       dotStyle: { type: String, default: '' },
+      showCount: { type: Boolean, default: true },
       autoPlay: { type: Boolean, default: false }
     },
     data () {
@@ -52,6 +57,20 @@
     },
     methods: {
       clickHandler (evt) {
+        this.next()
+      },
+      prev () {
+        if (this.activeIndex <= 0) {
+          this.activeIndex = 0
+        } else {
+          --this.activeIndex
+        }
+        this.$emit('change', this.activeIndex)
+        if (this.activeIndex >= 1 && this.activeIndex < this.childrenLength - 1) {
+          this.$children[this.activeIndex - 1].$el.style.display = 'block'
+        }
+      },
+      next () {
         this.playNext()
       },
       playNext () {
