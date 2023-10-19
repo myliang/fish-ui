@@ -20,7 +20,7 @@
     <div class="play-toolbar-wrapper" v-else>
       <div class="play-toolbar">
         <div :class="['play-toolbar-item', activeIndex == 0 ? 'disabled' : '']" @click.stop="prev()"><i class="fa fa-arrow-left"/></div>
-        <div class="play-toolbar-item" @click.stop="pause = !pause"><i :class="`fa fa-${pause ? 'pause' : 'play'}-circle`"/></div>
+        <div class="play-toolbar-item" @click.stop="pause = !pause"><i :class="`fa fa-${!pause ? 'pause' : 'play'}-circle`"/></div>
         <div :class="['play-toolbar-item', activeIndex === childrenLength ? 'disabled' : '']" @click.stop="next()"><i class="fa fa-arrow-right"/></div>
       </div>
     </div>
@@ -37,7 +37,7 @@
     },
     data () {
       return {
-        pause: false,
+        pause: !this.autoPlay,
         width: 0,
         childrenLength: 0,
         activeIndex: 0
