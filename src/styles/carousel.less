@@ -40,6 +40,37 @@
     }
   }
 
+  .play-toolbar-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+  }
+
+  .play-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+
+    .play-toolbar-item {
+      padding: 6px 10px;
+      color: white;
+
+      &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, .15);
+      }
+    }
+  }
+
   > .count {
     text-align: center;
     margin: 0;

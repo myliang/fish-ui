@@ -2,8 +2,6 @@
   <div class="fish carousel">
     <div class="content" :style="{'width': `${width}px`}">
       <ul class="list" 
-        @mouseover="pause = true"
-        @mouseout="pause = false"
         @click="clickHandler($event)"
         :style="{
           width: `${width * childrenLength}px`,
@@ -19,7 +17,13 @@
       </ul>
       <div class="count" v-else>{{activeIndex + 1}} / {{childrenLength}}</div>
     </template>
-    <slot name="page"/>
+    <div class="play-toolbar-wrapper" v-else>
+      <div class="play-toolbar">
+        <div :class="['play-toolbar-item', activeIndex == 0 ? 'disabled' : '']" @click.stop="prev()"><i class="fa fa-arrow-left"/></div>
+        <div class="play-toolbar-item" @click.stop="pause = !pause"><i :class="`fa fa-${pause ? 'pause' : 'play'}-circle`"/></div>
+        <div :class="['play-toolbar-item', activeIndex === childrenLength ? 'disabled' : '']" @click.stop="next()"><i class="fa fa-arrow-right"/></div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
