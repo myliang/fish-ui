@@ -20,7 +20,7 @@
     <div class="play-toolbar-wrapper" v-else>
       <div class="play-toolbar">
         <div :class="['play-toolbar-item', activeIndex == 0 ? 'disabled' : '']" @click.stop="prev()"><i class="fa fa-arrow-left"/></div>
-        <div class="play-toolbar-item" @click.stop="pause = !pause"><i :class="`fa fa-${!pause ? 'pause' : 'play'}-circle`"/></div>
+        <div class="play-toolbar-item" @click.stop="clickPlayHandler"><i :class="`fa fa-${!pause ? 'pause' : 'play'}-circle`"/></div>
         <div :class="['play-toolbar-item', activeIndex === childrenLength ? 'disabled' : '']" @click.stop="next()"><i class="fa fa-arrow-right"/></div>
       </div>
     </div>
@@ -38,6 +38,7 @@
     data () {
       return {
         pause: !this.autoPlay,
+        timer: null,
         width: 0,
         childrenLength: 0,
         activeIndex: 0
@@ -54,12 +55,30 @@
       })
       // auto play
       if (this.autoPlay) {
-        setInterval(() => {
-          if (!this.pause) this.playNext()
-        }, 5000)
+        this.startTimer()
       }
     },
     methods: {
+      clickPlayHandler () {
+        if (this.pause) {
+          this.startTimer()
+        } else {
+          this.stopTimer()
+        }
+        this.pause = !this.pause
+      },
+      startTimer () {
+        this.timer = setInterval(() => {
+          this.next()
+        }, 5000)
+      },
+      stopTimer () {
+        console.log('stop-timer')
+        if (this.timer != null) {
+          clearInterval(this.timer)
+        }
+        this.timer = null
+      },
       clickHandler (evt) {
         this.next()
       },
