@@ -33,6 +33,7 @@
       transition: { type: String, default: '-webkit-transform 500ms ease' },
       dotStyle: { type: String, default: '' },
       showCount: { type: Boolean, default: true },
+      timeout: { type: Number, default: 3000 },
       autoPlay: { type: Boolean, default: false }
     },
     data () {
@@ -70,7 +71,7 @@
       startTimer () {
         this.timer = setInterval(() => {
           this.next()
-        }, 5000)
+        }, this.timeout)
       },
       stopTimer () {
         console.log('stop-timer')
