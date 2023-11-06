@@ -43,6 +43,7 @@
                          :current="currentPage"
                          :rows="pagination.rows"
                          :noMoreText="pagination.noMoreText"
+                         :simple="pagination.simple"
                          @change="pageChangeHandler"></fish-pagination>
       </div>
     </div>
