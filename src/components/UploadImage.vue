@@ -27,7 +27,7 @@
           <img :src="previewUrl(value[previewIndex])" ref="realImage" :style="`position: absolute; left: ${image.left}px; top: ${image.top}px; width: ${image.width}px; height: ${image.height}px; transform: scale(${1 + image.scale}) rotateZ(${image.rotate}deg);`"/>
         </div>
       </div>
-      <slot name="preview" :item="value[previewIndex]" :index="previewIndex"/>
+      <slot name="preview" :item="value[previewIndex]" :index="previewIndex" v-if="value && value[previewIndex]"/>
     </fish-modal>
   </div>
 </template>
