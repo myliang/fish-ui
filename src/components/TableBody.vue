@@ -2,7 +2,7 @@
   <table>
     <colgroup>
       <col v-if="rows.length > 0 && expandedRowRender" width="40"/>
-      <col v-for="(column, i) in columns" :width="column.width" :key="${i}_col"/>
+      <col v-for="(column, i) in columns" :width="column.width" :key="`${i}_col`"/>
     </colgroup>
     <tbody>
     <template v-for="(item, rowIndex) in rows">
