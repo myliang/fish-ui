@@ -8,7 +8,7 @@
     <template v-for="(item, rowIndex) in rows">
       <tr :key="rowIndex" @click="trClick(item, rowIndex)" :class="hasCounting(rowIndex) ? 'count' : ''">
         <td v-if="expandedRowRender" style="text-align: center;"><i :class="expandIcon" @click.stop="expandHandler(rowIndex)"></i></td>
-        <td v-for="column in columns" :style="{'text-align': column.align || 'left'}" :key="column.key">
+        <td v-for="column in columns" :style="{'text-align': column.align || 'left'}" :key="`${rowIndex}_${column.key}`">
           <div v-if="'index' === column.type">{{ hasCounting(rowIndex) ? '' : (rowIndex + 1) }}</div>
           <div v-else-if="'checkbox' === column.type">
             <fish-checkbox :index="rowIndex" @click="checkboxSelectHandler" ref="checkboxes" v-if="!hasCounting(rowIndex)"></fish-checkbox>
@@ -16,7 +16,7 @@
           <content-render :render="column.render || ((h, item, column, rowIndex) => h('div', itemValue(item, column)))" :params="[item, column, rowIndex]" v-else></content-render>
         </td>
       </tr>
-      <tr :key="rowIndex" v-if="expandedRowRender && expands[rowIndex]">
+      <tr :key="`${rowIndex}_expand`" v-if="expandedRowRender && expands[rowIndex]">
         <td :colspan="columns.length + 1">
           <content-render :render="expandedRowRender" :params="[item]"></content-render>
         </td>
