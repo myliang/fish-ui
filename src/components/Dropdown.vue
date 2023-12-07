@@ -4,16 +4,14 @@
     @click="clickHandler"
     v-clickoutside="awayHandler">
     <slot name="title"></slot>
-    <fish-menu v-show="visible" class="content" @click="menusClickHandler">
+    <div v-show="visible" class="content" @click="menusClickHandler">
       <slot></slot>
-    </fish-menu>
+    </div>
   </div>
 </template>
 <script>
   import clickoutside from '../directives/clickoutside'
-  import fishMenu from './Menu'
   export default {
-    components: {fishMenu},
     directives: { clickoutside },
     name: 'fish-dropdown',
     props: {
