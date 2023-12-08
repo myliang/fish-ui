@@ -1,5 +1,5 @@
 <template>
-  <ul :class="classObject" @click.stop="clickHandler" :style="styleObject">
+  <ul :class="classObject" @click="clickHandler" :style="styleObject">
     <slot></slot>
   </ul>
 </template>
