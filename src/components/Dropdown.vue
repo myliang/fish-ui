@@ -4,7 +4,7 @@
     @click="clickHandler"
     v-clickoutside="awayHandler">
     <slot name="title"></slot>
-    <div v-show="visible" class="content" @click="menusClickHandler">
+    <div v-show="visible" class="content">
       <slot></slot>
     </div>
   </div>
@@ -32,13 +32,9 @@
     },
     methods: {
       clickHandler () {
-        console.log('click:')
         this.visible = !this.visible
       },
       awayHandler () {
-        this.visible = false
-      },
-      menusClickHandler () {
         this.visible = false
       }
     }
