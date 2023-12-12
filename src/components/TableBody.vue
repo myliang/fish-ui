@@ -63,7 +63,7 @@
           if (v[k] !== undefined && v[k] !== null) v = v[k]
           else return ''
         }
-        return v
+        return v !== undefined && v !== null ? v : ''
       },
       trClick (item, rIndex) {
         if (this.hasCounting(rIndex)) return

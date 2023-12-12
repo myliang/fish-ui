@@ -13,9 +13,9 @@
             key: 'operate',
             render: (h, record, column) => h('a', '编辑')}],
         data: [
-          {name: 'yanbin.hu', age: 32, address: 'haidi part 1, xihu, Hangzhou'},
-          {name: 'yanzu.wu', age: 35, address: 'haidi part 5, xihu, Hangzhou'},
-          {name: 'yanzu.wu', age: 35, address: 'haidi part 5, xihu, Hangzhou'},
+          {name: 'yanbin.hu', age: 0, address: 'haidi part 1, xihu, Hangzhou'},
+          {name: 'yanzu.wu', age: 1, address: 'haidi part 5, xihu, Hangzhou'},
+          {name: 'yanzu.wu', age: 2, address: 'haidi part 5, xihu, Hangzhou'},
           {name: 'yanzu.wu', age: 35, address: 'haidi part 5, xihu, Hangzhou'}
         ]
       }
