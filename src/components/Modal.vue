@@ -37,14 +37,6 @@
         marginTopV: this.marginTop
       }
     },
-    mounted () {
-      window.addEventListener('keydown', this.keyDownHandler)
-    },
-    destroyed () {
-      if (this.$el && this.$el.parentNode) {
-        this.$el.parentNode.removeChild(this.$el)
-      }
-    },
     computed: {
       mstyle () {
         const { attached, width, height } = this
@@ -86,11 +78,6 @@
       }
     },
     methods: {
-      keyDownHandler (evt) {
-        if (evt.keyCode === 27) {
-          this.closeHandler()
-        }
-      },
       closeHandler () {
         this.$emit('update:visible', false)
         this.$emit('close')
