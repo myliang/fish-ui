@@ -18,10 +18,10 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "async-validator": "^1.8.1",
-    "chart.js": "^4.4.0",
-    "moment": "^2.18.1",
-    "vue": "^2.6.12"
+    "async-validator": "1.8.1",
+    "chart.js": "4.4.0",
+    "moment": "2.27.0",
+    "vue": "2.6.12"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
