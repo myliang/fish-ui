@@ -35,7 +35,7 @@
           :on-item-remove="onItemRemove"
           :on-item-render="onItemRender"
           v-slot="slotProp"
-          v-if="item.children && visible[index]">
+          v-if="item.children && (visible[index] || ['open', 'checked'].includes(dataKeyMap[item.key][0]) || selectedKey.startsWith(item.key + '-'))">
           <slot :item="slotProp.item"></slot>
           </fish-tree-node>
     </li>
