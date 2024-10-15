@@ -2,7 +2,7 @@
   <ul class="fish tree">
     <li v-for="(item, index) in data" :key="item.key"
       :class="{'active': selectedKey === item.key}">
-      <i :class="item.children && visible[index] ? iconCaretDown : iconCaretRight"
+      <i :class="item.children && (visible[index]) ? iconCaretDown : iconCaretRight"
          v-if="item.children && item.children.length > 0"
          @click.stop="showChildrenHandler(item, index)"></i>
       <i v-else>&nbsp;</i>
@@ -35,7 +35,7 @@
           :on-item-remove="onItemRemove"
           :on-item-render="onItemRender"
           v-slot="slotProp"
-          v-if="item.children && (visible[index] || ['open', 'checked'].includes(dataKeyMap[item.key][0]) || selectedKey.startsWith(item.key))">
+          v-if="item.children && (visible[index])">
           <slot :item="slotProp.item"></slot>
           </fish-tree-node>
     </li>
@@ -66,10 +66,21 @@
     },
     data () {
       return {
-        visible: this.data.map((ele) => ele.expand === undefined ? this.expand : ele.expand)
+        visible: this.data.map((it) => it.expand === undefined ? (this.expand || ['open', 'checked'].includes(this.dataKeyMap[it.key][0]) || this.selectedKey.startsWith(it.key)) : it.expand)
+      }
+    },
+    watch: {
+      selectedKey () {
+        this.resetVisible()
+      },
+      dataKeyMap () {
+        this.resetVisible()
       }
     },
     methods: {
+      resetVisible () {
+        this.visible = this.data.map((it) => it.expand === undefined ? (this.expand || ['open', 'checked'].includes(this.dataKeyMap[it.key][0]) || this.selectedKey.startsWith(it.key)) : it.expand)
+      },
       showChildrenHandler (item, index) {
         this.visible.splice(index, 1, !this.visible[index])
       },
