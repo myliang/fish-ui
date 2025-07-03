@@ -66,12 +66,12 @@
     },
     data () {
       return {
-        visible: this.data.map((it) => it.expand === undefined ? (this.expand || ['open', 'checked'].includes(this.dataKeyMap[it.key][0]) || this.selectedKey.startsWith(it.key)) : it.expand)
+        visible: this.data.map((it) => this.expand || it.expand || ['open', 'checked'].includes(this.dataKeyMap[it.key][0]) || this.selectedKey.startsWith(it.key))
       }
     },
     watch: {
       selectedKey () {
-        this.resetVisible()
+        // this.resetVisible()
       },
       dataKeyMap () {
         this.resetVisible()
@@ -79,7 +79,7 @@
     },
     methods: {
       resetVisible () {
-        this.visible = this.data.map((it) => it.expand === undefined ? (this.expand || ['open', 'checked'].includes(this.dataKeyMap[it.key][0]) || this.selectedKey.startsWith(it.key)) : it.expand)
+        this.visible = this.data.map((it) => this.expand || it.expand || ['open', 'checked'].includes(this.dataKeyMap[it.key][0]) || this.selectedKey.startsWith(it.key))
       },
       showChildrenHandler (item, index) {
         this.visible.splice(index, 1, !this.visible[index])
