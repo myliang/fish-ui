@@ -187,6 +187,18 @@
         this.$nextTick(() => {
           this.calScrollY()
           this.calScrollX()
+          // reset fixed-height
+          const { vtb, vth, rVth, rVtb, lVth, lVtb } = this.$refs
+          Array.of(lVth, rVth).forEach((th) => {
+            if (th && vth) {
+              th.setTrHeights(vth.trHeights())
+            }
+          })
+          Array.of(lVtb, rVtb).forEach((tb) => {
+            if (tb && vtb) {
+              tb.setTrHeights(vtb.trHeights())
+            }
+          })
         })
       },
       calScrollY () {

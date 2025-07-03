@@ -6,7 +6,7 @@
     </colgroup>
     <tbody>
     <template v-for="(item, rowIndex) in rows">
-      <tr :key="rowIndex" @click="trClick(item, rowIndex)" :class="hasCounting(rowIndex) ? 'count' : ''">
+      <tr :key="rowIndex" @click="trClick(item, rowIndex)" :class="hasCounting(rowIndex) ? 'count' : ''" ref="tr">
         <td v-if="expandedRowRender" style="text-align: center;"><i :class="expandIcon" @click.stop="expandHandler(rowIndex)"></i></td>
         <td v-for="column in columns" :style="{'text-align': column.align || 'left'}" :key="`${rowIndex}_${column.key}`">
           <div v-if="'index' === column.type">{{ hasCounting(rowIndex) ? '' : (rowIndex + 1) }}</div>
@@ -64,6 +64,21 @@
           else return ''
         }
         return v !== undefined && v !== null ? v : ''
+      },
+      trHeights () {
+        const { tr } = this.$refs
+        if (tr) {
+          return tr.map(it => getComputedStyle(it).height)
+        }
+        return [0]
+      },
+      setTrHeights (heights) {
+        const { tr } = this.$refs
+        if (tr) {
+          for (let i = 0; i < heights.length; i++) {
+            tr[i].style.height = `${heights[i]}`
+          }
+        }
       },
       trClick (item, rIndex) {
         if (this.hasCounting(rIndex)) return

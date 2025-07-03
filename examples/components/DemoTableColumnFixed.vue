@@ -8,7 +8,7 @@
       return {
         columns: [
           {title: 'Date', key: 'date', width: '200', fixed: 'left'},
-          {title: 'Name', key: 'name', width: '200'},
+          {title: 'Name', key: 'name', width: '50'},
           {title: 'Sex', key: 'sex', width: '200'},
           {title: 'birthDate', key: 'birthDate', width: '200'},
           {title: 'University', key: 'university', width: '300'},

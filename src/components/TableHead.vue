@@ -6,7 +6,7 @@
       <col v-if="scrollY" width="15"/>
     </colgroup>
     <thead>
-    <tr v-for="(row, rindex) in rows" :key="rindex">
+    <tr v-for="(row, rindex) in rows" :key="rindex" ref="tr">
       <th v-if="expandedRowRender">&nbsp;</th>
       <th v-for="(column, cindex) in row" :rowspan="column.rowSpan" :colspan="column.colSpan"
           :style="{'text-align': column.align || 'left'}"
@@ -66,6 +66,21 @@
           if (filter.values.length > 0) filterMap[filter.index] = filter.values
         })
         this.$emit('filter-change', filterMap)
+      },
+      trHeights () {
+        const { tr } = this.$refs
+        if (tr) {
+          return tr.map(it => getComputedStyle(it).height)
+        }
+        return [0]
+      },
+      setTrHeights (heights) {
+        const { tr } = this.$refs
+        if (tr) {
+          for (let i = 0; i < heights.length; i++) {
+            tr[i].style.height = `${heights[i]}`
+          }
+        }
       },
       thClickHandler (column) {
         if (column.sortable) {
