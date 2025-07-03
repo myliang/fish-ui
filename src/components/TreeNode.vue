@@ -66,7 +66,7 @@
     },
     data () {
       return {
-        visible: this.data.map((it) => this.expand || it.expand || ['open', 'checked'].includes(this.dataKeyMap[it.key][0]) || this.selectedKey.startsWith(it.key))
+        visible: this.data.map((it) => this.expand || it.expand || (this.dataKeyMap[it.key] && ['open', 'checked'].includes(this.dataKeyMap[it.key][0])) || this.selectedKey.startsWith(it.key))
       }
     },
     watch: {
@@ -79,7 +79,7 @@
     },
     methods: {
       resetVisible () {
-        this.visible = this.data.map((it) => this.expand || it.expand || ['open', 'checked'].includes(this.dataKeyMap[it.key][0]) || this.selectedKey.startsWith(it.key))
+        this.visible = this.data.map((it) => this.expand || it.expand || (this.dataKeyMap[it.key] && ['open', 'checked'].includes(this.dataKeyMap[it.key][0])) || this.selectedKey.startsWith(it.key))
       },
       showChildrenHandler (item, index) {
         this.visible.splice(index, 1, !this.visible[index])
