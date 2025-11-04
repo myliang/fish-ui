@@ -8,7 +8,7 @@
     <template v-for="(item, rowIndex) in rows">
       <tr :key="rowIndex" @mouseenter="trMouseenter(item, rowIndex)" @mouseleave="trMouseleave(item, rowIndex)" @click="trClick(item, rowIndex)" :class="{'count': hasCounting(rowIndex), 'hover': hoverTrIndex === rowIndex, 'active': activeTrIndex === rowIndex}" ref="tr">
         <td v-if="expandedRowRender" style="text-align: center;"><i :class="expandIcon" @click.stop="expandHandler(rowIndex)"></i></td>
-        <td v-for="column in columns" :style="{'text-align': column.align || 'left'}" :key="`${rowIndex}_${column.key}`">
+        <td v-for="(column, ci) in columns" :style="{'text-align': column.align || 'left'}" :key="`${rowIndex}_${column.key || ci}`">
           <div v-if="'index' === column.type">{{ hasCounting(rowIndex) ? '' : (rowIndex + 1) }}</div>
           <div v-else-if="'checkbox' === column.type">
             <fish-checkbox :index="rowIndex" @click="checkboxSelectHandler" ref="checkboxes" v-if="!hasCounting(rowIndex)"></fish-checkbox>

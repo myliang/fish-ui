@@ -182,11 +182,15 @@
       },
       bodyTrMouseenterHandler (item, rowIndex) {
         const { vtb, rVtb, lVtb } = this.$refs
-        Array.of(vtb, lVtb, rVtb).forEach(it => it.setHoverTrIndex(rowIndex))
+        Array.of(vtb, lVtb, rVtb).forEach(it => {
+          if (it) it.setHoverTrIndex(rowIndex)
+        })
       },
       bodyTrClickHandler (item, rowIndex) {
         const { vtb, rVtb, lVtb } = this.$refs
-        Array.of(vtb, lVtb, rVtb).forEach(it => it.setActiveTrIndex(rowIndex))
+        Array.of(vtb, lVtb, rVtb).forEach(it => {
+          if (it) it.setActiveTrIndex(rowIndex)
+        })
         this.$emit('tr-click', item, rowIndex)
       },
       calScroll () {
