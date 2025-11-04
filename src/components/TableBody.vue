@@ -56,6 +56,8 @@
     watch: {
       rows (nVal, oVal) {
         this.expands = nVal.map((row) => false)
+        this.hoverTrIndex = null
+        this.activeTrIndex = null
       }
     },
     methods: {
