@@ -6,7 +6,7 @@
     </colgroup>
     <tbody>
     <template v-for="(item, rowIndex) in rows">
-      <tr :key="rowIndex" @click="trClick(item, rowIndex)" :class="hasCounting(rowIndex) ? 'count' : ''" ref="tr">
+      <tr :key="rowIndex" @mouseenter="trMouseenter(item, rowIndex)" @mouseleave="trMouseleave(item, rowIndex)" @click="trClick(item, rowIndex)" :class="{'count': hasCounting(rowIndex), 'hover': hoverTrIndex === rowIndex, 'active': activeTrIndex === rowIndex}" ref="tr">
         <td v-if="expandedRowRender" style="text-align: center;"><i :class="expandIcon" @click.stop="expandHandler(rowIndex)"></i></td>
         <td v-for="column in columns" :style="{'text-align': column.align || 'left'}" :key="`${rowIndex}_${column.key}`">
           <div v-if="'index' === column.type">{{ hasCounting(rowIndex) ? '' : (rowIndex + 1) }}</div>
@@ -48,6 +48,8 @@
     },
     data () {
       return {
+        hoverTrIndex: null,
+        activeTrIndex: null,
         expands: []
       }
     },
@@ -80,9 +82,24 @@
           }
         }
       },
+      setActiveTrIndex (index) {
+        this.activeTrIndex = index
+      },
+      setHoverTrIndex (index) {
+        this.hoverTrIndex = index
+      },
       trClick (item, rIndex) {
         if (this.hasCounting(rIndex)) return
+        this.activeTrIndex = rIndex
         this.$emit('tr-click', item, rIndex)
+      },
+      trMouseleave (item, rIndex) {
+        // this.hoverTrIndex = rIndex
+        this.$emit('tr-mouseleave', item, rIndex)
+      },
+      trMouseenter (item, rIndex) {
+        this.hoverTrIndex = rIndex
+        this.$emit('tr-mouseenter', item, rIndex)
       },
       checkboxSelectHandler (evt) {
         this.$emit('select', evt, this)

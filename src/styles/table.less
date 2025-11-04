@@ -70,11 +70,14 @@
 
     tbody {
       tr {
-        &:hover {
+        &:hover, &.hover {
           background: @table-cell-hover-background-color;
         }
         &.count {
           background: @warning-background-color;
+        }
+        &.active {
+          background: @active-background-color;
         }
         td {
           &.no-more {

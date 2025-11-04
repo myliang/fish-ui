@@ -13,7 +13,7 @@
       <div class="body" ref="body">
         <fish-table-body :columns="allLeafColumns" :rows="data" :scrollY="scrollY" :noMoreText="noMoreText" :counting="counting"
                         :expandedRowRender="fixedLeftColumns.length <= 0 && fixedRightColumns.length <= 0 && expandedRowRender || undefined"
-                        @tr-click="bodyTrClickHandler" @select="bodySelectHandler" ref="vtb"></fish-table-body>
+                        @tr-click="bodyTrClickHandler" @tr-mouseenter="bodyTrMouseenterHandler" @select="bodySelectHandler" ref="vtb"></fish-table-body>
       </div>
       <!-- fixed column -->
       <div class="fixed left" v-if="fixedLeftColumns.length > 0 && maxRows <= 1">
@@ -22,7 +22,7 @@
         </div>
         <div class="body" ref="flBody">
           <fish-table-body :columns="fixedLeftColumns" :rows="data" :counting="counting"
-            @tr-click="bodyTrClickHandler" @select="bodySelectHandler" ref="lVtb"></fish-table-body>
+            @tr-click="bodyTrClickHandler" @tr-mouseenter="bodyTrMouseenterHandler" @select="bodySelectHandler" ref="lVtb"></fish-table-body>
         </div>
       </div>
       <div class="fixed right" v-if="fixedRightColumns.length > 0 && maxRows <= 1" ref="fixedRight">
@@ -32,7 +32,7 @@
         </div>
         <div class="body" ref="frBody">
           <fish-table-body :columns="fixedRightColumns" :rows="data" :counting="counting"
-            @tr-click="bodyTrClickHandler" @select="bodySelectHandler" ref="rVtb"></fish-table-body>
+            @tr-click="bodyTrClickHandler" @tr-mouseenter="bodyTrMouseenterHandler" @select="bodySelectHandler" ref="rVtb"></fish-table-body>
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
   import fishTableBody from './TableBody.vue'
   import fishPagination from './Pagination.vue'
 
-  const SCROLL_WIDTH = 15
+  // const SCROLL_WIDTH = 15
 
   export default {
     components: {
@@ -180,7 +180,13 @@
 
         this.$emit('select', vtb.$refs.checkboxes.filter((cb) => cb.active).map((cb) => { return this.data[cb.index] }))
       },
+      bodyTrMouseenterHandler (item, rowIndex) {
+        const { vtb, rVtb, lVtb } = this.$refs
+        Array.of(vtb, lVtb, rVtb).forEach(it => it.setHoverTrIndex(rowIndex))
+      },
       bodyTrClickHandler (item, rowIndex) {
+        const { vtb, rVtb, lVtb } = this.$refs
+        Array.of(vtb, lVtb, rVtb).forEach(it => it.setActiveTrIndex(rowIndex))
         this.$emit('tr-click', item, rowIndex)
       },
       calScroll () {
@@ -216,11 +222,11 @@
         Array.of(flBody, frBody).forEach((b) => {
           if (b !== undefined) {
             // 15 为滚动条的宽度
-            b.style.height = `${height - trHeight - SCROLL_WIDTH}px`
+            b.style.height = `${height - trHeight}px`
           }
         })
         if (fixedRight) {
-          fixedRight.style.right = `${SCROLL_WIDTH}px`
+          fixedRight.style.right = `${0}px`
         }
         const addScrollListener = (src, dests) => {
           if (src === undefined) return
