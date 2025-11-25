@@ -1,33 +1,30 @@
 @import './base.less';
 
-.@{css-prefix}.time-picker {
+.@{css-prefix}-time-picker-layer {
+  box-shadow: 0 1px 5px rgba(0,0,0,.2);
+  position: absolute;
+  z-index: 10;
+  background: #ffffff;
+  height: 210px;
+  padding: 0;
 
-  .content {
-    position: absolute;
-    top: calc(~"100% + 5px");
-    left: 0;
-    z-index: 10;
+  .menu {
+    display: inline-block;
+    overflow: hidden;
+    height: 210px;
+    margin-left: -1px;
+    width: 60px;
 
-    .menu {
-      display: inline-block;
-      overflow: hidden;
-      height: 210px;
-      margin-left: -1px;
-      width: 60px;
-
-      .item {
-        min-width: 60px;
-      }
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &:hover {
-        overflow-y: auto;
-      }
+    .item {
+      min-width: 60px;
     }
 
-  }
+    &:first-child {
+      margin-left: 0;
+    }
 
+    &:hover {
+      overflow-y: auto;
+    }
+  }
 }

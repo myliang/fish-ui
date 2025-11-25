@@ -7,11 +7,12 @@
     <input type="text" :placeholder="hint" :value="value" style="width: 125px;" readonly/>
     <i class="fa fa-times-circle" style="opacity: .6;" @click.stop="clearHandler" v-if="showClear && !valueEmpty"></i>
     <i class="fa fa-calendar" v-else></i>
-    <div v-if="visible" class="content" :style="{width: `${(62 + 2) * groups.length}px`}">
-      <ul class="fish menu vertical" v-for="(group, groupIndex) in groups">
+    <div v-show="visible" ref="content" class="fish-time-picker-layer">
+      <ul class="fish menu vertical" :key="groupIndex" v-for="(group, groupIndex) in groups">
         <li :class="['item', {'active': item === (value.split(':')[groupIndex] || '00')}]"
             @click.stop="selectHandler(item, groupIndex)"
-            v-for="item in group">{{ item }}</li>
+            :key="i"
+            v-for="(item, i) in group">{{ item }}</li>
       </ul>
     </div>
   </div>
@@ -19,6 +20,7 @@
 <script>
   import clickoutside from '../directives/clickoutside'
   import { calendar, notify } from '../config'
+  import { toBody } from './layer'
   export default {
     name: 'fish-time-picker',
     directives: { clickoutside },
@@ -39,6 +41,9 @@
       }
     },
     methods: {
+      visibleAfter () {
+        toBody(this.visible, this.$el, this.$refs.content, false)
+      },
       mouseOverHandler () {
         this.showClear = true
       },
@@ -47,6 +52,7 @@
       },
       clickHandler () {
         this.visible = !this.visible
+        this.visibleAfter()
       },
       selectHandler (item, index) {
         let values = (this.valueEmpty ? '00:00:00' : this.value).split(':')
@@ -55,10 +61,12 @@
       },
       clearHandler () {
         this.visible = false
+        this.visibleAfter()
         this.changeHandler('')
       },
       awayHandler () {
         this.visible = false
+        this.visibleAfter()
         this.showClear = false
       },
       changeHandler (v) {

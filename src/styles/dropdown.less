@@ -1,36 +1,32 @@
 @import "./base.less";
-
 .@{css-prefix}.dropdown {
   display: inline-block;
-  position: relative;
-  outline: none;
+}
+.@{css-prefix}-dropdown-layer {
+  position: absolute;
+  z-index: 100;
+  .box-shadow;
+  .border;
 
-  .content {
-    position: absolute;
-    z-index: 100;
-    .box-shadow;
-    .border;
-
-    > * {
-      box-shadow: none;
-      border: none;
-    }
+  > * {
+    box-shadow: none;
+    border: none;
   }
 
-  &.bottom-left .content {
-    top: calc(~"100% + 5px");
-    left: 0;
-  }
-  &.bottom-right .content {
-    top: calc(~"100% + 5px");
-    right: 0;
-  }
-  &.top-left .content {
-    bottom: calc(~"100% + 5px");
-    left: 0;
-  }
-  &.top-right .content {
-    bottom: calc(~"100% + 5px");
-    right: 0;
-  }
+  // &.bottom-left {
+  //   top: calc(~"100% + 5px");
+  //   left: 0;
+  // }
+  // &.bottom-right {
+  //   top: calc(~"100% + 5px");
+  //   right: 0;
+  // }
+  // &.top-left {
+  //   bottom: calc(~"100% + 5px");
+  //   left: 0;
+  // }
+  // &.top-right {
+  //   bottom: calc(~"100% + 5px");
+  //   right: 0;
+  // }
 }

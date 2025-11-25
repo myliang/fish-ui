@@ -35,7 +35,7 @@
         {{ selectedItems.length > 0 && selectedItems[0].content || hint }}
       </div>
     </template>
-    <ul class="fish menu vertical" ref="content" :style="`max-height: ${maxHeight};`" v-show="visible && $slots.default"
+    <ul class="fish-select-layer fish menu vertical" ref="content" :style="`max-height: ${maxHeight};`" v-show="visible && $slots.default"
         @click.stop="menuClickHandler($event)"
         @mouseover.stop="() => {}" @mouseout.stop="() => {}">
       <slot></slot>
@@ -45,6 +45,7 @@
 <script>
   import clickoutside from '../directives/clickoutside'
   import { notify } from '../config'
+  import { toBody } from './layer'
   export default {
     name: 'fish-select',
     directives: { clickoutside },
@@ -106,24 +107,8 @@
       }
     },
     methods: {
-      resizeContent () {
-        this.$nextTick(() => {
-          const { content } = this.$refs
-          const { height } = content.getBoundingClientRect()
-          let parent = content.parentNode
-          const { width } = parent.getBoundingClientRect()
-          if (this.direction === 'auto') {
-            let top = content.offsetTop
-            let current = content.offsetParent
-            top += current.offsetTop
-            current = current.offsetParent
-            const prect = current.getBoundingClientRect()
-            if (prect.height - top < height) {
-              content.style.top = `-${height + 2}px`
-            }
-          }
-          content.style.width = `${width}px`
-        })
+      visibleAfter () {
+        toBody(this.visible, this.$el, this.$refs.content, true)
       },
       initData () {
         this.selectedItems = []
@@ -164,7 +149,7 @@
           this.displayItems = this.$children
           this.multipleInputWidth = 1
         }
-        this.resizeContent()
+        this.visibleAfter()
       },
       keyUpHandler () {
         let dLength = this.displayItems.length
@@ -227,9 +212,7 @@
       },
       clickHandler () {
         this.visible = !this.visible
-        if (this.visible) {
-          this.resizeContent()
-        }
+        this.visibleAfter()
         if (this.search) this.$refs.inputSearch.focus()
       },
       menuClickHandler (evt) {
@@ -267,6 +250,7 @@
       },
       awayHandler () {
         this.visible = false
+        this.visibleAfter()
         this.resetValues()
       },
       resetValues () {

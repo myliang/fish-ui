@@ -17,7 +17,7 @@
     </div>
     <i class="fa fa-times-circle" style="opacity: .6;" @click.stop="clearHandler" v-if="showClear && !valueEmpty"></i>
     <i class="fa fa-angle-down" v-else></i>
-    <div class="content" ref="content" v-show="visible" @click.stop="()=>{}">
+    <div class="fish-select-layer" ref="content" v-show="visible" @click.stop="()=>{}">
       <fish-tree
           :data="data"
           :default-selected-key="selectedKey"
@@ -38,6 +38,7 @@
 <script>
   import clickoutside from '../directives/clickoutside'
   import { notify } from '../config'
+  import { toBody } from './layer'
   import fishTree from './Tree.vue'
 
   export default {
@@ -88,7 +89,9 @@
         this.checkedItems = []
         this.selectedItem = null
         this.resetValuesWithData(this.data)
-        // this.resizeContent()
+      },
+      visibleAfter () {
+        toBody(this.visible, this.$el, this.$refs.content, true)
       },
       resetValuesWithData (items) {
         items && items.forEach((item) => {
@@ -102,26 +105,6 @@
           this.resetValuesWithData(item.children)
         })
       },
-      resizeContent () {
-        this.$nextTick(() => {
-          const { content } = this.$refs
-          const { height } = content.getBoundingClientRect()
-          const { width } = content.parentNode.getBoundingClientRect()
-          if (this.direction === 'auto') {
-            let top = 0 // content.offsetTop
-            let current = content.offsetParent
-            if (current !== null) {
-              top += current.offsetTop
-              current = current.offsetParent
-              const prect = current.getBoundingClientRect()
-              if (prect.height / 2 < top) {
-                content.style.top = `-${height + 2}px`
-              }
-            }
-          }
-          content.style.width = `${width}px`
-        })
-      },
       mouseOverHandler () {
         this.showClear = true
       },
@@ -130,9 +113,7 @@
       },
       clickHandler () {
         this.visible = !this.visible
-        if (this.visible) {
-          this.resizeContent()
-        }
+        this.visibleAfter()
       },
       itemClickHandler (item) {
         if (this.multiple) return
@@ -147,6 +128,7 @@
       },
       clearHandler () {
         this.visible = false
+        this.visibleAfter()
         this.emitChange([], [])
       },
       emitChange (v, vv) {
@@ -165,6 +147,7 @@
       },
       awayHandler () {
         this.visible = false
+        this.visibleAfter()
         this.showClear = false
       }
     }

@@ -7,7 +7,7 @@
     <input type="text" :placeholder="hint" :value="value" readonly/>
     <i class="fa fa-times-circle" style="opacity: .6;" @click.stop="clearHandler" v-if="showClear && !valueEmpty"></i>
     <i class="fa fa-calendar" v-else></i>
-    <div class="content" @click.stop="()=>{}" v-if="visible">
+    <div ref="content" class="fish-date-picker-layer" @click.stop="()=>{}" v-show="visible">
       <fish-calendar @select="selectHandler"
                   :cellRender="cellRender"
                   :min="min" :max="max" :mode="mode"
@@ -21,6 +21,7 @@
   import clickoutside from '../directives/clickoutside'
   import fishCalendar from './Calendar.vue'
   import { notify, calendar } from '../config'
+  import { toBody } from './layer'
 
   const formats = {
     year: 'YYYY',
@@ -58,6 +59,9 @@
       }
     },
     methods: {
+      visibleAfter () {
+        toBody(this.visible, this.$el, this.$refs.content, false)
+      },
       mouseOverHandler () {
         this.showClear = true
       },
@@ -66,17 +70,21 @@
       },
       clickHandler () {
         this.visible = !this.visible
+        this.visibleAfter()
       },
       clearHandler () {
         this.visible = false
+        this.visibleAfter()
         this.changeHandler('')
       },
       awayHandler () {
         this.visible = false
+        this.visibleAfter()
         this.showClear = false
       },
       selectHandler (item) {
         this.visible = false
+        this.visibleAfter()
         this.showClear = false
         const v = moment(item).format(this.format || formats[this.mode])
         this.changeHandler(v)

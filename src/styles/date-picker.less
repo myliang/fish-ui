@@ -1,74 +1,66 @@
 @import "./base.less";
 
-@td-min-width: 2.8em;
+@td-min-width: 2.85em;
 @padding: .8em 0;
 
-.@{css-prefix}.date-picker {
-  // max-width: 14em;
+.@{css-prefix}-date-picker-layer {
+  box-shadow: 0 1px 5px rgba(0,0,0,.2);
+  min-width: @td-min-width * 7;
+  position: absolute;
+  z-index: 10;
+  width: 6 * @td-min-width;
 
-  .content {
-    box-shadow: 0 1px 5px rgba(0,0,0,.2);
-    min-width: @td-min-width * 7;
-    position: absolute;
-    left: 0;
-    top: calc(~"100% + 5px");
-    z-index: 10;
-    width: 100%;
+  .calendar {
 
-    .calendar {
+    > .header {
+      position: relative;
+      text-align: center;
+      background: #F9FAFB;
 
-      > .header {
-        position: relative;
-        text-align: center;
-        background: #F9FAFB;
+      > a:not(.prev):not(.next) {
+        padding-left: .1em;
+        padding-right: .1em;
 
-        > a:not(.prev):not(.next) {
-          padding-left: .1em;
-          padding-right: .1em;
-
-          &:hover {
-            background-color: transparent;
-          }
-        }
-
-        > .prev {
-          position: absolute;
-          left: 0;
-        }
-        > .next {
-          position: absolute;
-          right: 0;
-        }
-        > a {
-          padding: 0.65em;
+        &:hover {
+          background-color: transparent;
         }
       }
 
-      > table.body {
-
-        th {
-          padding: @padding;
-          text-align: center;
-        }
-
-        td {
-
-          > .cell {
-            // box-shadow: 0 0 1px rgba(0,0,0,1) inset;
-            border: 1px solid rgba(0, 0, 0, .05);
-            cursor: pointer;
-            margin: 0;
-            // border: 0;
-            padding: @padding;
-            line-height: 1em;
-            font-weight: bold;
-
-          }
-        }
+      > .prev {
+        position: absolute;
+        left: 0;
+      }
+      > .next {
+        position: absolute;
+        right: 0;
+      }
+      > a {
+        padding: 0.65em;
       }
     }
 
-  }
+    > table.body {
 
+      th {
+        padding: @padding;
+        text-align: center;
+      }
+
+      td {
+
+        > .cell {
+          // box-shadow: 0 0 1px rgba(0,0,0,1) inset;
+          border: 1px solid rgba(0, 0, 0, .05);
+          cursor: pointer;
+          margin: 0;
+          // border: 0;
+          padding: @padding;
+          line-height: 1em;
+          font-weight: bold;
+
+        }
+      }
+    }
+  }
 
 }
