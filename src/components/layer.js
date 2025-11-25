@@ -14,14 +14,31 @@ function calcPosition (target, content, autoWidth) {
 }
 
 export function toBody (visible, target, content, autoWidth) {
+  const hide = () => {
+    if (target.__clickOutside) {
+      document.removeEventListener('click', target.__clickOutside)
+      delete target.__clickOutside
+    }
+    if (content && content.parentNode) {
+      content.parentNode.removeChild(content)
+    }
+  }
+
+  if (!target.__clickOutside) {
+    const documentHandler = (e) => {
+      if (!target.contains(e.target) && !content.contains(e.target)) {
+        hide()
+      }
+    }
+    target.__clickOutside = documentHandler
+    document.addEventListener('click', documentHandler)
+  }
   if (visible) {
     document.body.appendChild(content)
     setTimeout(() => {
       calcPosition(target, content, autoWidth)
     })
   } else {
-    if (content && content.parentNode) {
-      content.parentNode.removeChild(content)
-    }
+    hide()
   }
 }
