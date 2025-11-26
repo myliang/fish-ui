@@ -36,9 +36,9 @@ export function toBody (visible, target, content, autoWidth) {
   if (visible) {
     content.style.top = '-10000px'
     content.style.left = '-10000px'
-    calcPosition(target, content, autoWidth)
+    document.body.appendChild(content)
     setTimeout(() => {
-      document.body.appendChild(content)
+      calcPosition(target, content, autoWidth)
     })
   } else {
     hide()
