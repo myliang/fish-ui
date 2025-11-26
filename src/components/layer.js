@@ -34,9 +34,9 @@ export function toBody (visible, target, content, autoWidth) {
     document.addEventListener('click', documentHandler)
   }
   if (visible) {
-    document.body.appendChild(content)
     setTimeout(() => {
       calcPosition(target, content, autoWidth)
+      document.body.appendChild(content)
     })
   } else {
     hide()
