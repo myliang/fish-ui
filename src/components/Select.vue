@@ -35,7 +35,7 @@
         {{ selectedItems.length > 0 && selectedItems[0].content || hint }}
       </div>
     </template>
-    <ul class="fish-select-layer fish menu vertical" ref="content" :style="`max-height: ${maxHeight};`" v-show="visible && $slots.default"
+    <ul class="fish-select-layer fish menu vertical" ref="content" :style="`min-width: ${minWidth}; max-height: ${maxHeight};`" v-show="visible && $slots.default"
         @click.stop="menuClickHandler($event)"
         @mouseover.stop="() => {}" @mouseout.stop="() => {}">
       <slot></slot>
@@ -56,6 +56,7 @@
       search: { type: [Boolean, Function], default: false },
       disabled: { type: Boolean, default: false },
       maxHeight: { type: String, default: '300px' },
+      minWidth: { type: String, default: '120px' },
       direction: { type: String, default: 'down' },
       iconDownArrow: { type: String, default: 'fa fa-angle-down' },
       iconClose: { type: String, default: 'fa fa-close' },

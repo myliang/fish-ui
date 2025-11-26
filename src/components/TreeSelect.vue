@@ -17,7 +17,7 @@
     </div>
     <i class="fa fa-times-circle" style="opacity: .6;" @click.stop="clearHandler" v-if="showClear && !valueEmpty"></i>
     <i class="fa fa-angle-down" v-else></i>
-    <div class="fish-select-layer" ref="content" v-show="visible" @click.stop="()=>{}">
+    <div class="fish-select-layer" :style="`min-width: ${minWidth};`" ref="content" v-show="visible" @click.stop="()=>{}">
       <fish-tree
           :data="data"
           :default-selected-key="selectedKey"
@@ -52,6 +52,7 @@
       expand: { type: Boolean, default: false },
       multiple: { type: Boolean, default: false },
       checkabled: { type: Function, default: (multiple) => multiple },
+      minWidth: { type: String, default: '200px' },
       direction: { type: String, default: 'auto' },
       iconClose: { type: String, default: 'fa fa-close' },
       iconCaretRight: { type: String, default: 'fa fa-caret-right' },
