@@ -34,8 +34,10 @@ export function toBody (visible, target, content, autoWidth) {
     document.addEventListener('click', documentHandler)
   }
   if (visible) {
+    content.style.top = '-10000px'
+    content.style.left = '-10000px'
+    calcPosition(target, content, autoWidth)
     setTimeout(() => {
-      calcPosition(target, content, autoWidth)
       document.body.appendChild(content)
     })
   } else {
