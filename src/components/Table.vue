@@ -217,7 +217,7 @@
         if (height === undefined) return
         const rootHeight = this.$refs.root.offsetHeight
         // console.log('rootHeight:', rootHeight)
-        if (height >= rootHeight) return
+        // if (height >= rootHeight) return
         const { body, flBody, frBody, fixedRight } = this.$refs
         const trLength = data.length + 1
         const trHeight = height / trLength + 1 // 1 border width
